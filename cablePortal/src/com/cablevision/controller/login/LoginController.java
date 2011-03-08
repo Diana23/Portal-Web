@@ -47,13 +47,23 @@ public class LoginController extends ControllerBase {
 	private transient IUsuarioPortalService usuarioPortalService;
 
 	@Jpf.Action(forwards = { 
+			@Jpf.Forward(name = "success", action = "showLogin")
+	})
+	public Forward showLoginClean() {
+		getRequest().getSession().setAttribute("pageLabel", getRequest().getParameter("pageLabel"));
+		getRequest().getSession().removeAttribute(Constantes.CABLEVISION_URL);
+		return new Forward("success");
+	}
+
+	@Jpf.Action(forwards = { 
 			@Jpf.Forward(name = "success",  path = "logininth.jsp")
 	})
 	public Forward showLogin() {
 		getRequest().getSession().setAttribute("pageLabel", getRequest().getParameter("pageLabel"));
 		return new Forward("success");
 	}
-
+	
+	
 	@Jpf.Action(forwards = { @Jpf.Forward(name = "index", path = "selLogin.jsp") })
 	protected Forward showSelLogin() {
 		getSession().setAttribute("sel", "sel");
@@ -193,14 +203,20 @@ public class LoginController extends ControllerBase {
 								form.setUrl(url.toString());
 							}
 						} else {
-							
-							final PageURL url = PageURL.createPageURL(getRequest(), getResponse(), (String)getRequest().getSession().getAttribute("pageLabel"));
-							url.setTemplate("defaultDesktop");
-							url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-							url.setForcedAmpForm(false);
+							String urlRedirect = (String)getSession().getAttribute(Constantes.CABLEVISION_URL); 
+							if(StringUtils.isNotEmpty(urlRedirect)){
+								forward = new Forward("success");
+								forward.addActionOutput("success", "siguiente,"+urlRedirect);
+							}else{
+								final PageURL url = PageURL.createPageURL(getRequest(), getResponse(), (String)getRequest().getSession().getAttribute("pageLabel"));
+								url.setTemplate("defaultDesktop");
+								url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+								url.setForcedAmpForm(false);
 
-							forward = new Forward("success");
-							forward.addActionOutput("success", url.toString());
+								forward = new Forward("success");
+								forward.addActionOutput("success", url.toString());
+							}
+								
 							getSession().setAttribute(Constantes.USUARIO_EN_VITRIA, "true");
 						}
 						if(!fromSel)

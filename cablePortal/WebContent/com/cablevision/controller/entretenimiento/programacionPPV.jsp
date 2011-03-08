@@ -81,8 +81,14 @@
 			</div>
 		</div>
 		<c:forEach items="${pageInput.programacion}" var="item" varStatus="rowCounter">
+			<c:url value="/com/cablevision/controller/entretenimiento/mostrarDetalle.do" var="urlDetalle">
+				<c:param name="id" value="${item.id }"/>
+				<c:param name="tipo" value="${item.tipo }"/>
+				<c:param name="tipoRuleta" value="true" />
+			</c:url>
 			<div class="block block-cell">
-				<div class="prog-cell nombre">${item.titulo}
+				<div class="prog-cell nombre">
+					<a class="thickbox text-nounder " href="${urlDetalle}&modal=true&height=540&width=600&scroll=auto">${item.titulo}</a>
 					<br/>
 					<netui:span value="${item.fechaini}">
 						<netui:formatDate pattern="EEEE HH:mm 'hs'" country="${pageInput.country}" language="${pageInput.lang}"/>

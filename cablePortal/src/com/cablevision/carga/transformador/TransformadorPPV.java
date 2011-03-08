@@ -22,16 +22,22 @@ public class TransformadorPPV implements Transformador {
 		SimpleDateFormat sdfFechaCorta = new SimpleDateFormat("MM/dd/yyyy");
 		Date dFini = null;
 		Date dFfin = null;
+		Date dFiniVenta = null;
+		Date dFfinVenta = null;
 		Date dFiniCorta = null;
 		try {
 			dFini = sdfFechas.parse(strFini);
 			dFfin = sdfFechas.parse(strFfin);
+			dFiniVenta = sdfFechas.parse(datos.get("fechainiVenta"));
+			dFfinVenta = sdfFechas.parse(datos.get("fechafinVenta"));
 			dFiniCorta = sdfFechaCorta.parse(strFini);
 		} catch (ParseException pe) {
 			pe.printStackTrace();
 		}
 		datos.put("fechaini", SolrHelper.Date2UTC(dFini));
 		datos.put("fechafin", SolrHelper.Date2UTC(dFfin));
+		datos.put("fechainiVenta", SolrHelper.Date2UTC(dFiniVenta));
+		datos.put("fechafinVenta", SolrHelper.Date2UTC(dFfinVenta));
 		datos.put("fechainiCorta", SolrHelper.Date2UTC(dFiniCorta));
 		
 		SolrDocumentList lst = SolrHelper.query("tipo:ppv AND titulo:\""+datos.get("titulo")+"\" AND genero:\""+datos.get("genero")+"\"").getResults();

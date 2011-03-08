@@ -40,7 +40,14 @@
 		  tb_init('a.thickbox');
 		}
 		
+		$('#TB_ajaxContent').css('height','425px');
+		$('#TB_ajaxContent').css('overflow-y','hidden');
+		$('#TB_ajaxContent').css('width','520px');
+		$('#TB_window').css('width','550px');
+		$('#closeTabDiv').css('display','none');
+		
 		$('#ingresar').click(function(){
+			
 			var user = $('#user-box-login').val();
 			user = $.trim(user);
 			var pass = $('#pass-box-login').val();
@@ -58,9 +65,27 @@
 					if(datos.substring(0,4)=='http'){
 						window.location = datos;
 					}else{
-						$('.login-in-thbox').html();
-						$('.login-in-thbox').html(datos);
-						tb_init('a.thickbox2');
+						if(datos.substring(0,9)=='siguiente'){
+							var tokens = datos.split( "," );
+							$.ajax({
+								url: tokens[1] ,
+								beforeSend: function(objeto){
+									$('.login-in-thbox').html();
+									$('.login-in-thbox').html('<img src="${pageContext.request.contextPath }/images/preloader.gif" style="padding: 67px 135px" alt="Cargando..." />');
+								},
+								dataType: "html",
+								success: function(datos){
+										$('.login-in-thbox').html();
+										$('.login-in-thbox').html(datos);
+										tb_init('a.thickbox2');
+								},
+								type: "POST"
+							});
+						}else{
+							$('.login-in-thbox').html();
+							$('.login-in-thbox').html(datos);
+							tb_init('a.thickbox2');
+						}
 					}
 				},
 				/* timeout: 1000, */

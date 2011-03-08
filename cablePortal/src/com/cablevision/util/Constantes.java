@@ -87,5 +87,11 @@ public class Constantes {
 	 */
 	public final static String CABLEVISION_CANALES = "CABLEVISION_CANALES_CACHE";
 	public final static String CANALES_CACHE_KEY = "canales.cache.key";
+	
+	/**
+	 * Constante para guardar la url a la cual se hara un redirect posterior
+	 */
+	public final static String CABLEVISION_URL = "CABLEVISION_URL_REDIRECT";
+	
 }
 
