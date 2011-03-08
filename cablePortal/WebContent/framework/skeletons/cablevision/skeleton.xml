@@ -1,0 +1,5 @@
+<ns:skeleton xmlns:ns="http://www.bea.com/servers/portal/framework/laf/1.0.0">
+    <ns:render-format>
+        <ns:preset>NONE</ns:preset>
+    </ns:render-format>
+</ns:skeleton>

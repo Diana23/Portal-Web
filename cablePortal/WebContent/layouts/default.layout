@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<netuix:markupDefinition xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0 markup-netuix-1_0_0.xsd">
+    <netuix:locale language="en"/>
+    <netuix:markup>
+        <netuix:layout type="default" title="Default Layout" 
+        				description="This layout uses left and rigth placeholders"
+                           htmlLayoutUri="/layouts/default.html.txt" 
+                           markupType="Layout" markupName="defaultLayout"
+                           skeletonUri="/layouts/defaultLayout.jsp">
+    		<netuix:placeholder markupType="Placeholder"
+    			markupName="defaultLayout_left" title="left" usingFlow="false" description="Left placeholder" width="242">
+    		</netuix:placeholder>
+    		<netuix:placeholder markupType="Placeholder"
+    			markupName="defaultLayout_right" title="right" usingFlow="false" description="Right placeholder">
+    		</netuix:placeholder>
+        </netuix:layout>
+    </netuix:markup>
+</netuix:markupDefinition>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<netuix:markupDefinition xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0 markup-netuix-1_0_0.xsd">
+
+    <netuix:locale language="en"/>
+
+    <netuix:markup>
+
+        <netuix:theme
+
+              name="cablevisionPrincipal"
+
+	      title="cablevisionPrincipal" description="A window theme which has no titlebar or border."
+
+              markupType="Theme" markupName="cablevisionPrincipal"/>
+
+    </netuix:markup>
+
+</netuix:markupDefinition>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@172.21.20.194:1521:DBSAEPROD</property>
+		<property name="hibernate.connection.username">PORTALWEB</property>
+		<property name="hibernate.connection.password">port4lw3b</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+		<property name="hibernate.default_schema">PORTALWEB</property>
+		
+		<mapping resource="com/cablevision/vo/CvContrasenaHistorial.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/CvUsuarioPortal.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/Cvcategory.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/Cvchannel.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/CvchannelPack.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/Cvpack.hbm.xml"/>
+		
+		<mapping resource="com/cablevision/vo/CvDisponibilidadnr.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/ProductService.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/Service.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/Extra.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/UpgradesExtra.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/UpgradesProd.hbm.xml"/>
+		
+		<mapping resource="com/cablevision/vo/CreceProd.hbm.xml"/>
+		
+		<mapping resource="com/cablevision/vo/CvField.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/CvLead.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/CvLeadValuefield.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/CvLeadField.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/CvLeadType.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/CvLeadStatus.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/Email.hbm.xml"/>
+		
+		<mapping resource="com/cablevision/vo/CvTranslationRecord.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/CvProgramRecord.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/CvTimeZoneRecord.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/CvStationRecord.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/CvScheduleRecord.hbm.xml"/>
+		
+		<mapping resource="com/cablevision/vo/CvNewsletter.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/CvNewsletterCategoriausuario.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/CvCategorianewsletter.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>
+ 

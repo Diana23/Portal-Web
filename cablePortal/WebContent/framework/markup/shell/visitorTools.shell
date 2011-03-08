@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<netuix:markupDefinition xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0"
+                         xmlns:html="http://www.w3.org/1999/xhtml-netuix-modified/1.0.0"
+                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                         xsi:schemaLocation="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0 markup-netuix-1_0_0.xsd">
+    <netuix:locale language="en"/>
+    <netuix:markup>
+        <netuix:shell
+            title="Visitor Tools Desktop Shell"
+            description="Shell that adds the Portal Visitor Tools to a desktop"
+            markupType="Shell" markupName="visitorToolsShellMarkupName">
+            <netuix:head/>
+            <netuix:body>
+                <netuix:header>
+                    <html:div htmlId="visitorToolsShellDivId">
+                        <netuix:portletInstance
+                            title="Visitor Tools Menu"
+                            markupType="Portlet"
+                            instanceLabel="instLblVisitorToolsMenu"
+                            contentUri="/visitorTools/visitorMenu.portlet"/>
+                    </html:div>
+                </netuix:header>
+                <netuix:break/>
+                <netuix:footer/>
+            </netuix:body>
+        </netuix:shell>
+    </netuix:markup>
+</netuix:markupDefinition>

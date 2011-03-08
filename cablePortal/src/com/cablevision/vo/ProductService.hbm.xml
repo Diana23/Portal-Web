@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.ProductService" 
+    table="CV_PRODUCT_SERVICE"
+    lazy="false"
+>
+    <id
+        name="idProductService"
+        type="long"
+        column="PSE_ID"
+        length="22"
+    >
+        <generator class="assigned" />
+    </id>
+    
+    <property
+        name="description"
+        type="string"
+        column="PSE_DESCRIPTION"
+        length="250"
+    />
+    <property
+        name="hidden"
+        type="boolean"
+        column="PSE_HIDDEN"
+        length="1"
+    />
+    
+    <property
+        name="image"
+        type="string"
+        column="PSE_IMAGE"
+        length="250"
+    />
+    <property
+        name="name"
+        type="string"
+        column="PSE_NAME"
+        length="250"
+    />
+    <property
+        name="normalPrice"
+        type="double"
+        column="PSE_NORMAL_PRICE"
+        length="14"
+    />
+    <property
+        name="priority"
+        type="long"
+        column="PSE_PRIORITY"
+        length="10"
+    />
+    <property
+        name="tcPrice"
+        type="double"
+        column="PSE_TC_PRICE"
+        length="14"
+    />
+
+    <!-- Associations -->
+
+	<many-to-one name="service" class="com.cablevision.vo.Service" not-null="false" column="PSE_ID_SERVICE"/>
+	
+</class>
+</hibernate-mapping>

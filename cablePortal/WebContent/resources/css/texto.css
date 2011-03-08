@@ -1,0 +1,453 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.navi2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #ADB8BF;
+	text-decoration: none;
+}
+.arial12_naranja {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #F89728;
+	text-decoration: none;
+}
+.internet_arial_italica {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: normal;
+	color: #221F72;
+	line-height: -35px;
+}
+.internet_textarea {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #221F73;
+	border: 1px solid #221F73;
+}
+.internet_titulos {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: bold;
+	color: #221F73;
+}
+.internet_rojo {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #EF4135;
+	letter-spacing: -1px;
+}
+.arial12_gris {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #95A0A9;
+	text-decoration: none;
+}
+.combos_email {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #666666;
+	text-decoration: none;
+}
+.arial17 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	font-weight: bold;
+	color: #221F72;
+	text-decoration: none;
+	letter-spacing: -1px;
+}
+.arial11 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #221F72;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 14px;
+}
+.arialLink {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #221F72;
+	text-decoration: none;
+	font-weight: bold;
+}
+.arial_19_naranja {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 19px;
+	color: #F89829;
+	text-decoration: none;
+	font-weight: bold;
+	letter-spacing: -1px;
+}
+.arial11_naranja {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #F89829;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 14px;
+}
+.textos_contenido {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight:normal;
+	color:#2d2a70;
+	padding-bottom:5px;
+	letter-spacing:-1px
+}
+.textos_micro {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:8px;
+font-weight:normal;
+padding-left:5px;
+padding-top:5px;
+padding-bottom:5px;
+letter-spacing:0px;
+	color: #221F72;
+}
+.arial_titulo {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #221F73;
+	text-decoration: none;
+}
+.telefonia1_texto {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #221F73;
+	line-height: -35px;
+}
+.arial17Copy {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+	letter-spacing: -1px;
+}
+.borde_textarea {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-color: #221f73;
+	border-right-color: #221f73;
+	border-bottom-color: #221f73;
+	border-left-color: #221f73;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #221F73;
+}
+.en_proceso {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 25px;
+	font-weight: bold;
+	color: #221F72;
+	text-decoration: none;
+	letter-spacing: -1px;
+}
+.arial_titulo2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #00A4E4;
+	text-decoration: none;
+}
+.internet_titulos_rojo {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: bold;
+	color: #EF4135;
+	letter-spacing: -1px;
+}
+.internet_rojobold {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #EF4135;
+	text-align: justify;
+	font-weight: bold;
+}
+.internet_rojobold_link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #EF4135;
+	text-align: justify;
+	font-weight: bold;
+	text-decoration: none;
+}
+.tv_TiVo<sup style="font-size:9px">®</sup> {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+.tv_TiVo<sup style="font-size:9px">®</sup>_gris {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #5E5F61;
+}
+.cod_tit {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #221F72;
+	font-size:18px;
+	font-weight:bold;
+	text-align:left;
+	padding-left:0px;
+	padding-top:0px;
+	padding-bottom:0px;
+	letter-spacing:-1px;
+}
+.arial_19_azul {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 19px;
+	color: #221F73;
+	text-decoration: none;
+	font-weight: bold;
+	letter-spacing: -1px;
+}
+.contacto_titulos {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: bold;
+	color: #221F73;
+}
+.cont_txt {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #221F73;
+	text-decoration: none;
+}
+.arial17_naranja {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	color: #F89829;
+	text-decoration: none;
+	font-weight: bold;
+	letter-spacing: -1px;
+}
+.link_azulclaro {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #008ED3;
+}
+.borde_combo {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-color: #221f73;
+	border-right-color: #221f73;
+	border-bottom-color: #221f73;
+	border-left-color: #221f73;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #221f73;
+}
+.telefonia_tit_am {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFC423;
+	font-size:13px;
+	font-weight:bold;
+	padding-left:0px;
+	padding-top:10px;
+	padding-bottom:10px;
+	letter-spacing:-1px;
+}
+.tv_tit18 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #00A4E4;
+	font-size:13px;
+	font-weight:bold;
+	text-align:left;
+	padding-left:0px;
+	padding-top:10px;
+	padding-bottom:10px;
+	letter-spacing:-1px;
+}
+
+.txt_amarillo {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFC423;
+	font-size:13px;
+	text-align:center;
+	font-weight:normal;
+	color:#FFC423;
+	padding-bottom:5px;
+	letter-spacing:-1px;
+	line-height: 19px;
+}
+.txt_azul {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFC423;
+	font-size:13px;
+	font-weight:normal;
+	color:#0082C8;
+	padding-bottom:5px;
+	letter-spacing:-1px
+}
+.txt_rojo {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFC423;
+	font-size:13px;
+	font-weight:normal;
+	color:#EF3E35;
+	padding-bottom:5px;
+	letter-spacing:-1px
+}
+.txt_rojo_tit {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFC423;
+	font-size:18px;
+	text-align:left;
+	font-weight:bold;
+	color:#EF3E35;
+	padding-bottom:5px;
+	letter-spacing:-1px
+}
+.arial13blanco {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+	letter-spacing: -1px;
+}
+.en_proceso_nar {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 25px;
+	font-weight: bold;
+	color: #F89829;
+	text-decoration: none;
+	letter-spacing: -1px;
+}
+
+/*por que cablevision*/
+
+.contenido_faqs_pqc {
+	clear: both;
+	margin:2px 0 2px 0;
+	color: #838383 !important;
+	font-size:13px !important;
+	line-height:23px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.pqc_tel_faqs {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	color:#ff921E;
+	text-decoration:none;
+	padding:0 10px 5px 0;
+	background-image: url(pqc/img/pq_cablevision/faq-telefono-linea.gif);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	display:block;
+}
+.pqc_int_faqs {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	color:#ff2218;
+	text-decoration:none;
+	padding:0 10px 5px 0;
+	background-image: url(pqc/img/pq_cablevision/faq-internet-linea.gif);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	display:block;
+}
+.pqc_cable_faqs {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	color:#008FC7;
+	text-decoration:none;
+	padding:0 10px 5px 0;
+	background-image: url(pqc/img/pq_cablevision/faq-television-linea.gif);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	display:block;
+}
+.pqc_alta_faqs {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	color:#008FC7;
+	text-decoration:none;
+	padding:0 10px 5px 0;
+	background-image: url(pqc/img/pq_cablevision/faq-television-linea.gif);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	display:block;
+}
+.pqc_dvr_faqs {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	color:#008FC7;
+	text-decoration:none;
+	padding:0 10px 5px 0;
+	background-image: url(pqc/img/pq_cablevision/faq-television-linea.gif);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	display:block;
+}
+.pqc_ondem_faqs {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	color:#008FC7;
+	text-decoration:none;
+	padding:0 10px 5px 0;
+	background-image: url(pqc/img/pq_cablevision/faq-television-linea.gif);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	display:block;
+}
+.contenido_ {
+	color:#838383 !important;
+	font-family:Verdana,Geneva,sans-serif;
+	font-size:13px !important;
+	text-decoration:none;
+}
+.blanco_17 {
+	clear:both;
+	color:#FFFFFF !important;
+	font-family:Verdana,Geneva,sans-serif;
+	font-size:17px !important;
+	margin:2px 0;
+	text-decoration:none;
+}
+.blanco_23 {
+	clear:both;
+	color:#FFFFFF !important;
+	font-family:Verdana,Geneva,sans-serif;
+	font-size:23px !important;
+	margin:2px 0;
+	text-decoration:none;
+}
+.contenido_20 {
+	clear:both;
+	color:#838383 !important;
+	font-family:Verdana,Geneva,sans-serif;
+	font-size:20px !important;
+	margin:2px 0;
+	text-decoration:none;
+}
+.contenido_16 {
+	clear:both;
+	color:#838383 !important;
+	font-family:Verdana,Geneva,sans-serif;
+	font-size:16px !important;
+	margin:2px 0;
+	text-decoration:none;
+}
+
+#submenu{
+	display:none;
+}

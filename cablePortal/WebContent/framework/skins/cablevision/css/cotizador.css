@@ -1,0 +1,113 @@
+/* Form Registro*/
+.wrap-form-full {
+	width: 450px;
+	margin: 0 auto;
+	padding: 30px 0;
+}
+
+#formcot {
+	font-family: arial;
+	font-size: 11px;
+	color: #111;
+}
+
+#formcot label,.label-solos {
+	padding-left: 3px;
+	line-height: 35px;
+}
+
+#formcot input   , #formcot textarea,#formcot select {
+	background-color: #fff;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	behavior: url(border-radius.htc);
+	border: 1px solid #b9b9b9;
+	padding: 5px 7px 5px 10px;
+	margin-bottom: 1px;
+	font-size: 12px;
+	color: #333 !important;
+}
+
+#formcot input.small {
+	width: 100px;
+}
+
+#formcot input.medium {
+	width: 147px;
+}
+
+#formcot input.big {
+	width: 220px;
+}
+
+#formcot select.bigest {
+	width: 350px;
+}
+
+#formcot input.bigest {
+	width: 350px;
+}
+
+#formcot input.bigfix {
+	width: 330px;
+}
+
+#formcot textarea {
+	width: 260px;
+	height: 100px;
+	overflow: hidden;
+}
+
+.notAllowed{margin:20px 10px 10px 10px;color:#f00;font-size:10px;text-align:right;}
+.divError{margin: 0px 7px 5px 2px;height: 25px;color:#eb6500!important;}
+
+/*Estilos de popup*/
+#backgroundPopup {
+	display: none;
+	position: fixed;
+	_position: absolute; /* hack for internet explorer 6*/
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: #000000;
+	border: 1px solid #cecece;
+	z-index: 1;
+}
+
+#popupContact {
+	display: none;
+	position: fixed;
+	_position: absolute; /* hack for internet explorer 6*/
+	height: 100px;
+	width: 560px;
+	background: #FFFFFF;
+	z-index: 2;
+	font-size: 13px;
+}
+
+#popupContactClose {
+	font-size: 19px;
+	line-height: 14px;
+	right: 11px;
+	top: 9px;
+	position: absolute;
+	color: #FFFFFF;
+	font-weight: 700;
+	display: block;
+	text-decoration: none;
+}
+
+.bienvenida {
+	color: #FFFFFF;
+	font-family: Calibri;
+	font-size: 18px;
+	font-weight: normal;
+	text-align: left;
+}
+
+.inteo-icon-cot { background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -505px -160px transparent; height: 25px; width: 25px; float: left; display: block; margin-left:225px;}
+.discv-icon { background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -531px -160px transparent; height: 25px; width: 25px; float: left; display: block;}
+.help-icon { background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -554px -161px transparent; height: 25px; width: 25px; float: left; display: block; }
+.text-icon { background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -577px -160px transparent; height: 25px; width: 25px; float: left; display: block; }
+		

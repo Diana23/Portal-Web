@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.cablevision.vo.CvStationRecord" table="CV_STATION_RECORD">
+	<id
+        name="stnStationNum"
+        type="long"
+        column="STN_STATION_NUM"
+        length="10"
+    >
+		<generator class="assigned" />
+	</id>
+	<property
+        name="stnDmaName"
+        type="string"
+        column="STN_DMA_NAME"
+        length="70"
+    />
+	<property
+        name="stnDmaNum"
+        type="long"
+        column="STN_DMA_NUM"
+        length="10"
+    />
+	<property
+        name="stnFccChannelNum"
+        type="integer"
+        column="STN_FCC_CHANNEL_NUM"
+        length="8"
+    />
+	<property
+        name="stnStationAffil"
+        type="string"
+        column="STN_STATION_AFFIL"
+        length="25"
+    />
+	<property
+        name="stnStationCallSign"
+        type="string"
+        column="STN_STATION_CALL_SIGN"
+        not-null="true"
+        length="10"
+    />
+	<property
+        name="stnStationCity"
+        type="string"
+        column="STN_STATION_CITY"
+        length="20"
+    />
+	<property
+        name="stnStationCountry"
+        type="string"
+        column="STN_STATION_COUNTRY"
+        length="15"
+    />
+	<property
+        name="stnStationLanguage"
+        type="string"
+        column="STN_STATION_LANGUAGE"
+        length="40"
+    />
+	<property
+        name="stnStationName"
+        type="string"
+        column="STN_STATION_NAME"
+        length="40"
+    />
+	<property
+        name="stnStationState"
+        type="string"
+        column="STN_STATION_STATE"
+        length="15"
+    />
+	<property
+        name="stnStationTimeZone"
+        type="string"
+        column="STN_STATION_TIME_ZONE"
+        not-null="true"
+        length="45"
+    />
+	<property
+        name="stnStationZipCode"
+        type="string"
+        column="STN_STATION_ZIP_CODE"
+        length="12"
+    />
+    <property
+        name="stnCnlLogo"
+        type="string"
+        column="STN_CNL_LOGO"
+        length="200"
+    />
+
+	<!-- Associations -->
+	<!-- bi-directional many-to-one association to CvScheduleRecord -->
+	<set
+        name="cvScheduleRecords"
+        inverse="true"
+        lazy="true"
+    >
+		<key>
+			<column name="SKE_STATION_NUM" />
+			 <!-- a foreign key in CV_SCHEDULE_RECORD referencing the primary key of this table. -->
+		</key>
+		<one-to-many class="com.cablevision.vo.CvScheduleRecord" />
+	</set>
+
+</class>
+</hibernate-mapping>

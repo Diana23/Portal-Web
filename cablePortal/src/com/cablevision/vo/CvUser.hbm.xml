@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvUser" 
+    table="CV_USERS"
+    lazy="false"
+>
+    <id
+        name="email"
+        type="string"
+        column="CUS_EMAIL"
+        length="250"
+    >
+    <generator class="assigned" />
+    </id>
+    
+    <property
+        name="id"
+        type="long"
+        column="CUS_ID"
+        length="22"
+    />
+    
+    
+    <property
+        name="name"
+        type="string"
+        column="CUS_NAME"
+        not-null="true"
+        length="250"
+    />
+    
+    <property
+        name="lastname"
+        type="string"
+        column="CUS_LASTNAME"
+        not-null="true"
+        length="250"
+    />
+    
+    <property
+        name="secondlastname"
+        type="string"
+        column="CUS_SECLASTNAME"
+        not-null="true"
+        length="250"
+    />
+    
+    <property
+        name="pass"
+        type="string"
+        column="CUS_PASS"
+        not-null="true"
+        length="250"
+    />
+    
+    <property
+        name="type"
+        type="string"
+        column="CUS_TYPE"
+        not-null="true"
+        length="6"
+    />
+	
+	<property
+        name="fecha"
+        type="timestamp"
+        column="CUS_DATE"
+        not-null="true"
+        length="19"
+    />
+    
+    <!-- Associations 
+    <set name="prospectus"  lazy="false" cascade="all" inverse="true">
+		<key column="EMAIL" not-null="true"/>
+		<one-to-many class="com.cablevision.vo.CvProspectus"/>
+	</set>-->
+
+	<one-to-one name="curriculum" cascade="all" lazy="false" class="com.cablevision.vo.CvCurriculum"  fetch="join"/>
+	
+</class>
+</hibernate-mapping>

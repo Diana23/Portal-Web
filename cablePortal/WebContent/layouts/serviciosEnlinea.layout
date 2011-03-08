@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<netuix:markupDefinition xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0 markup-netuix-1_0_0.xsd">
+    <netuix:locale language="en"/>
+    <netuix:markup>
+        <netuix:layout type="serviciosEnlinea" title="Servicios En Linea Layout" 
+        				description=""
+                           htmlLayoutUri="/layouts/serviciosEnlinea.html.txt" 
+                           markupType="Layout" markupName="serviciosEnlineaLayout"
+                           skeletonUri="/layouts/serviciosEnlineaLayout.jsp">
+    		<netuix:placeholder markupType="Placeholder"
+    			markupName="menuServicios" title="menuServicios" usingFlow="false">
+    		</netuix:placeholder>
+    		<netuix:placeholder markupType="Placeholder"
+    			markupName="mainServiciosEnlinea" title="mainServiciosEnlinea" usingFlow="false">
+    		</netuix:placeholder>
+        </netuix:layout>
+    </netuix:markup>
+</netuix:markupDefinition>

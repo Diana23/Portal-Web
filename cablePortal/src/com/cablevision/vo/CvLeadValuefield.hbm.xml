@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvLeadValuefield" 
+    table="CV_LEADVALUEFIELD"
+    lazy="false"
+>
+    <id
+        name="lvfIdLeadvalue"
+        type="long"
+        column="LVF_ID_LEADVALUE"
+        length="11"
+    >
+    	<generator class="sequence">
+        	<param name="sequence">CV_LEADVALUEFIELD_SEQ</param>
+        </generator>
+    </id>
+    <property
+        name="lvfValue"
+        type="string"
+        column="LVF_VALUE"
+        length="2000"
+    />
+ 
+    <!-- Associations -->
+	<many-to-one name="lead" class="com.cablevision.vo.CvLead" not-null="true" column="LVF_ID_LEAD" property-ref="cleIdlead"/>
+	 
+	<many-to-one name="field" class="com.cablevision.vo.CvField" not-null="true" column="LVF_ID_FIELD"/>
+	
+</class>
+</hibernate-mapping>

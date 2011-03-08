@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvLead" 
+    table="CV_LEAD"
+    lazy="false"
+>
+	<id
+        name="cleIdshowaccount"
+        type="long"
+        column="CLE_IDSHOWACCOUNT"
+        length="22"
+    >
+        <generator class="sequence">
+        	<param name="sequence">CV_LEAD_SEQ</param>
+        </generator>
+    </id>
+    
+    <property
+        name="cleIdlead"
+        type="string"
+        column="CLE_IDLEAD"
+        not-null="true"
+        length="255"
+    />
+    
+    <property
+        name="cleAmabilidadaccount"
+        type="string"
+        column="CLE_AMABILIDADACCOUNT"
+        length="20"
+    />
+    <property
+        name="cleComentariosAsesor"
+        type="org.springframework.orm.hibernate3.support.ClobStringType"
+        column="CLE_COMENTARIOS_ASESOR"
+        length="40000"
+    />
+    <property
+        name="cleConocimientoaccount"
+        type="string"
+        column="CLE_CONOCIMIENTOACCOUNT"
+        length="20"
+    />
+    <property
+        name="cleCotizatype"
+        type="string"
+        column="CLE_COTIZATYPE"
+        length="255"
+    />
+    <property
+        name="cleDateasig"
+        type="timestamp"
+        column="CLE_DATEASIG"
+        length="7"
+    />
+    <property
+        name="cleDateclose"
+        type="timestamp"
+        column="CLE_DATECLOSE"
+        length="7"
+    />
+    <property
+        name="cleDatecreation"
+        type="timestamp"
+        column="CLE_DATECREATION"
+        length="7"
+    />
+    <property
+        name="cleDatelead"
+        type="timestamp"
+        column="CLE_DATELEAD"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="cleHelp"
+        type="long"
+        column="CLE_HELP"
+        not-null="true"
+        length="11"
+    />
+    <property
+        name="cleHorallamada"
+        type="timestamp"
+        column="CLE_HORALLAMADA"
+        length="7"
+    />
+    
+    <property
+        name="cleIdusuario"
+        type="long"
+        column="CLE_IDUSUARIO"
+        length="11"
+    />
+    <property
+        name="cleInsatisfecho"
+        type="long"
+        column="CLE_INSATISFECHO"
+        length="11"
+    />
+    <property
+        name="cleLeadlife"
+        type="string"
+        column="CLE_LEADLIFE"
+        length="40"
+    />
+    <property
+        name="cleMensajeCorreo"
+        type="org.springframework.orm.hibernate3.support.ClobStringType"
+        column="CLE_MENSAJE_CORREO"
+        length="40000"
+    />
+    <property
+        name="cleMenullamada"
+        type="string"
+        column="CLE_MENULLAMADA"
+        length="255"
+    />
+    <property
+        name="cleMenunorealizac"
+        type="string"
+        column="CLE_MENUNOREALIZAC"
+        length="255"
+    />
+    <property
+        name="cleMenurealizac"
+        type="string"
+        column="CLE_MENUREALIZAC"
+        length="255"
+    />
+    <property
+        name="cleNuevoMensaje"
+        type="long"
+        column="CLE_NUEVO_MENSAJE"
+        length="22"
+    />
+    <property
+        name="clePpeCalificarlead"
+        type="string"
+        column="CLE_PPE_CALIFICARLEAD"
+        length="255"
+    />
+    <property
+        name="cleCalificarresultado"
+        type="string"
+        column="CLE_CALIFICARRESULTADO"
+        length="255"
+    />
+    <property
+        name="clePpeNocontratacion"
+        type="string"
+        column="CLE_PPE_NOCONTRATACION"
+        length="255"
+    />
+    <property
+        name="cleRapidezaccount"
+        type="string"
+        column="CLE_RAPIDEZACCOUNT"
+        length="20"
+    />
+    <property
+        name="cleSugerenciasaccount"
+        type="org.springframework.orm.hibernate3.support.ClobStringType"
+        column="CLE_SUGERENCIASACCOUNT"
+        length="40000"
+    />
+    <property
+        name="cleValid"
+        type="boolean"
+        column="CLE_VALID"
+        length="1"
+    />
+    <property
+        name="cleVenta"
+        type="string"
+        column="CLE_VENTA"
+        length="20"
+    />
+
+    <!-- Associations -->
+	<set name="leadValueFields"  lazy="false" cascade="all" inverse="true">
+		<key column="LVF_ID_LEAD" not-null="true"/>
+		<one-to-many class="com.cablevision.vo.CvLeadValuefield" />
+	</set>
+	
+	<many-to-one name="leadStatus" class="com.cablevision.vo.CvLeadStatus" not-null="true" column="CLE_IDLEAD_STATUS"/>
+	
+	<many-to-one name="leadType" class="com.cablevision.vo.CvLeadType" not-null="true" column="CLE_IDLEAD_TYPE"/>
+	
+</class>
+</hibernate-mapping>

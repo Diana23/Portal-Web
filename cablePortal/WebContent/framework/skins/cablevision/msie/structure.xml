@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    There are no "msie" specific specializations for the "borderless" skin theme, so the "borderless" theme
+    in the context of this "msie" classification is configured to simply point to the "bighorn" skin
+    "borderless" theme directory.
+-->
+<structure 
+    xmlns="http://www.bea.com/servers/portal/framework/laf/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.bea.com/servers/portal/framework/laf/1.0.0 laf-structure-1_0_0.xsd"
+>
+    <themes>
+   	 	<theme name="borderless" path="../cablevisionPrincipal"/>
+        <theme name="borderless" path="../borderless"/>
+    </themes>
+</structure>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvMcafeesuscribed" 
+    table="CV_MCAFEESUSCRIBED"
+    lazy="false"
+>
+    <id
+        name="mteId"
+        type="long"
+        column="MTE_ID"
+        length="22"
+    >
+    	<generator class="sequence">
+    		<param name="sequence">CV_MCAFEESUSCRIBED_SEQ</param>
+    	</generator>
+    </id>
+    <property
+        name="mteAccount"
+        type="long"
+        column="MTE_ACCOUNT"
+        length="22"
+    />
+    <property
+        name="mteAttemps"
+        type="long"
+        column="MTE_ATTEMPS"
+        length="22"
+    />
+    <property
+        name="mteEmail"
+        type="string"
+        column="MTE_EMAIL"
+        length="250"
+    />
+    <property
+        name="mteIduser"
+        type="long"
+        column="MTE_IDUSER"
+        length="22"
+    />
+    <property
+        name="mteSource"
+        type="string"
+        column="MTE_SOURCE"
+        length="250"
+    />
+    <property
+        name="mteStatus"
+        type="string"
+        column="MTE_STATUS"
+        length="20"
+    />
+    <property
+        name="mteSuscribedate"
+        type="timestamp"
+        column="MTE_SUSCRIBEDATE"
+        length="7"
+    />
+
+    <!-- Associations -->
+
+</class>
+</hibernate-mapping>

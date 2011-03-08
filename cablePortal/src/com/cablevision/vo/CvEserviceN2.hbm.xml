@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvEserviceN2" 
+    table="CV_ESERVICE_N2"
+    lazy="false"
+>
+    <id
+        name="en2Id"
+        type="long"
+        column="EN2_ID"
+        length="22"
+    >
+        <generator class="assigned" />
+    </id>
+    <property
+        name="en2En1Id"
+        type="long"
+        column="EN2_EN1_ID"
+        length="22"
+    />
+    <property
+        name="en2Name"
+        type="string"
+        column="EN2_NAME"
+        length="50"
+    />
+
+    <!-- Associations -->
+
+</class>
+</hibernate-mapping>

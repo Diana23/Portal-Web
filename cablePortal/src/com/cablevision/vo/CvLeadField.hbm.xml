@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvLeadField" 
+    table="CV_LEADFIELDS"
+    lazy="false"
+>
+	<composite-id
+        name="id"
+        class="com.cablevision.vo.CvLeadFieldId">
+       
+        <key-many-to-one name="field" class="com.cablevision.vo.CvField" column="CLF_IDFIELD"/>
+        <key-many-to-one name="leadType" class="com.cablevision.vo.CvLeadType" column="CLF_IDLEADTYPE"/>
+
+	</composite-id>
+
+    <property
+        name="clfSend"
+        type="long"
+        column="CLF_SEND"
+        length="11"
+    />
+    
+    <property
+        name="clfOrden"
+        type="long"
+        column="CLF_ORDEN"
+        length="11"
+    />
+
+
+    <!-- Associations -->
+
+</class>
+</hibernate-mapping>

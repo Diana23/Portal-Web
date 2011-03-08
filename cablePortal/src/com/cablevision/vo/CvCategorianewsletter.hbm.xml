@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvCategorianewsletter" 
+    table="CV_CATEGORIANEWSLETTER" 
+    lazy="false"
+>
+    <id
+        name="cnlId"
+        type="long"
+        column="CNL_ID"
+        length="10"
+    >
+        <generator class="assigned" />
+    </id>
+    <property
+        name="cnlNombre"
+        type="string"
+        column="CNL_NOMBRE"
+        not-null="true"
+        length="100"
+    />
+    <property
+        name="cnlPadre"
+        type="long"
+        column="CNL_PADRE"
+        not-null="true"
+        length="10"
+    />
+
+
+</class>
+</hibernate-mapping>

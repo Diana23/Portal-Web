@@ -1,0 +1,26 @@
+.hidden{display:none;}
+
+.btn-minimizednl{ 
+	display: 	block;
+	width:   	101px;
+	height:	 	20px;
+	background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png) no-repeat -793px -786px;
+	border: 	0px;
+	
+	color:			#fff;
+	font-size:		13px;
+	font-family:	"Myriad pro", Times new roman;
+	text-transform: uppercase;
+	font-style: 	normal;
+	text-align:		center;
+	letter-spacing: 0px;
+	line-height:	20px;
+	text-decoration:none;
+	font-weight:	none;
+}
+
+.btn-minimizednl:hover, .btn-minimizednl:active { 
+	color: #fff;
+	text-decoration: none;
+	background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png) no-repeat -793px -809px;
+}

@@ -1,0 +1,209 @@
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {/*display: inline-block;*/}  /* for IE/Mac */
+
+* html .clearfix {
+    zoom: 1;     /* triggers hasLayout */
+    display: block;     /* resets display for IE/Win */
+}
+    
+.floatL{
+	float:left;
+}
+.floatR{
+	float:right;
+}
+.hidden{
+	display:none;
+}
+.programacion{
+	width:754px;
+	font-family:Tahoma,Arial;
+	margin-left: 26px;
+}
+.programacion-title{
+	height:40px;
+}
+.programacion-title p{
+	color:#00539B;
+	font-family:Tahoma,Arial;
+	font-size:10px;
+	text-align:left;
+	padding-top:10px;
+}
+
+.programacion-info{
+	background-color: #E1E1E1;
+	height: 84px;
+	margin: 3px 0 0;
+	padding: 1px 1px 0;
+}
+.programacion-info .filters{
+	margin: 10px 0 0 30px;
+}
+.programacion-info .filters .floatL{
+	margin-right:10px;
+}
+.programacion-content{
+	position:relative;
+	height:529px;
+	border:1px solid #999999;
+}
+
+.programacion-tags{
+	height:27px;
+	text-align:left;
+}
+.programacion-tags p{
+	color:#3E3F3F;
+	font-size:11px;
+}
+.programacion-tags p label span{
+	border:1px solid #999;
+	padding:3px;
+	cursor:pointer;
+	margin-right:10px;
+}
+.programacion-nav{
+	height:22px;
+	background:transparent url(../../../../contenido/groups/mercadotecnia/documents/imagen_cv/cv000763.jpg) 0 0 repeat-x;
+	width:100%;
+}
+.programacion-nav .horas,.programacion-programas .horas{
+	width:576px;
+	height:22px;
+}
+.programacion-nav .hora{
+	width:25%;
+	color:#36509D;
+	font-size:13px;
+	font-weight:bold;
+	text-align:center;
+	background:transparent url(line.gif) right 0 no-repeat;
+	height:100%;
+}
+.programacion-nav .hora p{
+	margin:3px 0 0 0;
+}
+.programacion-nav .canal,.programacion-programas .canal{
+	width:95px;
+}
+
+.programacion-nav .back{
+	border-right:1px solid #CCC;
+	width:25px;
+	height:22px;
+}
+.programacion-nav .next{
+	width:28px;
+	height:22px;
+}
+.programacion-nav .back img,.programacion-nav .next img{
+	cursor:pointer;
+}
+.programacion-programas{
+	overflow: auto; 
+	height: 468px;
+}
+.programacion-programas ul{
+	margin:0px;
+	padding:0px;
+}
+.programacion-programas ul li{
+	border-top:1px solid #CCC;
+	width:100%;
+	margin:0px;
+	padding:0px;
+	height:auto;
+	background-color:#F4F5F9;
+}
+.programacion-programas ul li div.canal{
+	border-right:1px solid #CCCCCC;
+}
+.programacion-programas ul li div.canal img,.programacion-programas ul li div.canal .img{
+	float:left;
+	margin:2px;
+	width:30px;
+	height:20px;
+}
+.programacion-programas ul li div.canal p{
+	color:#2A4698;
+	font-size:10px;
+	text-align:center;
+	margin:2px 0 0 0;
+}
+.programacion-programas ul li div.empty{
+	width:24px;
+	border-right:1px solid #CCCCCC;
+}
+.programacion-programas ul li div.open{
+	background:none;
+	border-color:#fff;
+}
+* html .programacion-programas ul li div.empty{
+	width:26px;
+}
+.programacion-programas .hora{
+	text-align:left;
+	overflow:hidden;
+	background:transparent url(line.gif) right 0 no-repeat;
+}
+.programacion-programas .hora p{
+	margin:2px 0 0 5px;
+}
+.programacion-programas .hora a{
+	color:#666;
+	font-size:11px;
+	text-decoration:none;
+	font-weight:normal;
+}
+.programacion-programas .hora a:hover{
+	text-decoration:underline;
+}
+.programacion-programas ul li div.next{
+	background:transparent url(../../../../contenido/groups/mercadotecnia/documents/imagen_cv/cv000760.gif) 5px 3px no-repeat;
+}
+.programacion-programas ul li div.back{
+	background:transparent url(../../../../contenido/groups/mercadotecnia/documents/imagen_cv/cv000759.gif) 5px 3px no-repeat;
+}
+
+.programacion-programas ul li .diagrama,.programacion-programas ul li .description{
+	width:638px;
+	background-color:#fff;
+}
+.programacion-programas ul li .description{
+	background-color:#BDD3E6;
+	height:130px;
+}
+.programacion-programas ul li .diagrama div{
+	height:28px;
+}
+.programacion-programas ul li .diagrama .selected{
+	background-color:#BDD3E6;
+}
+.programacion-programas ul li .description p{
+	margin:0 15px 15px 15px;
+	font-size:11px;
+	color:#666;
+}
+
+.deportes{background-color:#cad0ea !important;}
+.peliculas{background-color:#fee1c2 !important;}
+.telenovelas{background-color:#feefc2 !important;}
+.noticias{background-color:#e6f0ea !important;}
+
+/* esta clase fue nombrada en honor a Belem (la lider de proyecto) */
+.manto-blanco{
+	position:absolute;
+	width:752px;
+	height: 470px;
+	bottom:0px;
+	background:#fff url(../../../../contenido/groups/mercadotecnia/documents/imagen_cv/cv000764.gif) center center no-repeat;
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.Cvchannel" 
+    table="CV_CHANNELS"
+    lazy="false"
+>
+    <id
+        name="idchannel"
+        type="long"
+        column="CNL_ID"
+        length="22"
+    >
+        <generator class="sequence">
+            <param name="sequence">CVCHANNELS_SEQ</param>
+        </generator>
+    </id>
+    <property
+        name="description"
+        type="string"
+        column="CNL_DESCRIPTION"
+        not-null="true"
+        length="4000"
+    />
+    <property
+        name="hd"
+        type="boolean"
+        column="CNL_HD"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="international"
+        type="boolean"
+        column="CNL_INTERNATIONAL"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="logo"
+        type="string"
+        column="CNL_LOGO"
+        not-null="true"
+        length="200"
+    />
+    <property
+        name="name"
+        type="string"
+        column="CNL_NAME"
+        not-null="true"
+        length="255"
+    />
+
+    
+    <!-- bi-directional many-to-one association to Cvcategory -->
+    <many-to-one
+        name="cvcategory"
+        class="com.cablevision.vo.Cvcategory"
+        lazy="false"
+    >
+        <column name="CNL_CATEGORY" not-null="true" length="22"/>
+    </many-to-one>
+
+    
+    </class>
+</hibernate-mapping>

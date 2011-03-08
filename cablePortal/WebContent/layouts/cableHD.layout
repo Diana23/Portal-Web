@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<netuix:markupDefinition xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0 markup-netuix-1_0_0.xsd">
+    <netuix:locale language="en"/>
+    <netuix:markup>
+        <netuix:layout 
+        	type="cableHD" 
+        	title="Cable HD Layout" 
+        	description="" 
+        	htmlLayoutUri="/layouts/cableHD.html.txt" 
+        	markupType="Layout" 
+        	markupName="cableHDLayout" 
+        	skeletonUri="/layouts/cableHDLayout.jsp">
+    		<netuix:placeholder markupType="Placeholder"
+    			markupName="main" flow="vertical" title="main" usingFlow="false">
+    		</netuix:placeholder>
+    		<netuix:placeholder markupType="Placeholder"
+    			markupName="sidebar" title="sidebar" usingFlow="false">
+    		</netuix:placeholder>
+    		
+        </netuix:layout>
+    </netuix:markup>
+</netuix:markupDefinition>

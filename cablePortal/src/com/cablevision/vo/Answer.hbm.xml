@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.Answer" 
+    table="CV_ANSWER"
+    lazy="false"
+>
+    <id
+        name="idanswer"
+        type="long"
+        column="ANS_ID"
+        length="10"
+    >
+        <generator class="sequence">
+            <param name="sequence">CV_ANSWER_SEQ</param>
+        </generator>
+    </id>
+    <property
+        name="answer"
+        type="string"
+        column="ANS_ANSWER"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="idquestion"
+        type="long"
+        column="ANS_IDQUESTION"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="why"
+        type="string"
+        column="ANS_WHY"
+        length="4000"
+    />
+
+    <!-- Associations -->
+
+</class>
+</hibernate-mapping>

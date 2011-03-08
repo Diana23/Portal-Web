@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvUsuarioPortal" 
+    table="CV_USUARIO_PORTAL"
+    lazy="false"
+>
+    <id
+        name="cupIdusuario"
+        type="string"
+        column="CUP_IDUSUARIO"
+        length="100"
+    >
+        <generator class="assigned" />
+    </id>
+    <property
+        name="cupContrato"
+        type="string"
+        column="CUP_CONTRATO"
+        length="8"
+    />
+    <property
+        name="cupFechaUltimaContrasena"
+        type="timestamp"
+        column="CUP_FECHA_ULTIMA_CONTRASENA"
+        length="7"
+    />
+    <property
+        name="cupFechaUltimoIntentoLogin"
+        type="timestamp"
+        column="CUP_FECHA_ULTIMO_INTENTO_LOGIN"
+        length="7"
+    />
+    <property
+        name="cupIntentos"
+        type="integer"
+        column="CUP_INTENTOS"
+        length="2"
+    />
+    
+    <property
+        name="cupSessionId"
+        type="string"
+        column="CUP_SESSION_ID"
+        length="250"
+    />
+    
+    <property
+        name="cupFoto"
+        type="string"
+        column="CUP_FOTO"
+        length="15"
+    />
+
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to CvContrasenaHistorial -->
+    <set
+        name="cvContrasenaHistorials"
+        inverse="true"
+        lazy="false"
+    >
+        <key>
+            <column name="CCH_ID_USUARIO" /> <!-- a foreign key in CV_CONTRASENA_HISTORIAL referencing the primary key of this table. -->
+        </key>
+        <one-to-many class="com.cablevision.vo.CvContrasenaHistorial" />
+    </set>
+
+</class>
+</hibernate-mapping>

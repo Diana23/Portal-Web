@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!-- load a hierarchy of contexts, although there is just one here -->
+<beans>
+	<bean id="cablevision-context"
+		class="org.springframework.context.support.ClassPathXmlApplicationContext" >
+		<constructor-arg>
+			<list>
+				<value>/com/cablevision/conf/applicationContext.xml</value>
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>

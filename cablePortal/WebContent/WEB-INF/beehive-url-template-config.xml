@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<url-template-config xmlns="http://beehive.apache.org/netui/2004/server/url-template-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://beehive.apache.org/netui/2004/server/url-template-config url-template-config.xsd">
+    <!-- Templates for consuming remote portlets -->
+    <url-template>
+        <name>https</name>
+        <value>
+            http://localhost/{url:path}?{url:queryString}&amp;{url:currentPage}
+        </value>
+    </url-template>
+    <url-template>
+        <name>default</name>
+        <value>
+            http://localhost/{url:path}?{url:queryString}&amp;{url:currentPage}
+        </value>
+    </url-template>
+    <url-template>
+        <name>urlApp</name>
+        <value>
+            http://localhost/{url:path}?{url:queryString}
+        </value>
+    </url-template>
+    <url-template>
+        <name>defaultDesktop</name>
+        <value>
+            http://localhost/cablePortal/cablevision.portal?{url:queryString}&amp;{url:currentPage}
+        </value>
+    </url-template>
+    <url-template>
+        <name>home</name>
+        <value>
+            http://localhost/cablePortal/cablevision.portal?
+        </value>
+    </url-template>
+</url-template-config>

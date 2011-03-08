@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvNewsletterCategoriausuario" 
+    table="CV_NEWSLETTER_CATEGORIAUSUARIO" 
+    lazy="false"
+>
+    <composite-id name="compId" class="com.cablevision.vo.CvNewsletterCategoriausuarioPK">
+        <key-property 
+            name="ncuIdcategoria" 
+            type="integer"
+            column="NCU_IDCATEGORIA" 
+            length="3"
+        />
+        <key-property 
+            name="ncuIdusuario" 
+            type="long"
+            column="NCU_IDUSUARIO" 
+            length="22"
+        />
+    </composite-id>
+
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to CvCategorianewsletter -->
+    <many-to-one
+        name="cvCategorianewsletter"
+        class="com.cablevision.vo.CvCategorianewsletter"
+        update="false"
+        insert="false"
+        lazy="false"
+    >
+        <column name="NCU_IDCATEGORIA" not-null="true" length="3"/>
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

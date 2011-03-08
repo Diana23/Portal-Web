@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvMcafeeUser" 
+    table="CV_MCAFEEUSERS"
+    mutable="false"
+    lazy="false"
+>
+    <id
+        name="musId"
+        type="long"
+        column="MUS_ID"
+        length="22"
+    >
+    	<generator class="sequence"  >
+    		<param name="sequence">CV_MCAFEEUSERS_SEQ</param>
+    	</generator>
+    </id>
+    <property
+        name="musAccount"
+        type="long"
+        column="MUS_ACCOUNT"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="musAccountid"
+        type="string"
+        column="MUS_ACCOUNTID"
+        not-null="true"
+        length="250"
+    />
+    <property
+        name="musContactid"
+        type="string"
+        column="MUS_CONTACTID"
+        not-null="true"
+        length="250"
+    />
+    <property
+        name="musCvstatus"
+        type="string"
+        column="MUS_CVSTATUS"
+        not-null="true"
+        length="250"
+    />
+    <property
+        name="musDatesuscribe"
+        type="timestamp"
+        column="MUS_DATESUSCRIBE"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="musEmailaddress"
+        type="string"
+        column="MUS_EMAILADDRESS"
+        not-null="true"
+        length="250"
+    />
+    <property
+        name="musPassword"
+        type="string"
+        column="MUS_PASSWORD"
+        not-null="true"
+        length="250"
+    />
+    <property
+        name="musReference"
+        type="string"
+        column="MUS_REFERENCE"
+        not-null="true"
+        length="250"
+    />
+
+    <!-- Associations -->
+
+</class>
+</hibernate-mapping>

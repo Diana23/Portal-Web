@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvContrasenaHistorial" 
+    table="CV_CONTRASENA_HISTORIAL"
+    lazy="false"
+>
+    <id
+        name="cchIdContrasenaHistorial"
+        type="long"
+        column="CCH_ID_CONTRASENA_HISTORIAL"
+        length="10"
+    >
+        <generator class="sequence">
+            <param name="sequence">CV_CONTRASENA_HISTORIAL_SEQ</param>
+        </generator>
+    </id>
+    <property
+        name="cchContrasena"
+        type="string"
+        column="CCH_CONTRASENA"
+        not-null="true"
+        length="100"
+    />
+
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to CvUsuarioPortal -->
+    <many-to-one
+        name="cvUsuarioPortal"
+        class="com.cablevision.vo.CvUsuarioPortal"
+        lazy="false"
+    >
+        <column name="CCH_ID_USUARIO" not-null="true" length="100"/>
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

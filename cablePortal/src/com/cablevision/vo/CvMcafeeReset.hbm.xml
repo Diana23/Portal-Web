@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvMcafeeReset" 
+    table="CV_MCAFEERESET"
+    mutable="false"
+    lazy="false"
+>
+    <id
+        name="mreId"
+        type="long"
+        column="MRE_ID"
+        length="22"
+    >
+        <generator class="increment" />
+    </id>
+    <property
+        name="mreAccount"
+        type="long"
+        column="MRE_ACCOUNT"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="mreComments"
+        type="string"
+        column="MRE_COMMENTS"
+        not-null="true"
+        length="250"
+    />
+    <property
+        name="mreDate"
+        type="date"
+        column="MRE_DATE"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="mreIntentos"
+        type="long"
+        column="MRE_INTENTOS"
+        not-null="true"
+        length="22"
+    />
+
+    <!-- Associations -->
+
+</class>
+</hibernate-mapping>

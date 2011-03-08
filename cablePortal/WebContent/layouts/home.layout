@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<netuix:markupDefinition xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0 markup-netuix-1_0_0.xsd">
+    <netuix:locale language="en"/>
+    <netuix:markup>
+        <netuix:layout type="home" title="Home Layout" 
+        				description="This layout uses a top placeholder and lower left and lower rigth placeholders"
+                           htmlLayoutUri="/layouts/home.html.txt" 
+                           markupType="Layout" markupName="homeLayout"
+                           skeletonUri="/layouts/homeLayout.jsp">
+    		<netuix:placeholder markupType="Placeholder"
+    			markupName="ph1" title="ph1" usingFlow="false" >
+    		</netuix:placeholder>
+    		<netuix:placeholder markupType="Placeholder"
+    			markupName="ph2" title="ph2" usingFlow="false" >
+    		</netuix:placeholder>
+    		<netuix:placeholder markupType="Placeholder"
+    			markupName="ph3" title="ph3" usingFlow="false" >
+    		</netuix:placeholder>
+    		<netuix:placeholder markupType="Placeholder"
+    			markupName="ph4" title="ph4" usingFlow="false" >
+    		</netuix:placeholder>
+    		
+        </netuix:layout>
+    </netuix:markup>
+</netuix:markupDefinition>

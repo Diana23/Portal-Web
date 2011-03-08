@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>License - CKEditor</title>
+	<script type="text/javascript">
+		var CKEDITOR = window.parent.CKEDITOR;
+		var i = 0;
+		var okListener = function(ev) {
+			var idEncuesta = document.getElementById('idEncuesta');
+			this._.editor.insertHtml('<div class="ctextoAzul"><p><input type="hidden" value="'+idEncuesta.value+'" />&iquest;Encontraste &uacute;til esta informaci&oacute;n?	<label><input type="radio" value="1" class="si" onclick="hideWhy(this)" /> Si</label><label><input type="radio" value="0" class="no" onclick="showWhy(this)" /> No</label> <a href="#" onclick="sendEncuesta(this,'+idEncuesta.value+');return false;"><img border="0" class="encuesta_btn" src="/contentserver/groups/mercadotecnia/documents/imagen_cv/cv000426.gif"  alt="Enviar" /></a></p><p class="why" style="display:none;">&iquest;porque? <input type="text" /></p><p class="update" style="display:none;color:#f00;margin:0px;"></p></div>');
+			CKEDITOR.dialog.getCurrent().removeListener("ok", okListener);
+			i++;
+			
+		};
+
+		CKEDITOR.dialog.getCurrent().on("ok", okListener);
+	</script>
+</head>
+<body>
+	<p><label>Id encuesta: <input type="text" name="idEncuesta" id="idEncuesta" /></label></p>
+</body>
+</html>

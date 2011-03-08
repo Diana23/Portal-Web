@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.UpgradesProd" 
+    table="CV_UPGRADESPROD"
+    lazy="false"
+>
+    <composite-id name="id" class="com.cablevision.vo.UpgradesProdPK">
+        <key-property 
+            name="idUpgradesProd" 
+            type="long"
+            column="UPR_ID_UPGRADESPROD"
+            length="10"
+        />
+        <key-many-to-one 
+        	name="productService" 
+        	class="com.cablevision.vo.ProductService" 
+        	column="UPR_ID_PRODSERVICE"
+        />
+    </composite-id>
+    <property
+        name="priority"
+        type="integer"
+        column="UPR_PRIORITY"
+        not-null="true"
+        length="3"
+    />
+
+    <!-- Associations -->
+
+</class>
+</hibernate-mapping>
