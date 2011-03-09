@@ -762,7 +762,7 @@
                                     </netuix:content>
                                 </netuix:page>
                                 <netuix:page definitionLabel="ventajas_clientes" markupName="page"
-                                    markupType="Page" properties="backgroundId=CV002515;secure=true" title="Lo que dicen nuestros clientes">
+                                    markupType="Page" properties="backgroundId=CV002515" title="Lo que dicen nuestros clientes">
                                     <netuix:content>
                                         <netuix:layout
                                             description="This layout uses left and rigth placeholders"
@@ -1088,7 +1088,7 @@
                                 </netuix:page>
                                 <netuix:page definitionLabel="cablevision_portal_distribuidores"
                                     markupName="page" markupType="Page"
-                                    properties="backgroundId=CV002444;secure=true" title="Distribuidores">
+                                    properties="backgroundId=CV002444" title="Distribuidores">
                                     <netuix:content>
                                         <netuix:layout description=""
                                             htmlLayoutUri="/layouts/singleColumn.html.txt"
@@ -1791,7 +1791,7 @@
                                     </netuix:content>
                                 </netuix:page>
                                 <netuix:page definitionLabel="contrata_cotiza" markupName="page"
-                                    markupType="Page" properties="backgroundId=CV002141;secure:true" title="Cotiza y contrata aquí">
+                                    markupType="Page" properties="backgroundId=CV002141" title="Cotiza y contrata aquí">
                                     <netuix:content>
                                         <netuix:layout description=""
                                             htmlLayoutUri="/layouts/singleColumn.html.txt"
@@ -1987,7 +1987,7 @@
                                 </netuix:page>
                                 <netuix:page definitionLabel="acerca_anunciate" markupName="page"
                                     markupType="Page"
-                                    properties="link=http://www.televisatvdepaga.com;target=_blank" title="Anúnciate en CABLEVISION®">
+                                    properties="link=http://www.televisatvdepaga.com/inicio/TelevisaNetworks.htm;target=_blank" title="Anúnciate en CABLEVISION®">
                                     <netuix:content>
                                         <netuix:flowLayout
                                             description="This layout uses the flowLayout control to create two columns in which placeables flow vertically."

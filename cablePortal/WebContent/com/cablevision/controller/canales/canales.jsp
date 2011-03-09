@@ -137,14 +137,7 @@
 											  			<img src="${pageContext.request.contextPath }/images/visto.png" alt="visto" />
 											  		</c:when>
 											  		<c:otherwise>
-											  			<c:choose>
-											  				<c:when test="${ pack.idpack==4 || pack.idpack==5 || pack.idpack==7 }">
-											  					-
-											  				</c:when>
-											  				<c:otherwise>
-																<img src="${pageContext.request.contextPath }/images/cruz.png" alt="cruz" />											  				
-											  				</c:otherwise>
-											  			</c:choose>
+											  			<img src="${pageContext.request.contextPath }/images/cruz.png" alt="cruz" />
 											  		</c:otherwise>
 											  	</c:choose>
 											  	</td>

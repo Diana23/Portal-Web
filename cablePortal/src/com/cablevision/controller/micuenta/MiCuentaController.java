@@ -136,16 +136,7 @@ public class MiCuentaController extends ControllerBase {
 		fecha.setTime(new Date());
 		
 		forward.addActionOutput("anio", fecha.get(Calendar.YEAR));
-		
-		String mes = "";
-		if(fecha.get(Calendar.DAY_OF_MONTH)<=9){
-			mes = formato.format(fecha.get(Calendar.MONTH));
-		}else{
-			mes = formato.format((fecha.get(Calendar.MONTH) + 1));
-		}
-		
-		if(mes.trim().equals("00"))mes="12";
-		forward.addActionOutput("mes", mes);
+		forward.addActionOutput("mes", formato.format((fecha.get(Calendar.MONTH) + 1)));
 		
 		return forward;
 	}
@@ -167,16 +158,7 @@ public class MiCuentaController extends ControllerBase {
 		fecha.setTime(new Date());
 		
 		forward.addActionOutput("anio", fecha.get(Calendar.YEAR));
-		
-		String mes = "";
-		if(fecha.get(Calendar.DAY_OF_MONTH)<=9){
-			mes = formato.format(fecha.get(Calendar.MONTH));
-		}else{
-			mes = formato.format((fecha.get(Calendar.MONTH) + 1));
-		}
-		
-		if(mes.trim().equals("00"))mes="12";
-		forward.addActionOutput("mes", mes);
+		forward.addActionOutput("mes", formato.format((fecha.get(Calendar.MONTH) + 1)));
 		
 		return forward;
 	}

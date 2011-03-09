@@ -130,10 +130,10 @@ public class TeEscuchamosController extends PageFlowController {
 			Integer maxImageSize = new Integer(getMessageResources("configuracion").getMessage("teEscuchamos.image.maxfilesize"));
 			Integer maxVideoSize = new Integer(getMessageResources("configuracion").getMessage("teEscuchamos.video.maxfilesize"));
 			if(StringUtils.contains(contentType, "image")) {
-				path = getMessageResources("configuracion").getMessage("virtual.cablevision.teEscuchamos")+"fotos/";
+				path = "c:/bea/fotos/";
 				maxSize = maxImageSize.longValue();
 			} else if(StringUtils.contains(contentType, "video")) {
-				path = getMessageResources("configuracion").getMessage("virtual.cablevision.teEscuchamos")+"videos/";
+				path = "c:/bea/videos/";
 				maxSize = maxVideoSize.longValue();
 			} else {
 				return new CustomEntry("error", "Los archivos deben ser de tipo imagen o de video");
@@ -180,16 +180,6 @@ public class TeEscuchamosController extends PageFlowController {
 		private String comentario;
 		private String challenge;
 		private String uresponse;
-		
-		private String esCliente;
-		private String numContrato;
-		private String telefono;
-		private String domicilio;
-		private String colonia;
-		private String cp;
-		private String ciudad;
-		private String estado;
-		
 		private transient FormFile foto;
 		private transient FormFile video;
 
@@ -257,84 +247,12 @@ public class TeEscuchamosController extends PageFlowController {
 			this.video = video;
 		}
 
-		public String getEsCliente() {
-			return esCliente;
-		}
-
-		public void setEsCliente(String esCliente) {
-			this.esCliente = esCliente;
-		}
-
-		public String getNumContrato() {
-			return numContrato;
-		}
-
-		public void setNumContrato(String numContrato) {
-			this.numContrato = numContrato;
-		}
-
-		public String getTelefono() {
-			return telefono;
-		}
-
-		public void setTelefono(String telefono) {
-			this.telefono = telefono;
-		}
-
-		public String getDomicilio() {
-			return domicilio;
-		}
-
-		public void setDomicilio(String domicilio) {
-			this.domicilio = domicilio;
-		}
-
-		public String getColonia() {
-			return colonia;
-		}
-
-		public void setColonia(String colonia) {
-			this.colonia = colonia;
-		}
-
-		public String getCp() {
-			return cp;
-		}
-
-		public void setCp(String cp) {
-			this.cp = cp;
-		}
-
-		public String getCiudad() {
-			return ciudad;
-		}
-
-		public void setCiudad(String ciudad) {
-			this.ciudad = ciudad;
-		}
-
-		public String getEstado() {
-			return estado;
-		}
-
-		public void setEstado(String estado) {
-			this.estado = estado;
-		}
-
 		@SuppressWarnings("unchecked")
 		public Map<String,String> getFields(){
 			Map<String,String> map = new LinkedHashMap<String,String>();
 			map.put("Nombre",this.nombre!=null?this.nombre.toUpperCase(Locale.ENGLISH):this.nombre);
 			map.put("Apellido",this.apellidos!=null?this.apellidos.toUpperCase(Locale.ENGLISH):this.apellidos);
-			map.put("Cliente",this.esCliente);
-			map.put("No_contrato",this.numContrato);
 			map.put("Email",this.email);
-			map.put("Tel_cable",this.telefono);
-			map.put("Domicilio",this.domicilio);
-			map.put("Colonia",this.colonia);
-			map.put("Ciudad",this.ciudad);
-			map.put("CP",this.cp);
-			map.put("Estado",this.estado);
 			map.put("Comentarios",this.comentario!=null?this.comentario.toUpperCase(Locale.ENGLISH):this.comentario);
 			map.put("leadType", this.asunto);
 			map.put("idStatus","0");

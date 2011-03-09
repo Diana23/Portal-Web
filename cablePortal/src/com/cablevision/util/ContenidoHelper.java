@@ -237,7 +237,6 @@ public class ContenidoHelper {
 	                	Element elemento = (Element)elementosLibre.get(i);
 	                	String contenidoLibre = elemento.getText();
 	                	contenidoLibre = UcmUtil.sustituyePageUrl(contenidoLibre, request, response);
-	                	contenidoLibre = UcmUtil.sustituyePageUrlHttps(contenidoLibre, request, response);
 	                	elemento.setText(contenidoLibre);
 	                }
 	               

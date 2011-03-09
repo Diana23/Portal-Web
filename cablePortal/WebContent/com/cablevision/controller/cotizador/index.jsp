@@ -764,7 +764,7 @@ $(function(){
 					paquete YOO Premiere 3 en 1 ó 2 en 1: $499. 
 					Tratándose de cualquier paquete YOO 2 en 1 en combinación de servicios de Internet + Telefonía, 
 					el precio de instalación es de $1,199. 
-					Precios de instalación servicios individuales: TV $399; Internet:$1,199; 
+					Precios de instalación servicios individuales: TV $399; Internet:$399; 
 					Telefonía: $1,199; línea adicional de telefonía en segunda visita: $399. 
 					Precios sujetos a cambio sin previo aviso. 
 					[*]Telefonía local Ilimitada. Sujeto a cobertura. 

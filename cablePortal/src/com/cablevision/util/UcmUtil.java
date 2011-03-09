@@ -465,57 +465,6 @@ public class UcmUtil {
 
 	}
 	
-	/**
-	 * Busca en el contenido todo las urls a paginas con formato {@link #p} y los sustituye por el link en https de 
-	 * la pagina utilizando {@link PageURL#createPageURL(HttpServletRequest, HttpServletResponse, String)}
-	 * para generarlo
-	 * @param contenido El contenido html
-	 * @param request El request
-	 * @param response El response
-	 * @return El contenido con los links de paginas con urls reales
-	 */
-	public static String sustituyePageUrlHttps(String contenido,HttpServletRequest request, HttpServletResponse response){
-		StringBuilder builder = new StringBuilder();
-
-		int lastEnd = 0;
-		
-		contenido = contenido.replaceAll("https://_pageLabel", "_pageLabel");
-		contenido = contenido.replaceAll("_contextPath", request.getContextPath());
-		
-		Matcher m = p.matcher(contenido); // get a matcher object
-		while(m.find()) {
-			String[] link = m.group().substring(0, m.group().length()-1).split("\\?");
-			String pageLabel = StringUtils.substringAfter(link[0],"=");
-			PageURL url = null;
-			
-			url = PageURL.createPageURL(request, response, pageLabel);
-			url.setTemplate("https");
-			url.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-			url.setForcedAmpForm(false);
-
-			//parametros que vienen en la url
-			if(link.length>=2){
-				String[] params = link[1].split("&");
-	        	for(int j=0; j<params.length; j++){
-	        		if( StringUtils.isNotEmpty(StringUtils.substringBefore(params[j], "=")) &&
-	        			StringUtils.isNotEmpty(StringUtils.substringAfter(params[j], "=")) ){
-	        			url.addParameter(StringUtils.substringBefore(params[j], "="), StringUtils.substringAfter(params[j], "="));
-	        		}
-	        	}
-			}
-        	
-			builder.append(contenido.substring(lastEnd,m.start()));
-			builder.append("\""+url.toString()+"\"");
-			
-			lastEnd = m.end();
-
-		}
-		builder.append(contenido.substring(lastEnd));
-
-		return builder.toString();
-
-	}
-	
 	/*static private String getNewDocName(String dDocName){
 		String newDocName=dDocName;
 		for(int i = dDocName.length(); i<6;i++){

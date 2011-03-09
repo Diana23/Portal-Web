@@ -27,7 +27,7 @@
 		
 		<li class="${rowClass}">
 			<strong>${contador}</strong>
-			<a title="${masvisto.titulo}" class="thickbox" href="${urlDetalle}&TB_iframe=true&modal=true&height=540&width=600">
+			<a title="${masvisto.titulo}" class="thickbox" href="${urlDetalle}&modal=true&height=540&width=600">
 				<strong>${masvisto.titulo}</strong>
 				<br/>
 			</a>

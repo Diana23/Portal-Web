@@ -41,50 +41,15 @@
 						<div class="text-side marg-rig15 margin-bot0">
 							<netui:textBox dataSource="actionForm.nombre" size="48" tagId="form_nombre"/>
 						</div>
-						<label class="label-solos" for="form_esCliente">¿Eres cliente de CABLEVISION®? (*)</label><br>
-						<div class="text-side-sinborder marg-rig15 margin-bot0">
-							<netui:radioButtonGroup dataSource="actionForm.esCliente" defaultValue="Si">
-								<netui:radioButtonOption value="Si" styleClass="marg-top10" tagId="campo_Cliente"/>
-								<netui:radioButtonOption value="No" styleClass="marg-top10" tagId="campo_Cliente"/>
-							</netui:radioButtonGroup>
-						</div>
 						<label class="label-solos" for="form_email">Correo electr&oacute;nico (*)</label><br>
 						<div class="text-side marg-rig15 margin-bot0">
 							<netui:textBox dataSource="actionForm.email" size="48" tagId="form_email"/>
-						</div>
-						<label class="label-solos" for="form_domicilio">Domicilio </label><br>
-						<div class="text-side marg-rig15 margin-bot0">
-							<netui:textBox dataSource="actionForm.domicilio" size="48" tagId="form_domicilio"/>
-						</div>
-						<label class="label-solos" for="form_cp">Código Postal (*)</label><br>
-						<div class="text-side marg-rig15 margin-bot0">
-							<netui:textBox dataSource="actionForm.cp" size="48" tagId="form_cp"/>
-						</div>
-						<label class="label-solos" for="form_estado">Estado </label><br>
-						<div class="text-side marg-rig15 margin-bot0">
-							<netui:textBox dataSource="actionForm.estado" size="48" tagId="form_estado"/>
 						</div>
 					</div>							
 					<div class="span-8 ">
 						<netui:label styleClass="label-solos" value="Apellidos (*)" for="form_apellidos"/><br>
 						<div class="text-side marg-rig15 margin-bot0">
 							<netui:textBox dataSource="actionForm.apellidos" size="48" tagId="form_apellidos"/>
-						</div>
-						<label class="label-solos" for="form_numContrato">No. Contrato</label><br>
-						<div class="text-side marg-rig15 margin-bot0" id="div_No_contrato">
-							<netui:textBox dataSource="actionForm.numContrato" size="48" tagId="form_numContrato"/>
-						</div>
-						<netui:label styleClass="label-solos" value="Teléfono " for="form_telefono"/><br>
-						<div class="text-side marg-rig15 margin-bot0">
-							<netui:textBox dataSource="actionForm.telefono" size="48" tagId="form_telefono"/>
-						</div>
-						<netui:label styleClass="label-solos" value="Colonia " for="form_colonia"/><br>
-						<div class="text-side marg-rig15 margin-bot0">
-							<netui:textBox dataSource="actionForm.colonia" size="48" tagId="form_colonia"/>
-						</div>
-						<netui:label styleClass="label-solos" value="Ciudad " for="form_ciudad"/><br>
-						<div class="text-side marg-rig15 margin-bot0">
-							<netui:textBox dataSource="actionForm.ciudad" size="48" tagId="form_ciudad"/>
 						</div>
 						<netui:label styleClass="label-solos" value="Comentario (*)" for="form_comentario" /><br>
 						<div class="text-side marg-rig15">
@@ -163,15 +128,6 @@
 	<div class="clear"></div>				
 </div>
 <script type="text/javascript">
-	$('input[name="campo_Cliente"]').click(function(){
-		var field1 = $('#div_No_contrato');
-		if(this.value=='Si'){
-			field1.show();
-		}else{
-			field1.hide();
-		}
-	})
-
 	$(document).ready(function() {
 		var challengeVal = $('#recaptcha_challenge_field').val();
 		$('#actionForm_challenge').val(challengeVal);

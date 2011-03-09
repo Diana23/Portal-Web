@@ -46,7 +46,7 @@
 		   	 Date fecha = new Date();
 		   	 Calendar calendario = Calendar.getInstance();
 		   	 calendario.setTime(fecha);
-		   	 int anioInicio = calendario.get(Calendar.YEAR)-1;
+		   	 int anioInicio = calendario.get(Calendar.YEAR)-10;
 		   	 
 		   	 for(int anio = calendario.get(Calendar.YEAR); anio>=anioInicio; anio--){
 		   %>

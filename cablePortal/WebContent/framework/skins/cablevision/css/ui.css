@@ -374,19 +374,7 @@ width:54px;
 	padding: 				3px 0 3px 27px;
 	margin:					10px 20px 0 0;
 	}
-
-.text-side-sinborder { 
-	background-color: 		#fff;
-	-moz-border-radius: 	3px;
-	-webkit-border-radius: 	3px;
-	behavior:				url(border-radius.htc);
-	padding: 				3px 0 3px 10px;
-	margin-bottom:			15px;	
-	position:				relative;
-	top:					-7px;
-	left:					0;
-}
-
+	
 	.mini-lupa {
 		background:	url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -698px -8px transparent;
 		border:		0 none;

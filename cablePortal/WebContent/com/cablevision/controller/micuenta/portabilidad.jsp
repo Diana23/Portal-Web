@@ -16,23 +16,16 @@
 	BIENVENID@ <jsp:expression>nombreContacto</jsp:expression>
 </div>
 
-<div class="content-pago">
- <h3 class="color-orange">Tu número de teléfono no cambia, tu estado de cuenta sí.</h3>
- <br /><br />
- <strong>Conoce en qu&eacute; etapa est&aacute; la portabilidad de tu n&uacute;mero tel&eacute;fonico.</strong>
- <br /><br />
-
-	<netui:label value="Ingresa tu número telefónico de 10 digitos:"/>
-	<input type="text" id="telefono" maxlength="10" onkeypress="return soloNumeros(event);" class="selectwhitoutform big"/>
-	<div id="verPortabilidad"></div>
-	<a title="Consultar" id="consultar" class="btn-small fix-portabi" href="#" onclick="verPorta(this);return false;">Consultar</a>
-	<br /><br />
-</div>
-
 <c:set var="contenidoId" value="CV004541" scope="request"/>
 <c:set var="estructuraId" value="CV001950" scope="request"/>
 <c:set var="templateId" value="CV001951" scope="request"/>
 <jsp:include page="/util/contenido/renderizarContenido.jsp" flush="true"/>
+
+
+<netui:label value="Ingresa tu número telefónico de 10 dígitos para consultar el estatus de tu portacion:"/><br/>
+<input type="text" id="telefono" size="10" maxlength="10" onkeypress="return soloNumeros(event);"/>
+<div id="verPortabilidad"></div>
+<a title="Consultar" id="consultar" class="btn-small margin-bot15 fright" href="#" onclick="verPorta(this);return false;">Consultar</a>
 
 <script type="text/javascript">
 
