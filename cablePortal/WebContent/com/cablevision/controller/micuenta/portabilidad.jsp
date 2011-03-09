@@ -17,7 +17,7 @@
 </div>
 
 <div class="content-pago">
- <h3 class="color-orange">Tu número de teléfono no cambia, tu estado de cuenta sí.</h3>
+ <h3 class="color-orange">Tu n&uacute;mero de tel&eacute;fono no cambia, tu estado de cuenta s&iacute;.</h3>
  <br /><br />
  <strong>Conoce en qu&eacute; etapa est&aacute; la portabilidad de tu n&uacute;mero tel&eacute;fonico.</strong>
  <br /><br />
