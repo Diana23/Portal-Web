@@ -4,31 +4,31 @@
     <url-template>
         <name>https</name>
         <value>
-            http://localhost/{url:path}?{url:queryString}&amp;{url:currentPage}
+            https://sitioseguro.cablevision.net.mx/{url:path}?{url:queryString}&amp;{url:currentPage}
         </value>
     </url-template>
     <url-template>
         <name>default</name>
         <value>
-            http://localhost/{url:path}?{url:queryString}&amp;{url:currentPage}
+            http://www.cablevision.net.mx/{url:path}?{url:queryString}&amp;{url:currentPage}
         </value>
     </url-template>
     <url-template>
         <name>urlApp</name>
         <value>
-            http://localhost/{url:path}?{url:queryString}
+            http://www.cablevision.net.mx/{url:path}?{url:queryString}
         </value>
     </url-template>
     <url-template>
         <name>defaultDesktop</name>
         <value>
-            http://localhost/cablePortal/cablevision.portal?{url:queryString}&amp;{url:currentPage}
+        	http://www.cablevision.net.mx/appmanager/cablevision/portal?{url:queryString}&amp;{url:currentPage}
         </value>
     </url-template>
     <url-template>
         <name>home</name>
         <value>
-            http://localhost/cablePortal/cablevision.portal?
+            http://www.cablevision.net.mx/appmanager/cablevision/portal
         </value>
     </url-template>
 </url-template-config>

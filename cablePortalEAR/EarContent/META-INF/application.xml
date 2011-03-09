@@ -5,7 +5,7 @@
 	<module id="WebModule_1281650733099">
 		<web>
 			<web-uri>cablePortal.war</web-uri>
-			<context-root>cablePortal</context-root>
+			<context-root>/</context-root>
 		</web>
 	</module>
 </application>

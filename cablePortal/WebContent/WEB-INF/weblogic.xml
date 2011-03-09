@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wls:weblogic-web-app xmlns:wls="http://www.bea.com/ns/weblogic/weblogic-web-app" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://www.bea.com/ns/weblogic/weblogic-web-app http://www.bea.com/ns/weblogic/weblogic-web-app/1.0/weblogic-web-app.xsd">
     <wls:weblogic-version>10.3</wls:weblogic-version>
-    <wls:context-root>cablePortal</wls:context-root>
+    <wls:context-root>/</wls:context-root>
     
+    <charset-params> 
+	    <wls:input-charset>
+	    	<resource-path>/*</resource-path>
+	    	<wls:java-charset-name>UTF-8</wls:java-charset-name>
+	    </wls:input-charset>
+	</charset-params>
     <wls:session-descriptor>
-		<wls:timeout-secs>1200</wls:timeout-secs>
+		<wls:timeout-secs>300</wls:timeout-secs>
+		<wls:cookie-domain>
+			.cablevision.net.mx
+		</wls:cookie-domain> 
+		<wls:persistent-store-type>
+			replicated
+		</wls:persistent-store-type>
 	</wls:session-descriptor>
     <wls:virtual-directory-mapping>
-     <wls:local-path>/export/home/web/cablevisionPortal</wls:local-path>
+     <wls:local-path>/portal/documentacion/ordenAdministrativa</wls:local-path>
      <wls:url-pattern>/archivos/*</wls:url-pattern>
    </wls:virtual-directory-mapping>
     <wls:virtual-directory-mapping>
-     <wls:local-path>/export/home/web/cablevisionPortal/archivos</wls:local-path>
+     <wls:local-path>/portal/documentacion/archivos</wls:local-path>
+
      <wls:url-pattern>/archivosPerfil/*</wls:url-pattern>
    </wls:virtual-directory-mapping>
     <wls:library-ref>

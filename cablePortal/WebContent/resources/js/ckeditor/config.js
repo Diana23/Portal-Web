@@ -8,7 +8,7 @@ CKEDITOR.editorConfig = function( config )
 	// Define changes to default configuration here. For example:
 	  config.language = 'es'; 
       config.uiColor = '# AADC6E';
-      config.contentsCss = ['ckeditor.css','/cablePortal/framework/skins/cablevision/css/screenfix.css','/cablePortal/framework/skins/cablevision/css/layout.css','/cablePortal/framework/skins/cablevision/css/ui.css','/cablePortal/framework/skins/cablevision/css/thickbox.css'];
+      config.contentsCss = ['ckeditor.css','/framework/skins/cablevision/css/screenfix.css','/framework/skins/cablevision/css/layout.css','/framework/skins/cablevision/css/ui.css','/framework/skins/cablevision/css/thickbox.css'];
 
 	config.toolbar = 'Full';
 	config.scriptAgregado = false;
