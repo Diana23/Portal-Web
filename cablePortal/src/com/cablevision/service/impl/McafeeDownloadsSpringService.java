@@ -20,6 +20,7 @@ import com.cablevision.vo.CvMcafeeUser;
 import com.cablevision.vo.CvMcafeesuscribed;
 import com.cablevision.service.IMcafeeDownloadsService;
 import com.cablevision.dao.IMcafeeDownloadsDao;
+import com.cablevision.vo.CvMcafee;
 
 /**
  * The service class for the entities: CvMcafeeDownload, CvMcafeeReset, CvMcafeeUser.
@@ -189,6 +190,16 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService {
 			throw new Exception("persistCvMcafeeUser failed: " + e.getMessage());
 		}
 	}
+	
+	
+	public void updateCvMcafeeUserStatus(Long id, String status) throws Exception {
+		try {
+			getDao().updateCvMcafeeUserStatus(id, status);
+		} catch (RuntimeException e) {
+			throw new Exception("updateCvMcafeeUserStatus failed: " + e.getMessage());
+		}
+	}
+	
 	/**
 	 * Remove the given persistent instance.
 	 */
@@ -313,5 +324,76 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService {
 	@Override
 	public void persistCvMcafeesuscribed(CvMcafeesuscribed suscribed){
 		getDao().persistCvMcafeesuscribed(suscribed);
+	}
+	/**
+	 * Find an entity by its id (primary key).
+	 * @return  The found entity instance or null if the entity does not exist.
+	 */
+	public CvMcafee findCvMcafeeById(Long id) throws Exception {
+		try {
+			return getDao().findCvMcafeeById(id);
+		} catch (RuntimeException e) {
+			throw new Exception("findCvMcafeeById failed with the id " + id
+					+ ": " + e.getMessage());
+		}
+	}
+	/**
+	 * Return all persistent instances of the <code>CvMcafee</code> entity.
+	 */
+	public List<CvMcafee> findAllCvMcafees() throws Exception {
+		try {
+			return getDao().findAllCvMcafees();
+		} catch (RuntimeException e) {
+			throw new Exception("findAllCvMcafees failed: " + e.getMessage());
+		}
+	}
+	/**
+	 * Return the persistent entities matching the given example entity.
+	 */
+	@SuppressWarnings("unchecked")
+	public List<CvMcafee> findCvMcafeesByExample(CvMcafee cvMcafee)
+			throws Exception {
+		try {
+			return getDao().findByExample(cvMcafee);
+		} catch (RuntimeException e) {
+			throw new Exception("findCvMcafeesByExample failed: "
+					+ e.getMessage());
+		}
+	}
+	/**
+	 * Make the given instance managed and persistent.
+	 */
+	public void persistCvMcafee(CvMcafee cvMcafee) throws Exception {
+		try {
+			getDao().persistCvMcafee(cvMcafee);
+		} catch (RuntimeException e) {
+			throw new Exception("persistCvMcafee failed: " + e.getMessage());
+		}
+	}
+	/**
+	 * Remove the given persistent instance.
+	 */
+	public void removeCvMcafee(CvMcafee cvMcafee) throws Exception {
+		try {
+			getDao().removeCvMcafee(cvMcafee);
+		} catch (RuntimeException e) {
+			throw new Exception("removeCvMcafee failed: " + e.getMessage());
+		}
+	}
+	
+	public void updateCvMcafeeStatus(Long id, String status) throws Exception {
+		try {
+			getDao().updateCvMcafeeStatus(id, status);
+		} catch (RuntimeException e) {
+			throw new Exception("updateCvMcafeeStatus failed: " + e.getMessage());
+		}
+	}
+	
+	public CvMcafee getMcafeeByAccount(Long account) throws Exception {
+		try {
+			return getDao().getMcafeeByAccount(account);
+		} catch (RuntimeException e) {
+			throw new Exception("getMcafeeByAccount failed: " + e.getMessage());
+		}
 	}
 }

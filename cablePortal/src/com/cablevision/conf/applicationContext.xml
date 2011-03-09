@@ -54,6 +54,7 @@
 				<value>com/cablevision/vo/CvMcafeeReset.hbm.xml</value>
 				<value>com/cablevision/vo/CvMcafeeDownload.hbm.xml</value>
 				<value>com/cablevision/vo/CvMcafeesuscribed.hbm.xml</value>
+				<value>com/cablevision/vo/CvMcafee.hbm.xml</value>
 				
 				<value>com/cablevision/vo/CvBanco.hbm.xml</value>
 				<value>com/cablevision/vo/CvEserviceN1.hbm.xml</value>

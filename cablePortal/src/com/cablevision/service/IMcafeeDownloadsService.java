@@ -7,6 +7,7 @@ import com.cablevision.vo.CvMcafeeDownload;
 import com.cablevision.vo.CvMcafeeReset;
 import com.cablevision.vo.CvMcafeeUser;
 import com.cablevision.vo.CvMcafeesuscribed;
+import com.cablevision.vo.CvMcafee;
 
 /**
  * The service interface for the entities: CvMcafeeDownload, CvMcafeeReset, CvMcafeeUser.
@@ -69,6 +70,9 @@ public interface IMcafeeDownloadsService {
 	 * Make the given instance managed and persistent.
 	 */
 	public void persistCvMcafeeUser(CvMcafeeUser cvMcafeeuser) throws Exception;
+	
+	public void updateCvMcafeeUserStatus(Long id, String status) throws Exception;
+	
 	/**
 	 * Remove the given persistent instance.
 	 */
@@ -89,4 +93,30 @@ public interface IMcafeeDownloadsService {
 	CvMcafeesuscribed getSuscribdByAccount(Integer account);
 	void aumentarDownload(String account);
 	void persistCvMcafeesuscribed(CvMcafeesuscribed suscribed);
+	/**
+	 * Find an entity by its id (primary key).
+	 * @return  The found entity instance or null if the entity does not exist.
+	 */
+	public CvMcafee findCvMcafeeById(Long id) throws Exception;
+	/**
+	 * Return all persistent instances of the <code>CvMcafee</code> entity.
+	 */
+	public List<CvMcafee> findAllCvMcafees() throws Exception;
+	/**
+	 * Return the persistent entities matching the given example entity.
+	 */
+	public List<CvMcafee> findCvMcafeesByExample(CvMcafee cvMcafee)
+			throws Exception;
+	/**
+	 * Make the given instance managed and persistent.
+	 */
+	public void persistCvMcafee(CvMcafee cvMcafee) throws Exception;
+	/**
+	 * Remove the given persistent instance.
+	 */
+	public void removeCvMcafee(CvMcafee cvMcafee) throws Exception;
+	
+	public void updateCvMcafeeStatus(Long id, String status) throws Exception;
+	
+	public CvMcafee getMcafeeByAccount(Long account) throws Exception;
 }

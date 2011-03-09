@@ -3,8 +3,6 @@ package com.cablevision.dao.impl;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -15,11 +13,12 @@ import org.hibernate.criterion.Property;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.cablevision.dao.IMcafeeDownloadsDao;
+import com.cablevision.vo.CvMcafee;
 import com.cablevision.vo.CvMcafeeDownload;
 import com.cablevision.vo.CvMcafeeReset;
 import com.cablevision.vo.CvMcafeeUser;
 import com.cablevision.vo.CvMcafeesuscribed;
-import com.cablevision.dao.IMcafeeDownloadsDao;
 
 /**
  * The DAO class for the entities: CvMcafeeDownload, CvMcafeeReset,
@@ -252,6 +251,15 @@ public class McafeeDownloadsHibernateDao extends HibernateDaoSupport implements
 	public void persistCvMcafeeUser(CvMcafeeUser cvMcafeeuser) {
 		getHibernateTemplate().saveOrUpdate(cvMcafeeuser);
 	}
+	
+	public void updateCvMcafeeUserStatus(Long id, String status){
+		Query query = getSession(true).createQuery("update CvMcafeeUser set musCvstatus = :STATUS" +
+		" where musId = :ID");
+		query.setParameter("STATUS", status);
+		query.setParameter("ID", id);
+		query.executeUpdate();
+	}
+	
 	@Override
 	public void persistCvMcafeesuscribed(CvMcafeesuscribed suscribed) {
 		getHibernateTemplate().saveOrUpdate(suscribed);
@@ -309,6 +317,56 @@ public class McafeeDownloadsHibernateDao extends HibernateDaoSupport implements
 				queryString, account);
 		if (mcafeeReset.size() > 0)
 			return mcafeeReset.get(0);
+		return null;
+	}
+
+	/**
+	 * Find an entity by its id (primary key).
+	 * @return  The found entity instance or null if the entity does not exist.
+	 */
+	public CvMcafee findCvMcafeeById(Long id) {
+		return (CvMcafee) getHibernateTemplate().load(CvMcafee.class, id);
+	}
+
+	/**
+	 * Return all persistent instances of the <code>CvMcafee</code> entity.
+	 */
+	@SuppressWarnings("unchecked")
+	public List<CvMcafee> findAllCvMcafees() {
+		return getHibernateTemplate().loadAll(CvMcafee.class);
+	}
+
+	/**
+	 * Make the given instance managed and persistent.
+	 */
+	public void persistCvMcafee(CvMcafee cvMcafee) {
+		getHibernateTemplate().saveOrUpdate(cvMcafee);
+	}
+
+	/**
+	 * Remove the given persistent instance.
+	 */
+	public void removeCvMcafee(CvMcafee cvMcafee) {
+		getHibernateTemplate().delete(cvMcafee);
+	}
+	
+	/**
+	 * Cambiar el estatus de un cvmacafee dado
+	 */	
+	public void updateCvMcafeeStatus(Long id, String status){
+		Query query = getSession(true).createQuery("update CvMcafee set mcaCvstatus = :STATUS" +
+		" where mcaId = :ID");
+		query.setParameter("STATUS", status);
+		query.setParameter("ID", id);
+		query.executeUpdate();
+	}
+	
+	public CvMcafee getMcafeeByAccount(Long account) {
+		String queryString = "from CvMcafee where mcaAccount=?";
+		List<CvMcafee> mcafee = getHibernateTemplate().find(
+				queryString, account);
+		if (mcafee.size() > 0)
+			return mcafee.get(0);
 		return null;
 	}
 }

@@ -8,6 +8,7 @@ import com.cablevision.vo.CvMcafeeDownload;
 import com.cablevision.vo.CvMcafeeReset;
 import com.cablevision.vo.CvMcafeeUser;
 import com.cablevision.vo.CvMcafeesuscribed;
+import com.cablevision.vo.CvMcafee;
 
 /**
  * The DAO interface for the entities: CvMcafeeDownload, CvMcafeeReset, CvMcafeeUser.
@@ -70,6 +71,12 @@ public interface IMcafeeDownloadsDao {
 	 * Make the given instance managed and persistent.
 	 */
 	public void persistCvMcafeeUser(CvMcafeeUser cvMcafeeuser);
+	
+	/**
+	 * Cambiar el status de un usuario
+	 */
+	public void updateCvMcafeeUserStatus(Long id, String status);
+	
 	/**
 	 * Remove the given persistent instance.
 	 */
@@ -88,4 +95,25 @@ public interface IMcafeeDownloadsDao {
 	public List<CvMcafeesuscribed> getSuscripciones(Date fechaInicio,Date fechaFinal, String status,int inicio,int maxResults);
 	public void aumentarDownload(String account);
 	public void persistCvMcafeesuscribed(CvMcafeesuscribed suscribed);
+	/**
+	 * Find an entity by its id (primary key).
+	 * @return  The found entity instance or null if the entity does not exist.
+	 */
+	public CvMcafee findCvMcafeeById(Long id);
+	/**
+	 * Return all persistent instances of the <code>CvMcafee</code> entity.
+	 */
+	public List<CvMcafee> findAllCvMcafees();
+	/**
+	 * Make the given instance managed and persistent.
+	 */
+	public void persistCvMcafee(CvMcafee cvMcafee);
+	/**
+	 * Remove the given persistent instance.
+	 */
+	public void removeCvMcafee(CvMcafee cvMcafee);
+	
+	public void updateCvMcafeeStatus(Long id, String status);
+	
+	public CvMcafee getMcafeeByAccount(Long account);
 }
