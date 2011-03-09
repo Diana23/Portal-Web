@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -16,11 +17,14 @@ import java.util.Map;
 import java.util.Random;
 import java.util.TimeZone;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.xml.rpc.ServiceException;
 
 import org.apache.beehive.netui.pageflow.Forward;
-import org.apache.beehive.netui.pageflow.PageFlowController;
+import org.apache.beehive.netui.pageflow.PageFlowUtils;
 import org.apache.beehive.netui.pageflow.annotations.Jpf;
+import org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.solr.client.solrj.SolrQuery.ORDER;
 import org.apache.solr.client.solrj.response.FacetField;
@@ -28,11 +32,20 @@ import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 import org.apache.struts.upload.FormFile;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.WebApplicationContext;
 
 import com.bea.portlet.GenericURL;
 import com.bea.portlet.PageURL;
+import com.cablevision.ToInterfase;
 import com.cablevision.carga.CargaExcel;
 import com.cablevision.controller.base.ControllerBase;
+import com.cablevision.util.ConfigurationHelper;
+import com.cablevision.util.Constantes;
+import com.cablevision.util.MailUtil;
+import com.cablevision.util.ResponseToGetPPV;
+import com.cablevision.util.ResponseToPurchasePPV;
+import com.cablevision.util.RespuestaToMyAccount;
 import com.cablevision.util.SolrHelper;
 
 //Substitute with this annotation if nested pageflow
@@ -54,6 +67,7 @@ import com.cablevision.util.SolrHelper;
 		@Jpf.SimpleAction(name = "ruletaSimpleTodos", path = "ruletaSimpleTodos.jsp") }, multipartHandler = Jpf.MultipartHandler.memory)
 public class EntretenimientoController extends ControllerBase {
 	private static final long serialVersionUID = 1L;
+	transient ToInterfase vitriaClient;
 
 	@Jpf.Action(forwards = { @Jpf.Forward(name = "success", path = "ruleta.jsp") })
 	protected Forward begin(EntretenimientoFormBean form) throws Exception {
@@ -420,22 +434,183 @@ public class EntretenimientoController extends ControllerBase {
 		return forward;
 	}
 
-	@Jpf.Action(forwards = { @Jpf.Forward(name = "detalle", path = "detalle.jsp") })
+	@Jpf.Action(forwards = { @Jpf.Forward(name = "detalle", path = "detalle.jsp")})
 	public Forward mostrarDetalle(EntretenimientoFormBean form) {
 		Forward forward = new Forward("detalle");
 
 		SolrDocumentList result = SolrHelper.query(
 				"id:\"" + form.getId() + "\"").getResults();
-
+		
 		if (result != null && result.size() > 0) {
 			SolrDocument detalle = result.get(0);
-
+			
+			//si viene de programación de ppv, necesita ir por el detalle agregado en la ruleta
+			if ( "programacion.ppv".equals(form.getTipo()) ) {
+				SolrDocumentList resultPpv = SolrHelper.query(
+						"titulo:\"" + detalle.getFieldValue("titulo") + "\"" +
+						"AND tipo:ppv AND genero: \"" +detalle.getFieldValue("genero")+ "\" ").getResults();
+				if(resultPpv != null && resultPpv.size() > 0)
+					detalle = resultPpv.get(0);
+			}
+			
+			
 			forward.addActionOutput("detalle", detalle);
-		}
+			getRequest().setAttribute("id", form.getId());
+			getRequest().setAttribute("tipo", form.getTipo());
+			
+			if ( ( "ppv".equals(form.getTipo()) || "programacion.ppv".equals(form.getTipo()) ) ){
+				SolrDocumentList horariosPpv = SolrHelper.query("tipo:programacion.ppv" +
+												" AND titulo:\"" + detalle.getFieldValue("titulo") + "\"" +
+												" AND (fechainiVenta:[* TO NOW] AND fechafinVenta:[NOW TO *])",
+												"fechainiVenta").getResults();
 
+				getRequest().setAttribute("ppv", horariosPpv);
+				forward.addActionOutput("msg", PageFlowUtils.getActionOutput("ppvDuplicado", getRequest()));
+			}
+		}
+		
 		return forward;
 	}
 
+	/**
+	 * Metodos para verificar si un ppv se puede contratar
+	 */
+	@Jpf.Action(forwards = { @Jpf.Forward(name = "success", path = "ppv/informacionVenta.jsp"),
+							 @Jpf.Forward(name = "error", action="mostrarDetalle"),
+							 @Jpf.Forward(name = "login", action="../login/showLogin")})
+	public Forward verificarContratar(PpvFormBean form) throws Exception{
+		Forward forward = new Forward("error"); //
+		
+		ServletRequest request = ScopedServletUtils.getOuterServletRequest(getRequest());
+		
+		String idSolr = request.getParameter("idSolr");
+		String idIni = request.getParameter("id");
+		String tipoIni = request.getParameter("tipo");
+		
+		String userAccount = getSession().getAttribute(Constantes.SESSION_ACCOUNT_ID)!=null?
+							 getSession().getAttribute(Constantes.SESSION_ACCOUNT_ID).toString():"";
+		if(StringUtils.isNotBlank(userAccount)){
+			RespuestaToMyAccount response = getVitriaClient().getProjects_CVNPW_Initial_ToInterfase().toMyAccount(userAccount.trim());
+			if(response != null){
+				if ( response.getEquipos()!=null && response.getEquipos().length > 0 ) {
+					
+					
+					SolrDocumentList result = SolrHelper.query(
+							"id:\"" + idSolr + "\"").getResults();
+					
+					if (result != null && result.size() > 0) {
+						SolrDocument detalle = result.get(0);
+						
+						SimpleDateFormat sdfFecha = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+						
+						form.setFechaFin(detalle.getFieldValue("fechafin")!=null ? 
+										sdfFecha.format((Date)detalle.getFieldValue("fechafin")):"");
+						form.setFechaIni(detalle.getFieldValue("fechafin")!=null ? 
+										sdfFecha.format((Date)detalle.getFieldValue("fechaini")):"");
+						form.setIdEvento((String)detalle.getFieldValue("eventoid"));
+						form.setTitulo((String)detalle.getFieldValue("titulo"));
+						form.setCanal((String)detalle.getFieldValue("canal"));
+						form.setPrecio(detalle.getFieldValue("precio")!=null?(detalle.getFieldValue("precio")).toString():"");
+						
+						ResponseToGetPPV ppv = getVitriaClient().getProjects_CVNPW_Initial_ToInterfase().toGetPPV(
+								   response.getCvNumberAccount(), form.getFechaIni(), 
+								   form.getFechaFin(), form.getIdEvento());
+							if(ppv.getPpvEvent().equalsIgnoreCase("N")){
+								//forward.addActionOutput("ppvDuplicado", ppv.getError().getCvErrorMessage());
+								forward.addActionOutput("ppvDuplicado", "Ya tiene contratado este evento, seleccione otro");
+								EntretenimientoFormBean formIni = new EntretenimientoFormBean();
+								formIni.setId(idIni);
+								formIni.setTipo(tipoIni);
+								forward.addOutputForm(formIni);
+								return forward;
+							}
+							
+							
+							forward = new Forward("success");
+							getRequest().setAttribute("usuario", response);
+							getRequest().setAttribute("fechaini", sdfFecha.parse(form.getFechaIni()));
+							getRequest().setAttribute("fechafin", sdfFecha.parse(form.getFechaFin()));
+							getRequest().setAttribute("equipos", response.getEquipos()[0]!=null?response.getEquipos()[0].getEquipo():"");
+							getRequest().setAttribute("ppv",form);
+							getRequest().setAttribute("idSolr",idSolr);
+						}else{
+							forward.addActionOutput("ppvDuplicado", "No tiene el servicio de Internet contratado.");
+							EntretenimientoFormBean formIni = new EntretenimientoFormBean();
+							formIni.setId(idIni);
+							formIni.setTipo(tipoIni);
+							forward.addOutputForm(formIni);
+							return forward;
+						}
+					}
+			}
+		}else{
+			forward = new Forward("login");
+			getSession().setAttribute(Constantes.CABLEVISION_URL, getRequest().getContextPath()+
+					"/com/cablevision/controller/entretenimiento/verificarContratar.do?modal=true&height=430&width=520"+
+					"&idSolr="+idSolr+"&id="+idIni+"&tipo="+tipoIni);
+		}
+		return forward;
+	}
+	
+	/**
+	 * Metodos para mostrar los datos de confirmación del ppv a comprarse
+	 */
+	@Jpf.Action(forwards = { @Jpf.Forward(name = "success", path = "ppv/confirmacionCompra.jsp")})
+	public Forward showConfirmacion(PpvFormBean form) throws Exception{
+		Forward forward = new Forward("success");
+		
+		ServletRequest request = ScopedServletUtils.getOuterServletRequest(getRequest());
+		
+		SimpleDateFormat sdfFecha = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+		getRequest().setAttribute("fechaini", sdfFecha.parse(form.getFechaIni()));
+		getRequest().setAttribute("fechafin", sdfFecha.parse(form.getFechaFin()));
+		getRequest().setAttribute("ppv",form);
+		getRequest().setAttribute("nombre",request.getParameter("nombre"));
+		getRequest().setAttribute("cuenta",request.getParameter("cuenta"));
+		getRequest().setAttribute("idSolr",request.getParameter("idSolr"));
+		
+		return forward;
+	}
+	
+	/**
+	 * Metodos para contratar el ppv elegido
+	 */
+	@Jpf.Action(forwards = { @Jpf.Forward(name = "success", path = "ppv/confirmacion.jsp"),
+						     @Jpf.Forward(name = "error", path = "ppv/mensaje.jsp")
+						   })
+	public Forward contratar(PpvFormBean form) throws Exception{
+		Forward forward = new Forward("success");
+		ServletRequest request = ScopedServletUtils.getOuterServletRequest(getRequest());
+		String cuenta = request.getParameter("cuenta");
+		
+		ResponseToPurchasePPV response = getVitriaClient().getProjects_CVNPW_Initial_ToInterfase().toPurchasePPV(cuenta, form.getUbicacion(), form.getIdEquipo(),
+				form.getEquipoSerie(), form.getIdEvento(), form.getFechaIni());
+		
+		if ( response!=null && response.getError()!=null && !"0".equals(response.getError().getCvErrorCode()) ) {
+			forward = new Forward("error");
+			forward.addActionOutput("msg", response.getError().getCvErrorMessage());
+			
+			//Mandar Error a la hora de contratar
+			String userAccount = getSession().getAttribute(Constantes.SESSION_ACCOUNT_ID)!=null?
+					 getSession().getAttribute(Constantes.SESSION_ACCOUNT_ID).toString():"";
+			RespuestaToMyAccount responseAcount = getVitriaClient().getProjects_CVNPW_Initial_ToInterfase().toMyAccount(userAccount.trim());
+			responseAcount.getCvMailAddres();		
+			
+			Map<String, String> values = new HashMap<String, String>();
+			values.put("nombre", responseAcount.getNombreContacto()+" "+responseAcount.getApellidoPaterno()+" "+responseAcount.getApellidoMaterno());
+			values.put("email", responseAcount.getCorreoContacto());
+			values.put("noCuenta", responseAcount.getCvNumberAccount());
+			values.put("errorCode", response.getError().getCvErrorCode());
+			
+			
+			MailUtil.sendMail(ConfigurationHelper.getPropiedad("correo.ppv.subject",null), ConfigurationHelper.getPropiedad("correo.ppv.to",null), 
+					ConfigurationHelper.getPropiedad("correo.ppv.from",null), 
+					ConfigurationHelper.getPropiedad("correo.ppv.templateId",null), values);
+			
+		}
+		return forward;
+	}
+	
 	/**
 	 * Guarda un archivo en el servidor a partir de un inputstream
 	 * 
@@ -487,7 +662,23 @@ public class EntretenimientoController extends ControllerBase {
 			close(is, bos);
 		}
 	}
+	
+	/**
+	 * Va a vitria por la cuenta del usuario y la pone en sesion
+	 * @throws RemoteException
+	 * @throws ServiceException
+	 */
+	public ToInterfase getVitriaClient() {
+		if(vitriaClient==null){
+			ApplicationContext context = (ApplicationContext)getRequest().getSession().getServletContext().getAttribute(
+					WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
+			vitriaClient = (ToInterfase)context.getBean("VitriaClient");
 
+		}
+		return vitriaClient;
+	}
+
+	
 	/**
 	 * Metodo que cierra todos los streams usados por el guardado del archivo
 	 * 
@@ -603,4 +794,75 @@ public class EntretenimientoController extends ControllerBase {
 			this.fechaProgramacionPPV = fechaProgramacionPPV;
 		}		
 	}
+	
+	
+	@Jpf.FormBean
+	public static class PpvFormBean implements java.io.Serializable {
+		private static final long serialVersionUID = 1L;
+		
+		private String idEvento;
+		private String equipoSerie;
+		private String ubicacion;
+		private String idEquipo;
+		private String titulo;
+		private String precio;
+		private String canal;
+		private String fechaIni;
+		private String fechaFin;
+		public String getIdEvento() {
+			return idEvento;
+		}
+		public void setIdEvento(String idEvento) {
+			this.idEvento = idEvento;
+		}
+		public String getEquipoSerie() {
+			return equipoSerie;
+		}
+		public void setEquipoSerie(String equipoSerie) {
+			this.equipoSerie = equipoSerie;
+		}
+		public String getUbicacion() {
+			return ubicacion;
+		}
+		public void setUbicacion(String ubicacion) {
+			this.ubicacion = ubicacion;
+		}
+		public String getIdEquipo() {
+			return idEquipo;
+		}
+		public void setIdEquipo(String idEquipo) {
+			this.idEquipo = idEquipo;
+		}
+		public String getTitulo() {
+			return titulo;
+		}
+		public void setTitulo(String titulo) {
+			this.titulo = titulo;
+		}
+		public String getPrecio() {
+			return precio;
+		}
+		public void setPrecio(String precio) {
+			this.precio = precio;
+		}
+		public String getFechaIni() {
+			return fechaIni;
+		}
+		public void setFechaIni(String fechaIni) {
+			this.fechaIni = fechaIni;
+		}
+		public String getFechaFin() {
+			return fechaFin;
+		}
+		public void setFechaFin(String fechaFin) {
+			this.fechaFin = fechaFin;
+		}
+		public String getCanal() {
+			return canal;
+		}
+		public void setCanal(String canal) {
+			this.canal = canal;
+		}
+	}
+	
 }

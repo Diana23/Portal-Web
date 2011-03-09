@@ -5,9 +5,10 @@
     
     <wls:session-descriptor>
 		<wls:timeout-secs>1200</wls:timeout-secs>
+        <wls:persistent-store-type>REPLICATED</wls:persistent-store-type>
 	</wls:session-descriptor>
     <wls:virtual-directory-mapping>
-     <wls:local-path>/export/home/web/cablevisionPortal</wls:local-path>
+     <wls:local-path>/export/home/web/cablevisionPortal/ordenAdministrativa</wls:local-path>
      <wls:url-pattern>/archivos/*</wls:url-pattern>
    </wls:virtual-directory-mapping>
     <wls:virtual-directory-mapping>

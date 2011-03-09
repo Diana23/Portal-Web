@@ -80,11 +80,6 @@
 				circular: false,
 				mouseWheel: true
 			});
-			
-			var logoColor, negativeOrNot = $('#LogoCable').attr('rel');
-			if ( negativeOrNot != "BLANCO") { logoColor =  "logo" } else { logoColor =  "logo-blanco" }
-			$('#logo').removeClass('logo-blanco').removeClass('logo').addClass(logoColor);
-			
 	</script>
 	
 	<script type="text/javascript">

@@ -9,7 +9,7 @@
 				<c:param name="id" value="${item.id }"/>
 				<c:param name="tipo" value="${item.tipo }"/>
 			</c:url>
-					<a class="thickbox text-nounder " href="${urlDetalle}&TB_iframe=true&modal=true&height=540&width=600">
+					<a class="thickbox text-nounder " href="${urlDetalle}&modal=true&height=540&width=600&scroll=auto">
 						<img width="140" alt="" src="${item.rutaMiniatura }">
 							<h3 >
 								${item.resumen }

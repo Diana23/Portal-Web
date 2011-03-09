@@ -402,6 +402,8 @@ public class UcmUtil {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		
+		archivos = StringUtils.capitalize(archivos);
 		return archivos;
 	}
 	
