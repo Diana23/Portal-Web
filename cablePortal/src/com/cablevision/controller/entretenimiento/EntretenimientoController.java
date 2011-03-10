@@ -608,7 +608,6 @@ public class EntretenimientoController extends ControllerBase {
 					ConfigurationHelper.getPropiedad("correo.ppv.templateId",null), values);
 			
 		}
-		
 		return forward;
 	}
 	
