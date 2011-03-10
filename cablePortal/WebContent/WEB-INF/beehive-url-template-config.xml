@@ -4,31 +4,31 @@
     <url-template>
         <name>https</name>
         <value>
-            http://172.20.1.212:8095/{url:path}?{url:queryString}&amp;{url:currentPage}
+            http://172.20.1.210:8080/{url:path}?{url:queryString}&amp;{url:currentPage}
         </value>
     </url-template>
     <url-template>
         <name>default</name>
         <value>
-            http://172.20.1.212:8095/{url:path}?{url:queryString}&amp;{url:currentPage}
+            http://172.20.1.210:8080/{url:path}?{url:queryString}&amp;{url:currentPage}
         </value>
     </url-template>
     <url-template>
         <name>urlApp</name>
         <value>
-            http://172.20.1.212:8095/{url:path}?{url:queryString}
+            http://172.20.1.210:8080/{url:path}?{url:queryString}
         </value>
     </url-template>
     <url-template>
         <name>defaultDesktop</name>
         <value>
-            http://172.20.1.212:8095/cablePortal/cablevision.portal?{url:queryString}&amp;{url:currentPage}
+            http://172.20.1.210:8080/cablePortal/cablevision.portal?{url:queryString}&amp;{url:currentPage}
         </value>
     </url-template>
     <url-template>
         <name>home</name>
         <value>
-            http://172.20.1.212:8095/cablePortal/cablevision.portal?
+            http://172.20.1.210:8080/cablePortal/cablevision.portal?
         </value>
     </url-template>
 </url-template-config>

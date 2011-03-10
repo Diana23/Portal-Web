@@ -21,7 +21,7 @@
 					-	<strong>Por tel&eacute;fono:</strong> 51 699 699 De lunes a domingo de 7:00 AM a 11:00 PM<br>
 					-	<strong>V&iacute;a Web: Facebook y Twitter,</strong> de lunes a domingo de 7:00 AM a 4:00 PM<br>
 					-	<strong>En nuestros Centros de Atención:</strong> <a title="Haz clic aquí" class="color-orange" href="${centros }">Haz clic aquí</a><br><br>
-					-	<strong>O completa el siguiente formulariosss:</strong>
+					-	<strong>O completa el siguiente formularios:</strong>
 		
 					<br><br>
 				
