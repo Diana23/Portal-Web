@@ -82,9 +82,10 @@
 			});
 			
 			var logoColor, negativeOrNot = $('#LogoCable').attr('rel');
-			if ( negativeOrNot != "BLANCO") { logoColor =  "logo" } else { logoColor =  "logo-blanco" }
-			$('#logo').removeClass('logo-blanco').removeClass('logo').addClass(logoColor);
-			
+			if(negativeOrNot != null){
+				if ( negativeOrNot != "BLANCO") { logoColor =  "logo" } else { logoColor =  "logo-blanco" }
+				$('#logo').removeClass('logo-blanco').removeClass('logo').addClass(logoColor);
+			}
 			
 
 	</script>
