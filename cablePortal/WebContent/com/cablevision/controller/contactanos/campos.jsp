@@ -25,8 +25,8 @@
 Entra en contacto con nosotros en cualquier momento, en CABLEVISION&reg; contamos con diferentes medios de contacto que aquí te presentamos, asegúrate de revisar los horarios de atención.
 <br><br>
 
--	<strong>Por tel&eacute;fono:</strong> 51 699 699 De lunes a domingo de 7:00 am a 11:00 pm<br>
--	<strong>V&iacute;a Web: Facebook y Twitter,</strong> de lunes a domingo de 7:00 am a 11:00 pm<br>
+-	<strong>Por tel&eacute;fono:</strong> 51 699 699 de lunes a domingo de 7:00 AM a 11:00 PM <br>
+-	<strong>V&iacute;a Web: Facebook y Twitter,</strong> de lunes a domingo de 7:00 AM a 4:00 PM <br>
 -	<strong>En nuestros Centros de Atención:</strong> <a title="Haz clic aquí" class="color-orange" href="${centros }">Haz clic aquí</a><br><br>
 -	<strong>O completa el siguiente formulario:</strong>
 
