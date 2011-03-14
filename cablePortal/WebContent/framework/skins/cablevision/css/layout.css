@@ -90,7 +90,7 @@ body {
 			a.nav {  height: 30px;  width: 60px; float: left; }
 			a.nav:hover, a.nav-sel { background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -797px -137px; }
 		
-		ul#navs-rot li div { width: 50px; text-align:center; overflow:none;}
+		ul#navs-rot li div { font-size: 11px; width: 50px; text-align:center; overflow:none;}
 				
 /*Rotador home*/				
 
@@ -383,7 +383,8 @@ body {
 		
 		/* banner 1 */
 		.banner1-text { 
-				font-size:		9px;
+				font-size:		11px;
+				line-height: 	13px;
 				margin-left:	-10px;
 				padding-left:	20px;
 				width:			122px;
@@ -406,8 +407,8 @@ body {
 		}
 	.atencion-cliente a:hover {text-decoration: underline; }
 	
-		a.atc-dark { display:block; line-height: 40px; background: #ececec url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -937px -117px; }
-		a.atc-light { display:block; line-height: 40px; background: #e5e5e5 url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -937px -117px; }
+		a.atc-dark { display:block; font-size: 13px; line-height: 40px; background: #ececec url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -937px -117px; }
+		a.atc-light { display:block; font-size: 13px; line-height: 40px; background: #e5e5e5 url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -937px -117px; }
 
 
 	/* Social */
@@ -427,7 +428,7 @@ body {
 				ul.video-thumbs li a {
 					font-family:	arial;
 					color:			#000;
-					font-size:		10px;
+					font-size:		11px;
 					text-decoration:none;
 					line-height:	120%
 				}
@@ -463,7 +464,10 @@ body {
 		
 			.wrap-twitter-box { 
 				background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -119px -282px; 
-				padding-right: 15px;
+				border-bottom: 1px solid #FF9900;
+    			height: 130px;
+    			margin-right: 15px;
+
 				}
 
 			.wrap-twitter-box2 { 
@@ -510,6 +514,7 @@ body {
 		.wrap-cont-simple {
 			background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002024.png) no-repeat left top;
 			padding: 	0 20px;
+			font-size: 12px;
 		}
 		
 
@@ -852,7 +857,7 @@ body {
 			
 			.job-desc  {
 				margin-top:	10px;
-				font-size:	11px;
+				font-size:	12px;
 			}
 			
 			.sre-job-mail { 
@@ -880,7 +885,7 @@ body {
 			.job-side-link-wa {
 				margin-left:	10px;
 				font-family:	arial;
-				font-size:		11px;
+				font-size:		12px;
 				color:			#111;
 				line-height:	35px;
 				padding-left:	20px;				
@@ -1199,7 +1204,7 @@ body {
 		.cotiz-content{ margin: 0 0 15px 0; }
 		.cotiz-content li { 
 			font-family: arial;
-			font-size: 10px; 
+			font-size: 12px; 
 			color: #111; }
 		
 			.li-bordered { 
@@ -1211,7 +1216,7 @@ body {
 				border: 				1px solid #e5e4e4;		
 				}
 			
-			.add-pqt { padding: 15px; font-size: 11px; font-weight: bold;}
+			.add-pqt { padding: 15px; font-size: 13px; font-weight: bold;}
 			
 			.wrap-paq-cot {
 				padding:		15px;
@@ -1231,7 +1236,7 @@ body {
 				
 					.precio-bordered {
 						padding:				5px 10px;
-						font-size:				11px;
+						font-size:				12px;
 						-moz-border-radius: 	3px;
 						-webkit-border-radius: 	3px;
 						behavior:				url(border-radius.htc);
@@ -1247,7 +1252,7 @@ body {
 					background: 	#e7e7e7; 
 					font-family:	arial, serif;
 					color:			#111;
-					font-size:		10px;
+					font-size:		12px;
 				}
 			
 			
@@ -1296,7 +1301,7 @@ body {
 					padding-right:	10px;
 				}
 				
-				.precio-legend { line-height:	20px; text-align: center;}
+				.precio-legend { font-size: 12px; line-height:	20px; text-align: center;}
 				.background-white { background:	#fff!important;}
 				.padd-align { padding: 15px 30px;}
 		
@@ -1512,13 +1517,19 @@ body {
 			float: 		 left; 
 			color:		 #000; 
 			background:  #ededed; 
+			font-size: 	 12px;
 			line-height: 15px;
 			padding:	 7px 0 7px 20px;
 			background:	 url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll 207px -1383px transparent;
 		}
 		
 		.od-side-link span { padding-left: 25px!important; }
-		.od-side-link a { padding-left: 18px!important; }
+		.od-side-link a {     
+				display: block;
+    			margin-right: 23px;
+    			margin-top: -15px;
+    			padding-left: 14px !important;
+ 		}
 		.od-side-link a:hover { text-decoration: none; }
 		
 		.wraps-2cols {
@@ -2072,6 +2083,7 @@ width:130px;
 }
 .subitem_AC2 {
 float:left;
+font-size: 12px;
 margin-left:10px;
 width:180px;
 }
@@ -2484,3 +2496,5 @@ width:220px;
 #header-new {
     height: 213px;
 }
+
+btn-fix-top. { margin-top : 7px ; }
