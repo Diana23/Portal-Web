@@ -464,7 +464,6 @@ body {
 		
 			.wrap-twitter-box { 
 				background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -119px -282px; 
-				border-bottom: 1px solid #FF9900;
     			height: 130px;
     			margin-right: 15px;
 
@@ -2497,4 +2496,4 @@ width:220px;
     height: 213px;
 }
 
-btn-fix-top. { margin-top : 7px ; }
+.btn-fix-top { margin-top : 7px ; }
