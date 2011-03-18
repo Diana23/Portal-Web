@@ -13,17 +13,15 @@
 					<a class="thickbox text-nounder " href="${urlDetalle}&modal=true&height=540&width=600&scroll=auto">
 						<img width="140" alt="" src="${item.rutaMiniatura }">
 							<h3 >
-							<c:set var="string" value="${item.resumen }"/>
+							<c:set var="string" value="${item.resumen}"/>
 								<c:choose>
-									<c:when test="${ fn:length(string) <= 15 }">
+									<c:when test="${fn:length(string)<= 30}">
 										${item.resumen }
 									</c:when>
 									<c:otherwise>
-										<c:out value="${fn:substring(string,0,15)}"/>											  				
+										${fn:substring(string,0,30)}...											  				
 									</c:otherwise>
 								</c:choose>
-								<c:set var="string" value="${item.resumen }"/>
-								<c:out value="${fn:substring(string,1,3)}"/>
 							</h3>
 						${item.categoria }<br>
 						<span class="vermas color-orange">Ver más</span> 
