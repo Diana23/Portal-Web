@@ -1,5 +1,23 @@
 #Fri Mar 04 17:55:50 CST 2011
-eclipse.preferences.version=1
-encoding//WebContent/com/cablevision/controller/contactanos/index.jsp=UTF-8
-encoding//WebContent/framework/skeletons/cablevision/footer.jsp=UTF-8
-encoding//WebContent/layouts/homeLayout.jsp=UTF-8
+
+encoding//WebContent/com/cablevision/controller/contenido/editarPagina.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/contenido/pagina.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/contenido/renderizarContenido.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/distribuidores/index.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/email/email.jsp=ISO-8859-1
+encoding//WebContent/com/cablevision/controller/email/emailFrame.jsp=ISO-8859-1
+encoding//WebContent/com/cablevision/controller/entretenimiento/detalle.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/entretenimiento/ruletaInclude.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/login/index.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/login/logout.jsp=ISO-8859-1
+encoding//WebContent/com/cablevision/controller/micuenta/portabilidad.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/misFacturas/pagoEnLinea.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/newsLetter/index.jsp=UTF-8
+encoding//WebContent/framework/skeletons/cablevision/alert/titlebar.jsp=ISO-8859-1
+encoding//WebContent/framework/skeletons/cablevision/alert/window.jsp=ISO-8859-1
+encoding//WebContent/framework/skeletons/cablevision/borderless/titlebar.jsp=ISO-8859-1
+encoding//WebContent/framework/skeletons/cablevision/borderless/window.jsp=ISO-8859-1
+encoding//WebContent/framework/skeletons/cablevision/buttondelete.jsp=ISO-8859-1
+encoding//WebContent/framework/skeletons/cablevision/buttonfloat.jsp=ISO-8859-1
+encoding//WebContent/framework/skeletons/cablevision/error.jsp=ISO-8859-1
+encoding//WebContent/framework/skeletons/cablevision/flowlayout.jsp=ISO-8859-1

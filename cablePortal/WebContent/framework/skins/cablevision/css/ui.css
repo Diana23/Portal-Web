@@ -167,11 +167,11 @@ ul.no-accor-side li > a, ul.accor-side li > a {
 	cursor:			pointer;
 	line-height:	34px;
 	width:			240px;
-	padding-left:	15px;
+	padding-left:	10px;
 	margin-bottom:	10px;
 	
 	font-weight:	none;
-	font-size: 		11px; 
+	font-size: 		12px; 
 	font-family: 	Arial, serif;
 	}
 
@@ -341,7 +341,8 @@ width:54px;
 
 /* Forms */
 
-.text-side { 
+.text-side {
+	font-size: 				13px; 
 	background-color: 		#fff;
 	-moz-border-radius: 	3px;
 	-webkit-border-radius: 	3px;
@@ -698,7 +699,7 @@ width:54px;
 	
 /* Fix`s */
 
-.text-nounder { text-decoration: none!important;;}
+.text-nounder { font-size: 12px; text-decoration: none!important;;}
 
 .fright{ float: right!important;}
 .fleft{ float: left!important;}
@@ -852,6 +853,16 @@ width:54px;
 textarea.ta-atencion-clientes{
  	width: 300px !important;
  	height: 160px !important;
+ 	overflow: auto !important;
+ 	background: none;
+ 	border: none;
+ 	font-family: inherit;
+ 	font-size: 100%;
+ 	margin-bottom: 0 !important;
+ }
+textarea.ta-mis-solicitudes{
+ 	width: 340px !important;
+ 	height: 100px !important;
  	overflow: auto !important;
  	background: none;
  	border: none;
