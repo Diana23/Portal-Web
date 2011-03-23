@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
     
 <ul>
 	<c:forEach items="${pageInput.ruleta}" var="item">
@@ -11,8 +12,16 @@
 			</c:url>
 					<a class="thickbox text-nounder " href="${urlDetalle}&modal=true&height=540&width=600&scroll=auto">
 						<img width="140" alt="" src="${item.rutaMiniatura }">
-							<h3 >
-								${item.resumen }
+							<h3>
+								<c:set var="string" value="${item.resumen}"/>
+								<c:choose>
+									<c:when test="${fn:length(string)<= 30}">
+										${item.resumen }
+									</c:when>
+									<c:otherwise>
+										${fn:substring(string,0,30)}...											  				
+									</c:otherwise>
+								</c:choose>
 							</h3>
 						${item.categoria }<br>
 						<span class="vermas color-orange">Ver más</span> 
