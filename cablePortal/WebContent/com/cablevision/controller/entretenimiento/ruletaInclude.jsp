@@ -12,7 +12,8 @@
 			</c:url>
 					<a class="thickbox text-nounder " href="${urlDetalle}&TB_iframe=true&modal=true&height=540&width=600">
 						<img width="140" alt="" src="${item.rutaMiniatura }">
-							<c:set var="string" value="${item.resumen}"/>
+							<h3>
+								<c:set var="string" value="${item.resumen}"/>
 								<c:choose>
 									<c:when test="${fn:length(string)<= 30}">
 										${item.resumen }
