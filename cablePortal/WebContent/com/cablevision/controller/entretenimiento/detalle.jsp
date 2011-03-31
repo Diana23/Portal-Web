@@ -94,7 +94,7 @@ p.date {
 <p class="boxd grid-content">
 	${pageInput.detalle.descripcion }
 </p>
-<br><br>
+
 <div align="center">
 	<c:choose>
 		<c:when test="${pageInput.detalle.ligaYoutube!=null and pageInput.detalle.ligaYoutube!=''}">
@@ -107,6 +107,7 @@ p.date {
 			</object>
 		</c:when>
 		<c:otherwise>
+			<br><br>
 			<img src="${ pageInput.detalle.rutaImagen}" />
 		</c:otherwise>
 	</c:choose>
