@@ -762,7 +762,6 @@ body {
 			display:	inline;
 			width:		48%;
 			color: 		#4c4c4c;
-			font-size:	10px;	
 		}
 		
 		.cols-3 { 
@@ -2338,6 +2337,13 @@ width:200px;
 	border-right: 2px solid #D6D6D6;
 }
 
+.fnd-tabla-pager-content-col-no-end{
+	float: left;
+	position: relative;
+	padding: 5px 20px;
+	line-height: 100px;
+}
+	
 /*soporte tecnico*/
 
 .carrousel-od4 {
