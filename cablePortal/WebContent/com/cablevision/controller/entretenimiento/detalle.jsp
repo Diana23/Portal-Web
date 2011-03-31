@@ -95,7 +95,6 @@ p.date {
 			</c:when>
 		</c:choose>
 	</p>
-	</br></br>
 	<div align="center">
 		<c:choose>
 			<c:when test="${pageInput.detalle.ligaYoutube!=null and pageInput.detalle.ligaYoutube!=''}">
@@ -109,6 +108,7 @@ p.date {
 			</c:when>
 			<c:otherwise>
 				<c:if test="${pageInput.detalle.rutaImagen != null && pageInput.detalle.rutaImagen != ''}">
+				<br><br>
 					<img src="${pageInput.detalle.rutaImagen}" />
 				</c:if>
 			</c:otherwise>
