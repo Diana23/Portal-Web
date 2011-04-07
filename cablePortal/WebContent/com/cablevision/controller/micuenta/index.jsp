@@ -22,6 +22,7 @@
 <div class="color-orange link-user-servonline bord-toped bord-boted" title="BIENVENID@ <jsp:expression>account.getNombreContacto()</jsp:expression>" >
 	BIENVENID@ <jsp:expression>nombreContacto</jsp:expression>
 </div>
+<img border="0" alt="NoPagos" src="/contentserver/groups/mercadotecnia/documents/imagen_cv/cv004614.jpg">
 <p>
 	<strong>Saldo de la &uacute;ltima factura:</strong>   $ <jsp:expression>saldo</jsp:expression><br/>
 	<strong>Fecha de Facturaci&oacute;n:</strong> <jsp:expression>fechaFactura</jsp:expression><br/>
