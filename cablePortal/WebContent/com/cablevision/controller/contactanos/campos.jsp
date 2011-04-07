@@ -28,7 +28,7 @@ Entra en contacto con nosotros en cualquier momento, en CABLEVISION&reg; contamo
 -	<strong>Por tel&eacute;fono:</strong> 51 699 699 de lunes a domingo de 7:00 AM a 11:00 PM <br>
 -	<strong>V&iacute;a Web: Facebook y Twitter,</strong> de lunes a domingo de 7:00 AM a 4:00 PM <br>
 -	<strong>En nuestros Centros de Atención:</strong> <a title="Haz clic aquí" class="color-orange" href="${centros }">Haz clic aquí</a><br><br>
--	<strong>O completa el siguiente formulario:</strong>
+-	<strong>O completa el siguiente formulario y un asesor le dará seguimiento a tu solicitud:</strong>
 
 <br><br>
 
@@ -173,7 +173,7 @@ Entra en contacto con nosotros en cualquier momento, en CABLEVISION&reg; contamo
         
         
         <div class="clear"></div>
-        <p class="captchaPar">La verificaci&oacute;n de c&oacute;digo nos permite confirmar que tu registro se realize de manera segura y confiable asi como para mantener la privacidad de tu informaci&oacute;n.</p>
+        <p class="captchaPar">La verificaci&oacute;n de c&oacute;digo nos permite confirmar que tu registro se realice de manera segura y confiable asi como para mantener la privacidad de tu informaci&oacute;n.</p>
     </div>
     </div>
     <!-- fin captcha -->

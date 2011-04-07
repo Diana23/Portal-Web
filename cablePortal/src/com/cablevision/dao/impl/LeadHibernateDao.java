@@ -27,7 +27,11 @@ public class LeadHibernateDao extends HibernateDaoSupport implements ILeadDao {
 	}
 	
 	public List<CvLeadType> findAllLeadTypes(){
-		return getHibernateTemplate().loadAll(CvLeadType.class);
+		DetachedCriteria criteria = DetachedCriteria.forClass(CvLeadType.class);
+		criteria.add(Restrictions.eq("cltPpeHdDeType", 0L));
+		criteria.addOrder(Order.asc("cltNameType"));
+		return getHibernateTemplate().findByCriteria(criteria);
+		//return getHibernateTemplate().loadAll(CvLeadType.class);
 	}
 	
 	public Integer findNumberOfTicketsInDay(String email){
