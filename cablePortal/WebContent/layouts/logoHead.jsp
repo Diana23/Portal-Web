@@ -14,10 +14,10 @@
 		<jsp:scriptlet>
 		RespuestaToMyAccount account = (RespuestaToMyAccount)request.getSession().getAttribute(Constantes.SESSION_MI_CUENTA);
 		String nombreCompleto = account.getNombreContacto();
-		//if(nombreCompleto != null){
-		//	if(nombreCompleto.length()>=20)
-		//		nombreCompleto = nombreCompleto.substring(0,19);
-		//}
+		if(nombreCompleto != null){
+			if(nombreCompleto.length()>=20)
+				nombreCompleto = nombreCompleto.substring(0,19);
+		}
 		
 		String pageLabel = request.getParameter("pageLabel");
 		if(pageLabel == null)
