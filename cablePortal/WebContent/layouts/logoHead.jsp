@@ -15,9 +15,10 @@
 		RespuestaToMyAccount account = (RespuestaToMyAccount)request.getSession().getAttribute(Constantes.SESSION_MI_CUENTA);
 		String nombreCompleto = account.getNombreContacto();
 		if(nombreCompleto != null){
-			if(nombreCompleto.length()>=13)
+			if(nombreCompleto.length()>=13){
 				nombreCompleto = nombreCompleto.substring(0,13);
 				nombreCompleto += "...";
+			}
 		}
 		
 		String pageLabel = request.getParameter("pageLabel");
