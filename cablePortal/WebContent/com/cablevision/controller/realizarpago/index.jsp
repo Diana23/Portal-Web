@@ -7,7 +7,8 @@
 <netui:scriptContainer>
 <div class="content-pago">
 	<h3 class="side">Realizar Pago</h3>
-	<iframe height="380" frameborder="0" width="540" scrolling="no" marginheight="0" marginwidth="0" src="${pageInput.urlSrc}">
-	</iframe>						
+	<img class="link-user-servonline" border="0" alt="NoPagos" src="/contentserver/groups/mercadotecnia/documents/imagen_cv/cv004615.jpg">
+	<!--  <iframe height="380" frameborder="0" width="540" scrolling="no" marginheight="0" marginwidth="0" src="${pageInput.urlSrc}">
+	</iframe>-->						
 </div>									
 </netui:scriptContainer>
