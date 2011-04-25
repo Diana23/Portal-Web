@@ -67,8 +67,11 @@ xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0" >
 			<div class="slide-navs">
 				<jsp:include page="/com/cablevision/controller/contenido/renderizarContenido.jsp?contenidoId=CV002114&estructuraId=CV002115&templateId=CV002117" flush="true"/>			
 			</div>
-			<a href="#" class="prev-sli-nav hidden-text"></a>
-			<a href="#" class="next-sli-nav hidden-text"></a>
+			<a href="#" class="prev-sli-nav hidden-text">Previous</a>
+			<a href="#" class="selected_play play-sli-nav hidden-text">Play</a>
+            <a href="#" class="pause-sli-nav hidden-text">Pause</a>
+			<a href="#" class="next-sli-nav hidden-text">Next</a>
+			<span style="clear:both;"></span>
 		</div>	
 			<div class="span-24" style="margin-top:-88px">
 				<!-- Wrap Main -->	

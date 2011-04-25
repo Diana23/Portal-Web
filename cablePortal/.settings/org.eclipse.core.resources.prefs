@@ -1,4 +1,6 @@
-#Tue Apr 19 19:25:06 CDT 2011
+#Mon Apr 25 13:02:41 CDT 2011
 eclipse.preferences.version=1
 encoding//WebContent/com/cablevision/controller/micuenta/index.jsp=ISO-8859-1
 encoding//WebContent/com/cablevision/controller/realizarpago/index.jsp=UTF-8
+encoding//WebContent/layouts/homeLayout.jsp=UTF-8
+encoding//WebContent/layouts/serviciosEnlineaLayout.jsp=UTF-8
