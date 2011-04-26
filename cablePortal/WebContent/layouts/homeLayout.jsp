@@ -72,6 +72,7 @@ xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0" >
             <a href="#" class="pause-sli-nav hidden-text">Pause</a>
 			<a href="#" class="next-sli-nav hidden-text">Next</a>
 			<span style="clear:both;"></span>
+			
 		</div>	
 			<div class="span-24" style="margin-top:-88px">
 				<!-- Wrap Main -->	
