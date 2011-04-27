@@ -41,7 +41,7 @@ public class MainBookBackingFile extends AbstractJspBacking {
 		BookBackingContext book = desktop.getBookBackingContext();
 		PageBackingContext activePage = book.getFirstDisplayedPageBackingContext();
 		if("Home Page".equalsIgnoreCase(activePage.getTitle()))
-			desktop.setTitle("Cablevision - Mexico | Internet, Cable y TelefonÃ­a");
+			desktop.setTitle("Cablevision - Mexico | Internet, Cable y Telefonía");
 		else
 			desktop.setTitle(activePage.getTitle()+" - "+desktop.getTitle());
 		
