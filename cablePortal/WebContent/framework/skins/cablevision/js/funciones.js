@@ -1,5 +1,5 @@
 $(document).ready(function() {	
-
+			
 	/* Accordeon Menu Izq */
 	
 	function menuAcc(thisObjectChange){ $(thisObjectChange).removeClass().addClass('menu-acc'); }
@@ -494,4 +494,6 @@ function soloNumeros(evt){
     var key= (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
     //console.log("Numeric: "+(key <= 13 || key == 32 || (key >= 48 && key <= 57)));
 	return (key <= 13 || (key >= 48 && key <= 57));
+	
+	
 }
