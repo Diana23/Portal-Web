@@ -72,6 +72,34 @@ xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0" >
             <a href="#" class="pause-sli-nav hidden-text">Pause</a>
 			<a href="#" class="next-sli-nav hidden-text">Next</a>
 			<span style="clear:both;"></span>
+				<script type="text/javascript">		
+					$('.pause-sli-nav').click(function(){
+					if($('#preloader').is(':animated')){
+						$('#preloader').stop();
+						$(this).addClass('selected_pause');
+						$('a.play-sli-nav').removeClass('selected_play');
+						return false;
+					}
+					});
+				
+					$('.play-sli-nav').click(function(){
+						var width=$('#preloader').width();
+						var time = 8200-(width*3.5);
+				
+						if($('#preloader').is(':animated')){
+							return false;
+						}else{
+							$('#preloader').animate({			
+							width: '1200px' 
+							}, time, function() {
+							changeHead(activeNav); 			
+							});
+						}
+						$(this).addClass('selected_play');
+						$('a.pause-sli-nav').removeClass('selected_pause');
+						return false;	
+					});
+				</script>
 			
 		</div>	
 			<div class="span-24" style="margin-top:-88px">
