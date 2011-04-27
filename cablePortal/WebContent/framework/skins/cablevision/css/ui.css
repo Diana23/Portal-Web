@@ -860,6 +860,16 @@ textarea.ta-atencion-clientes{
  	font-size: 100%;
  	margin-bottom: 0 !important;
  }
+textarea.ta-mis-solicitudes{
+ 	width: 340px !important;
+ 	height: 133px !important;
+ 	overflow: auto !important;
+ 	background: none;
+ 	border: none;
+ 	font-family: inherit;
+ 	font-size: 100%;
+ 	margin-bottom: 0 !important;
+ }
  .formulario textarea.big { width: 450px; height: 160px; overflow: hidden; }
  
  /*

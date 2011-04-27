@@ -7,7 +7,7 @@
 <netui:scriptContainer>
 <div class="content-pago">
 	<h3 class="side">Realizar Pago</h3>
-	<iframe height="380" frameborder="0" width="540" scrolling="no" marginheight="0" marginwidth="0" src="${pageInput.urlSrc}">
+	  <iframe height="380" frameborder="0" width="540" scrolling="no" marginheight="0" marginwidth="0" src="${pageInput.urlSrc}">
 	</iframe>						
 </div>									
 </netui:scriptContainer>

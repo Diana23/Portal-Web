@@ -85,11 +85,14 @@ body {
 			line-height:11px;		
 			 }
 			 
-		ul#navs-rot li {  height: 50px;  width: 63px; float: left;  }
+		ul#navs-rot li {  height: 50px;  width: 59px; float: left;  }
 		
-			a.nav {  height: 30px;  width: 60px; float: left; }
-			a.nav:hover, a.nav-sel { background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -797px -137px; }
-		
+			a.nav {  height: 33px;  width: 56px; float: left; text-align:center; padding-top:5px;}
+			a.nav:hover, a.nav-sel { background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -212px -1754px; }
+
+			.selected_play { background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -56px -1771px!important ;}
+			.selected_pause { background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -98px -1771px!important ;}
+
 		ul#navs-rot li div { font-size: 11px; width: 50px; text-align:center; overflow:none;}
 				
 /*Rotador home*/				
@@ -104,22 +107,59 @@ body {
 		}
 		
 		a.prev-sli-nav {
-				background: url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat scroll -451px -154px transparent;
-				height: 30px;
-				left: -37px;
+			margin-left:	1px;
+			float:			left;
+			background: 	url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat scroll -14px -1751px transparent;
+			height: 16px;
+			left: 0px;
+			position: relative;
+			top: -16px;
+			width: 42px;
+			z-index:10;	
+		}
+		a.prev-sli-nav:hover {
+			background: url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat scroll -14px -1771px transparent;	
+		}
+		a.play-sli-nav {
+				float:left;
+				background: url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat scroll -56px -1751px transparent;
+				height: 16px;
+				left: 0px;
 				position: relative;
-				top: -51px;
-				width: 40px;	
+				top: -16px;
+				width: 42px;
+				z-index:10;
 			}
-		
+		a.play-sli-nav:hover {
+			background: url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat scroll -56px -1771px transparent;	
+		}
+		a.pause-sli-nav {
+				float:left;
+				background: url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat scroll -98px -1751px transparent;
+				height: 16px;
+				left: 0px;
+				position: relative;
+				top: -16px;
+				width: 46px;
+				z-index:10;
+			}
+		a.pause-sli-nav:hover {
+			background: url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat scroll -98px -1771px transparent;	
+		}
 		a.next-sli-nav {
-				background:url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat scroll -419px -154px transparent;
-				height:30px;
-				width:40px;
-				left: 173px;
-				position: relative;
-				top: -81px;			
-			}
+			float:		left;
+			background:	url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat scroll -144px -1751px transparent;
+			height:		16px;
+			width:		46px;
+			left: 		0px;
+			position: 	relative;
+			top: 		-16px;	
+			z-index:	10;		
+		}
+		
+		a.next-sli-nav:hover {
+			background: url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat scroll -144px -1771px transparent;	
+		}
 			
 		.slide-navs #navs-rot div {
 			color: #F26507!important;			
@@ -762,7 +802,6 @@ body {
 			display:	inline;
 			width:		48%;
 			color: 		#4c4c4c;
-			font-size:	10px;	
 		}
 		
 		.cols-3 { 
@@ -2334,10 +2373,17 @@ width:200px;
 	float: left;
 	position: relative;
 	padding: 5px 20px;
-	line-height: 165px;
+	line-height: 135px;
 	border-right: 2px solid #D6D6D6;
 }
 
+.fnd-tabla-pager-content-col-no-end{
+	float: left;
+	position: relative;
+	padding: 5px 20px;
+	line-height: 100px;
+}
+	
 /*soporte tecnico*/
 
 .carrousel-od4 {
