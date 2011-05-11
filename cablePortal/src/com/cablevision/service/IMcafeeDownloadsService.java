@@ -1,13 +1,22 @@
 package com.cablevision.service;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import com.cablevision.ToInterfase;
+import com.cablevision.util.RespuestaToMyAccount;
 import com.cablevision.vo.CvMcafeeDownload;
 import com.cablevision.vo.CvMcafeeReset;
 import com.cablevision.vo.CvMcafeeUser;
 import com.cablevision.vo.CvMcafeesuscribed;
 import com.cablevision.vo.CvMcafee;
+import com.cablevision.vo.McaffeeVO;
 
 /**
  * The service interface for the entities: CvMcafeeDownload, CvMcafeeReset, CvMcafeeUser.
@@ -84,12 +93,12 @@ public interface IMcafeeDownloadsService {
 	public List<CvMcafeeDownload> getMcafeeDownloadsByUserAccount(Long account) throws Exception;
 	
 	public CvMcafeeReset getMcafeeReset(Long account) throws Exception;
-	public List getResumen() throws Exception;
+	public List getResumen(String tipoProducto) throws Exception;
 	
 	public List getOrigen(Date fechaInicio, Date fechaFinal, String status);
-	public List getResumenPorFecha(Date fechaInicio, Date fechaFinal, String status);
-	void generaReporte(Date fechaInicio, Date fechaFinal, String status,
-			String fileName) throws Exception;
+	public List getResumenPorFecha(Date fechaInicio, Date fechaFinal, String status, String tipoProducto);
+	String generaReporte(Date fechaInicio, Date fechaFinal, String status,
+			String fileName, String tipoproducto) throws Exception;
 	CvMcafeesuscribed getSuscribdByAccount(Integer account);
 	void aumentarDownload(String account);
 	void persistCvMcafeesuscribed(CvMcafeesuscribed suscribed);
@@ -119,4 +128,31 @@ public interface IMcafeeDownloadsService {
 	public void updateCvMcafeeStatus(Long id, String status) throws Exception;
 	
 	public CvMcafee getMcafeeByAccount(Long account) throws Exception;
+	
+	public String getCodeFromXML(String xml) throws IOException, ParserConfigurationException, SAXException;
+	
+	public String xmlToString(Document documentXML);
+	
+	public String encryptMD5(String code);
+	
+	public String toHexadecimal(byte[] datos);
+	
+	public Document generateXML(RespuestaToMyAccount cvCuenta);
+	
+	public Document generateCancelXML(Long cvCuenta, String reference,Boolean nuevoProducto);
+	
+	public String getXMLResponse(Document xml);
+	
+	public String reactivaServicioMcafee(McaffeeVO parametrosVO);
+	
+	public CvMcafee getMcafeeUserFromResponse(Document response, RespuestaToMyAccount cuenta, String sessionAccountId);
+	
+	public Document generateUpdatingProfileXML(RespuestaToMyAccount cvCuenta);
+	
+	public String bajaServicioMcAfee(McaffeeVO parametrosVO);
+	
+	public String enviaCorreoAlta(RespuestaToMyAccount cvCuenta, CvMcafee newMcafeeUser);
+	
+	public ToInterfase getVitriaClient();
+	
 }

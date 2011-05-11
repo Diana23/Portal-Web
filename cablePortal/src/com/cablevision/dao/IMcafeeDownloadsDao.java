@@ -88,11 +88,11 @@ public interface IMcafeeDownloadsDao {
 	
 	public CvMcafeeReset getMcafeeReset(Long account);
 	
-	public List getResumenDownloads();
+	public List getResumenDownloads(String tipoProducto);
 	public List getOrigen(Date fechaInicio, Date fechaFinal, String status);
-	public List getResumenPorFecha(Date fechaInicio, Date fechaFinal, String status);
+	public List getResumenPorFecha(Date fechaInicio, Date fechaFinal, String status, String tipoProducto);
 	public CvMcafeesuscribed getSuscribdByAccount(Integer account);
-	public List<CvMcafeesuscribed> getSuscripciones(Date fechaInicio,Date fechaFinal, String status,int inicio,int maxResults);
+	public List<CvMcafeesuscribed> getSuscripciones(Date fechaInicio,Date fechaFinal, String status,int inicio,int maxResults,String tipoProducto);
 	public void aumentarDownload(String account);
 	public void persistCvMcafeesuscribed(CvMcafeesuscribed suscribed);
 	/**

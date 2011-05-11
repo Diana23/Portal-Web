@@ -1,6 +1,7 @@
 package com.cablevision.dao.impl;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -37,14 +38,26 @@ public class McafeeDownloadsHibernateDao extends HibernateDaoSupport implements
 		return getHibernateTemplate().findByNamedQuery(queryName);
 	}
 	@Override
-	public List getResumenDownloads(){
+	public List getResumenDownloads(final String tipoProducto){
 		try{
 			return (List)getHibernateTemplate().execute(new HibernateCallback(){
 				public Object doInHibernate(Session session) throws HibernateException, SQLException {
-					return session.createSQLQuery(
-							"select count(*),  to_date(to_char(mte_suscribedate,'mm/yyyy'),'mm/yyyy') from CV_MCAFEESUSCRIBED " +
-							"group by to_date(to_char(mte_suscribedate,'mm/yyyy'),'mm/yyyy') "+ 
-					"order by to_date(to_char(mte_suscribedate,'mm/yyyy'),'mm/yyyy') asc ").list();
+					
+					String query1="select COUNT(DISTINCT(MUS_ACCOUNT)),  to_date(to_char(MUS_DATESUSCRIBE,'mm/yyyy'),'mm/yyyy') from CV_MCAFEEUSERS " +
+							"group by to_date(to_char(MUS_DATESUSCRIBE,'mm/yyyy'),'mm/yyyy') "+ 
+					"order by to_date(to_char(MUS_DATESUSCRIBE,'mm/yyyy'),'mm/yyyy') asc ";
+					
+					String query2 ="select count(*),  to_date(to_char(MCA_DATESUSCRIBE,'mm/yyyy'),'mm/yyyy') from cv_mcafee "+
+					" group by to_date(to_char(MCA_DATESUSCRIBE,'mm/yyyy'),'mm/yyyy') "+  
+					" order by to_date(to_char(MCA_DATESUSCRIBE,'mm/yyyy'),'mm/yyyy') asc"; 
+					
+					String query ="";
+					if(tipoProducto.equalsIgnoreCase("ANTERIOR"))
+						query = query1;
+					else
+						query = query2;
+					
+					return session.createSQLQuery(query).list();
 				}
 			});
 		} catch(RuntimeException re){
@@ -53,19 +66,30 @@ public class McafeeDownloadsHibernateDao extends HibernateDaoSupport implements
 		}
 	}
 	@Override
-	public List getResumenPorFecha(final Date fechaInicio, final Date fechaFinal, final String status){
+	public List getResumenPorFecha(final Date fechaInicio, final Date fechaFinal, final String status, final String tipoProducto){
 		try{
 			return (List)getHibernateTemplate().execute(new HibernateCallback(){
 				public Object doInHibernate(Session session) throws HibernateException, SQLException {
 					Calendar finalCalendar = Calendar.getInstance();
+					Query query = null;
+					Query queryNuevoProducto = null;
+					List resultado = null;
+					
+					
+					
 					if(fechaFinal==null){
 						finalCalendar.setTime(fechaInicio);
 					}else{
 						finalCalendar.setTime(fechaFinal);
 					}
 					finalCalendar.add(Calendar.DATE, 1);
-					Query query = session.createSQLQuery(
-							"select count(*) from (select U.MUS_ACCOUNTID from cv_mcafeesuscribed d, cv_mcafeeusers u "+
+					
+					
+					System.out.println("FECHA INICIO::"+fechaInicio);
+					System.out.println("FECHA FINAL::"+finalCalendar.getTime());
+					
+					/*
+					 "select count(*) from (select U.MUS_ACCOUNTID from cv_mcafeesuscribed d, cv_mcafeeusers u "+
 							"where d.mte_iduser = u.mus_id and TRIM(u.mus_cvstatus)=:STATUS "+
 							"AND D.MTE_SUSCRIBEDATE < :FECHAINICIO  "+
 							"GROUP BY(U.MUS_ACCOUNTID)) "+
@@ -73,12 +97,43 @@ public class McafeeDownloadsHibernateDao extends HibernateDaoSupport implements
 							"select count(*) from (select U.MUS_ACCOUNTID from cv_mcafeesuscribed d, cv_mcafeeusers u "+
 							"where d.mte_iduser = u.mus_id and TRIM(u.mus_cvstatus)=:STATUS "+
 							"AND D.MTE_SUSCRIBEDATE >= :FECHAINICIO AND D.MTE_SUSCRIBEDATE<:FECHAFINAL "+
-					"GROUP BY(U.MUS_ACCOUNTID))");
+							"GROUP BY(U.MUS_ACCOUNTID))"); 
+					 */
 					
-					query.setParameter("STATUS", status);
-					query.setParameter("FECHAINICIO", fechaInicio);
-					query.setParameter("FECHAFINAL", finalCalendar.getTime());
-					return query.list();
+					if(tipoProducto.equalsIgnoreCase("ANTERIOR")){
+					query = session.createSQLQuery(
+							"select count(*) from (select U.MUS_ACCOUNT from  cv_mcafeeusers u "+
+							"where TRIM(u.mus_cvstatus)=:STATUS "+
+							"AND u.MUS_DATESUSCRIBE < :FECHAINICIO  "+
+							"GROUP BY(U.MUS_ACCOUNT)) "+
+							"union all "+
+							"select count(*) from (select U.MUS_ACCOUNT from cv_mcafeeusers u "+
+							"where TRIM(u.mus_cvstatus)=:STATUS "+
+							"AND u.MUS_DATESUSCRIBE >= :FECHAINICIO AND u.MUS_DATESUSCRIBE<:FECHAFINAL "+
+							"GROUP BY(U.MUS_ACCOUNT))");
+						query.setParameter("STATUS", status);
+						query.setParameter("FECHAINICIO", fechaInicio);
+						query.setParameter("FECHAFINAL", finalCalendar.getTime());
+						resultado = query.list();
+						
+					}else if(tipoProducto.equalsIgnoreCase("NUEVO")){
+						
+					queryNuevoProducto = session.createSQLQuery("select count(*) from (select U.mca_account from cv_mcafee u "+ 
+							"where TRIM(u.mca_cvstatus)=:STATUS "+ 
+							"AND U.MCA_DATESUSCRIBE < :FECHAINICIO "+ 
+							"GROUP BY(U.mca_account)) "+ 
+							"union all "+ 
+							"select count(*) from (select U.mca_account from cv_mcafee u "+ 
+							"where TRIM(u.mca_cvstatus)=:STATUS "+ 
+							"AND U.MCA_DATESUSCRIBE >= :FECHAINICIO AND u.MCA_DATESUSCRIBE<:FECHAFINAL "+ 
+							"GROUP BY(U.mca_account))");
+						queryNuevoProducto.setParameter("STATUS", status);
+						queryNuevoProducto.setParameter("FECHAINICIO", fechaInicio);
+						queryNuevoProducto.setParameter("FECHAFINAL", finalCalendar.getTime());
+						resultado =  queryNuevoProducto.list();
+						System.out.println("resultado del query::"+resultado);
+					}
+					return resultado;
 				}
 			});
 		} catch(RuntimeException re){
@@ -129,7 +184,10 @@ public class McafeeDownloadsHibernateDao extends HibernateDaoSupport implements
 		return getHibernateTemplate().find("from CvMcafeeDownload where mdlIduser=?",idUser);
 	}
 	@Override
-	public List<CvMcafeesuscribed> getSuscripciones(final Date fechaInicio, final Date fechaFinal, final String status,int inicio,int maxResults){
+	public List getSuscripciones(final Date fechaInicio, final Date fechaFinal, final String status,int inicio,int maxResults,String tipoProducto){
+		System.out.println("fecha inicio::"+fechaInicio+" fechaFinal::"+fechaFinal);
+		List resultado =  null; 
+		
 		Calendar finalCalendar = Calendar.getInstance();
 		if(fechaFinal==null){
 			finalCalendar.setTime(fechaInicio);
@@ -138,16 +196,46 @@ public class McafeeDownloadsHibernateDao extends HibernateDaoSupport implements
 		}
 		finalCalendar.add(Calendar.DATE, 1);
 		
+		if(tipoProducto.equalsIgnoreCase("ANTERIOR")){
+			
+			/*DetachedCriteria criteria = DetachedCriteria.forClass(CvMcafeesuscribed.class);
+			
+			criteria.add(Property.forName("mteSuscribedate").ge(fechaInicio));
+			criteria.add(Property.forName("mteSuscribedate").lt(finalCalendar.getTime()));
+			criteria.add(Property.forName("mteStatus").eq(status));
+			*/
+			
+			String queryString = "from CvMcafeeUser where musDatesuscribe >= ? and musDatesuscribe < ? and TRIM(musCvstatus)= ?";
+			Object[] params = {fechaInicio,fechaFinal,status};
+			
+			
+			resultado =getHibernateTemplate().find(queryString, params);
+			
+			/*DetachedCriteria criteria = DetachedCriteria.forClass(CvMcafeeUser.class);
+			
+			criteria.add(Property.forName("musDatesuscribe").ge(fechaInicio));
+			criteria.add(Property.forName("musDatesuscribe").lt(finalCalendar.getTime()));
+			criteria.add(Property.forName("musCvstatus").eq(status)); 
 		
-		DetachedCriteria criteria = DetachedCriteria.forClass(CvMcafeesuscribed.class);
+			resultado = getHibernateTemplate().findByCriteria(criteria,inicio,maxResults);
+			*/
+			//System.out.println("RESULTADO::"+resultado);
+		}else{
+			DetachedCriteria criteria = DetachedCriteria.forClass(CvMcafee.class);
+			
+			criteria.add(Property.forName("mcaDatesuscribe").ge(fechaInicio));
+			criteria.add(Property.forName("mcaDatesuscribe").lt(finalCalendar.getTime()));
+			criteria.add(Property.forName("mcaCvstatus").eq(status));
+			
+			
+			resultado = getHibernateTemplate().findByCriteria(criteria,inicio,maxResults);
+		}
+		if(resultado == null){
+			System.out.println("NO SE ENCONTRARON RESULTADOS PARA EL DETALLE DE REPORTE MCAFEE");
+			resultado = new ArrayList();
+		}
 		
-		criteria.add(Property.forName("mteSuscribedate").ge(fechaInicio));
-		criteria.add(Property.forName("mteSuscribedate").lt(finalCalendar.getTime()));
-		criteria.add(Property.forName("mteStatus").eq(status));
-		
-		
-		return getHibernateTemplate().findByCriteria(criteria,inicio,maxResults);
-		
+		return resultado;
 	}
 
 	/**
@@ -295,11 +383,19 @@ public class McafeeDownloadsHibernateDao extends HibernateDaoSupport implements
 	@Override
 	public CvMcafeeUser getMcafeeUserByAccount(Long account) {
 		String queryString = "from CvMcafeeUser where musAccount=?";
-		List<CvMcafeeUser> mcafeeUsers = getHibernateTemplate().find(
-				queryString, account);
-		if (mcafeeUsers.size() > 0)
-			return mcafeeUsers.get(0);
-		return null;
+		CvMcafeeUser temp = null;
+		
+		List<CvMcafeeUser> mcafeeUsers = getHibernateTemplate().find(queryString, account);
+		if (mcafeeUsers.size() > 0){
+			temp = mcafeeUsers.get(0);
+			
+			if(mcafeeUsers.size() > 1)
+				temp.setRegistroMultiple(true);
+			else 
+				temp.setRegistroMultiple(false);
+		}
+		
+		return temp;
 	}
 
 	@Override
@@ -363,10 +459,17 @@ public class McafeeDownloadsHibernateDao extends HibernateDaoSupport implements
 	
 	public CvMcafee getMcafeeByAccount(Long account) {
 		String queryString = "from CvMcafee where mcaAccount=?";
-		List<CvMcafee> mcafee = getHibernateTemplate().find(
-				queryString, account);
-		if (mcafee.size() > 0)
-			return mcafee.get(0);
-		return null;
+		List<CvMcafee> mcafee = getHibernateTemplate().find(queryString, account);
+		
+		CvMcafee temp = null;
+		
+		if (mcafee.size() > 0){
+			temp = mcafee.get(0);
+			if(mcafee.size() > 1)
+				temp.setRegistroMultiple(true);
+			else
+				temp.setRegistroMultiple(false);
+		}
+		return temp;
 	}
 }

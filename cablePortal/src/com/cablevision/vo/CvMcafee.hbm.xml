@@ -68,8 +68,18 @@
         column="MCA_REFERENCE"
         length="250"
     />
-
+    <property
+        name="mcaFirstName"
+        type="string"
+        column="MCA_FIRSTNAME"
+        length="100"
+    />
+    <property
+        name="mcaLastName"
+        type="string"
+        column="MCA_LASTNAME"
+        length="100"
+    />
     <!-- Associations -->
-
-</class>
+    </class>
 </hibernate-mapping>

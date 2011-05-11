@@ -21,6 +21,7 @@ public class CvMcafeeUser  implements Serializable {
 	private String musEmailaddress;
 	private String musPassword;
 	private String musReference;
+	private Boolean registroMultiple;
 
     public CvMcafeeUser() {
     }
@@ -111,5 +112,13 @@ public class CvMcafeeUser  implements Serializable {
 		return new ToStringBuilder(this)
 			.append("musId", getMusId())
 			.toString();
+	}
+
+	public Boolean getRegistroMultiple() {
+		return registroMultiple;
+	}
+
+	public void setRegistroMultiple(Boolean registroMultiple) {
+		this.registroMultiple = registroMultiple;
 	}
 }
