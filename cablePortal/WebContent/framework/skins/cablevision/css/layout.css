@@ -81,6 +81,10 @@ body {
 
 	/* Thumbs rotador */
 		ul#navs-rot { 
+			position: relative;
+				left: 752px; top:237px; 
+				*left: 150px; *top:315px; 
+			width: 		190px;
 			font-size:	10px;
 			line-height:11px;		
 			 }
@@ -92,49 +96,6 @@ body {
 		
 		ul#navs-rot li div { font-size: 11px; width: 50px; text-align:center; overflow:none;}
 				
-/*Rotador home*/				
-
-		.wraps-slide-navs {
-			float: 			right;
-			height: 		80px;
-			left: 			-25px;
-			position: 		relative;
-			top: 			-74px;
-			width: 			200px;
-		}
-		
-		a.prev-sli-nav {
-				background: url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat scroll -451px -154px transparent;
-				height: 30px;
-				left: -37px;
-				position: relative;
-				top: -51px;
-				width: 40px;	
-			}
-		
-		a.next-sli-nav {
-				background:url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat scroll -419px -154px transparent;
-				height:30px;
-				width:40px;
-				left: 173px;
-				position: relative;
-				top: -81px;			
-			}
-			
-		.slide-navs #navs-rot div {
-			color: #F26507!important;			
-		}				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-/*Fin Rotador Home*/
 
 	/* navbar */
 	#logo-head {
@@ -498,11 +459,6 @@ body {
 
 		 /* Ranking */
 			.ranking { line-height: 15px; color: #333;}
-			
-			.deep-orange-only {
-				color:#FF9900;
-				font-weight:bold;
-			}
 			
 		/* Ranking */	
 			.worldcup { margin: 15px 0;}
@@ -1133,8 +1089,7 @@ body {
 			.cs-nav-1, .cs-nav1-active, .cs-nav1-disable, .cs-nav-2, .cs-nav2-active, .cs-nav2-disable, 
 			.cs-nav-3, .cs-nav3-active, .cs-nav3-disable, .cs-nav-4, .cs-nav4-active, .cs-nav4-disable, 
 			.cs-nav-5, .cs-nav5-active, .cs-nav5-disable, .cs-nav-6, .cs-nav6-active, .cs-nav6-disable, 
-			.cs-nav-7, .cs-nav7-active, .cs-nav7-disable, .cs-nav-8, .cs-nav8-active, .cs-nav8-disable, 
-			.cs-nav-9, .cs-nav9-active, .cs-nav9-disable, .cs-nav-10, .cs-nav10-active, .cs-nav10-disable {
+			.cs-nav-7, .cs-nav7-active, .cs-nav7-disable {
 			display:	block;
 			height: 	66px; 
 			width:		100%;
@@ -1175,21 +1130,6 @@ body {
 			.cs-nav7-active {  background: transparent url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv004375.png") no-repeat scroll -243px -406px; } 		
 			.cs-nav7-disable { background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv004375.png") no-repeat scroll -2px -406px transparent; }
 			
-			.cs-nav-8 { background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv004375.png") no-repeat scroll -2px -406px transparent; }
-			.cs-nav-8:hover { background-position: -508px -406px; }
-			.cs-nav8-active {  background: transparent url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv004375.png") no-repeat scroll -243px -406px; } 		
-			.cs-nav8-disable { background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv004375.png") no-repeat scroll -2px -406px transparent; }
-			
-			.cs-nav-9 { background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv004375.png") no-repeat scroll -2px -406px transparent; }
-			.cs-nav-9:hover { background-position: -508px -406px; }
-			.cs-nav9-active {  background: transparent url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv004375.png") no-repeat scroll -243px -406px; } 		
-			.cs-nav9-disable { background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv004375.png") no-repeat scroll -2px -406px transparent; }
-			
-			.cs-nav-10 { background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv004375.png") no-repeat scroll -2px -406px transparent; }
-			.cs-nav-10:hover { background-position: -508px -406px; }
-			.cs-nav10-active {  background: transparent url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv004375.png") no-repeat scroll -243px -406px; } 		
-			.cs-nav10-disable { background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv004375.png") no-repeat scroll -2px -406px transparent; }
-
 		.cotiz-bread { margin: -21px 0 15px; }
 		.cotiz-bread li { display: block; float: left; }
 

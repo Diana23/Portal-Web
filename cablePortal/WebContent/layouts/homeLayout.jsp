@@ -38,7 +38,9 @@ xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0" >
 					<a href="#" id="btn-link-ruleta" title="Ver ahora" class="btn-small">Ver ahora</a>
 				</div>
 
-				
+				<!-- slider navs -->
+				<jsp:include page="/com/cablevision/controller/contenido/renderizarContenido.jsp?contenidoId=CV002114&estructuraId=CV002115&templateId=CV002117" flush="true"/>			
+			
 			</div>
 			
 			<!-- Navbar -->
@@ -62,15 +64,7 @@ xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0" >
 		<c:set var="ph2" value="${ph[1]}"/>
 		<c:set var="ph3" value="${ph[2]}"/>
 		<c:set var="ph4" value="${ph[3]}"/>
-		<!-- slider navs -->
-		<div class="wraps-slide-navs">
-			<div class="slide-navs">
-				<jsp:include page="/com/cablevision/controller/contenido/renderizarContenido.jsp?contenidoId=CV002114&estructuraId=CV002115&templateId=CV002117" flush="true"/>			
-			</div>
-			<a href="#" class="prev-sli-nav hidden-text"></a>
-			<a href="#" class="next-sli-nav hidden-text"></a>
-		</div>	
-			<div class="span-24" style="margin-top:-88px">
+			<div class="span-24">
 				<!-- Wrap Main -->	
 				<div class="margin-bot15">
 					<!-- Main -->	

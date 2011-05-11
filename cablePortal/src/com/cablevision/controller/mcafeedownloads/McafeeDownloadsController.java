@@ -1,11 +1,13 @@
 package com.cablevision.controller.mcafeedownloads;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -35,12 +37,17 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.rpc.ServiceException;
 
+import jwm.jdom.JDOMException;
+import jwm.jdom.input.SAXBuilder;
+
 import org.apache.beehive.netui.pageflow.Forward;
 import org.apache.beehive.netui.pageflow.annotations.Jpf;
 import org.apache.xerces.dom.DocumentImpl;
 import org.apache.xerces.jaxp.DocumentBuilderFactoryImpl;
 import org.apache.xml.serialize.OutputFormat;
 import org.apache.xml.serialize.XMLSerializer;
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.access.DefaultLocatorFactory;
@@ -59,13 +66,16 @@ import com.cablevision.ToInterfase;
 import com.cablevision.controller.base.ControllerBase;
 import com.cablevision.portal.ErrorVitriaException;
 import com.cablevision.service.IMcafeeDownloadsService;
+import com.cablevision.service.impl.McafeeDownloadsSpringService;
 import com.cablevision.util.Constantes;
 import com.cablevision.util.ResponseToServiceRequest;
 import com.cablevision.util.RespuestaToMyAccount;
 import com.cablevision.util.ValidateErrors;
+import com.cablevision.vo.CvMcafee;
 import com.cablevision.vo.CvMcafeeDownload;
 import com.cablevision.vo.CvMcafeeUser;
 import com.cablevision.vo.CvMcafeesuscribed;
+import com.cablevision.vo.McaffeeVO;
 
 @Jpf.Controller(
 		catches={
@@ -89,12 +99,15 @@ public class McafeeDownloadsController extends ControllerBase {
 	transient ToInterfase vitriaClient;
 	private static String MCAFEE_PARTNERID = "";
 	private static String MCAFEE_SKU = "";
+	private static String MCAFEE_NEW_SKU = "";
 	private static String MCAFEE_QTY = "";
-	private static String MCAFEE_ACTION = "";
+	private static String MCAFEE_NEW_ACTION = "";
+	private static String MCAFEE_CANCEL_ACTION = "";
 	private static String MCAFEE_URLSUSCRIPTION = "";
 	private static String MCAFEE_URLDOWNLOAD = "";
 	private static String MCAFEE_RETURNURL = "";
 	private int errorCode = 0;
+	private Logger log = Logger.getLogger(McafeeDownloadsController.class); 
 	
 	private String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
 
@@ -129,6 +142,7 @@ public class McafeeDownloadsController extends ControllerBase {
 		String txtA = form.getFechaA();//"2008-05-01";
 		String status = form.getEstatus();//"ACTIVO";
 		String fechaLetra = "";
+		String tipoProducto = form.getTipoProducto();
 		boolean banderaFiltros = false;
 		List<String> errors = new ArrayList<String>();
 		
@@ -164,20 +178,33 @@ public class McafeeDownloadsController extends ControllerBase {
 			else{
 				//filtro 3 por Cuenta
 				if(cuenta != null && !cuenta.equals("")){
-					CvMcafeeUser mcafeeUser = getMcafeeDownloadsService().getMcafeeUserByAccount(Long.parseLong(cuenta));
-					List<CvMcafeeDownload> listDownloads = getMcafeeDownloadsService().getMcafeeDownloadsByUserAccount(mcafeeUser.getMusId());
-					
-					if(mcafeeUser != null){
-						forward.addActionOutput("mcafeeUser", mcafeeUser);
-					}
-					
-					if(listDownloads != null && !listDownloads.isEmpty()){
-						forward.addActionOutput("listDownloads", listDownloads);
-					}
-
-					if(mcafeeUser == null && (listDownloads == null || listDownloads.isEmpty())){
-						errors.add("No se Encontraron Datos para la Cuenta Especificada");
-						forward.addActionOutput("errors", errors);
+					if(tipoProducto.equalsIgnoreCase("ANTERIOR")){
+						CvMcafeeUser mcafeeUser = getMcafeeDownloadsService().getMcafeeUserByAccount(Long.parseLong(cuenta));
+						
+						//List<CvMcafeeDownload> listDownloads = getMcafeeDownloadsService().getMcafeeDownloadsByUserAccount(mcafeeUser.getMusId());
+						
+						if(mcafeeUser != null){
+							forward.addActionOutput("mcafeeUser", mcafeeUser);
+						}
+						
+						/*if(listDownloads != null && !listDownloads.isEmpty()){
+							forward.addActionOutput("listDownloads", listDownloads);
+						}*/
+	
+						if(mcafeeUser == null ){//&& (listDownloads == null || listDownloads.isEmpty())){
+							errors.add("No se Encontraron Datos para la Cuenta Especificada");
+							forward.addActionOutput("errors", errors);
+						}
+					}else if(tipoProducto.equalsIgnoreCase("NUEVO")){
+						CvMcafee mcafee = getMcafeeDownloadsService().getMcafeeByAccount(Long.parseLong(cuenta));
+						
+						if(mcafee != null){
+							forward.addActionOutput("mcafeeUserNuevo", mcafee);
+						}else{
+							errors.add("No se Encontraron Datos para la Cuenta Especificada");
+							forward.addActionOutput("errors", errors);
+						}
+						
 					}
 					
 					return forward;
@@ -195,9 +222,10 @@ public class McafeeDownloadsController extends ControllerBase {
 		}
 		
 		if(banderaFiltros){
-			List origen = getMcafeeDownloadsService().getOrigen(fechaInicio, fechaFinal, status);
-			List resumenFechas = getMcafeeDownloadsService().getResumenPorFecha(fechaInicio, fechaFinal, status);
+				
+			List resumenFechas = getMcafeeDownloadsService().getResumenPorFecha(fechaInicio, fechaFinal, status,tipoProducto);
 			
+			/*List origen = getMcafeeDownloadsService().getOrigen(fechaInicio, fechaFinal, status);
 			
 			Map<String, Integer> agrupado = new HashMap<String, Integer>();
 			
@@ -224,9 +252,11 @@ public class McafeeDownloadsController extends ControllerBase {
 			for (String grupo : agrupado.keySet()) {
 				origen.add(new Object[]{agrupado.get(grupo),grupo});
 			}
-			
-			if(origen.size() > 0 || resumenFechas.size() > 0){
-				forward.addActionOutput("origen", origen);
+			*/
+			if(resumenFechas.size() > 0){
+				//forward.addActionOutput("origen", origen);
+				log.debug("pos0"+resumenFechas.get(0));
+				log.debug("pos1"+resumenFechas.get(1));
 				forward.addActionOutput("resumenFechas", resumenFechas);
 				forward.addActionOutput("fechaLetra", fechaLetra);
 				
@@ -243,8 +273,9 @@ public class McafeeDownloadsController extends ControllerBase {
 				forward.addActionOutput("fechaFinTotalAntes", sdf.format(calendar.getTime()));
 				
 			}
+			
 		}else{
-			List resumen = getMcafeeDownloadsService().getResumen();
+			List resumen = getMcafeeDownloadsService().getResumen(tipoProducto);
 			forward.addActionOutput("lista", resumen);
 		}
 		
@@ -288,8 +319,9 @@ public class McafeeDownloadsController extends ControllerBase {
 	public Forward mostrarResumen(ReportBean form) throws Exception{
 		Forward forward = new Forward("success");
 		
+		log.debug("LLAMADA A MOSTRAR RESUMEN::"+form.getEstatus());
 		
-		List resumen = getMcafeeDownloadsService().getResumen();
+		List resumen = getMcafeeDownloadsService().getResumen(form.getTipoProducto());
 		forward.addActionOutput("lista", resumen);
 		forward.addActionOutput("meses", generaComboMes());
 		forward.addActionOutput("form", form);
@@ -363,14 +395,28 @@ public class McafeeDownloadsController extends ControllerBase {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		String nombreArchivo = "reporteMcAfee"+System.currentTimeMillis()+".xls";
 		
-		getMcafeeDownloadsService().generaReporte(format.parse(form.getFechaDe()), form.getFechaA()!=null?format.parse(form.getFechaA()):null, form.getEstatus(), nombreArchivo);
+		String datosReporte = getMcafeeDownloadsService().generaReporte(format.parse(form.getFechaDe()), form.getFechaA()!=null?format.parse(form.getFechaA()):null, form.getEstatus(),form.getTipoProducto(), nombreArchivo);
 		
-		GenericURL url = GenericURL.createGenericURL(getRequest(),getResponse());
-		url.setPath("/archivos/mcafee/tmp/"+nombreArchivo);
+		byte[] arrDatos = datosReporte.getBytes();
 		
-		
+		ByteArrayOutputStream stream =  new ByteArrayOutputStream(arrDatos.length);
+		stream.write(arrDatos);
+				
 		this.getResponse().setHeader("Cache-Control", "max-age=30");
 		this.getResponse().setContentType("application/msexcel");
+		this.getResponse().setHeader("Content-length", "" + arrDatos.length);
+		this.getResponse().setHeader("Content-disposition", "inline;filename="+nombreArchivo);
+		
+		stream.writeTo(this.getResponse().getOutputStream());
+		
+		stream.flush();
+		stream.close();	
+		
+		
+		
+		/*
+		GenericURL url = GenericURL.createGenericURL(getRequest(),getResponse());
+		url.setPath("/mcafee/tmp/"+nombreArchivo);
 		
 		StringBuffer sbContentDispValue = new StringBuffer();
 		sbContentDispValue.append("attachment");
@@ -378,8 +424,9 @@ public class McafeeDownloadsController extends ControllerBase {
 		sbContentDispValue.append(nombreArchivo);
 		
 		this.getResponse().setHeader("Content-disposition",sbContentDispValue.toString());
-		
-		return new Forward(new URI(url.toString()));
+		*/
+		//return new Forward(new URI(url.toString()));
+		return null;
 		
 	}
 	
@@ -391,14 +438,15 @@ public class McafeeDownloadsController extends ControllerBase {
 	)
 	public Forward downloadMcafee() throws RemoteException, ServiceException, ParserConfigurationException, 
 	SAXException, IOException, UnsupportedEncodingException {
-		
-		
+		log.info("ENTRA A downloadMcafee");
 		
 		Forward forward = new Forward("error");
 		MCAFEE_PARTNERID = getMessageResources("configuracion").getMessage("mcafee.partnerid");
 		MCAFEE_SKU = getMessageResources("configuracion").getMessage("mcafee.sku");
+		MCAFEE_NEW_SKU = getMessageResources("configuracion").getMessage("mcafee.new.sku");
 		MCAFEE_QTY = getMessageResources("configuracion").getMessage("mcafee.qty");
-		MCAFEE_ACTION = getMessageResources("configuracion").getMessage("mcafee.action");
+		MCAFEE_NEW_ACTION = getMessageResources("configuracion").getMessage("mcafee.new.action");
+		MCAFEE_CANCEL_ACTION = getMessageResources("configuracion").getMessage("mcafee.cancel.action");
 		MCAFEE_URLSUSCRIPTION = getMessageResources("configuracion").getMessage("mcafee.urlsuscription");
 		MCAFEE_URLDOWNLOAD = getMessageResources("configuracion").getMessage("mcafee.urldownload");
 		MCAFEE_RETURNURL = getMessageResources("configuracion").getMessage("mcafee.returnurl");
@@ -411,17 +459,47 @@ public class McafeeDownloadsController extends ControllerBase {
 
 		// obtiene el detalle de la cuenta de usuario de cablevision
 		RespuestaToMyAccount cvCuenta = (RespuestaToMyAccount)getSession().getAttribute(Constantes.SESSION_MI_CUENTA);
-		
+		log.info("OBTIENE CUENTA DE SESION");
 		if(cvCuenta != null) {
-			if("Y".equals(cvCuenta.getIpCable())){
-				// obtiene el objeto usuario de mcafee
-				Long account = Long.parseLong(cvCuenta.getCvNumberAccount());
-				CvMcafeeUser mcafeeUser = cuentaMcafee(account);
-
+			if("Y".equalsIgnoreCase(cvCuenta.getIpCable())){
+			log.debug("tiene internet::"+cvCuenta.getIpCable());
+			
+			// obtiene el objeto usuario de mcafee
+				Long account = Long.parseLong(cvCuenta.getCvNumberAccount()); 
+				CvMcafeeUser mcafeeUser = cuentaMcafeeUser(account);
+				
+				
+				//valida si el usuario exite y si esta activo
+				if ( mcafeeUser != null && (McafeeDownloadsSpringService.STS_ACTIVO.equalsIgnoreCase(mcafeeUser.getMusCvstatus().trim()) ||
+						McafeeDownloadsSpringService.STS_INACTIVO.equalsIgnoreCase(mcafeeUser.getMusCvstatus().trim()))) {
+					log.debug("El usuario con cuenta "+account+"existe en la tabla anterior");
+					//se envia que de de baja el viejo producto ya que antes no consideraba que si entra desde el portal solo va a manejar el nuevo producto
+					Document xmlCancel = getMcafeeDownloadsService().generateCancelXML(account, mcafeeUser.getMusReference(),false);
+					String xmlStringCancelResponse = getMcafeeDownloadsService().getXMLResponse(xmlCancel);
+					if ( !StringUtils.isEmpty(xmlStringCancelResponse) ){
+						String returnCode = getMcafeeDownloadsService().getCodeFromXML(xmlStringCancelResponse);
+						log.debug("CODIGO RESPUESTA DE MCAFEE::"+returnCode);
+						if ( !"1000".equals(returnCode) && !"5001".equals(returnCode) && !"5002".equals(returnCode) ){
+							errorCode = 1;
+							return forward;
+						}
+					}else{
+						errorCode = 1;
+						return forward;
+					}
+				}else if(mcafeeUser != null && (McafeeDownloadsSpringService.STS_CANCELADO.equalsIgnoreCase(mcafeeUser.getMusCvstatus().trim()))){
+					errorCode = 6;
+					return forward;
+				}else if(mcafeeUser != null && (McafeeDownloadsSpringService.STS_SUSPENDIDO.equalsIgnoreCase(mcafeeUser.getMusCvstatus().trim()))){
+					errorCode = 7;
+					return forward;
+				}
+				
 				// genera el XML y luego obtiene el usuario de mcafee, devuelo 0 si no tiene
-				Document xml = generateXML(cvCuenta);
-				String xmlStringResponse = getXMLResponse(xml);
-				if(xmlStringResponse != null) {
+				Document xml = getMcafeeDownloadsService().generateXML(cvCuenta);
+				String xmlStringResponse = getMcafeeDownloadsService().getXMLResponse(xml);
+				String code = getMcafeeDownloadsService().getCodeFromXML(xmlStringResponse);
+				if ( xmlStringResponse != null && ("1000".equals(code) || "5001".equals(code) || "5002".equals(code)) ) {
 
 					DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 					DocumentBuilder builder = null;
@@ -431,92 +509,90 @@ public class McafeeDownloadsController extends ControllerBase {
 					InputSource is = new InputSource(new StringReader(xmlStringResponse));
 					xmlResponse = builder.parse(is);
 
-					CvMcafeeUser newMcafeeUser = getMcafeeUserFromResponse(xmlResponse, cvCuenta, sessionAccountId);
-					boolean isNew = true;
+					CvMcafee newMcafeeUser = getMcafeeDownloadsService().getMcafeeUserFromResponse(xmlResponse, cvCuenta, sessionAccountId);
 					if(newMcafeeUser != null) {
 						try {
-							if(mcafeeUser!=null){
-								newMcafeeUser.setMusId(mcafeeUser.getMusId());
-								newMcafeeUser.setMusDatesuscribe(mcafeeUser.getMusDatesuscribe());
-								isNew =  false;
-							}
-							if(newMcafeeUser != null) {
-								getMcafeeDownloadsService().persistCvMcafeeUser(newMcafeeUser);
-								mcafeeUser = newMcafeeUser;
-							}
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-
-						if(mcafeeUser != null) {
-							// comprueba que no sea un usuario de prueba
-							if(mcafeeUser.getMusId() != 10000748 && mcafeeUser.getMusId() != 17000137) {
-								// obtiene la cantidad de descargas hechas por el usuario
-								if(downzStillAvailable(mcafeeUser.getMusId())) {
-									CvMcafeeDownload md = new CvMcafeeDownload();
-									md.setMdlDate(new java.sql.Timestamp(new Date().getTime()));
-									md.setMdlIduser(mcafeeUser.getMusId());
-									try {
-										getMcafeeDownloadsService().persistCvMcafeeDownload(md);
-									} catch (Exception e) {
-										e.printStackTrace();
-									}
-									
-									CvMcafeesuscribed suscribed = null;
-									
-									if(isNew){
-										suscribed = new CvMcafeesuscribed();
-										suscribed.setMteAccount(Long.parseLong(cvCuenta.getCvNumberAccount()));
-										suscribed.setMteAttemps(Long.valueOf(1));
-										suscribed.setMteEmail(cvCuenta.getCorreoContacto());
-										suscribed.setMteSource("directo");
-										suscribed.setMteStatus("ACTIVO");
-										suscribed.setMteSuscribedate(new Timestamp(System.currentTimeMillis()));
-										suscribed.setMteIduser(mcafeeUser.getMusId());
-										getMcafeeDownloadsService().persistCvMcafeesuscribed(suscribed);
-									}else{
-										getMcafeeDownloadsService().aumentarDownload(cvCuenta.getCvNumberAccount());
-									}
-									
-									//nueva llamada vitria
-							         if(suscribed == null){
-							          suscribed = getMcafeeDownloadsService().getSuscribdByAccount(Integer.parseInt(cvCuenta.getCvNumberAccount()));
-							         }
-							         
-							         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
-							         String descripcion = "email:"+mcafeeUser.getMusEmailaddress()+" pwd:"+mcafeeUser.getMusPassword()+
-							               " ref:"+mcafeeUser.getMusReference()+" fecha de suscripción:"+sdf.format(suscribed.getMteSuscribedate())+
-							               " fecha de descarga "+sdf.format(new Date())+" origen de descarga:Pagina Web id descarga:"+suscribed.getMteId();
-							         
-							         ResponseToServiceRequest response = getVitriaClient().getProjects_CVNPW_Initial_ToInterfase().
-							                  toServiceRequest("McAfee", "PAGINA WEB", 
-							                      cvCuenta.getCvNumberAccount(), descripcion, 
-							                      "", 
-							                      "", "Descarga", "", "Internet Protected", "", "", "", "", "", "", 
-							                      "", "", "", "", "");
-							         
-							        try {
-										ValidateErrors.validateErrorResponse(response.getCvError(), getMessageResources("mensajeError"));
-									} catch (ErrorVitriaException e) {
-										errorCode = 0;
-										return forward;
-									}
-									
-									String urlDownload = MCAFEE_URLDOWNLOAD + "?" +
-									URLEncoder.encode("EMAIL_ADDRESS","UTF-8") + "=" + URLEncoder.encode(mcafeeUser.getMusEmailaddress(),"UTF-8") + "&" +
-									URLEncoder.encode("PASSWORD","UTF-8") + "=" + URLEncoder.encode(mcafeeUser.getMusPassword(),"UTF-8") + "&" +
-									URLEncoder.encode("CCID","UTF-8") + "=" + URLEncoder.encode(Long.toString(mcafeeUser.getMusAccount()),"UTF-8") + "&" +
-									URLEncoder.encode("AFF_ID","UTF-8") + "=" + URLEncoder.encode(MCAFEE_PARTNERID,"UTF-8") + "&" +
-									URLEncoder.encode("RETURN_URL","UTF-8")	+ "=" + URLEncoder.encode(MCAFEE_RETURNURL,"UTF-8") + "&" +
-									URLEncoder.encode("REMEMBER_ME","UTF-8") + "=" + URLEncoder.encode("0","UTF-8") + "&" +
-									URLEncoder.encode("APP_CODE","UTF-8") + "=" + URLEncoder.encode("MVS","UTF-8");
-									getResponse().sendRedirect(urlDownload);
-
-									forward = new Forward("success");
-								} else {
-									errorCode = 3;
+							if( mcafeeUser!=null ){
+								if ( McafeeDownloadsSpringService.STS_ACTIVO.equalsIgnoreCase(mcafeeUser.getMusCvstatus().trim()) ) {
+									//cambiar el estatus a migrado
+									getMcafeeDownloadsService().updateCvMcafeeUserStatus(mcafeeUser.getMusId(), McafeeDownloadsSpringService.STS_MIGRADO);
+									newMcafeeUser.setMcaDatesuscribe(mcafeeUser.getMusDatesuscribe());
+									log.info("EL ESTATUS DE LA CUENTA "+account+" FUE ACTUALIZADO DE ACTIVO A MIGRADO");
 								}
 							}
+							
+							CvMcafee mcafee = cuentaMcafee(account);
+							if(mcafee != null){
+								if(McafeeDownloadsSpringService.STS_CANCELADO.equalsIgnoreCase(mcafee.getMcaCvstatus().trim())){
+									log.error("AL DESCARGAR DE PORTAL: EL USUARIO DE LA CUENTA "+account+" SE ENCUENTRA EN ESTATUS CANCELADO EN LA TABLA CV_MCAFEE");
+									errorCode = 6;
+									return forward;
+								}else if(McafeeDownloadsSpringService.STS_SUSPENDIDO.equalsIgnoreCase(mcafee.getMcaCvstatus().trim())){
+									log.error("AL DESCARGAR DE PORTAL: EL USUARIO DE LA CUENTA "+account+" SE ENCUENTRA EN ESTATUS SUSPENDIDO EN LA TABLA CV_MCAFEE");
+									errorCode = 7;
+									return forward;
+								}else if(McafeeDownloadsSpringService.STS_ACTIVO.equalsIgnoreCase(mcafee.getMcaCvstatus().trim())){
+									log.error("AL DESCARGAR DE PORTAL: EL USUARIO DE LA CUENTA "+account+" SE ENCUENTRA EN ESTATUS ACTIVO EN LA TABLA CV_MCAFEE");
+									errorCode = 8;
+									return forward;
+								}else{
+									newMcafeeUser.setMcaId(mcafee.getMcaId());
+								}
+							}
+							newMcafeeUser.setMcaCvstatus(McafeeDownloadsSpringService.STS_ACTIVO);
+							newMcafeeUser.setMcaFirstName(cvCuenta.getNombreContacto());
+							newMcafeeUser.setMcaLastName(cvCuenta.getApellidoPaterno() + " " + cvCuenta.getApellidoMaterno());
+							getMcafeeDownloadsService().persistCvMcafee(newMcafeeUser);
+						} catch (Exception e) {
+							e.printStackTrace();
+							errorCode = 0;
+							return forward;
+						}
+						
+						//si regresó un code n 5002 se debe mandar a mcafee un update del profile del usuario
+						if("5002".equals(code)){
+							log.debug("SE ENVIA MENSAJE DE UPDATE A MCAFEE");
+							Document xmlUdapteProfile = getMcafeeDownloadsService().generateUpdatingProfileXML(cvCuenta);
+							String xmlUdapteProfileResponse = getMcafeeDownloadsService().getXMLResponse(xmlUdapteProfile);
+							log.info("LA RESPUESTA DEL MENSAJE DE UPDATE A MCAFEE ES::"+xmlUdapteProfileResponse);
+							//TODO se hace algo con el error de update profile?
+						}
+						if(newMcafeeUser != null) {
+									
+					         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
+					         String descripcion = "email:"+newMcafeeUser.getMcaEmailaddress()+" pwd:"+newMcafeeUser.getMcaPassword()+
+					               " ref:"+newMcafeeUser.getMcaReference()+" fecha de suscripci�n:"+sdf.format(new Timestamp(System.currentTimeMillis()))+
+					               " fecha de descarga "+sdf.format(new Date());
+					         log.debug("INFORMACION DE DESCARGA::"+ descripcion);
+					         ResponseToServiceRequest response = getVitriaClient().getProjects_CVNPW_Initial_ToInterfase().
+					                  toServiceRequest("McAfee", "PAGINA WEB", 
+					                      cvCuenta.getCvNumberAccount(), descripcion, 
+					                      "", 
+					                      "", "Descarga", "", "Internet Protected", "", "", "", "", "", "", 
+					                      "", "", "", "", "");
+					         
+					         
+					         getMcafeeDownloadsService().enviaCorreoAlta(cvCuenta,newMcafeeUser);
+					         
+					        try {
+								ValidateErrors.validateErrorResponse(response.getCvError(), getMessageResources("mensajeError"));
+							} catch (ErrorVitriaException e) {
+								errorCode = 0;
+								return forward;
+							}
+							
+							String urlDownload = MCAFEE_URLDOWNLOAD + "?" +
+							URLEncoder.encode("EMAIL_ADDRESS","UTF-8") + "=" + URLEncoder.encode(newMcafeeUser.getMcaEmailaddress(),"UTF-8") + "&" +
+							URLEncoder.encode("PASSWORD","UTF-8") + "=" + URLEncoder.encode(newMcafeeUser.getMcaPassword(),"UTF-8") + "&" +
+							URLEncoder.encode("CCID","UTF-8") + "=" + URLEncoder.encode(Long.toString(newMcafeeUser.getMcaAccount()),"UTF-8") + "&" +
+							URLEncoder.encode("AFF_ID","UTF-8") + "=" + URLEncoder.encode(MCAFEE_PARTNERID,"UTF-8") + "&" +
+							URLEncoder.encode("RETURN_URL","UTF-8")	+ "=" + URLEncoder.encode(MCAFEE_RETURNURL,"UTF-8") + "&" +
+							URLEncoder.encode("REMEMBER_ME","UTF-8") + "=" + URLEncoder.encode("0","UTF-8") + "&" +
+							URLEncoder.encode("APP_CODE","UTF-8") + "=" + URLEncoder.encode("MVS","UTF-8");
+							getResponse().sendRedirect(urlDownload);
+							
+							forward = new Forward("success");
+
 						} else {
 							errorCode = 0;
 						}
@@ -549,310 +625,13 @@ public class McafeeDownloadsController extends ControllerBase {
 	  return vitriaClient;
 	 }
 	
-	private CvMcafeeUser getMcafeeUserFromResponse(Document response, RespuestaToMyAccount cuenta, String sessionAccountId) {
-		final String PARTNERRESPONSECONTEXT = "PARTNERRESPONSECONTEXT";
-		final String HEADER = "HEADER";
-		final String PARTNER = "PARTNER";
-		final String PARTNER_ID = "PARTNER_ID";
-		final String DATA = "DATA";
-		final String ID = "ID";
-		final String RETURNCODE = "RETURNCODE";
-		final String RETURNDESC = "RETURNDESC";
-		final String ORDER = "ORDER";
-		final String PARTNERREF = "PARTNERREF";
-		final String REF = "REF";
-		final String ACCOUNT = "ACCOUNT";
-		final String EMAILADDRESS = "EMAILADDRESS";
-		final String PASSWORD = "PASSWORD";
-
-		if(response != null && response.getElementsByTagName(EMAILADDRESS).getLength() > 0) {
-			CvMcafeeUser mcafeeUser = new CvMcafeeUser();
-			NodeList nodes = null;
-			mcafeeUser.setMusAccount(Long.parseLong(cuenta.getCvNumberAccount()));
-			
-			mcafeeUser.setMusAccountid(sessionAccountId);
-			mcafeeUser.setMusContactid(sessionAccountId);
-			mcafeeUser.setMusCvstatus("ACTIVO");
-			mcafeeUser.setMusDatesuscribe(new java.sql.Timestamp(new Date().getTime()));
-			
-			nodes = response.getElementsByTagName(EMAILADDRESS);
-			mcafeeUser.setMusEmailaddress(nodes.getLength()>0 ? nodes.item (0).getTextContent():null);
-			
-			nodes = response.getElementsByTagName(PASSWORD);
-			mcafeeUser.setMusPassword(nodes.getLength()>0 ? nodes.item(0).getTextContent():null);
-			
-			nodes = response.getElementsByTagName(ORDER);
-			mcafeeUser.setMusReference(nodes.getLength()>0 ? nodes.item(0).getAttributes().getNamedItem(REF).getNodeValue():null);
-			
-			return mcafeeUser;
-		} else
-			return null;
-	}
-	
-	
-	@SuppressWarnings("deprecation")
-	private String getXMLResponse(Document xml) {
-		URLConnection uc =null;
-		SOAPHttpsURLConnection connection=null;
-		OutputStream out=null;
-		InputStream in=null;
-		Reader reader=null;
-		Writer wout =null; 
-		StringBuffer sb = new StringBuffer();
-
-		try{
-			URL u = new URL(MCAFEE_URLSUSCRIPTION);
-			uc = u.openConnection();
-			connection = (SOAPHttpsURLConnection) uc;
-			connection.setDoOutput(true);
-			connection.setDoInput(true); 
-			connection.setRequestProperty("Content-Type", "application/octet-stream");
-			connection.setRequestMethod("POST");
-			connection.setDoOutput(true);
-			connection.setDoInput(true);
-			out = connection.getOutputStream();
-			wout = new OutputStreamWriter(out,"UTF-8");
-			// Write the request
-			System.out.println("Enviando xml: "+xmlToString(xml));
-			wout.write(xmlToString(xml));  
-			connection.connect();
-			wout.flush();
-			wout.close();
-
-			// Read the response
-			in = connection.getInputStream();
-			reader = new InputStreamReader(in, "UTF-8");
-			int c;
-			while ((c = in.read()) != -1) 
-				sb.append((char) c);
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		} finally{
-			try{in.close(); }catch(Exception e){}
-			try{reader.close(); }catch(Exception e){}
-			try{connection.disconnect(); }catch(Exception e){}
-		}
-
-//		String xmlStringResponse = new String("<?xml version=\"1.0\"?> " + 
-//				"<PARTNERRESPONSECONTEXT>" +
-//				"	<HEADER>" +
-//				"		<PARTNER PARTNER_ID=\"625\"/>" +
-//				"	</HEADER>" +
-//				"	<DATA>" +
-//				"		<RESPONSECONTEXT ID=\"17435360\">" +
-//				"			<RETURNCODE>5001</RETURNCODE>" +
-//				"			<RETURNDESC>Transaction success: Warning, Email Address Exists.</RETURNDESC>" +
-//				"			<ORDER PARTNERREF=\"17435360-45d77bff05df903ac8c5e13ad1ffaab6\" REF=\"NCS602843872\"/>" +
-//				"			<ACCOUNT>" +
-//				"				<EMAILADDRESS>me_vale@hotmail.com</EMAILADDRESS>" +
-//				"				<PASSWORD><![CDATA[h5zt1kpq]]></PASSWORD>" +
-//				"			</ACCOUNT></RESPONSECONTEXT>" +
-//				"	</DATA>" +
-//		"</PARTNERRESPONSECONTEXT>");
-		System.out.println("Xml recibido "+sb.toString());
-		return sb.toString();
-	}
-	
-	/**
-	 * Genera el XML para enviar a Mcafee
-	 * @param cvCuenta El objeto de cuenta de Cablevision del usuario
-	 * @return un Documento XML
-	 */
-	private Document generateXML(RespuestaToMyAccount cvCuenta) {
-		final String PARTNERCONTEXT = "PARTNERCONTEXT";
-		final String HEADER = "HEADER";
-		final String PARTNER = "PARTNER";
-		final String PARTNER_ID = "PARTNER_ID";
-		final String DATA = "DATA";
-		final String CUSTOMERCONTEXT = "CUSTOMERCONTEXT";
-		final String ACCOUNT = "ACCOUNT";
-		final String ID = "ID";
-		final String REQUESTTYPE = "REQUESTTYPE";
-		final String EMAILADDRESS = "EMAILADDRESS";
-		final String FIRSTNAME = "FIRSTNAME";
-		final String LASTNAME = "LASTNAME";
-		final String PASSWORD = "PASSWORD";
-		final String PREFERENCES = "PREFERENCES";
-		final String PREFERENCE = "PREFERENCE";
-		final String TYPE = "TYPE";
-		final String ORDER = "ORDER";
-		final String PARTNERREF = "PARTNERREF";
-		final String REF = "REF";
-		final String ITEMS = "ITEMS";
-		final String ITEM = "ITEM";
-		final String SKU = "SKU";
-		final String QTY = "QTY";
-		final String ACTION = "ACTION";
-
-		Document documentXML = new DocumentImpl();
-		DocumentBuilderFactory dbFactory = DocumentBuilderFactoryImpl.newInstance();
-		DocumentBuilder docBuilder;
-		try {
-			docBuilder = dbFactory.newDocumentBuilder();
-			documentXML = docBuilder.newDocument(); 
-			{
-				Element partnerContext = documentXML.createElement(PARTNERCONTEXT);
-				{
-					Element header = documentXML.createElement(HEADER);
-					{
-						Element partner = documentXML.createElement(PARTNER);
-						partner.setAttribute(PARTNER_ID, MCAFEE_PARTNERID);
-						header.appendChild(partner);
-					}
-					partnerContext.appendChild(header);
-					Element data = documentXML.createElement(DATA);
-					{
-						Element customerContext = documentXML.createElement(CUSTOMERCONTEXT);
-						customerContext.setAttribute(ID, cvCuenta.getCvNumberAccount());
-//						customerContext.setAttribute(ID, "17000138");
-						customerContext.setAttribute(REQUESTTYPE, "NEW");
-						{
-							Element account = documentXML.createElement(ACCOUNT);
-							{
-								Element emailAddress = documentXML.createElement(EMAILADDRESS);
-								emailAddress.setTextContent(cvCuenta.getCorreoContacto());
-								Element firstName = documentXML.createElement(FIRSTNAME);
-
-								String name = cvCuenta.getCvNameAccount();
-
-								if(name!=null&&name.length()>20){
-									name = cvCuenta.getCvNameAccount().substring(0, 20);
-								}
-
-								CDATASection cdataFName = documentXML.createCDATASection(name);
-								firstName.appendChild(cdataFName);
-								Element lastName = documentXML.createElement(LASTNAME);
-								CDATASection cdataLName = documentXML.createCDATASection(name);
-								lastName.appendChild(cdataLName);
-								Element password = documentXML.createElement(PASSWORD);
-								password.setTextContent("");
-								Element preferences = documentXML.createElement(PREFERENCES);
-								{
-									Element preference = documentXML.createElement(PREFERENCE);
-									preference.setAttribute(TYPE, "LANG");
-									preference.setTextContent("es-mx");
-									preferences.appendChild(preference);
-								}
-								account.appendChild(emailAddress);
-								account.appendChild(firstName);
-								account.appendChild(lastName);
-								account.appendChild(password);
-								account.appendChild(preferences);
-							}
-							customerContext.appendChild(account);
-							
-							DateFormat dfm = new SimpleDateFormat("ddMMyyyyHHmmss"+Calendar.getInstance().getTimeInMillis());
-							String partnerRef = cvCuenta.getCvNumberAccount() + "-" + encryptMD5(dfm.toString());
-							Element order = documentXML.createElement(ORDER);
-							order.setAttribute(PARTNERREF, partnerRef);
-							order.setAttribute(REF, "");
-							{
-								Element items = documentXML.createElement(ITEMS);
-								{
-									Element item = documentXML.createElement(ITEM);
-									item.setAttribute(SKU, MCAFEE_SKU);
-									item.setAttribute(QTY, MCAFEE_QTY);
-									item.setAttribute(ACTION, MCAFEE_ACTION);
-									items.appendChild(item);
-								}
-								order.appendChild(items);
-							}
-							customerContext.appendChild(order);
-						}
-						data.appendChild(customerContext);
-					}
-					partnerContext.appendChild(data);
-				}
-				documentXML.appendChild(partnerContext);
-			}
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		}
-		return documentXML;
-	}
-	
-	
-	/**
-	 * Genera un string a partir de un documento XML
-	 * @param documentXML El documento XML
-	 * @return un string con el texto del XML
-	 */
-	private String xmlToString(Document documentXML) {
-		StringWriter strWriter = null;
-		XMLSerializer seliarizadorXML = null;
-		OutputFormat formatoSalida = null;
-		try {
-			seliarizadorXML = new XMLSerializer();
-			strWriter = new StringWriter();
-			formatoSalida = new OutputFormat();
-			// 1. Establecer el formato
-			formatoSalida.setEncoding("ISO-8859-1");
-			formatoSalida.setVersion("1.0");
-			formatoSalida.setIndenting(true);
-			formatoSalida.setIndent(4);
-			// 2. Definir un objeto donde se generara el codigo
-			seliarizadorXML.setOutputCharStream(strWriter);
-			// 3. Aplicar el formato
-			seliarizadorXML.setOutputFormat(formatoSalida);
-			// 4. Serializar documento XML
-			seliarizadorXML.serialize(documentXML);
-			strWriter.close();
-		} catch (IOException ioEx) {
-			System.out.println("Error : " + ioEx);
-		}
-		return strWriter.toString();
-	}
-
-	/**
-	 * Encripta un texto usando el algoritmo MD5
-	 * @param data El texto a encriptar
-	 * @return un String con el texto encriptado
-	 */
-	private String encryptMD5(String code){
-		try{			
-			MessageDigest md = MessageDigest.getInstance("MD5");			
-			byte[] input = code.getBytes();	
-			input=md.digest(input);			
-			code = toHexadecimal(input);
-			return code;
-		}catch(Exception e){
-			return code;
-		}
-	}	
-	
-	/**
-	 * Genera la representaci\u00F3n XML del dato encriptado previamente
-	 * @param datos Los datos encriptados 
-	 * @return un String con el dato encriptado en hexadecimal 
-	 */
-	private static String toHexadecimal(byte[] datos) { 
-		String resultado=""; 
-		ByteArrayInputStream input = new ByteArrayInputStream(datos); 
-		String cadAux; 
-		boolean ult0=false;
-		int leido = input.read(); 
-		while(leido != -1) { 
-			cadAux = Integer.toHexString(leido); 
-			if(cadAux.length() < 2){ //Hay que a�adir un 0 
-				resultado += "0";
-			if(cadAux.length() == 0)
-				ult0=true;
-			}else{ ult0=false;}                    
-			resultado += cadAux; 
-			leido = input.read(); 
-		} 
-		if(ult0)//quitamos el 0 si es un caracter aislado
-			resultado=
-				resultado.substring(0, resultado.length()-2)+resultado.charAt(resultado.length()-1);
-		return resultado; 
-	}
 	
 	/**
 	 * Obtiene la cuenta de Mcafee del usuario
 	 * @param cvAccount El numero de cuenta del usuario de Cablevision
 	 * @return un McafeeUser
 	 */
-	private CvMcafeeUser cuentaMcafee(Long cvAccount) {
+	private CvMcafeeUser cuentaMcafeeUser(Long cvAccount) {
 		CvMcafeeUser mcafeeUser = null;
 		try {
 			mcafeeUser = getMcafeeDownloadsService().getMcafeeUserByAccount(cvAccount);
@@ -860,6 +639,21 @@ public class McafeeDownloadsController extends ControllerBase {
 			e.printStackTrace();
 		}
 		return mcafeeUser;
+	}
+	
+	/**
+	 * Obtiene la cuenta de Mcafee del usuario
+	 * @param cvAccount El numero de cuenta del usuario de Cablevision
+	 * @return un McafeeUser
+	 */
+	private CvMcafee cuentaMcafee(Long cvAccount) {
+		CvMcafee mcafee = null;
+		try {
+			mcafee = getMcafeeDownloadsService().getMcafeeByAccount(cvAccount);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mcafee;
 	}
 	
 	/**
@@ -925,6 +719,10 @@ public class McafeeDownloadsController extends ControllerBase {
 		case 3: errorMessage = getMessageResources("error").getMessage("mcafee.error.limit"); break;
 		case 4: errorMessage = getMessageResources("error").getMessage("mcafee.error.package"); break;
 		case 5: errorMessage = getMessageResources("error").getMessage("mcafee.error.service"); break;
+		case 6: errorMessage = getMessageResources("error").getMessage("mcafee.error.cancelled"); break;
+		case 7: errorMessage = getMessageResources("error").getMessage("mcafee.error.suspended"); break;
+		case 8: errorMessage = getMessageResources("error").getMessage("mcafee.error.active"); break;
+		
 		}
 		getSession().setAttribute("errorMessage", errorMessage);
 		return new Forward("success");
@@ -940,6 +738,7 @@ public class McafeeDownloadsController extends ControllerBase {
 		private String fechaA;
 		private String cuenta;
 		private String estatus;
+		private String tipoProducto;
 		
 		public String getMes() {
 			return mes;
@@ -976,6 +775,12 @@ public class McafeeDownloadsController extends ControllerBase {
 		}
 		public void setEstatus(String estatus) {
 			this.estatus = estatus;
+		}
+		public String getTipoProducto() {
+			return tipoProducto;
+		}
+		public void setTipoProducto(String tipoProducto) {
+			this.tipoProducto = tipoProducto;
 		}
 		
 	}

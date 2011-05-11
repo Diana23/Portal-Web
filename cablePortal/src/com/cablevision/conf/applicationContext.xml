@@ -54,6 +54,7 @@
 				<value>com/cablevision/vo/CvMcafeeReset.hbm.xml</value>
 				<value>com/cablevision/vo/CvMcafeeDownload.hbm.xml</value>
 				<value>com/cablevision/vo/CvMcafeesuscribed.hbm.xml</value>
+				<value>com/cablevision/vo/CvMcafee.hbm.xml</value>
 				
 				<value>com/cablevision/vo/CvBanco.hbm.xml</value>
 				<value>com/cablevision/vo/CvEserviceN1.hbm.xml</value>
@@ -103,6 +104,12 @@
 				<prop key="save*">PROPAGATION_REQUIRED,-Exception</prop>
 				<prop key="generaReporte*">PROPAGATION_REQUIRED,-Exception</prop>
 			</props>
+		</property>
+	</bean>
+	
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:configuracion.properties</value>
 		</property>
 	</bean>
 	
@@ -199,6 +206,42 @@
     				<bean class="com.cablevision.dao.impl.McafeeDownloadsHibernateDao">
     					<property name="sessionFactory" ref="sessionFactory"/>
     				</bean>
+    			</property>
+    			<property name="MCAFEE_PARTNERID">
+    				<value>${mcafee.partnerid}</value>
+    			</property>
+    			<property name="MCAFEE_SKU">
+    				<value>${mcafee.sku}</value>
+    			</property>
+    			<property name="MCAFEE_NEW_SKU">
+    				<value>${mcafee.new.sku}</value>
+    			</property>
+    			<property name="MCAFEE_QTY">
+    				<value>${mcafee.qty}</value>
+    			</property>
+    			<property name="MCAFEE_NEW_ACTION">
+    				<value>${mcafee.new.action}</value>
+    			</property>
+    			<property name="MCAFEE_CANCEL_ACTION">
+    				<value>${mcafee.cancel.action}</value>
+    			</property>
+    			<property name="MCAFEE_URLSUSCRIPTION">
+    				<value>${mcafee.urlsuscription}</value>
+    			</property>
+    			<property name="MCAFEE_URLDOWNLOAD">
+    				<value>${mcafee.urldownload}</value>
+    			</property>
+    			<property name="MCAFEE_RETURNURL">
+    				<value>${mcafee.returnurl}</value>
+    			</property>
+    			<property name="MCAFEE_HOME">
+    				<value>${mcafee.urlhome}</value>
+    			</property>
+    			<property name="CORREO_SUBJECT">
+    				<value>${correo.mcafee.subject}</value>
+    			</property>
+    			<property name="CORREO_FROM">
+    				<value>${correo.mcafee.from}</value>
     			</property>
     		</bean>
     	</property>
