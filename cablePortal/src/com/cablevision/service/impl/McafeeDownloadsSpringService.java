@@ -1356,9 +1356,7 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 		*/
 		
 		
-		//String para =cvCuenta.getCorreoContacto();
-		//TODO eliminar hardcode
-		String para ="mgalvan@corp.cablevision.net.mx";
+		String para =cvCuenta.getCorreoContacto();
 		String de = "";
 		
 		String texto = "";

@@ -575,7 +575,7 @@ public class McafeeDownloadsController extends ControllerBase {
 					                      "", "", "", "", "");
 					         
 					         
-					         getMcafeeDownloadsService().enviaCorreoAlta(cvCuenta,newMcafeeUser);
+					         //getMcafeeDownloadsService().enviaCorreoAlta(cvCuenta,newMcafeeUser);
 					         
 					        try {
 								ValidateErrors.validateErrorResponse(response.getCvError(), getMessageResources("mensajeError"));
