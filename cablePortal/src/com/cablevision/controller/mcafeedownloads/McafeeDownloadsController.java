@@ -495,6 +495,23 @@ public class McafeeDownloadsController extends ControllerBase {
 					return forward;
 				}
 				
+				CvMcafee mcafee1 = cuentaMcafee(account);
+				if(mcafee1 != null){
+					if(McafeeDownloadsSpringService.STS_CANCELADO.equalsIgnoreCase(mcafee1.getMcaCvstatus().trim())){
+						log.error("AL DESCARGAR DE PORTAL: EL USUARIO DE LA CUENTA "+account+" SE ENCUENTRA EN ESTATUS CANCELADO EN LA TABLA CV_MCAFEE");
+						errorCode = 6;
+						return forward;
+					}else if(McafeeDownloadsSpringService.STS_SUSPENDIDO.equalsIgnoreCase(mcafee1.getMcaCvstatus().trim())){
+						log.error("AL DESCARGAR DE PORTAL: EL USUARIO DE LA CUENTA "+account+" SE ENCUENTRA EN ESTATUS SUSPENDIDO EN LA TABLA CV_MCAFEE");
+						errorCode = 7;
+						return forward;
+					}else if(McafeeDownloadsSpringService.STS_ACTIVO.equalsIgnoreCase(mcafee1.getMcaCvstatus().trim())){
+						log.error("AL DESCARGAR DE PORTAL: EL USUARIO DE LA CUENTA "+account+" SE ENCUENTRA EN ESTATUS ACTIVO EN LA TABLA CV_MCAFEE");
+						errorCode = 8;
+						return forward;
+					}
+				}
+				
 				// genera el XML y luego obtiene el usuario de mcafee, devuelo 0 si no tiene
 				Document xml = getMcafeeDownloadsService().generateXML(cvCuenta);
 				String xmlStringResponse = getMcafeeDownloadsService().getXMLResponse(xml);
@@ -523,21 +540,7 @@ public class McafeeDownloadsController extends ControllerBase {
 							
 							CvMcafee mcafee = cuentaMcafee(account);
 							if(mcafee != null){
-								if(McafeeDownloadsSpringService.STS_CANCELADO.equalsIgnoreCase(mcafee.getMcaCvstatus().trim())){
-									log.error("AL DESCARGAR DE PORTAL: EL USUARIO DE LA CUENTA "+account+" SE ENCUENTRA EN ESTATUS CANCELADO EN LA TABLA CV_MCAFEE");
-									errorCode = 6;
-									return forward;
-								}else if(McafeeDownloadsSpringService.STS_SUSPENDIDO.equalsIgnoreCase(mcafee.getMcaCvstatus().trim())){
-									log.error("AL DESCARGAR DE PORTAL: EL USUARIO DE LA CUENTA "+account+" SE ENCUENTRA EN ESTATUS SUSPENDIDO EN LA TABLA CV_MCAFEE");
-									errorCode = 7;
-									return forward;
-								}else if(McafeeDownloadsSpringService.STS_ACTIVO.equalsIgnoreCase(mcafee.getMcaCvstatus().trim())){
-									log.error("AL DESCARGAR DE PORTAL: EL USUARIO DE LA CUENTA "+account+" SE ENCUENTRA EN ESTATUS ACTIVO EN LA TABLA CV_MCAFEE");
-									errorCode = 8;
-									return forward;
-								}else{
 									newMcafeeUser.setMcaId(mcafee.getMcaId());
-								}
 							}
 							newMcafeeUser.setMcaCvstatus(McafeeDownloadsSpringService.STS_ACTIVO);
 							newMcafeeUser.setMcaFirstName(cvCuenta.getNombreContacto());
