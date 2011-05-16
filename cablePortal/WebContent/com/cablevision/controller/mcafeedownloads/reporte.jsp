@@ -90,7 +90,7 @@
 						<tr>
 							<td width="0" border="0"></td>
 							<td width="10" border="0" background="${pageContext.request.contextPath }/contenido/groups/mercadotecnia/documents/imagen_cv/cv000071.png"></td>
-							<td width="540" align="right" background="${pageContext.request.contextPath }/contenido/groups/mercadotecnia/documents/imagen_cv/cv000072.png" class="bienvenida" background-repeat="repeat-y" height="34"><netui:label value="Reporte de Usuarios Registrados McAfee"/></td>
+							<td width="540" align="right" background="${pageContext.request.contextPath }/contenido/groups/mercadotecnia/documents/imagen_cv/cv000072.png" class="bienvenida" background-repeat="repeat-y" height="34"><netui:label value="Reporte de Usuarios Registrados McAfee" styleClass="ctextoAzulBold"/></td>
 							<td width="10" border="0" background="${pageContext.request.contextPath }/contenido/groups/mercadotecnia/documents/imagen_cv/cv000073.png"></td>
 						</tr>
 						<tr>
@@ -100,6 +100,10 @@
 								<table width="530" cellspacing="0" cellpadding="5">
 									<tr class="ctextoAzul">
 										<td width="30%">
+											<netui:label value="Cuenta:"/>
+											<netui:textBox dataSource="actionForm.cuenta" tagId="cuenta" size="14" maxlength="10" styleClass="txtRojo"/>
+										</td>
+										<td width="35%">
 											<netui:label value="Mes:"/>
 											<netui:select dataSource="actionForm.mes" styleClass="txtRojo">
 												<netui:selectOption value="">
@@ -112,27 +116,44 @@
 											    </c:forEach>
 											</netui:select>
 										</td>
-										<td width="30%">
+										<td width="35%">
 											<netui:label value="Dia:"/>
 											<netui:textBox dataSource="actionForm.dia" tagId="dia" maxlength="10" size="14" styleClass="txtRojo"/>
 										</td>
-										<td width="35%">
-											<netui:label value="# Cuenta:"/>
-											<netui:textBox dataSource="actionForm.cuenta" tagId="cuenta" size="14" maxlength="10" styleClass="txtRojo"/>
-										</td>
+									</tr>
+									<tr>
+										<td colspan="3">&nbsp</td>
 									</tr>
 									<tr class="ctextoAzul">
-										<td width="40%">
-											<netui:label value="Intervalo: De"/>
+										<td>
+											<netui:label value="Intervalo:"/>
+										</td>
+										<td>
+											<netui:label value="De: "/>
 											<netui:textBox dataSource="actionForm.fechaDe" tagId="diaDe" size="14" styleClass="txtRojo"/>
 										</td>
-										<td width="30%">
-											<netui:label value="a    "/>
+										<td>
+											<netui:label value="A: "/>
 											<netui:textBox dataSource="actionForm.fechaA" tagId="diaA" size="14" styleClass="txtRojo"/>
 										</td>
 									</tr>
+									<tr>
+										<td colspan="3">&nbsp</td>
+									</tr>
 									<tr class="ctextoAzul">
-										<td colspan="3" align="right">
+										<td>
+											<netui:label value="Producto:"/>
+											<netui:select dataSource="actionForm.tipoProducto" tagId="tipoProducto">
+												<netui:selectOption value="ANTERIOR">
+													<netui:label value="Anterior"/>
+												</netui:selectOption>
+												<netui:selectOption value="NUEVO">
+													<netui:label value="Nuevo"/>
+												</netui:selectOption>
+											</netui:select>
+										</td>
+										<td colspan="2" align="left">
+											<netui:label value="Estatus:"/>
 						   					<netui:select dataSource="actionForm.estatus" tagId="status">
 												<netui:selectOption value="ACTIVO">
 													<netui:label value="Activos"/>
@@ -140,16 +161,31 @@
 												<netui:selectOption value="INACTIVO">
 													<netui:label value="Inactivos"/>
 												</netui:selectOption>
+												<netui:selectOption value="CANCELADO">
+													<netui:label value="Cancelados"/>
+												</netui:selectOption>
+												<netui:selectOption value="SUSPENDIDO">
+													<netui:label value="Suspendidos"/>
+												</netui:selectOption>
+												<netui:selectOption value="MIGRADO">
+													<netui:label value="Migrados"/>
+												</netui:selectOption>
+												<netui:selectOption value="REACTIVADO">
+													<netui:label value="Reactivados"/>
+												</netui:selectOption>
 											</netui:select>
 										</td>
 									</tr>
 									<tr>
-										<td align="right" colspan="3">
-											<netui:anchor styleClass="txtRojo" action="mostrarResumen" value="Ver Resumen"></netui:anchor>
+										<td colspan="3">
+											&nbsp;
 										</td>
 									</tr>
 									<tr>
-										<td align="right" colspan="3">
+										<td align="left" colspan="1">
+											<netui:button action="mostrarResumen" value="Ver Resumen" style="background-color:#FFFFFF;color:#FF0000;font-weight:normal;font-family:arial;font-size:9;border-width:0;cursor:pointer;"/>
+										</td>
+										<td align="right" colspan="2">
 											<netui:imageButton src="${pageContext.request.contextPath}/contenido/groups/mercadotecnia/documents/imagen_cv/cv000783.jpg"/>
 										</td>
 									</tr>
@@ -212,33 +248,33 @@
 						</c:when>
 						<c:when  test="${!empty pageInput.resumenFechas || !empty pageInput.origen}">
 							<div style="display: block;">
-								<table width="70%" align="center">
+								<table width="500px" align="center">
 									<tr class="ctextoAzulBold">
-										<td width="75%">
+										<td width="70%">
 											<netui:label value="Total de usuarios registrados acumulados:"/>
 										</td>
-										<td width="25%" class="txtRojo13">
-											<a href="${pageContext.request.contextPath }/com/cablevision/controller/mcafeedownloads/mostrarReporteExcel.do?fechaDe=2007-11-01&fechaA=${pageInput.fechaFin}&estatus=${actionForm.estatus}">
+										<td width="30%" class="txtRojo13">
+											<a href="${pageContext.request.contextPath }/com/cablevision/controller/mcafeedownloads/mostrarReporteExcel.do?fechaDe=2007-11-01&fechaA=${pageInput.fechaFin}&estatus=${actionForm.estatus}&tipoProducto=${actionForm.tipoProducto}">
 												<netui:label value="${pageInput.resumenFechas[0] + pageInput.resumenFechas[1]}"/>
 											</a>
 										</td>
 									</tr>
 									<tr class="ctextoAzul">
-							            <td width="75%">
+							            <td width="70%">
 							            	<netui:label value="Total de usuarios registrados en ${pageInput.fechaLetra}:"/>
 							            </td>
-							            <td width="25%" class="txtRojo">
-							            	<a href="${pageContext.request.contextPath }/com/cablevision/controller/mcafeedownloads/mostrarReporteExcel.do?fechaDe=${pageInput.fechaInicio}&fechaA=${pageInput.fechaFin}&estatus=${actionForm.estatus}">
+							            <td width="30%" class="txtRojo">
+							            	<a href="${pageContext.request.contextPath }/com/cablevision/controller/mcafeedownloads/mostrarReporteExcel.do?fechaDe=${pageInput.fechaInicio}&fechaA=${pageInput.fechaFin}&estatus=${actionForm.estatus}&tipoProducto=${actionForm.tipoProducto}">
 							            		<netui:label value="${pageInput.resumenFechas[1]}"/>
 							            	</a>
 							            </td>
 							        </tr>
 							        <tr class="ctextoAzul">
-							            <td width="75%">
+							            <td width="70%">
 							            	<netui:label value="Total de usuarios registrados antes de ${pageInput.fechaLetra}:"/>
 							            </td>
-							            <td width="25%" class="txtRojo">
-							            	<a href="${pageContext.request.contextPath }/com/cablevision/controller/mcafeedownloads/mostrarReporteExcel.do?fechaDe=2007-11-01&fechaA=${pageInput.fechaFinTotalAntes}&estatus=${actionForm.estatus}">
+							            <td width="30%" class="txtRojo">
+							            	<a href="${pageContext.request.contextPath }/com/cablevision/controller/mcafeedownloads/mostrarReporteExcel.do?fechaDe=2007-11-01&fechaA=${pageInput.fechaFinTotalAntes}&estatus=${actionForm.estatus}&tipoProducto=${actionForm.tipoProducto}">
 							            		<netui:label value="${pageInput.resumenFechas[0]}"/>
 							            	</a>
 							            </td>
@@ -248,6 +284,7 @@
 						            		<hr>
 						            	</td>
 						            </tr>
+						            <!-- 
 						            <tr class="ctextoAzulBold">
 						            	<td width="75%">
 											<netui:label value="Origen de Descargas en ${pageInput.fechaLetra}:"/>
@@ -270,11 +307,12 @@
 											</td>
 										</tr>
 						            </c:forEach>
+						             -->
 								</table>
 							</div>
 						</c:when>
 						<c:otherwise>
-							<c:if test="${!empty pageInput.mcafeeUser || !empty pageInput.listDownloads}">
+							<c:if test="${!empty pageInput.mcafeeUser}">
 								<div style="display: block;">
 									<table width="70%" align="center">
 										<tr>
@@ -314,6 +352,7 @@
 							            		<hr>
 							            	</td>
 							            </tr>
+							            <!-- 
 							            <tr>
 											<td width="75%" class="ctextoAzulBold">
 												<netui:label value="Detalle de descargas:"/>
@@ -339,6 +378,50 @@
 												</td>
 											</tr>
 							            </c:forEach>
+							             -->
+									</table>
+								</div>
+							</c:if>
+							<c:if test="${!empty pageInput.mcafeeUserNuevo}">
+								<div style="display: block;">
+									<table width="70%" align="center">
+										<tr>
+											<td width="75%" class="ctextoAzulBold">
+												<netui:label value="Status:"/>
+											</td>
+											<td width="25%" class="txtRojo13">
+												<netui:label value="${pageInput.mcafeeUserNuevo.mcaCvstatus}"/>
+											</td>
+										</tr>
+										<tr>
+											<td width="75%" class="ctextoAzulBold">
+												<netui:label value="#Cuenta:"/>
+											</td>
+											<td width="25%" class="txtRojo13">
+												<netui:label value="${pageInput.mcafeeUserNuevo.mcaAccount}"/>
+											</td>
+										</tr>
+										<tr>
+											<td width="75%" class="ctextoAzulBold">
+												<netui:label value="Email:"/>
+											</td>
+											<td width="25%" class="txtRojo13">
+												<netui:label value="${pageInput.mcafeeUserNuevo.mcaEmailaddress}"/>
+											</td>
+										</tr>
+										<tr>
+											<td width="75%" class="ctextoAzulBold">
+												<netui:label value="Fecha Registro en McAfee:"/>
+											</td>
+											<td width="25%" class="txtRojo13">
+												<netui:label value="${pageInput.mcafeeUserNuevo.mcaDatesuscribe}"/>
+											</td>
+										</tr>
+							            <tr>
+							            	<td colspan="2">
+							            		<hr>
+							            	</td>
+							            </tr>
 									</table>
 								</div>
 							</c:if>
