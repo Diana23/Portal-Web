@@ -17,6 +17,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/com/cablevision/controller/mcafeedownloads/js/jquery-date-picker/js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/com/cablevision/controller/mcafeedownloads/js/jquery-date-picker/js/jquery-ui-1.8.1.custom.min.js"></script>
 
+
 <style type="text/css">
 .ctextoAzul {
 	color:#221F73;
@@ -67,6 +68,34 @@
 	line-height:19px;
 	padding-bottom:5px;
 	text-align:left;
+}
+
+.ctextoAzulBoldBtn{
+	color:#221F73;
+	font-family:Verdana,Arial,Helvetica,sans-serif;
+	font-size:13px;
+	font-weight:bold;
+	letter-spacing:-1px;
+	line-height:19px;
+	padding-bottom:5px;
+	text-align:left;
+	background-color:#FFFFFF;
+	border-width:0;
+	cursor:pointer;
+}
+
+.ctextoAzulNormalBtn{
+	color:#221F73;
+	font-family:Verdana,Arial,Helvetica,sans-serif;
+	font-size:13px;
+	font-weight:normal;
+	letter-spacing:-1px;
+	line-height:19px;
+	padding-bottom:5px;
+	text-align:left;
+	background-color:#FFFFFF;
+	border-width:0;
+	cursor:pointer;
 }
 
 .txtRojo13{
@@ -204,6 +233,12 @@
 			</tr>
 		</table>
 		<br/>
+		<script type="text/javascript" >
+	function redir(fechainicio, fechafin, estatus,tipoproducto){
+	var dir ='${pageContext.request.contextPath}/com/cablevision/controller/mcafeedownloads/mostrarReporteExcel.do?fechaDe='+fechainicio+'&fechaA='+fechafin+'&estatus='+estatus+'&tipoProducto='+tipoproducto; 
+	window.open(dir);
+	}
+</script>
 		<table>
 			<tr>
 				<td colspan="3">
@@ -254,9 +289,7 @@
 											<netui:label value="Total de usuarios registrados acumulados:"/>
 										</td>
 										<td width="30%" class="txtRojo13">
-											<a href="${pageContext.request.contextPath }/com/cablevision/controller/mcafeedownloads/mostrarReporteExcel.do?fechaDe=2007-11-01&fechaA=${pageInput.fechaFin}&estatus=${actionForm.estatus}&tipoProducto=${actionForm.tipoProducto}">
-												<netui:label value="${pageInput.resumenFechas[0] + pageInput.resumenFechas[1]}"/>
-											</a>
+											<input type="button" value="${pageInput.resumenFechas[0] + pageInput.resumenFechas[1]}" class="ctextoAzulBoldBtn" onclick="redir('2007-11-01','${pageInput.fechaFin}', '${actionForm.estatus}', '${actionForm.tipoProducto}')" >
 										</td>
 									</tr>
 									<tr class="ctextoAzul">
@@ -264,9 +297,7 @@
 							            	<netui:label value="Total de usuarios registrados en ${pageInput.fechaLetra}:"/>
 							            </td>
 							            <td width="30%" class="txtRojo">
-							            	<a href="${pageContext.request.contextPath }/com/cablevision/controller/mcafeedownloads/mostrarReporteExcel.do?fechaDe=${pageInput.fechaInicio}&fechaA=${pageInput.fechaFin}&estatus=${actionForm.estatus}&tipoProducto=${actionForm.tipoProducto}">
-							            		<netui:label value="${pageInput.resumenFechas[1]}"/>
-							            	</a>
+							            	<input type="button" value="${pageInput.resumenFechas[1]}" class="ctextoAzulNormalBtn" onclick="redir('${pageInput.fechaInicio}','${pageInput.fechaFin}', '${actionForm.estatus}', '${actionForm.tipoProducto}')" >
 							            </td>
 							        </tr>
 							        <tr class="ctextoAzul">
@@ -274,9 +305,7 @@
 							            	<netui:label value="Total de usuarios registrados antes de ${pageInput.fechaLetra}:"/>
 							            </td>
 							            <td width="30%" class="txtRojo">
-							            	<a href="${pageContext.request.contextPath }/com/cablevision/controller/mcafeedownloads/mostrarReporteExcel.do?fechaDe=2007-11-01&fechaA=${pageInput.fechaFinTotalAntes}&estatus=${actionForm.estatus}&tipoProducto=${actionForm.tipoProducto}">
-							            		<netui:label value="${pageInput.resumenFechas[0]}"/>
-							            	</a>
+							            	<input type="button" value="${pageInput.resumenFechas[1]}" class="ctextoAzulNormalBtn" onclick="redir('2007-11-01','${pageInput.fechaFinTotalAntes}', '${actionForm.estatus}', '${actionForm.tipoProducto}')" >
 							            </td>
 						            </tr>
 						            <tr>
