@@ -1005,7 +1005,10 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 							respuesta = RES_OK;
 						}else if(STS_CANCELADO.equalsIgnoreCase(mcafeeUserNuevo.getMcaCvstatus().trim())){
 							log.info("BAJA MCAFEE: CUENTA "+account+" YA SE ENCUENTRA EN ESTATUS "+STS_CANCELADO);
-							respuesta = RES_OK;
+							respuesta = RES_ERROR+"::LA CUENTA::"+account+" YA SE ENCUENTRA EN ESTATUS "+STS_CANCELADO;
+						}else if(STS_SUSPENDIDO.equalsIgnoreCase(mcafeeUserNuevo.getMcaCvstatus().trim())){
+							log.error("LA CUENTA::"+account+" YA SE ENCUENTRA EN ESTATUS "+STS_SUSPENDIDO);
+							respuesta = RES_ERROR+";;LA CUENTA::"+account+" YA SE ENCUENTRA EN ESTATUS "+STS_SUSPENDIDO;
 						}
 					}catch(Exception e){
 						e.printStackTrace();
