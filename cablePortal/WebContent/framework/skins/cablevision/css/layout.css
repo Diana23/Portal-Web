@@ -614,9 +614,9 @@ body {
 
 	/* Servcicios en linea */
 	
-	.head-ulsel { height:	15px; background:	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png) no-repeat -200px -613px; }
+	.head-ulsel { height:	15px; background:	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png) no-repeat -210px -613px; margin-left:10px;}
 	.cont-ulsel { background:	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002261.png) repeat-y 49px 0px; }
-	.foot-ulsel { height:	15px; background:	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png) no-repeat -200px -623px; }
+	.foot-ulsel { height:	15px; background:	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png) no-repeat -210px -623px; margin-left:10px;}
 		
 		ul.nav-serv-online {	height:	400px; }
 		
@@ -649,38 +649,6 @@ body {
 	
 		.wrap-srvline p { line-height: 20px; }	
 		
-		
-	/* Servcicios en linea */
-	
-	.head-ulsel { height:	15px; background:	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png) no-repeat -200px -613px; }
-	.cont-ulsel { background:	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002261.png) repeat-y 49px 0px; }
-	.foot-ulsel { height:	15px; background:	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png) no-repeat -200px -623px; }
-		
-		ul.nav-serv-online {	height:	400px; }
-			
-		.dark-item { background:	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002262.png) repeat-y 49px 0px; }
-		
-		.item-sel-servonline, .nav-serv-online a:hover {
-			color:				#666!important;
-			text-decoration:	none;
-			background:			transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png) no-repeat -260px -646px; 
-		}		
-	
-		h3.servenlinea {
-				background:	url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png") no-repeat scroll -9px -587px transparent;
-				display:	block;
-				height:		89px;
-				width:		207px;
-		}
-		
-		.wrap-srvline {
-			margin:	0 20px;
-		}
-	
-		.wrap-srvline p { line-height: 20px; }	
-		
-
-	
 		.link-user-servonline {
 			display:		block;
 			font-size:		16px;		

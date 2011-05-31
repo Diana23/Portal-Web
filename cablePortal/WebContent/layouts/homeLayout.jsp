@@ -99,6 +99,28 @@ xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0" >
 						$('a.pause-sli-nav').removeClass('selected_pause');
 						return false;	
 					});
+								
+					$('.next-sli-nav').click(function(){
+						$('.next-glass').show();
+						var position = $('#navs-rot').position();
+						if(position.left==-413){
+							//$(this).attr('disabled', 'disabled');
+							$('#navs-rot').animate({left: '0'}, 200, function(){$('.next-glass').hide();});
+					  	}else{
+							$('#navs-rot').animate({left: '-=59'}, 200, function(){$('.next-glass').hide();});
+					  	} 
+					})
+					
+					$('.prev-sli-nav').click(function(){
+						$('.prev-glass').show();
+						var position = $('#navs-rot').position();
+						if(position.left==0){
+							$('#navs-rot').animate({left: '-413'}, 200, function(){$('.prev-glass').hide();} );
+					  	}else{
+							$('#navs-rot').animate({left: '+=59'}, 200, function(){$('.prev-glass').hide();} );
+					  	} 
+					})
+					
 				</script>
 			
 		</div>	
