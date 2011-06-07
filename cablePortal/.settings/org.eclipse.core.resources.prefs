@@ -1,10 +1,14 @@
-#Mon May 09 13:22:58 CDT 2011
+#Tue Jun 07 18:20:49 CDT 2011
 eclipse.preferences.version=1
 encoding//WebContent/com/cablevision/controller/contactanos/index.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/mcafeedownloads/downloadMcafee.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/mcafeedownloads/infoMcafee.jsp=ISO-8859-1
 encoding//WebContent/com/cablevision/controller/mcafeedownloads/reporte.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/mcafeedownloads/showErrors.jsp=UTF-8
 encoding//WebContent/framework/skeletons/cablevision/footer.jsp=UTF-8
 encoding//WebContent/layouts/homeLayout.jsp=UTF-8
 encoding//src/com/cablevision/vo/CvMcafee.hbm.xml=UTF-8
+encoding//src/com/cablevision/vo/CvMcafeeUser.hbm.xml=UTF-8
 encoding//src/com/cablevision/vo/CvTrackoa.hbm.xml=UTF-8
 encoding//src/com/cablevision/vo/Service.hbm.xml=UTF-8
 encoding//src/hibernate.cfg.xml=UTF-8

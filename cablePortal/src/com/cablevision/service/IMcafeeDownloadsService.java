@@ -1,6 +1,7 @@
 package com.cablevision.service;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -80,7 +81,7 @@ public interface IMcafeeDownloadsService {
 	 */
 	public void persistCvMcafeeUser(CvMcafeeUser cvMcafeeuser) throws Exception;
 	
-	public void updateCvMcafeeUserStatus(Long id, String status) throws Exception;
+	public void updateCvMcafeeUserStatus(Long id, String status,String motivo,Timestamp fechaStatus) throws Exception;
 	
 	/**
 	 * Remove the given persistent instance.
@@ -125,7 +126,7 @@ public interface IMcafeeDownloadsService {
 	 */
 	public void removeCvMcafee(CvMcafee cvMcafee) throws Exception;
 	
-	public void updateCvMcafeeStatus(Long id, String status) throws Exception;
+	public void updateCvMcafeeStatus(Long id, String status, String motivo, Timestamp fechaStatus) throws Exception;
 	
 	public CvMcafee getMcafeeByAccount(Long account) throws Exception;
 	
@@ -151,7 +152,7 @@ public interface IMcafeeDownloadsService {
 	
 	public String bajaServicioMcAfee(McaffeeVO parametrosVO);
 	
-	public String enviaCorreoAlta(RespuestaToMyAccount cvCuenta, CvMcafee newMcafeeUser);
+	public String enviaCorreoAlta(RespuestaToMyAccount cvCuenta, CvMcafee newMcafeeUser, String urldescarga, String contexto);
 	
 	public ToInterfase getVitriaClient();
 	

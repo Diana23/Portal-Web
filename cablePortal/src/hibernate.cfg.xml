@@ -6,20 +6,21 @@
 
 <hibernate-configuration>
 	<session-factory>
+		
 		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
 		<property name="hibernate.connection.url">jdbc:oracle:thin:@172.21.20.194:1521:DBSAEPROD</property>
 		<property name="hibernate.connection.username">portalweb</property>
 		<property name="hibernate.connection.password">port4lw3b</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
 		<property name="hibernate.default_schema">PORTALWEB</property>
-		<!--  
+		<!-- 
 		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
-		<property name="hibernate.connection.url">jdbc:oracle:thin:@172.21.1.210:1521:CVDBPWDE</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@172.20.1.210:1521:CVDBPWDE</property>
 		<property name="hibernate.connection.username">portalweb</property>
 		<property name="hibernate.connection.password">Y8-g5#la}o</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
 		<property name="hibernate.default_schema">PORTALWEB</property>
-		 -->
+		--> 
 		<mapping resource="com/cablevision/vo/CvContrasenaHistorial.hbm.xml"/>
 		<mapping resource="com/cablevision/vo/CvUsuarioPortal.hbm.xml"/>
 		<mapping resource="com/cablevision/vo/Cvcategory.hbm.xml"/>

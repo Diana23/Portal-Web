@@ -1,6 +1,7 @@
 package com.cablevision.dao.impl;
 
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -340,10 +341,12 @@ public class McafeeDownloadsHibernateDao extends HibernateDaoSupport implements
 		getHibernateTemplate().saveOrUpdate(cvMcafeeuser);
 	}
 	
-	public void updateCvMcafeeUserStatus(Long id, String status){
-		Query query = getSession(true).createQuery("update CvMcafeeUser set musCvstatus = :STATUS" +
+	public void updateCvMcafeeUserStatus(Long id, String status, String motivo, Timestamp fechaStatus){
+		Query query = getSession(true).createQuery("update CvMcafeeUser set musCvstatus = :STATUS , musCvmotivo = :MOTIVO ,musCvdatestatus = :FECHASTATUS " +
 		" where musId = :ID");
 		query.setParameter("STATUS", status);
+		query.setParameter("MOTIVO", motivo);
+		query.setParameter("FECHASTATUS", fechaStatus);
 		query.setParameter("ID", id);
 		query.executeUpdate();
 	}
@@ -449,10 +452,12 @@ public class McafeeDownloadsHibernateDao extends HibernateDaoSupport implements
 	/**
 	 * Cambiar el estatus de un cvmacafee dado
 	 */	
-	public void updateCvMcafeeStatus(Long id, String status){
-		Query query = getSession(true).createQuery("update CvMcafee set mcaCvstatus = :STATUS" +
+	public void updateCvMcafeeStatus(Long id, String status, String motivo, Timestamp fechaStatus){
+		Query query = getSession(true).createQuery("update CvMcafee set mcaCvstatus = :STATUS , mcaMotivo = :MOTIVO ,mcaDatestatus = :FECHASTATUS " +
 		" where mcaId = :ID");
 		query.setParameter("STATUS", status);
+		query.setParameter("MOTIVO", motivo);
+		query.setParameter("FECHASTATUS", fechaStatus);
 		query.setParameter("ID", id);
 		query.executeUpdate();
 	}

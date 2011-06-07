@@ -22,6 +22,8 @@ public class CvMcafee  implements Serializable {
 	private String mcaReference;
 	private String mcaFirstName;
 	private String mcaLastName;
+	private java.sql.Timestamp mcaDatestatus;
+	private String mcaMotivo;
 	private Boolean registroMultiple;
 
     public CvMcafee() {
@@ -131,5 +133,23 @@ public class CvMcafee  implements Serializable {
 	public void setRegistroMultiple(Boolean registroMultiple) {
 		this.registroMultiple = registroMultiple;
 	}
+
+	public java.sql.Timestamp getMcaDatestatus() {
+		return mcaDatestatus;
+	}
+
+	public void setMcaDatestatus(java.sql.Timestamp mcaDatestatus) {
+		this.mcaDatestatus = mcaDatestatus;
+	}
+
+	public String getMcaMotivo() {
+		return mcaMotivo;
+	}
+
+	public void setMcaMotivo(String mcaMotivo) {
+		this.mcaMotivo = mcaMotivo;
+	}
+
+	
 
 }
