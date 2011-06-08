@@ -18,8 +18,8 @@
 					<br><br>
 					
 					<!-- -	<strong>Por mail:</strong> 	<a class="color-orange" href="mailto:info@cable.com" title="info@cable.com">info@cable.com</a><br /> -->
-					-	<strong>Por tel&eacute;fono:</strong> 51 699 699 De lunes a domingo de 7:00 AM a 11:00 PM<br>
-					-	<strong>V&iacute;a Web: Facebook y Twitter,</strong> de lunes a domingo de 7:00 AM a 4:00 PM<br>
+					-	<strong>Por tel&eacute;fono:</strong> 51 699 699 De lunes a domingo de 7:00 am a 11:00 pm<br>
+					-	<strong>V&iacute;a Web: Facebook y Twitter,</strong> de lunes a domingo de 7:00 am a 11:00 pm<br>
 					-	<strong>En nuestros Centros de Atención:</strong> <a title="Haz clic aquí" class="color-orange" href="${centros }">Haz clic aquí</a><br><br>
 					-	<strong>O completa el siguiente formularios:</strong>
 		

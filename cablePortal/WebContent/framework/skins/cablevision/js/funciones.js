@@ -67,10 +67,10 @@ $(document).ready(function() {
 			function(){
 				if ( activeTabsHome == "prod"){
 					$('#tab-prom').removeClass('active').addClass('stand');
-					$('#tab-prod').removeClass('stand').addClass('active'); 
+					$('#tab-prod').removeClass('stand').addClass('active') 
 				} else {
 					$('#tab-prod').removeClass('active').addClass('stand');
-					$('#tab-prom').removeClass('stand').addClass('active'); 				
+					$('#tab-prom').removeClass('stand').addClass('active') 				
 				}	
 			}
 		)		

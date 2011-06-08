@@ -20,6 +20,9 @@ public class CvMcafee  implements Serializable {
 	private String mcaEmailaddress;
 	private String mcaPassword;
 	private String mcaReference;
+	private String mcaFirstName;
+	private String mcaLastName;
+	private Boolean registroMultiple;
 
     public CvMcafee() {
     }
@@ -104,5 +107,29 @@ public class CvMcafee  implements Serializable {
 			.append("mcaId", getMcaId())
 			.toString();
 	}
-}
 
+	public String getMcaFirstName() {
+		return mcaFirstName;
+	}
+
+	public void setMcaFirstName(String mcaFirstName) {
+		this.mcaFirstName = mcaFirstName;
+	}
+
+	public String getMcaLastName() {
+		return mcaLastName;
+	}
+
+	public void setMcaLastName(String mcaLastname) {
+		this.mcaLastName = mcaLastname;
+	}
+
+	public Boolean getRegistroMultiple() {
+		return registroMultiple;
+	}
+
+	public void setRegistroMultiple(Boolean registroMultiple) {
+		this.registroMultiple = registroMultiple;
+	}
+
+}
