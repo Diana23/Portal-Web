@@ -68,6 +68,7 @@ import com.cablevision.portal.ErrorVitriaException;
 import com.cablevision.service.IMcafeeDownloadsService;
 import com.cablevision.service.impl.McafeeDownloadsSpringService;
 import com.cablevision.util.Constantes;
+import com.cablevision.util.MailUtil;
 import com.cablevision.util.ResponseToServiceRequest;
 import com.cablevision.util.RespuestaToMyAccount;
 import com.cablevision.util.ValidateErrors;
@@ -430,17 +431,29 @@ public class McafeeDownloadsController extends ControllerBase {
 		
 	}
 	
+	@Jpf.Action(forwards = { @Jpf.Forward(name = "success", path= "infoMcafee.jsp") })
+	public Forward infoMcafee() {
+		log.info("INFOMCAFEE");
+		return new Forward("success");
+	}
+
 	@Jpf.Action(
 			forwards = { 
 					@Jpf.Forward(name = "success", path= "downloadMcafee.jsp"), 
-					@Jpf.Forward(name = "error", action= "catchErrors")
+					@Jpf.Forward(name = "error", action= "catchErrors"),
 			}
 	)
 	public Forward downloadMcafee() throws RemoteException, ServiceException, ParserConfigurationException, 
 	SAXException, IOException, UnsupportedEncodingException {
 		log.info("ENTRA A downloadMcafee");
-		
 		Forward forward = new Forward("error");
+		
+			
+		/*getRequest().getSession(false).setAttribute("urlmcafee", "http://www.google.com");
+		//getResponse().sendRedirect(urlDownload);
+		forward = new Forward("success");
+		*/
+		
 		MCAFEE_PARTNERID = getMessageResources("configuracion").getMessage("mcafee.partnerid");
 		MCAFEE_SKU = getMessageResources("configuracion").getMessage("mcafee.sku");
 		MCAFEE_NEW_SKU = getMessageResources("configuracion").getMessage("mcafee.new.sku");
@@ -505,11 +518,11 @@ public class McafeeDownloadsController extends ControllerBase {
 						log.error("AL DESCARGAR DE PORTAL: EL USUARIO DE LA CUENTA "+account+" SE ENCUENTRA EN ESTATUS SUSPENDIDO EN LA TABLA CV_MCAFEE");
 						errorCode = 7;
 						return forward;
-					}else if(McafeeDownloadsSpringService.STS_ACTIVO.equalsIgnoreCase(mcafee1.getMcaCvstatus().trim())){
-						log.error("AL DESCARGAR DE PORTAL: EL USUARIO DE LA CUENTA "+account+" SE ENCUENTRA EN ESTATUS ACTIVO EN LA TABLA CV_MCAFEE");
-						errorCode = 8;
-						return forward;
-					}
+					}//else if(McafeeDownloadsSpringService.STS_ACTIVO.equalsIgnoreCase(mcafee1.getMcaCvstatus().trim())){
+						//log.error("AL DESCARGAR DE PORTAL: EL USUARIO DE LA CUENTA "+account+" SE ENCUENTRA EN ESTATUS ACTIVO EN LA TABLA CV_MCAFEE");
+						//errorCode = 8;
+						//return forward;
+					//}
 				}
 				
 				// genera el XML y luego obtiene el usuario de mcafee, devuelo 0 si no tiene
@@ -525,14 +538,14 @@ public class McafeeDownloadsController extends ControllerBase {
 					builder = factory.newDocumentBuilder();
 					InputSource is = new InputSource(new StringReader(xmlStringResponse));
 					xmlResponse = builder.parse(is);
-
+					Timestamp fechaDescarga = new Timestamp(System.currentTimeMillis());
 					CvMcafee newMcafeeUser = getMcafeeDownloadsService().getMcafeeUserFromResponse(xmlResponse, cvCuenta, sessionAccountId);
 					if(newMcafeeUser != null) {
 						try {
 							if( mcafeeUser!=null ){
 								if ( McafeeDownloadsSpringService.STS_ACTIVO.equalsIgnoreCase(mcafeeUser.getMusCvstatus().trim()) ) {
 									//cambiar el estatus a migrado
-									getMcafeeDownloadsService().updateCvMcafeeUserStatus(mcafeeUser.getMusId(), McafeeDownloadsSpringService.STS_MIGRADO);
+									getMcafeeDownloadsService().updateCvMcafeeUserStatus(mcafeeUser.getMusId(), McafeeDownloadsSpringService.STS_MIGRADO,"",fechaDescarga);
 									newMcafeeUser.setMcaDatesuscribe(mcafeeUser.getMusDatesuscribe());
 									log.info("EL ESTATUS DE LA CUENTA "+account+" FUE ACTUALIZADO DE ACTIVO A MIGRADO");
 								}
@@ -545,6 +558,7 @@ public class McafeeDownloadsController extends ControllerBase {
 							newMcafeeUser.setMcaCvstatus(McafeeDownloadsSpringService.STS_ACTIVO);
 							newMcafeeUser.setMcaFirstName(cvCuenta.getNombreContacto());
 							newMcafeeUser.setMcaLastName(cvCuenta.getApellidoPaterno() + " " + cvCuenta.getApellidoMaterno());
+							newMcafeeUser.setMcaDatestatus(fechaDescarga);
 							getMcafeeDownloadsService().persistCvMcafee(newMcafeeUser);
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -564,7 +578,7 @@ public class McafeeDownloadsController extends ControllerBase {
 									
 					         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
 					         String descripcion = "email:"+newMcafeeUser.getMcaEmailaddress()+" pwd:"+newMcafeeUser.getMcaPassword()+
-					               " ref:"+newMcafeeUser.getMcaReference()+" fecha de suscripción:"+sdf.format(new Timestamp(System.currentTimeMillis()))+
+					               " ref:"+newMcafeeUser.getMcaReference()+" fecha de suscripción:"+sdf.format(fechaDescarga)+
 					               " fecha de descarga "+sdf.format(new Date());
 					         log.debug("INFORMACION DE DESCARGA::"+ descripcion);
 					         ResponseToServiceRequest response = getVitriaClient().getProjects_CVNPW_Initial_ToInterfase().
@@ -575,7 +589,7 @@ public class McafeeDownloadsController extends ControllerBase {
 					                      "", "", "", "", "");
 					         
 					         
-					         //getMcafeeDownloadsService().enviaCorreoAlta(cvCuenta,newMcafeeUser);
+					         
 					         
 					        try {
 								ValidateErrors.validateErrorResponse(response.getCvError(), getMessageResources("mensajeError"));
@@ -592,7 +606,14 @@ public class McafeeDownloadsController extends ControllerBase {
 							URLEncoder.encode("RETURN_URL","UTF-8")	+ "=" + URLEncoder.encode(MCAFEE_RETURNURL,"UTF-8") + "&" +
 							URLEncoder.encode("REMEMBER_ME","UTF-8") + "=" + URLEncoder.encode("0","UTF-8") + "&" +
 							URLEncoder.encode("APP_CODE","UTF-8") + "=" + URLEncoder.encode("MVS","UTF-8");
-							getResponse().sendRedirect(urlDownload);
+							
+							String urlcable = "http://localhost"+getRequest().getContextPath()+"/cablevision.portal?_nfpb=true&_nfxr=false&_pageLabel=soluciones_internet_servicios&_nfto=false";
+							
+							getMcafeeDownloadsService().enviaCorreoAlta(cvCuenta,newMcafeeUser,urlcable,"http://localhost"+getRequest().getContextPath()+"/");
+							
+							getRequest().getSession(false).setAttribute("urlmcafee", urlDownload);
+							
+							//getResponse().sendRedirect(urlDownload);
 							
 							forward = new Forward("success");
 

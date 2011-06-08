@@ -79,5 +79,7 @@
 
     <!-- Associations -->
 
-</class>
+    <property name="musCvmotivo" type="string" column="MUS_CVMOTIVO" length="250"/>
+    <property name="musCvdatestatus" type="timestamp" column="MUS_CVDATESTATUS" length="7"/>
+    </class>
 </hibernate-mapping>

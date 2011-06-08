@@ -81,5 +81,7 @@
         length="100"
     />
     <!-- Associations -->
+    <property name="mcaDatestatus" type="timestamp" column="MCA_DATESTATUS" length="7"/>
+    <property name="mcaMotivo" type="string" column="MCA_MOTIVO" length="250"/>
     </class>
 </hibernate-mapping>
