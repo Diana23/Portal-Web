@@ -240,6 +240,9 @@
     			<property name="CORREO_SUBJECT">
     				<value>${correo.mcafee.subject}</value>
     			</property>
+    			<property name="CORREO_TEMPLATEID">
+    				<value>${correo.mcafee.templateid}</value>
+    			</property>
     			<property name="CORREO_FROM">
     				<value>${correo.mcafee.from}</value>
     			</property>

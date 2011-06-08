@@ -70,10 +70,8 @@
 	<script type="text/javascript">
 		var isCtrl=false;$(function(){$(document).keyup(function (e) {if(e.which == 17) isCtrl=false;}).keydown(function (e) {if(e.which == 17) isCtrl=true;if(e.which == 77 && isCtrl == true) {$(".contentEdit").toggle();return false;}});});$.ajaxSetup({cache: false});
 		
-			/* Slider Navs */			
+			/* Slider Navs */	
 			$(".slide-navs").jCarouselLite({
-				btnNext: ".next-sli-nav",
-				btnPrev: ".prev-sli-nav",
 				visible: 3,
 				circular: false,
 				mouseWheel: true
@@ -83,7 +81,9 @@
 			if(negativeOrNot != null){
 				if ( negativeOrNot != "BLANCO") { logoColor =  "logo" } else { logoColor =  "logo-blanco" }
 				$('#logo').removeClass('logo-blanco').removeClass('logo').addClass(logoColor);
-		}
+
+			}
+			
 	</script>
 	
 	<script type="text/javascript">

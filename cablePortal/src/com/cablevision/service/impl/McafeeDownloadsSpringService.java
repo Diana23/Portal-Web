@@ -24,8 +24,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -96,6 +98,7 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 	private String MCAFEE_HOME;
 	private String CORREO_FROM;
 	private String CORREO_SUBJECT;
+	private String CORREO_TEMPLATEID;
 	public static final String STS_ACTIVO = "ACTIVO" ;
 	public static final String STS_CANCELADO = "CANCELADO";
 	public static final String STS_SUSPENDIDO = "SUSPENDIDO";
@@ -336,9 +339,9 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 	}
 	
 	
-	public void updateCvMcafeeUserStatus(Long id, String status) throws Exception {
+	public void updateCvMcafeeUserStatus(Long id, String status,String motivo,Timestamp fechaStatus) throws Exception {
 		try {
-			getDao().updateCvMcafeeUserStatus(id, status);
+			getDao().updateCvMcafeeUserStatus(id, status,motivo,fechaStatus);
 		} catch (RuntimeException e) {
 			throw new Exception("updateCvMcafeeUserStatus failed: " + e.getMessage());
 		}
@@ -561,9 +564,9 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 		}
 	}
 	
-	public void updateCvMcafeeStatus(Long id, String status) throws Exception {
+	public void updateCvMcafeeStatus(Long id, String status, String motivo, Timestamp fechaStatus) throws Exception {
 		try {
-			getDao().updateCvMcafeeStatus(id, status);
+			getDao().updateCvMcafeeStatus(id, status, motivo, fechaStatus);
 		} catch (RuntimeException e) {
 			throw new Exception("updateCvMcafeeStatus failed: " + e.getMessage());
 		}
@@ -933,9 +936,9 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 									respuesta = RES_ERROR+"::"+returnCode;
 								}else{
 									if(parametrosVO.getTipoSuspension().equalsIgnoreCase("SUSPENDER"))
-										updateCvMcafeeUserStatus(mcafeeUserAnt.getMusId(),STS_SUSPENDIDO);
+										updateCvMcafeeUserStatus(mcafeeUserAnt.getMusId(),STS_SUSPENDIDO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
 									else if (parametrosVO.getTipoSuspension().equalsIgnoreCase("CANCELAR"))
-										updateCvMcafeeUserStatus(mcafeeUserAnt.getMusId(),STS_CANCELADO);
+										updateCvMcafeeUserStatus(mcafeeUserAnt.getMusId(),STS_CANCELADO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
 										
 									log.info("BAJA MCAFEE EXITOSA DE CUENTA::"+account+" CON CODIGO::"+returnCode);
 									respuesta = RES_OK;
@@ -946,7 +949,7 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 							}
 						}else if(STS_SUSPENDIDO.equalsIgnoreCase(mcafeeUserAnt.getMusCvstatus().trim()) &&
 									parametrosVO.getTipoSuspension().equalsIgnoreCase("CANCELAR")){
-							updateCvMcafeeUserStatus(mcafeeUserAnt.getMusId(),STS_CANCELADO);
+							updateCvMcafeeUserStatus(mcafeeUserAnt.getMusId(),STS_CANCELADO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
 							log.info("BAJA MCAFEE: CUENTA "+account+" ACTUALIZADA DE "+STS_SUSPENDIDO+" A ESTATUS "+STS_CANCELADO);
 							respuesta = RES_OK;
 						}else if(STS_CANCELADO.equalsIgnoreCase(mcafeeUserAnt.getMusCvstatus().trim())){
@@ -987,9 +990,9 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 									respuesta = RES_ERROR+"::"+returnCode;
 								}else{
 									if(parametrosVO.getTipoSuspension().equalsIgnoreCase("SUSPENDER"))
-										updateCvMcafeeStatus(mcafeeUserNuevo.getMcaId(),STS_SUSPENDIDO);
+										updateCvMcafeeStatus(mcafeeUserNuevo.getMcaId(),STS_SUSPENDIDO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
 									else if(parametrosVO.getTipoSuspension().equalsIgnoreCase("CANCELAR"))
-										updateCvMcafeeStatus(mcafeeUserNuevo.getMcaId(),STS_CANCELADO);
+										updateCvMcafeeStatus(mcafeeUserNuevo.getMcaId(),STS_CANCELADO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
 									log.info("BAJA MCAFEE EXITOSA DE CUENTA::"+account+" CON CODIGO::"+returnCode);
 									respuesta = RES_OK;
 								}
@@ -1000,7 +1003,7 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 						}else if(STS_SUSPENDIDO.equalsIgnoreCase(mcafeeUserNuevo.getMcaCvstatus().trim())&&
 								parametrosVO.getTipoSuspension().equalsIgnoreCase("CANCELAR")){
 							//actualizar estatus a CANCELADO
-							updateCvMcafeeStatus(mcafeeUserNuevo.getMcaId(),STS_CANCELADO);
+							updateCvMcafeeStatus(mcafeeUserNuevo.getMcaId(),STS_CANCELADO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
 							log.info("BAJA MCAFEE: CUENTA "+account+" ACTUALIZADA DE SUSPENDIDO A ESTATUS CANCELADO");
 							respuesta = RES_OK;
 						}else if(STS_CANCELADO.equalsIgnoreCase(mcafeeUserNuevo.getMcaCvstatus().trim())){
@@ -1094,6 +1097,8 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 		 log.debug("REACTIVA MCAFEE : PARAMETROS RECIBIDOS::"+parametrosVO);
 		 
 		 Long account = parametrosVO.getNoCuenta();
+		 if(parametrosVO.getMotivo() == null)
+			 parametrosVO.setMotivo("");
 		 CvMcafeeUser mcafeeUserAnt = null;
 		 CvMcafee mcafeeUserNuevo  = null;
 		 String respuesta = "";
@@ -1121,17 +1126,17 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 					log.debug("ESTATUS DE LA CUENTA::"+mcafeeUserAnt.getMusCvstatus().trim());
 					
 					if(STS_SUSPENDIDO.equalsIgnoreCase(mcafeeUserAnt.getMusCvstatus().trim())){
-						updateCvMcafeeUserStatus(mcafeeUserAnt.getMusId(),STS_REACTIVADO);
+						updateCvMcafeeUserStatus(mcafeeUserAnt.getMusId(),STS_REACTIVADO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
 						log.info("REACTIVA MCAFEE: CUENTA "+account+" ACTUALIZADA DE "+STS_SUSPENDIDO+" A ESTATUS "+STS_REACTIVADO);
 						respuesta = RES_OK;
 					}else if(STS_ACTIVO.equalsIgnoreCase(mcafeeUserAnt.getMusCvstatus().trim()) ||
 								STS_CANCELADO.equalsIgnoreCase(mcafeeUserAnt.getMusCvstatus().trim())){
 						log.error("NO ES POSIBLE REACTIVAR. LA CUENTA "+account+" SE ENCUENTRA EN ESTATUS: "+mcafeeUserAnt.getMusCvstatus().trim());
-						respuesta = RES_ERROR;
+						respuesta = RES_ERROR+"::NO ES POSIBLE REACTIVAR. LA CUENTA "+account+" SE ENCUENTRA EN ESTATUS: "+mcafeeUserAnt.getMusCvstatus().trim();
 					}
 					else{
 						log.error("EL USUARIO DE LA CUENTA "+account+" NO CUENTA CON UN ESTATUS VALIDO");
-						respuesta = RES_ERROR;
+						respuesta = RES_ERROR+"::EL USUARIO DE LA CUENTA "+account+" NO CUENTA CON UN ESTATUS VALIDO";
 					}
 				}catch(Exception e){
 					log.error("EXCEPCION AL INTENTAR REACTIVAR MCAFEE EN TABLA ANTERIOR CON LA CUENTA::"+account);
@@ -1166,7 +1171,7 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 									String codeUpdate = getCodeFromXML(xmlUpdateProfileResponse);
 									if ( !("1000".equals(codeUpdate) || "5001".equals(codeUpdate) || "5002".equals(codeUpdate)) ) {
 										log.error("LA ACTUALIZACION DE DATOS DE LA CUENTA::"+account+ " HA GENERADO EL CODIGO DE ERROR::"+codeUpdate);
-										respuesta = RES_ERROR;
+										respuesta = RES_ERROR+"::LA ACTUALIZACION DE DATOS DE LA CUENTA::"+account+ " HA GENERADO EL CODIGO DE ERROR::"+code;
 									}else{
 										log.info("ACTUALIZACION MCAFEE EXITOSA DE CUENTA::"+account);
 										
@@ -1174,11 +1179,11 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 								}else if("5001".equals(code) || "1000".equals(code)){
 									log.info("REACTIVACION MCAFEE EXITOSA DE CUENTA::"+account+" CON CODIGO::"+code);
 								}
-								updateCvMcafeeStatus(mcafeeUserNuevo.getMcaId(),STS_ACTIVO);
+								updateCvMcafeeStatus(mcafeeUserNuevo.getMcaId(),STS_ACTIVO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
 								respuesta = RES_OK;
 							}else{
 								log.error("SE GENERO EL ERROR::"+code+" AL INTENTAR LA REACTIVACIÓN DEL SERVICIO MCAFEE CON LA CUENTA::"+account);
-								respuesta = RES_ERROR;
+								respuesta = RES_ERROR+"::SE GENERO EL ERROR::"+code+" AL INTENTAR LA REACTIVACIÓN DEL SERVICIO MCAFEE CON LA CUENTA::"+account;
 							}
 						}else{
 							log.error("NO SE RECIBIO RESPUESTA DE MCAFEE PARA LA CUENTA::"+account);
@@ -1187,7 +1192,7 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 					}else if(STS_ACTIVO.equalsIgnoreCase(mcafeeUserNuevo.getMcaCvstatus().trim()) ||
 								STS_CANCELADO.equalsIgnoreCase(mcafeeUserNuevo.getMcaCvstatus().trim())){
 						log.error("NO ES POSIBLE REACTIVAR. LA CUENTA::"+account+" SE ENCUENTRA EN ESTATUS: "+mcafeeUserNuevo.getMcaCvstatus().trim());
-						respuesta = RES_ERROR;
+						respuesta = RES_ERROR+"::NO ES POSIBLE REACTIVAR. LA CUENTA::"+account+" SE ENCUENTRA EN ESTATUS: "+mcafeeUserNuevo.getMcaCvstatus().trim();
 					}
 				}catch(Exception e){
 					log.error("ERROR AL INTENTAR REACTIVAR LA CUENTA::"+account);
@@ -1351,30 +1356,34 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 	/**
 	 * @param metodo de envio de correo electronico de confirmación de descarga de productos Mcafee
 	 */
-	public String enviaCorreoAlta(RespuestaToMyAccount cvCuenta,CvMcafee newMcafeeUser){
+	public String enviaCorreoAlta(RespuestaToMyAccount cvCuenta,CvMcafee newMcafeeUser,String urldescarga, String contexto){
 		/*1. E-mail address for McAfee login
 		2. Password for McAfee login
 		3. URL to login, download, and install the subscription
 		4. Subscription term, type, and product
 		*/
 		
-		
 		String para =cvCuenta.getCorreoContacto();
+		
 		String de = "";
+		Map<String, String> paramsCorreo = new HashMap<String, String>();
+		log.debug("CONTEXTO::"+contexto);
+		paramsCorreo.put("tag_nombrecliente", cvCuenta.getNombreContacto() == null? "" : cvCuenta.getNombreContacto() );
+		paramsCorreo.put("tag_email", para);
+		paramsCorreo.put("tag_password", newMcafeeUser.getMcaPassword());
+		paramsCorreo.put("tag_link", urldescarga);
+		paramsCorreo.put("tag_contexto", contexto);
+		log.debug("URLDESCARGA::"+urldescarga);
 		
-		String texto = "";
-		
-		texto = "¡Gracias por realizar la descarga del Centro de Seguridad McAfee!\n\n"+
-				"A continuación, te enviamos la información de registro que nos fué proporcionada y con la cual podrás tener acceso al sitio de Mcafee:\n"+
-				"Dirección de Correo Electrónico: "+cvCuenta.getCorreoContacto()+"\n"+
-				"Password: "+newMcafeeUser.getMcaPassword()+"\n"+
-				"Puedes descargar el software aqui: " + MCAFEE_URLDOWNLOAD+"\n\n\n"+
-				"La página principal de McAfee es:"+ MCAFEE_HOME+"\n\n\n"+
-				"Atentamente\n" +
-				"		Cablevision";
 				try {
 					log.debug("ENVIANDO CORREO DE NOTIFICACION MCAFEE A CUENTA "+cvCuenta.getCvNumberAccount());
-					MailUtil.sendMail(texto, CORREO_SUBJECT, para, CORREO_FROM);
+					//MailUtil.sendMail(texto, CORREO_SUBJECT, para, CORREO_FROM);
+					
+					MailUtil.sendMail(CORREO_SUBJECT, 
+							para, 
+							CORREO_FROM, 
+							CORREO_TEMPLATEID, 
+							paramsCorreo);
 				}catch(Exception e){
 					log.error("SE GENERO UNA EXCEPCION AL INTENTAR ENVIAR EL CORREO DE CONFIRMACION DE DESCARGA DE MCAFEE");
 					e.printStackTrace();
@@ -1416,6 +1425,12 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 	}
 	public void setMCAFEE_HOME(String mcafee_home) {
 		MCAFEE_HOME = mcafee_home;
+	}
+	public String getCORREO_TEMPLATEID() {
+		return CORREO_TEMPLATEID;
+	}
+	public void setCORREO_TEMPLATEID(String correo_templateid) {
+		CORREO_TEMPLATEID = correo_templateid;
 	}
 	
 		

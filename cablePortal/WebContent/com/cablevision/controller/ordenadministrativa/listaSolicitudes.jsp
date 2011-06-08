@@ -28,18 +28,18 @@
 			</p>
 			
 			<netui:form action="mostrarDetalle" tagId="fomaTest">
-				<table width="678"  cellspacing="0" cellpadding="0">
+				<table width="635"  cellspacing="0" cellpadding="0">
 					<tr class="fnd_tabla_inv_1">
 						<td colspan="3"></td>
 					</tr>
 					<tr class="fnd_tabla_inv_3">
-						<td width="40%">
+						<td width="120px">
 							<strong>No. de Solicitud</strong>
 						</td>
-			             		<td width="20%">
-			               			<strong>Creado en</strong>
+			             		<td width="120px">
+			               			<strong>Creado el</strong>
 			             		</td>
-			             		<td width="40%">
+			             		<td width="395px">
 			               			<strong>Descipci&oacute;n</strong>
 			             		</td>
 					</tr>
@@ -61,20 +61,20 @@
 									<c:choose>
 										<c:when test="${solicitud != null}">
 											<div class="fnd-tabla-pager-content-row">
-												<div class="fnd-tabla-pager-content-col" style="width: 230px;">
+												<div class="fnd-tabla-pager-content-col" style="width: 102px;">
 													<netui:anchor action="mostrarDetalle" styleClass="linkB">
 														<netui:parameter name="noSolicitud" value='${solicitud.toaNumberOa}'/>
 														<netui:parameter name="_pageLabel" value='<%= org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel") %>'/>
 														<c:out value="${solicitud.toaNumberOa}"/>
 													</netui:anchor>	
 												</div>
-					   							<div class="fnd-tabla-pager-content-col" style="width:123px; padding: 5px; text-align: center;">
+					   							<div class="fnd-tabla-pager-content-col" style="width:129px; padding: 5px; text-align: center;">
 					   								<netui:label value="${solicitud.toaDate}">
 					   									<netui:formatDate pattern="dd/MM/yyyy hh:mm:ss"/> 
 					   								</netui:label>
 												</div>
-												<div class="fnd-tabla-pager-content-col" style="width: 229px; line-height: 0 !important; border-right: 1px solid #D6D6D6 !important;">
-													<textarea class="ta-atencion-clientes" readonly="readonly" style="width: 225px !important;"><c:out value="${solicitud.toaDescripcion}"/></textarea>
+												<div class="fnd-tabla-pager-content-col" style="width: 308px; line-height: 0 !important; border-right: 1px solid #D6D6D6 !important;">
+													<textarea class="ta-mis-solicitudes" readonly="readonly" ><c:out value="${solicitud.toaDescripcion}"/></textarea>
 												</div>
 												<div class="clear"></div>
 											</div>
@@ -89,8 +89,8 @@
 								</c:forEach>
 							</c:if>
 							<c:if test="${empty pageInput.listaSolicitudes}">
-								<div class="fnd-tabla-pager-content-row">
-									<div class="revisa fnd-tabla-pager-content-col">Al momento no tienes ninguna solicitud</div>
+								<div class="fnd-tabla-pager-content-row" style="width: 635px;">
+									<div class="revisa fnd-tabla-pager-content-col-no-end">Al momento no tienes ninguna solicitud</div>
 								</div>
 							</c:if>
 						</td>

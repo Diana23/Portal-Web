@@ -54,35 +54,33 @@ p.date {
 	color: #2a2a2a;
 }
 
-#detalleDiv p{margin:0 0 0 44px; display:block; width:508px;}
 
 </style>
-<input type="hidden" id="idIni" name="idIni" value="${requestScope.id}" />
-<input type="hidden" id="tipoIni" name="tipoIni" value="${requestScope.tipo}" />
+<a href="#" onClick="self.parent.tb_remove();" title="cerrar">
+	<img src="${pageContext.request.contextPath }/resources/images/close2.png" border="0" alt="X" style="float: right" />
+</a>
+<c:choose>
+	<c:when test="${pageInput.detalle.canalLogo!= null && pageInput.detalle.canalLogo!= ''}">
+		<div id="wrap-img"><img style="margin: 5px 0 0 5px;" src="${pageInput.detalle.canalLogo	 }" /></div>
+	</c:when>
+</c:choose>
+<h3 class="color-orange grid-content">${pageInput.detalle.titulo }</h3>
+<c:choose>
+	<c:when test="${pageInput.detalle.canal!= null && pageInput.detalle.canal!= ''}">
+		<p class="date grid-content"><span class="blacker">Canal:</span> ${pageInput.detalle.canal }</p>
+	</c:when>
+</c:choose>
+<c:choose>
+	<c:when test="${pageInput.detalle.categoria!= null && pageInput.detalle.categoria!= ''}">
+		<p class="date grid-content"><span class="blacker">Categoría:</span> ${pageInput.detalle.categoria }</p>
+	</c:when>
+</c:choose>
+<p class="boxd grid-content">
+	${pageInput.detalle.descripcion }
+</p>
+<br><br>
+<div align="center">
 
-<%
-	PageURL ppv = PageURL.createPageURL(request, response, "entretenimiento_payperview");
-	ppv.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-	ppv.setTemplate("defaultDesktop");
-	pageContext.setAttribute("ppvUrl",ppv.toString());
-%>
-<div id="detalleDiv" class="ppv-body">
-	<div id="closeTabDiv">
-		<a href="${ppvUrl}"  title="cerrar">
-			<img src="${pageContext.request.contextPath }/resources/images/close2.png" border="0" alt="X" style="float: right" />
-		</a>
-	</div>
-	<c:choose>
-		<c:when test="${pageInput.detalle.canalLogo!= null && pageInput.detalle.canalLogo!= ''}">
-			<div id="wrap-img"><img style="margin: 5px 0 0 5px;" src="${pageInput.detalle.canalLogo	 }" /></div>
-		</c:when>
-	</c:choose>
-	<h3 class="ppv color-orange grid-content-ppv">${pageInput.detalle.titulo}</h3>
-	<c:choose>
-		<c:when test="${pageInput.detalle.canal!= null && pageInput.detalle.canal!= ''}">
-			<p class="date grid-content-ppv"><span class="blacker">Canal:</span> ${pageInput.detalle.canal }</p>
-		</c:when>
-	</c:choose>
 	<c:choose>
 		<c:when test="${pageInput.detalle.categoria!= null && pageInput.detalle.categoria!= ''}">
 			<p class="date grid-content-ppv"><span class="blacker">Categoría:</span> ${pageInput.detalle.categoria }</p>

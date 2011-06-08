@@ -1,5 +1,6 @@
 package com.cablevision.dao;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -75,7 +76,7 @@ public interface IMcafeeDownloadsDao {
 	/**
 	 * Cambiar el status de un usuario
 	 */
-	public void updateCvMcafeeUserStatus(Long id, String status);
+	public void updateCvMcafeeUserStatus(Long id, String status,String motivo, Timestamp fechaStatus);
 	
 	/**
 	 * Remove the given persistent instance.
@@ -113,7 +114,7 @@ public interface IMcafeeDownloadsDao {
 	 */
 	public void removeCvMcafee(CvMcafee cvMcafee);
 	
-	public void updateCvMcafeeStatus(Long id, String status);
+	public void updateCvMcafeeStatus(Long id, String status, String motivo, Timestamp fechaStatus);
 	
 	public CvMcafee getMcafeeByAccount(Long account);
 }
