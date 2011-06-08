@@ -64,7 +64,49 @@ xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0" >
 		<c:set var="ph2" value="${ph[1]}"/>
 		<c:set var="ph3" value="${ph[2]}"/>
 		<c:set var="ph4" value="${ph[3]}"/>
-			<div class="span-24">
+
+		<!-- slider navs -->
+		<div class="wraps-slide-navs">
+			<div class="slide-navs">
+				<jsp:include page="/com/cablevision/controller/contenido/renderizarContenido.jsp?contenidoId=CV002114&estructuraId=CV002115&templateId=CV002117" flush="true"/>			
+			</div>
+			<a href="#" class="prev-sli-nav hidden-text">Previous</a>
+			<a href="#" class="selected_play play-sli-nav hidden-text">Play</a>
+            <a href="#" class="pause-sli-nav hidden-text">Pause</a>
+			<a href="#" class="next-sli-nav hidden-text">Next</a>
+			<span style="clear:both;"></span>
+				<script type="text/javascript">		
+					$('.pause-sli-nav').click(function(){
+					if($('#preloader').is(':animated')){
+						$('#preloader').stop();
+						$(this).addClass('selected_pause');
+						$('a.play-sli-nav').removeClass('selected_play');
+						return false;
+					}
+					});
+				
+					$('.play-sli-nav').click(function(){
+						var width=$('#preloader').width();
+						var time = 8200-(width*3.5);
+				
+						if($('#preloader').is(':animated')){
+							return false;
+						}else{
+							$('#preloader').animate({			
+							width: '1200px' 
+							}, time, function() {
+							changeHead(activeNav); 			
+							});
+						}
+						$(this).addClass('selected_play');
+						$('a.pause-sli-nav').removeClass('selected_pause');
+						return false;	
+					});
+				</script>
+			
+		</div>	
+			<div class="span-24" style="margin-top:-88px">
+
 				<!-- Wrap Main -->	
 				<div class="margin-bot15">
 					<!-- Main -->	
