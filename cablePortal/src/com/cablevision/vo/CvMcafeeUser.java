@@ -21,6 +21,9 @@ public class CvMcafeeUser  implements Serializable {
 	private String musEmailaddress;
 	private String musPassword;
 	private String musReference;
+	private java.sql.Timestamp musCvdatestatus;
+	private String musCvmotivo;
+	private Boolean registroMultiple;
 
     public CvMcafeeUser() {
     }
@@ -112,4 +115,30 @@ public class CvMcafeeUser  implements Serializable {
 			.append("musId", getMusId())
 			.toString();
 	}
+
+	public Boolean getRegistroMultiple() {
+		return registroMultiple;
+	}
+
+	public void setRegistroMultiple(Boolean registroMultiple) {
+		this.registroMultiple = registroMultiple;
+	}
+
+	public java.sql.Timestamp getMusCvdatestatus() {
+		return musCvdatestatus;
+	}
+
+	public void setMusCvdatestatus(java.sql.Timestamp musCvdatestatus) {
+		this.musCvdatestatus = musCvdatestatus;
+	}
+
+	public String getMusCvmotivo() {
+		return musCvmotivo;
+	}
+
+	public void setMusCvmotivo(String musCvmotivo) {
+		this.musCvmotivo = musCvmotivo;
+	}
+
+	
 }

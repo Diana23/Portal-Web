@@ -260,6 +260,14 @@ ul.no-accor-side li > a, ul.accor-side li > a {
 	background: 	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv004450.jpg) no-repeat center 20px; 
 	padding:		90px 120px;
 }
+
+.wrap-img-thbk9 {	
+	background:		url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002267.jpg") no-repeat center 90px transparent;
+	padding:		165px 120px;
+	font-size:		12px;
+	color:			##231f20;
+	
+}
 	
 .close-cross { position:	relative; top: -172px; left: 371px;  }
 .close-cross2 { position:	relative; top: -84px; left: 371px;  }

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvMcafee" 
+    table="CV_MCAFEE"
+    schema="PORTALWEB"
+    lazy="false"
+>
+    <id
+        name="mcaId"
+        type="long"
+        column="MCA_ID"
+        length="22"
+    >
+        <generator class="sequence"  >
+    		<param name="sequence">CV_MCAFEE_SEQ</param>
+    	</generator>
+    </id>
+    <property
+        name="mcaAccount"
+        type="long"
+        column="MCA_ACCOUNT"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="mcaContactid"
+        type="string"
+        column="MCA_CONTACTID"
+        not-null="true"
+        length="250"
+    />
+    <property
+        name="mcaCvstatus"
+        type="string"
+        column="MCA_CVSTATUS"
+        not-null="true"
+        length="250"
+    />
+    <property
+        name="mcaDatesuscribe"
+        type="timestamp"
+        column="MCA_DATESUSCRIBE"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="mcaEmailaddress"
+        type="string"
+        column="MCA_EMAILADDRESS"
+        not-null="true"
+        length="250"
+    />
+    <property
+        name="mcaPassword"
+        type="string"
+        column="MCA_PASSWORD"
+        not-null="true"
+        length="250"
+    />
+    <property
+        name="mcaReference"
+        type="string"
+        column="MCA_REFERENCE"
+        length="250"
+    />
+    <property
+        name="mcaFirstName"
+        type="string"
+        column="MCA_FIRSTNAME"
+        length="100"
+    />
+    <property
+        name="mcaLastName"
+        type="string"
+        column="MCA_LASTNAME"
+        length="100"
+    />
+    <!-- Associations -->
+    <property name="mcaDatestatus" type="timestamp" column="MCA_DATESTATUS" length="7"/>
+    <property name="mcaMotivo" type="string" column="MCA_MOTIVO" length="250"/>
+    </class>
+</hibernate-mapping>
