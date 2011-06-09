@@ -447,10 +447,11 @@ public class McafeeDownloadsController extends ControllerBase {
 	SAXException, IOException, UnsupportedEncodingException {
 		log.info("ENTRA A downloadMcafee");
 		Forward forward = new Forward("error");
-		
 			
 		/*getRequest().getSession(false).setAttribute("urlmcafee", "http://www.google.com");
 		//getResponse().sendRedirect(urlDownload);
+		String url = getRequest().getScheme()+"://"+getRequest().getServerName()+getRequest().getContextPath();
+		log.debug("URL::"+url);
 		forward = new Forward("success");
 		*/
 		
@@ -607,9 +608,11 @@ public class McafeeDownloadsController extends ControllerBase {
 							URLEncoder.encode("REMEMBER_ME","UTF-8") + "=" + URLEncoder.encode("0","UTF-8") + "&" +
 							URLEncoder.encode("APP_CODE","UTF-8") + "=" + URLEncoder.encode("MVS","UTF-8");
 							
-							String urlcable = "http://localhost"+getRequest().getContextPath()+"/cablevision.portal?_nfpb=true&_nfxr=false&_pageLabel=soluciones_internet_servicios&_nfto=false";
+							String url = getRequest().getScheme()+"://"+getRequest().getServerName()+getRequest().getContextPath();
 							
-							getMcafeeDownloadsService().enviaCorreoAlta(cvCuenta,newMcafeeUser,urlcable,"http://localhost"+getRequest().getContextPath()+"/");
+							String urlcable = url+"/cablevision.portal?_nfpb=true&_nfxr=false&_pageLabel=soluciones_internet_servicios&_nfto=false";
+							
+							getMcafeeDownloadsService().enviaCorreoAlta(cvCuenta,newMcafeeUser,urlcable,url+"/");
 							
 							getRequest().getSession(false).setAttribute("urlmcafee", urlDownload);
 							
