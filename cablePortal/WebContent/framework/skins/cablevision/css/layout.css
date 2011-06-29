@@ -1865,8 +1865,12 @@ body {
 		margin:			23px 0 0;
 		width:			233px;
 	}
-	.p-legales { font-family: tahoma; font-size: 10px; color: #666; }
+	.p-legales { font-family: tahoma; font-size: 10px; color: #666; width:550px; display:block; float:left;}
 
+	.logofooter{
+		float:right;
+		margin-top: -25px;
+	}
 /**********************/
 
 /* Misc */
