@@ -79,10 +79,6 @@ body {
 
 	/* Thumbs rotador */
 		ul#navs-rot { 
-			position: relative;
-				left: 752px; top:237px; 
-				*left: 150px; *top:315px; 
-			width: 		190px;
 			font-size:	10px;
 			line-height:11px;		
 			 }

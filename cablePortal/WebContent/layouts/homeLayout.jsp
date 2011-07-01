@@ -37,10 +37,7 @@ xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0" >
 					<br /><br /><br /><br />
 					<a href="#" id="btn-link-ruleta" title="Ver ahora" class="btn-small">Ver ahora</a>
 				</div>
-
-				<!-- slider navs -->
-				<jsp:include page="/com/cablevision/controller/contenido/renderizarContenido.jsp?contenidoId=CV002114&estructuraId=CV002115&templateId=CV002117" flush="true"/>			
-			
+		
 			</div>
 			
 			<!-- Navbar -->
@@ -74,6 +71,9 @@ xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0" >
 			<a href="#" class="selected_play play-sli-nav hidden-text">Play</a>
             <a href="#" class="pause-sli-nav hidden-text">Pause</a>
 			<a href="#" class="next-sli-nav hidden-text">Next</a>
+			<div class="prev-glass" style="position:relative; z-index:500; width:42px; height:16px; margin-top:-16px; display:none;"></div>
+            <div class="next-glass" style="position:relative; z-index:500; width:42px; height:16px; margin-top:-16px; display:none; left:131px;"></div>
+                    
 			<span style="clear:both;"></span>
 				<script type="text/javascript">		
 					$('.pause-sli-nav').click(function(){
