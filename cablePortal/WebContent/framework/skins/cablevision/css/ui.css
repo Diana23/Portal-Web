@@ -643,6 +643,7 @@ width:54px;
 	#formreg input.small { width: 30px;}
 	#formreg input.medium { width: 147px; }
 	#formreg input.big{ width: 220px; }
+	
 	#formreg select.tipo-problema { width: 400px; }
 	
 	#formreg select.bigest { width: 350px; }
@@ -845,7 +846,7 @@ width:54px;
  .formulario input.small { width: 30px;}
  .formulario input.medium { width: 147px; }
  .formulario input.big { width: 220px; }
- 
+ .formulario input.bigR { width: 180px; } 
  .formulario select.bigest { width: 350px; }
  .formulario input.bigest{ width: 350px; }
  .formulario input.bigfix{ width: 330px; }
@@ -1026,4 +1027,8 @@ h2.side2 {
 	font-weight: bold; 
 	color: #53C959; 
 	line-height: 13px;
+}
+
+.fleft {
+    float: left !important;
 }

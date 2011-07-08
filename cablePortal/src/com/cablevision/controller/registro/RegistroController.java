@@ -28,6 +28,10 @@ import com.cablevision.util.RespuestaToMyAccount;
 import com.cablevision.util.RespuestaToRegister;
 import com.cablevision.util.ValidarPasswordUtil;
 import com.cablevision.util.ValidateErrors;
+import com.cablevision.util.MailUtil;
+import com.cablevision.util.ConfigurationHelper;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Page Flow para usar en el registro de clientes de cablevision
@@ -142,7 +146,7 @@ public class RegistroController extends ControllerBase {
 		if(!ValidarPasswordUtil.validatePassword(pass)) {
 			forward = new Forward("fail");
 			forward.addActionOutput("errores", "La contrase&ntilde;a debe de contener de 8 a 25 caracteres " +
-					"incluyendo por lo menos una may&uacute;scula, una min&uacute;scula, un n&uacute;mero y un caracteres especial como @#$%!&/()=?");
+					"incluyendo por lo menos una </br>may&uacute;scula, una min&uacute;scula, un n&uacute;mero y un caracteres especial como @#$%!&/()=?");
 		}
 		return forward;
 	}
@@ -182,12 +186,27 @@ public class RegistroController extends ControllerBase {
 			nombre = stNombre.nextToken();
 		}
 		
+
 		
 		response = getVitriaClient().getProjects_CVNPW_Initial_ToInterfase().toRegister(nombre.toUpperCase(Locale.ENGLISH), 
 					segundoNombre.toUpperCase(Locale.ENGLISH), form.getApellidoPaterno().toUpperCase(Locale.ENGLISH), 
 				   form.getApellidoMaterno().toUpperCase(Locale.ENGLISH), form.getEmail(), form.getIdUsuario(), 
 				   form.getPassword(), form.getPreguntaConfirmacion().toUpperCase(Locale.ENGLISH), 
 				   form.getRespuestaConfirmacion().toUpperCase(Locale.ENGLISH), form.getNoContrato(), form.getTelefono());
+		//se agrega envio de email al Registrarse - Diana Escorcia
+		
+		Map<String, String> values = new HashMap<String, String>();
+		values.put("nombre", nombre.toUpperCase(Locale.ENGLISH));
+		values.put("apellidoPaterno", form.getApellidoPaterno().toUpperCase(Locale.ENGLISH));
+		values.put("apellidoMaterno", form.getApellidoMaterno().toUpperCase(Locale.ENGLISH));
+		values.put("nuevoPassword",form.getPassword());
+		values.put("idUsuario", form.getIdUsuario());
+
+		MailUtil.sendMail(ConfigurationHelper.getPropiedad("correo.bienvenido.subject",null), 
+				form.getEmail(), 
+				ConfigurationHelper.getPropiedad("correo.bienvenido.from",null), 
+				ConfigurationHelper.getPropiedad("correo.bienvenido.templateId",null), 
+				values);
 		
 		//cambio de mensaje de error, ya no llama al properties si es el error SBL-001
 		PageURL url = PageURL.createPageURL(getRequest(), getResponse(), "servicios_enlinea_login");
