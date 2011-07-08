@@ -560,7 +560,9 @@ body {
 	
 		.wrap-cont-exp {
 			background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002024.png) no-repeat left top;
-			padding: 	0 87px;
+			float: left;
+    		padding: 0 10px;
+    		width: 820px;
 		}	
 		
 		.wrap-grey-bar {
@@ -644,9 +646,19 @@ body {
 				width:		207px;
 		}
 		
-		.wrap-srvline {margin:	0 20px; }
+		.wrap-srvline {
+				margin:	0 20px;
+		}
+		
+		.wrap-srvlineB {
+				margin-right:	5px;
+				float: 		left;
+				width:		425px;
+		}
 	
 		.wrap-srvline p { line-height: 20px; }	
+		
+		.wrap-srvlineB p { line-height: 20px; }
 		
 		.link-user-servonline {
 			display:		block;
@@ -2498,3 +2510,42 @@ width:220px;
 .btn-fix-top { margin-top : 7px ; }
 
 .wtd { font-size:10px; line-height:10px!important; }
+
+.limitheight {
+    height: 700px !important;
+}
+
+.beneficios{
+    background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv006198.jpg") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 549px;
+    left: 465px;
+    position: relative;
+    top: -635px;
+    width: 250px;
+}
+
+.beneficios2{
+    background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv006198.jpg") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 549px;
+    left: 465px;
+    position: relative;
+    top: -445px;
+    width: 250px;
+}
+
+.beneficiosMiCuenta{
+    background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv006197.jpg") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 549px;
+    left: 15px;
+    position: relative;
+    top: -95px;
+    width: 250px;
+}
+
+.imglateral {
+    float: left;
+    width: 250px;
+}
