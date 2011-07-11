@@ -15,7 +15,7 @@
 <a title="Paso 2" class="paso2act hidden-text" style="cursor: default;" href="#">Paso 2</a>
 <a title="Paso 3" class="reg-pas3 hidden-text" style="cursor: default;" href="#">Paso 3</a>
 </div>
-<div class="span-18 last">
+<div class="span-18 last limitheight">
 <div class="wrap-cont-exp">
 
 
@@ -29,16 +29,16 @@
 	<netui:errors bundleName="registroBundle" />
 </c:if>	
 <netui:form action="pasoDos" styleClass="formulario">
-	<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+	<table width="50%" cellspacing="0" cellpadding="0" border="0" align="center">
 		<tbody><tr>
 			<td width="50%" colspan="2">
 				<netui:label for="actionForm_password" value="* Contraseña" /><br>
-				<netui:textBox dataSource="actionForm.password" tagId="actionForm_password" styleClass="big" size="25" password="true"/>						
+				<netui:textBox dataSource="actionForm.password" tagId="actionForm_password" styleClass="bigR" size="25" password="true"/>						
 				<p class="estilizado">25 Caracteres alfanuméricos máximo </p>
 			</td>
 			<td width="50%" colspan="2">
 				<netui:label for="actionForm_passwordConfirmacion" value="* Confirmar contraseña"/><br>
-				<netui:textBox dataSource="actionForm.passwordConfirmacion" tagId="actionForm_passwordConfirmacion" styleClass="big" size="25" password="true"/>
+				<netui:textBox dataSource="actionForm.passwordConfirmacion" tagId="actionForm_passwordConfirmacion" styleClass="bigR" size="25" password="true"/>
 				<p class="estilizado">&nbsp;</p>
 			</td>
 		</tr>
@@ -62,11 +62,11 @@
 			</td>
 		</tr>
 	</tbody></table>
-	<netui:anchor action="pasoDos" formSubmit="true" title="Siguiente" styleClass="btn-small marg-rig40 margin-bot15 fright">
+	<netui:anchor action="pasoDos" formSubmit="true" title="Siguiente" styleClass="btn-small marg-rig40 margin-bot15 fleft">
 		<netui:parameter name="_pageLabel" value='<%= org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel") %>'/>
 		Siguiente
 	</netui:anchor>
-	<netui:anchor action="begin" title="Atrás" styleClass="btn-small marg-rig40 margin-bot15 fright">
+	<netui:anchor action="begin" title="Atrás" styleClass="btn-small marg-rig40 margin-bot15 fleft">
 		<netui:parameter name="_pageLabel" value='<%= org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel") %>'/>
 		Atrás
 	</netui:anchor>
@@ -76,5 +76,6 @@
   
   
   </div>
+  <div class="beneficios2"></div>
   </div>
 </netui:scriptContainer>

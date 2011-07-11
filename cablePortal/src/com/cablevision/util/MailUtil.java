@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.Map;
 import java.util.Properties;
+import java.util.regex.Matcher;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
@@ -192,7 +193,7 @@ public class MailUtil {
 		if(values!=null){
 			//Remplazar valores en mapa
 			for (String key : values.keySet()) {
-				template = template.replaceAll("\\{"+key+"\\}", values.get(key)!=null?values.get(key):"");
+				template = template.replaceAll("\\{"+key+"\\}", Matcher.quoteReplacement(values.get(key)!=null?values.get(key):""));
 			}
 		}
 		
