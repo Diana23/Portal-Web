@@ -13,6 +13,7 @@
 <jsp:directive.page import="com.bea.portlet.GenericURL"/>
 <jsp:directive.page import="org.apache.commons.lang.StringUtils"/>
 <jsp:directive.page import="com.bea.portlet.PageURL"/>
+<jsp:directive.page import="com.cablevision.util.PageNewUrl"/>
 
 <script type="text/javascript">
 	var contextPath = "${pageContext.request.contextPath}";
@@ -40,15 +41,15 @@
 	if(urlsMap==null){
 		urlsMap = new HashMap();
 		
-		PageURL cuenta = PageURL.createPageURL(request, response, "cablevision_portal_crearCuenta");
-		cuenta.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-		cuenta.setEncodeSession(false);
+		GenericURL cuenta = PageNewUrl.createPageURL(request, response, "cablevision_portal_crearCuenta");
+		//cuenta.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+		//cuenta.setEncodeSession(false);
 		cuenta.setTemplate("defaultDesktop");
 		urlsMap.put("cuenta",cuenta.toString());
 		
-		PageURL pass = PageURL.createPageURL(request, response, "cablevision_portal_recuperaPass");
-		pass.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-		pass.setEncodeSession(false);
+		GenericURL pass = PageNewUrl.createPageURL(request, response, "cablevision_portal_recuperaPass");
+		//pass.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+		//pass.setEncodeSession(false);
 		pass.setTemplate("defaultDesktop");
 		urlsMap.put("pass",pass.toString());
 		

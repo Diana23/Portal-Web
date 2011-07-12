@@ -42,7 +42,11 @@
 					onclick="window.open('${pageContext.request.contextPath}/contenido/groups/mercadotecnia/documents/html_cv/cv000574.html','','width=800,height=500,titlebar =0,toolbar=0,status=0,scrollbars=1,menubar=0,location=0,directories=0' ); return false;">
 					términos y condiciones
 				</a><br><br>
-				<netui:anchor styleClass="btn-small marg-rig40 margin-bot15 fleft" formSubmit="true" title="Continuar">
+				<div style="display:none;">
+					<netui:rewriteName  name="formSiguiente3" forTagId="true" resultId="formSiguiente3"/>
+				</div>		
+				<netui:anchor styleClass="btn-small marg-rig40 margin-bot15 fleft" onClick="submitForma('${formSiguiente3}',this);return false;" action="pasoTres" formSubmit="true" title="Continuar">
+
 					<netui:parameter name="_pageLabel" value='<%= org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel") %>'/>
 					Continuar
 				</netui:anchor> 

@@ -8,6 +8,7 @@
 <jsp:directive.page import="java.util.ArrayList"/>
 <jsp:directive.page import="java.util.Iterator"/>
 <jsp:directive.page import="com.cablevision.util.PaymentsLine"/>
+<jsp:directive.page import="com.cablevision.util.PageNewUrl"/>
 
 <netui:scriptContainer>
 
@@ -18,8 +19,8 @@
 	</div>	
 	<div class="clear"></div>
 		<jsp:scriptlet>
-			PageURL url = PageURL.createPageURL(request, response, "servicios_enlinea_pagar");
-			url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+			GenericURL url = PageNewUrl.createPageURL(request, response, "servicios_enlinea_pagar");
+			//url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 			url.setTemplate("defaultDesktop");
 			pageContext.setAttribute("url",url);	
 		</jsp:scriptlet>

@@ -1,12 +1,8 @@
 package com.cablevision.controller.misFacturas;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URI;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
@@ -14,17 +10,11 @@ import java.util.HashMap;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpSession;
-import javax.xml.rpc.ServiceException;
 
-import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JRExporterParameter;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.JasperRunManager;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.export.JRHtmlExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
 
 import org.apache.beehive.netui.pageflow.Forward;
@@ -34,7 +24,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.bea.portlet.GenericURL;
-import com.bea.portlet.PageURL;
 import com.cablevision.ToInterfase;
 import com.cablevision.controller.base.ControllerBase;
 import com.cablevision.portal.ErrorVitriaException;

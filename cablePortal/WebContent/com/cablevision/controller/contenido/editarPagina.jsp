@@ -16,10 +16,10 @@
 <c:choose>
 	<c:when test="${empty pageInput.popup or !pageInput.popup eq true}">
 		<%
-			com.bea.portlet.PageURL preview = com.bea.portlet.PageURL.createPageURL(request, response, "cablevision_portal_preview");
+			com.bea.portlet.GenericURL preview = com.cablevision.util.PageNewUrl.createPageURL(request, response, "cablevision_portal_preview");
 			preview.setTemplate("defaultDesktop");
-			preview.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-			preview.setEncodeSession(false);
+			//preview.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+			//preview.setEncodeSession(false);
 			pageContext.setAttribute("preview",preview.toString());
 			
 		%>

@@ -12,7 +12,7 @@ import com.bea.netuix.servlets.controls.content.backing.AbstractJspBacking;
 import com.bea.netuix.servlets.controls.page.BookBackingContext;
 import com.bea.netuix.servlets.controls.page.PageBackingContext;
 import com.bea.portlet.GenericURL;
-import com.bea.portlet.PageURL;
+import com.cablevision.util.PageNewUrl;
 import com.cablevision.util.sso.GoogleSSO;
 
 /**
@@ -47,9 +47,9 @@ public class MainBookBackingFile extends AbstractJspBacking {
 		
 		if(!response.isCommitted()){
 			if(StringUtils.isEmpty(request.getQueryString())){
-				PageURL url = PageURL.createPageURL(request, response,"cablevision_portal_page_home");
+				GenericURL url = PageNewUrl.createPageURL(request, response,"cablevision_portal_page_home");
 				url.setTemplate("defaultDesktop");
-				url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//				url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 				try {
 					response.sendRedirect(url.toString());
 				} catch (IOException e) {
