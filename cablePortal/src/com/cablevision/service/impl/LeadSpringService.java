@@ -172,12 +172,12 @@ public class LeadSpringService implements ILeadService {
 			
 
 			
-			MailUtil.sendMail(
-					/*subject*/ ConfigurationHelper.getPropiedad("correo.leads"+type.getCltIdLeadtype()+".subject",ConfigurationHelper.getPropiedad("correo.leads.subject",null )), 
-					/*to*/ map.get("Email"), 
-					/*from*/ ConfigurationHelper.getPropiedad("correo.leads"+type.getCltIdLeadtype()+".from",ConfigurationHelper.getPropiedad("correo.leads.from",null)), 
-					/*template*/ ConfigurationHelper.getPropiedad("correo.leads"+type.getCltIdLeadtype()+".templateId",ConfigurationHelper.getPropiedad("correo.leads.templateId",null)), 
-					/*map_values*/ values);
+//			MailUtil.sendMail(
+//					/*subject*/ ConfigurationHelper.getPropiedad("correo.leads"+type.getCltIdLeadtype()+".subject",ConfigurationHelper.getPropiedad("correo.leads.subject",null )), 
+//					/*to*/ map.get("Email"), 
+//					/*from*/ ConfigurationHelper.getPropiedad("correo.leads"+type.getCltIdLeadtype()+".from",ConfigurationHelper.getPropiedad("correo.leads.from",null)), 
+//					/*template*/ ConfigurationHelper.getPropiedad("correo.leads"+type.getCltIdLeadtype()+".templateId",ConfigurationHelper.getPropiedad("correo.leads.templateId",null)), 
+//					/*map_values*/ values);
 		}
 		return id;
 	}

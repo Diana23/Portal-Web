@@ -18,8 +18,6 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.cablevision.controller.base.ControllerBase;
 import com.cablevision.service.IBolsaTrabajoService;
-import com.cablevision.util.ConfigurationHelper;
-import com.cablevision.util.MailUtil;
 import com.cablevision.util.PasswordUtil;
 import com.cablevision.util.ReCaptchaUtil;
 import com.cablevision.util.UcmUtil;
