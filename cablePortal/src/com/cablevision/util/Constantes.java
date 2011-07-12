@@ -93,5 +93,7 @@ public class Constantes {
 	 */
 	public final static String CABLEVISION_URL_NUEVAS = "CABLEVISION_URL_CACHE";
 	public final static String URL_CACHE_KEY = "url.cache.key.";
+	
+	public static final String CABLEVISION_URL = "CABLEVISION_URL_REDIRECT";
 }
 
