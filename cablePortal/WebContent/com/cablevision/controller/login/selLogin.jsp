@@ -53,10 +53,10 @@
 								
 							</div>
 							<jsp:scriptlet>
-								com.bea.portlet.PageURL registro = com.bea.portlet.PageURL.createPageURL(request, response, "servicios_enlinea_registro");
+								com.bea.portlet.GenericURL registro = com.cablevision.util.PageNewUrl.createPageURL(request, response, "servicios_enlinea_registro");
 								registro.setTemplate("https");
-								registro.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-								registro.setEncodeSession(false);
+								//registro.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+								//registro.setEncodeSession(false);
 								pageContext.setAttribute("registro",registro.toString());
 							</jsp:scriptlet>
 							 

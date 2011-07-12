@@ -4,11 +4,12 @@
 
 <jsp:directive.page import="com.bea.portlet.GenericURL"/>
 <jsp:directive.page import="com.bea.portlet.PageURL"/>
+<jsp:directive.page import="com.cablevision.util.PageNewUrl"/>
 
 <%
-PageURL guia = PageURL.createPageURL(request, response, "entretenimiento_guia");
-guia.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-guia.setEncodeSession(false);
+GenericURL guia = PageNewUrl.createPageURL(request, response, "entretenimiento_guia");
+//guia.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//guia.setEncodeSession(false)
 pageContext.setAttribute("guiaUrl",guia.toString());
 
 %>

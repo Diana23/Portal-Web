@@ -31,21 +31,21 @@ $(document).ready(function() {
 </style>
 
 <%
-com.bea.portlet.PageURL url = com.bea.portlet.PageURL.createPageURL(request, response, "aplicaciones_registro");
-url.setForcedAmpForm(false);
-url.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+com.bea.portlet.GenericURL url = com.cablevision.util.PageNewUrl.createPageURL(request, response, "aplicaciones_registro");
+//url.setForcedAmpForm(false);
+//url.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 url.setTemplate("https");
 pageContext.setAttribute("url",java.net.URLEncoder.encode(url.toString(),"UTF-8"));
 
-com.bea.portlet.PageURL urlLogin = com.bea.portlet.PageURL.createPageURL(request, response, "cablevision_portal_login");
-urlLogin.setForcedAmpForm(false);
-urlLogin.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+com.bea.portlet.GenericURL urlLogin = com.cablevision.util.PageNewUrl.createPageURL(request, response, "cablevision_portal_login");
+//urlLogin.setForcedAmpForm(false);
+//urlLogin.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 urlLogin.setTemplate("https");
 pageContext.setAttribute("urlLogin",java.net.URLEncoder.encode(urlLogin.toString(),"UTF-8"));
 
-com.bea.portlet.PageURL urlOlvidaste = com.bea.portlet.PageURL.createPageURL(request, response, "servicios_enlinea_recuperarPassword");
-urlOlvidaste.setForcedAmpForm(false);
-urlOlvidaste.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+com.bea.portlet.GenericURL urlOlvidaste = com.cablevision.util.PageNewUrl.createPageURL(request, response, "servicios_enlinea_recuperarPassword");
+//urlOlvidaste.setForcedAmpForm(false);
+//urlOlvidaste.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 urlOlvidaste.setTemplate("https");
 pageContext.setAttribute("urlOlvidaste",urlOlvidaste.toString());
 

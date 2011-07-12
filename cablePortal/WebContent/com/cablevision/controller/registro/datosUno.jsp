@@ -86,7 +86,11 @@
 		</tbody>
 		</table>		
 		
-		<netui:anchor styleClass="btn-small margin-bot15" title="Siguiente" formSubmit="true">
+		<div style="display:none;">
+			<netui:rewriteName  name="formSiguiente1" forTagId="true" resultId="formSiguiente1"/>
+		</div>
+		<netui:anchor onClick="submitForma('${formSiguiente1}',this);return false;" formSubmit="true" action="pasoUno" styleClass="btn-small margin-bot15" title="Siguiente">
+
 			<netui:parameter name="_pageLabel" value='<%= org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel") %>'/>
 			Siguiente
 		</netui:anchor>

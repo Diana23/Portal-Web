@@ -15,7 +15,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.bea.portlet.GenericURL;
-import com.bea.portlet.PageURL;
 import com.cablevision.ToInterfase;
 import com.cablevision.controller.base.ControllerBase;
 import com.cablevision.forms.RegistroBean;
@@ -23,15 +22,12 @@ import com.cablevision.portal.ErrorVitriaException;
 import com.cablevision.util.Blowfish;
 import com.cablevision.util.Constantes;
 import com.cablevision.util.LdapUtil;
+import com.cablevision.util.PageNewUrl;
 import com.cablevision.util.ResponseToValidateAccount;
 import com.cablevision.util.RespuestaToMyAccount;
 import com.cablevision.util.RespuestaToRegister;
 import com.cablevision.util.ValidarPasswordUtil;
 import com.cablevision.util.ValidateErrors;
-import com.cablevision.util.MailUtil;
-import com.cablevision.util.ConfigurationHelper;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Page Flow para usar en el registro de clientes de cablevision
@@ -186,36 +182,21 @@ public class RegistroController extends ControllerBase {
 			nombre = stNombre.nextToken();
 		}
 		
-
 		
 		response = getVitriaClient().getProjects_CVNPW_Initial_ToInterfase().toRegister(nombre.toUpperCase(Locale.ENGLISH), 
 					segundoNombre.toUpperCase(Locale.ENGLISH), form.getApellidoPaterno().toUpperCase(Locale.ENGLISH), 
 				   form.getApellidoMaterno().toUpperCase(Locale.ENGLISH), form.getEmail(), form.getIdUsuario(), 
 				   form.getPassword(), form.getPreguntaConfirmacion().toUpperCase(Locale.ENGLISH), 
 				   form.getRespuestaConfirmacion().toUpperCase(Locale.ENGLISH), form.getNoContrato(), form.getTelefono());
-		//se agrega envio de email al Registrarse - Diana Escorcia
-		
-		Map<String, String> values = new HashMap<String, String>();
-		values.put("nombre", nombre.toUpperCase(Locale.ENGLISH));
-		values.put("apellidoPaterno", form.getApellidoPaterno().toUpperCase(Locale.ENGLISH));
-		values.put("apellidoMaterno", form.getApellidoMaterno().toUpperCase(Locale.ENGLISH));
-		values.put("nuevoPassword",form.getPassword());
-		values.put("idUsuario", form.getIdUsuario());
-
-		MailUtil.sendMail(ConfigurationHelper.getPropiedad("correo.bienvenido.subject",null), 
-				form.getEmail(), 
-				ConfigurationHelper.getPropiedad("correo.bienvenido.from",null), 
-				ConfigurationHelper.getPropiedad("correo.bienvenido.templateId",null), 
-				values);
 		
 		//cambio de mensaje de error, ya no llama al properties si es el error SBL-001
-		PageURL url = PageURL.createPageURL(getRequest(), getResponse(), "servicios_enlinea_login");
-		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-		url.setForcedAmpForm(false);
+		GenericURL url = PageNewUrl.createPageURL(getRequest(), getResponse(), "servicios_enlinea_login");
+//		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//		url.setForcedAmpForm(false);
 		
-		PageURL urlContact = PageURL.createPageURL(getRequest(), getResponse(), "atencion_contactanos");
-		urlContact.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-		urlContact.setForcedAmpForm(false);
+		GenericURL urlContact = PageNewUrl.createPageURL(getRequest(), getResponse(), "atencion_contactanos");
+//		urlContact.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//		urlContact.setForcedAmpForm(false);
 		
 		if(response.getError()!= null && (response.getError().getCvErrorCode().equals("SBL-001"))){
 			String mensajeError = "LO SENTIMOS<br/><br/> "+
@@ -244,9 +225,9 @@ public class RegistroController extends ControllerBase {
 		getRequest().getSession().setAttribute(Constantes.SESSION_MI_PASSWD, Blowfish.encriptar(form.getPassword(), Constantes.ENCRIPT_PASSWD));
 		setCuentaEnSesion(form.getIdUsuario());
 		
-		final PageURL urlSeL = PageURL.createPageURL(getRequest(), getResponse(), "servicios_enlinea_inicio");
-		urlSeL.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-		urlSeL.setForcedAmpForm(false);
+		final GenericURL urlSeL = PageNewUrl.createPageURL(getRequest(), getResponse(), "servicios_enlinea_inicio");
+//		urlSeL.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//		urlSeL.setForcedAmpForm(false);
 		forward = new Forward(new URI(urlSeL.toString()));
 		
 		return forward;

@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -31,7 +32,6 @@ import org.xml.sax.InputSource;
 import com.bea.p13n.cache.Cache;
 import com.bea.p13n.cache.CacheFactory;
 import com.bea.portlet.GenericURL;
-import com.bea.portlet.PageURL;
 import com.cablevision.carga.transformador.Transformador;
 import com.cablevision.controller.contenido.ContenidoEstructuradoController.PaginaFormBean;
 import com.cablevision.vo.CvContenido;
@@ -211,10 +211,10 @@ public class ContenidoHelper {
 		                	String linkSinParams = StringUtils.substringBefore(srcLink, "?");
 		                	String strParams = StringUtils.substringAfter(srcLink,"?");
 		                	
-		                	PageURL url = PageURL.createPageURL(request, response, linkSinParams);  
-		                	url.setTemplate("defaultDesktop");
-		                	url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-		    				url.setForcedAmpForm(false);
+		                	GenericURL url = PageNewUrl.createPageURL(request, response, linkSinParams);  
+//		                	url.setTemplate("defaultDesktop");
+//		                	url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//		    				url.setForcedAmpForm(false);
 		    				
 		                	//el link trae pararmetros
 		                	if(StringUtils.isNotEmpty(strParams)){
@@ -1021,4 +1021,32 @@ public class ContenidoHelper {
 		log.info("termino de indexar contenido");
 	}
 	
+	/**Metodo que regresa un mapa con las urls anteriores y  nuevas del archivo guardado en ucm correspondiente
+	 * Julio 2011 */
+	@SuppressWarnings("unchecked")
+	public static Map<String, String> getUrlMapFromFile(String contenidoId) {
+		Map<String, String> mapUrls = new HashMap<String, String>();
+		try {
+			String xml = UcmUtil.getContentByName(contenidoId, true);
+			SAXBuilder builder = new SAXBuilder("org.apache.xerces.parsers.SAXParser");
+			StringReader sr = new StringReader(xml);
+			Document root = builder.build(sr);
+			List lista = root.getRootElement().getChildren();
+
+			for (int i = 0; i < lista.size(); i++) {
+				Element elemento = (Element) lista.get(i);
+				
+				if (StringUtils.isNotEmpty(elemento.getChildText("anterior"))
+						&& StringUtils.isNotEmpty(elemento.getChildText("nueva"))
+						&& !elemento.getChildText("anterior").equals("null")) {
+					mapUrls.put(elemento.getChildText("nueva"), elemento.getChildText("anterior"));
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("Error al obtener el contenido en getUrlMapFromFile() "
+							+ contenidoId + ": " + e.getMessage());
+		}
+
+		return mapUrls;
+	}
 }

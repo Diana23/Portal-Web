@@ -87,5 +87,11 @@ public class Constantes {
 	 */
 	public final static String CABLEVISION_CANALES = "CABLEVISION_CANALES_CACHE";
 	public final static String CANALES_CACHE_KEY = "canales.cache.key";
+	
+	/**
+	 * Constante para guardar en cache un mapa con las url nuevas a usarse a partir de Julio del 2011
+	 */
+	public final static String CABLEVISION_URL_NUEVAS = "CABLEVISION_URL_CACHE";
+	public final static String URL_CACHE_KEY = "url.cache.key.";
 }
 

@@ -8,8 +8,7 @@
 <jsp:directive.page import="com.cablevision.portal.sitemap.SiteMap"/>
 <jsp:directive.page import="com.cablevision.portal.sitemap.SiteMapManager"/>
 <jsp:directive.page import="com.cablevision.portal.sitemap.impl.SiteMapMetaParameters"/>
-<jsp:directive.page import="com.bea.portlet.GenericURL"/>
-<jsp:directive.page import="com.bea.portlet.PageURL"/>
+<jsp:directive.page import="com.cablevision.util.PageNewUrl"/>
 
 <jsp:scriptlet>
    	SiteMapMetaParameters params = new SiteMapMetaParameters(true,false,false,"com.cablevision.portal.sitemap.impl.ContextSiteMapFactory");
