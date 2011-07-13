@@ -8,12 +8,13 @@
 try {
 	
 	String pageLabel = "cablevision_portal_page_home";
-	PageURL urlAnterior = PageURL.createPageURL(request, response, pageLabel);
-	urlAnterior.setTemplate("desktopContextPath");
-	urlAnterior.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-	urlAnterior.setForcedAmpForm(false);
+	PageURL url = PageURL.createPageURL(request, response, pageLabel);
+	url.setTemplate("desktopContextPath");
+	url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+	url.setForcedAmpForm(false);
+	url.setEncodeSession(false);
 	
-	((HttpServletRequest)request).getRequestDispatcher(urlAnterior.toString()).forward(request, response);
+	((HttpServletRequest)request).getRequestDispatcher(url.toString()).forward(request, response);
 
 } catch (Exception e) {
 	e.printStackTrace();
