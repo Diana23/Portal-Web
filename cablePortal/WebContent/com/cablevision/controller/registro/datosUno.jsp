@@ -15,7 +15,7 @@
 <a title="Paso 2" class="reg-pas2 hidden-text" style="cursor: default;" href="#">Paso 2</a>
 <a title="Paso 3" class="reg-pas3 hidden-text" style="cursor: default;" href="#">Paso 3</a>
 </div>
-<div class="span-18 last">
+<div class="span-18 last limitheight">
 <div class="wrap-cont-exp">
 
 
@@ -31,47 +31,47 @@
 	</div>
 	
 	
-	<netui:form action="pasoUno" styleClass="formulario">
-		<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+	<netui:form action="pasoUno" styleClass="formulario" tagId="formSiguiente1">
+		<table width="50%" cellspacing="0" cellpadding="0" border="0" align="center">
 			<tbody><tr>
 				<td colspan="2">
 					<netui:label for="actionForm_nombre" value="* Nombre" /><br>
-					<netui:textBox dataSource="actionForm.nombre" tagId="actionForm_nombre" styleClass="big" onKeyPress="return isAlpha(event);"/>
+					<netui:textBox dataSource="actionForm.nombre" tagId="actionForm_nombre" styleClass="bigR" onKeyPress="return isAlpha(event);"/>
 				</td>
 				<td width="50%" colspan="2">&nbsp;</td>
 			</tr>
 			<tr>
 				<td width="50%" colspan="2">
 					<netui:label for="actionForm_apellidoPaterno" value="* Apellido Paterno" /><br>
-					<netui:textBox dataSource="actionForm.apellidoPaterno" tagId="actionForm_apellidoPaterno" styleClass="big" onKeyPress="return isAlpha(event);"/>	
+					<netui:textBox dataSource="actionForm.apellidoPaterno" tagId="actionForm_apellidoPaterno" styleClass="bigR" onKeyPress="return isAlpha(event);"/>	
 				</td>
 				<td width="50%" colspan="2">
 					<netui:label for="actionForm_apellidoMaterno" value="* Apellido Materno" /><br>
-					<netui:textBox dataSource="actionForm.apellidoMaterno" tagId="actionForm_apellidoMaterno" styleClass="big" onKeyPress="return isAlpha(event);"/>
+					<netui:textBox dataSource="actionForm.apellidoMaterno" tagId="actionForm_apellidoMaterno" styleClass="bigR" onKeyPress="return isAlpha(event);"/>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2">      
 					<netui:label for="actionForm_email" value="* Correo electrónico" /><br>
-					<netui:textBox dataSource="actionForm.email" tagId="actionForm_email" styleClass="big"/>
+					<netui:textBox dataSource="actionForm.email" tagId="actionForm_email" styleClass="bigR"/>
 				</td>
 				<td width="50%" colspan="2">      
 					<netui:label for="actionForm_emailConfirmacion" value="* Confirma tú correo electrónico" /><br>
-					<netui:textBox dataSource="actionForm.emailConfirmacion" tagId="actionForm_emailConfirmacion" styleClass="big" />
+					<netui:textBox dataSource="actionForm.emailConfirmacion" tagId="actionForm_emailConfirmacion" styleClass="bigR" />
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2">      
 					<netui:label for="actionForm_idUsuario" value="* ID de Usuario" /><br>
-					<netui:textBox dataSource="actionForm.idUsuario" tagId="actionForm_idUsuario" styleClass="big" onKeyPress="return isAlphaNumericDash(event);"/>
+					<netui:textBox dataSource="actionForm.idUsuario" tagId="actionForm_idUsuario" styleClass="bigR" onKeyPress="return isAlphaNumericDash(event);"/>
 				</td>
 				<td width="50%" colspan="2">&nbsp;</td>
 			</tr>
 			<tr>
 				<td valign="top" colspan="2">
-					<label for="${actionForm_noContrato}">* Número de contrato en CABLEVISION&reg;</label><br>
+					<label for="${actionForm_noContrato}">* Número de contrato CABLEVISION<sup>&reg;</sup></label><br>
 					<p class="estilizado">Primeros 8 números del contrato </p>
-					<netui:textBox dataSource="actionForm.noContrato" styleClass="big" tagId="actionForm_noContrato" onKeyPress="return isNumeric(event);"/><br>
+					<netui:textBox dataSource="actionForm.noContrato" styleClass="bigR" tagId="actionForm_noContrato" onKeyPress="return isNumeric(event);"/><br>
 					<div style="display:none;">
 						<netui:rewriteName  name="actionForm_noContrato" forTagId="true" resultId="actionForm_noContrato"/>
 					</div>
@@ -80,13 +80,17 @@
 				<td width="50%" valign="top" colspan="2">     
 					<netui:label for="actionForm_telefono" value="* Teléfono de contacto" /><br>
 					<p class="estilizado">Sin clave LADA, 8 digitos solamente.</p> 
-					<netui:textBox dataSource="actionForm.telefono" tagId="actionForm_telefono" styleClass="big" onKeyPress="return isNumeric(event);"/>								
+					<netui:textBox dataSource="actionForm.telefono" tagId="actionForm_telefono" styleClass="bigR" onKeyPress="return isNumeric(event);"/>								
 				</td>
 			</tr>
 		</tbody>
 		</table>		
 		
-		<netui:anchor styleClass="btn-small marg-rig40 margin-bot15 fright" title="Siguiente" formSubmit="true">
+		<div style="display:none;">
+			<netui:rewriteName  name="formSiguiente1" forTagId="true" resultId="formSiguiente1"/>
+		</div>
+		<netui:anchor onClick="submitForma('${formSiguiente1}',this);return false;" formSubmit="true" action="pasoUno" styleClass="btn-small margin-bot15" title="Siguiente">
+
 			<netui:parameter name="_pageLabel" value='<%= org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel") %>'/>
 			Siguiente
 		</netui:anchor>
@@ -96,6 +100,7 @@
 	
   <br><br><br>
   	</div>
+  	<div class="beneficios"></div>
 	</div>
   
 </netui:scriptContainer>

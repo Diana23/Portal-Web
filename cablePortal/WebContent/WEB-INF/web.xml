@@ -123,6 +123,16 @@
 			com.cablevision.web.servlet.LastVersionSevlet
 		</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+			Servlet para hacer el cambio de las url antiguas al nuevo formato</description>
+		<display-name>
+			SwitchUrlServlet</display-name>
+		<servlet-name>SwitchUrlServlet</servlet-name>
+		<servlet-class>
+			com.cablevision.web.servlet.SwitchUrlServlet
+		</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>com.metaparadigm.jsonrpc.JSONRPCServlet</servlet-name>
 		<url-pattern>/JSON-RPC</url-pattern>
@@ -151,4 +161,117 @@
     	<exception-type>java.lang.RuntimeException</exception-type>
     	<location>/errorGeneral.jsp</location>
     </error-page>
+    
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/atencion/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/cable/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/comunidades/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/contacto/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/contratar/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/correo/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/cuenta/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/distribuidores/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/HBO/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/hd/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/info/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/internet/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/micuenta/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/mudanza/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/negocios/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/newsletter/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/ondemand/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/opinion/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/paquetes/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/PPV/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/privacidad/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/programacion/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/promociones/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/sitemap/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/soluciones/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/sugerencias/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/telefonia/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/ventajas/*</url-pattern>
+    </servlet-mapping>
     </web-app>

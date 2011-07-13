@@ -1171,18 +1171,19 @@
                                             properties="servicios_enlinea=true;backgroundId=CV002176;secure=true" title="Inicio">
                                             <netuix:content>
                                                 <netuix:layout description=""
-                                                  htmlLayoutUri="/layouts/serviciosEnlinea.html.txt"
-                                                  markupName="serviciosEnlineaLayout"
+                                                  htmlLayoutUri="/layouts/miCuentaBeneficios.html.txt"
+                                                  markupName="miCuentaBeneficioslayout"
                                                   markupType="Layout"
-                                                  skeletonUri="/layouts/serviciosEnlineaLayout.jsp"
-                                                  title="Servicios En Linea Layout" type="serviciosEnlinea">
-                                                  <netuix:placeholder markupName="menuServicios"
-                                                  markupType="Placeholder"
-                                                  title="menuServicios" usingFlow="false"/>
+                                                  skeletonUri="/layouts/miCuentaBeneficiosLayout.jsp"
+                                                  title="Mi Cuenta Beneficios Layout" type="miCuentaBeneficios">
                                                   <netuix:placeholder
-                                                  markupName="mainServiciosEnlinea"
+                                                  markupName="menuMiCuentaBeneficios"
                                                   markupType="Placeholder"
-                                                  title="mainServiciosEnlinea" usingFlow="false">
+                                                  title="menuMiCuentaBeneficios" usingFlow="false"/>
+                                                  <netuix:placeholder
+                                                  markupName="mainMiCuentaBeneficios"
+                                                  markupType="Placeholder"
+                                                  title="mainMiCuentaBeneficios" usingFlow="false">
                                                   <netuix:portletInstance
                                                   contentUri="/portlets/micuenta.portlet"
                                                   instanceLabel="micuenta_1"
@@ -1364,18 +1365,19 @@
                                             properties="secure=true;backgroundId=CV002176" title="Atención a Clientes">
                                             <netuix:content>
                                                 <netuix:layout description=""
-                                                  htmlLayoutUri="/layouts/serviciosEnlinea.html.txt"
-                                                  markupName="serviciosEnlineaLayout"
+                                                  htmlLayoutUri="/layouts/miCuentaBeneficios.html.txt"
+                                                  markupName="miCuentaBeneficioslayout"
                                                   markupType="Layout"
-                                                  skeletonUri="/layouts/serviciosEnlineaLayout.jsp"
-                                                  title="Servicios En Linea Layout" type="serviciosEnlinea">
-                                                  <netuix:placeholder markupName="menuServicios"
-                                                  markupType="Placeholder"
-                                                  title="menuServicios" usingFlow="false"/>
+                                                  skeletonUri="/layouts/miCuentaBeneficiosLayout.jsp"
+                                                  title="Mi Cuenta Beneficios Layout" type="miCuentaBeneficios">
                                                   <netuix:placeholder
-                                                  markupName="mainServiciosEnlinea"
+                                                  markupName="menuMiCuentaBeneficios"
                                                   markupType="Placeholder"
-                                                  title="mainServiciosEnlinea" usingFlow="false">
+                                                  title="menuMiCuentaBeneficios" usingFlow="false"/>
+                                                  <netuix:placeholder
+                                                  markupName="mainMiCuentaBeneficios"
+                                                  markupType="Placeholder"
+                                                  title="mainMiCuentaBeneficios" usingFlow="false">
                                                   <netuix:portletInstance
                                                   contentUri="/portlets/ordenadministrativa/ordenadministrativa.portlet"
                                                   instanceLabel="ordenadministrativa_2"

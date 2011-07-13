@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<netuix:markupDefinition
+  xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0 markup-netuix-1_0_0.xsd">
+  <netuix:locale language="en" />
+  <netuix:markup>
+    <netuix:layout type="miCuentaBeneficios" title="Mi Cuenta Beneficios Layout" 
+    	description=""
+    	htmlLayoutUri="/layouts/miCuentaBeneficios.html.txt"  
+    	markupType="Layout" markupName="miCuentaBeneficioslayout"
+    	skeletonUri="/layouts/miCuentaBeneficiosLayout.jsp">
+      <netuix:placeholder markupType="Placeholder"
+    			markupName="menuMiCuentaBeneficios" title="menuMiCuentaBeneficios" usingFlow="false">
+      </netuix:placeholder>
+      <netuix:placeholder markupType="Placeholder" 
+		markupName="mainMiCuentaBeneficios" title="mainMiCuentaBeneficios" usingFlow="false">
+      </netuix:placeholder>
+    </netuix:layout>
+  </netuix:markup>
+</netuix:markupDefinition>

@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bea.netuix.servlets.controls.content.backing.AbstractJspBacking;
 import com.bea.portlet.GenericURL;
-import com.bea.portlet.PageURL;
 import com.cablevision.portal.sitemap.SiteMapException;
 import com.cablevision.portal.sitemap.SiteMapManager;
+import com.cablevision.util.PageNewUrl;
 
 /**
  * This backing file is used to ensure that tree optimization is turned off. For
@@ -50,8 +50,8 @@ public class ContextSiteMapBackingFile extends AbstractJspBacking {
 		if (params.isTreeOptimization()
 				&& !"false".equals(request
 						.getParameter(GenericURL.TREE_OPTIMIZATION_PARAM))) {
-			PageURL url = PageURL.createPageURL(request, response);
-			url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+			GenericURL url = GenericURL.createGenericURL(request, response);
+//			url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 			try {
 				response.sendRedirect(url.toString());
 			} catch (IOException e) {

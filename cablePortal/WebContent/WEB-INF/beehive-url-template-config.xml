@@ -8,13 +8,31 @@
         </value>
     </url-template>
     <url-template>
+        <name>httpsPrettyUrl</name>
+        <value>
+            http://sitioseguro.cablevision.net.mx/{url:path}?{url:queryString}
+        </value>
+    </url-template>
+    <url-template>
         <name>default</name>
         <value>
             http://www.cablevision.net.mx/{url:path}?{url:queryString}&amp;{url:currentPage}
         </value>
     </url-template>
     <url-template>
+        <name>defaultPrettyUrl</name>
+        <value>
+            http://www.cablevision.net.mx/{url:path}?{url:queryString}
+        </value>
+    </url-template>
+    <url-template>
         <name>urlApp</name>
+        <value>
+            http://www.cablevision.net.mx/{url:path}?{url:queryString}
+        </value>
+    </url-template>
+    <url-template>
+        <name>urlAppPrettyUrl</name>
         <value>
             http://www.cablevision.net.mx/{url:path}?{url:queryString}
         </value>
@@ -26,9 +44,21 @@
         </value>
     </url-template>
     <url-template>
+        <name>defaultDesktopPrettyUrl</name>
+        <value>
+            http://www.cablevision.net.mx/cablePortal/cablevision.portal?{url:queryString}
+        </value>
+    </url-template>
+    <url-template>
         <name>home</name>
         <value>
             http://www.cablevision.net.mx/appmanager/cablevision/portal
+        </value>
+    </url-template>
+    <url-template>
+        <name>desktopContextPath</name>
+        <value>
+            /cablevision.portal?{url:queryString}&amp;{url:currentPage}
         </value>
     </url-template>
 </url-template-config>

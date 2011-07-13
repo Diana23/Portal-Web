@@ -19,7 +19,6 @@ import java.util.TimeZone;
 import javax.servlet.http.HttpSession;
 
 import org.apache.beehive.netui.pageflow.Forward;
-import org.apache.beehive.netui.pageflow.PageFlowController;
 import org.apache.beehive.netui.pageflow.annotations.Jpf;
 import org.apache.commons.lang.StringUtils;
 import org.apache.solr.client.solrj.SolrQuery.ORDER;
@@ -30,9 +29,9 @@ import org.apache.solr.common.SolrDocumentList;
 import org.apache.struts.upload.FormFile;
 
 import com.bea.portlet.GenericURL;
-import com.bea.portlet.PageURL;
 import com.cablevision.carga.CargaExcel;
 import com.cablevision.controller.base.ControllerBase;
+import com.cablevision.util.PageNewUrl;
 import com.cablevision.util.SolrHelper;
 
 //Substitute with this annotation if nested pageflow
@@ -80,9 +79,9 @@ public class EntretenimientoController extends ControllerBase {
 		String pageLabel = getMessageResources("entretenimiento").getMessage("entretenimiento."+form.getTipo()+".verprogramacion.pageLabel");
 		
 		if(StringUtils.isNotBlank(pageLabel)){
-			PageURL url = PageURL.createPageURL(getRequest(), getResponse(), pageLabel);
-			url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-			url.setTemplate("defaultDesktop");
+			GenericURL url = PageNewUrl.createPageURL(getRequest(), getResponse(), pageLabel);
+//			url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//			url.setTemplate("defaultDesktop");
 			forward.addActionOutput("url", url.toString());
 		}
 
