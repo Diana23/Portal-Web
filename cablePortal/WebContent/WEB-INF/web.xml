@@ -192,6 +192,10 @@
     </servlet-mapping>
     <servlet-mapping>
     	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/distribuidores/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
     	<url-pattern>/HBO/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
