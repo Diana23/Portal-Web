@@ -10,7 +10,7 @@
     <url-template>
         <name>httpsPrettyUrl</name>
         <value>
-            http://localhost/{url:path}?{url:queryString}
+            http://172.20.1.210:8080/{url:path}?{url:queryString}
         </value>
     </url-template>
     <url-template>
@@ -22,7 +22,7 @@
     <url-template>
         <name>defaultPrettyUrl</name>
         <value>
-            http://localhost/{url:path}?{url:queryString}
+            http://172.20.1.210:8080/{url:path}?{url:queryString}
         </value>
     </url-template>
     <url-template>
@@ -34,7 +34,7 @@
     <url-template>
         <name>urlAppPrettyUrl</name>
         <value>
-            http://localhost/{url:path}?{url:queryString}
+            http://172.20.1.210:8080/{url:path}?{url:queryString}
         </value>
     </url-template>
     <url-template>
@@ -46,7 +46,7 @@
     <url-template>
         <name>defaultDesktopPrettyUrl</name>
         <value>
-            http://localhost/cablePortal/cablevision.portal?{url:queryString}
+            http://172.20.1.210:8080/cablePortal/cablevision.portal?{url:queryString}
         </value>
     </url-template>
     <url-template>

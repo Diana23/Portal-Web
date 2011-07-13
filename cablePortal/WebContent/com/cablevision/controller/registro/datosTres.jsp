@@ -22,7 +22,7 @@
 		<br><br><br>
 		<h3 class="registrotitle hidden-text">Datos del suscriptor</h3>
 		
-		<netui:form action="pasoTres">
+		<netui:form action="pasoTres" tagId="formSiguiente3">
 			<div class="error-msg" id="msgError">
 				<c:if test="${!empty pageInput.errores}">
 					<br/>
