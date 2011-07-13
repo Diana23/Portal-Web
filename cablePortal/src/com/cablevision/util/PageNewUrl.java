@@ -39,13 +39,15 @@ public class PageNewUrl extends GenericURL {
 				page.setContextualPath(newUrl);
 			} else {
 				page = PageURL.createPageURL(httpRequest, httpResponse, pageLabel);
-				page.setTemplate("default");
+				page.setTemplate("defaultDesktop");
+				page.setForcedAmpForm(false);
 			}
 		}else{
 			page = new PageNewUrl(httpRequest, httpResponse); 
 			page.setTemplate("default");
 		}
 		
+		page.setEncodeSession(false);
 		return page;
 	}
 	
