@@ -99,7 +99,7 @@ public class EntretenimientoController extends ControllerBase {
 		if(StringUtils.isNotBlank(pageLabel)){
 			GenericURL url = PageNewUrl.createPageURL(getRequest(), getResponse(), pageLabel);
 //			url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-			url.setTemplate("defaultDesktop");
+//			url.setTemplate("defaultDesktop");
 			forward.addActionOutput("url", url.toString());
 		}
 

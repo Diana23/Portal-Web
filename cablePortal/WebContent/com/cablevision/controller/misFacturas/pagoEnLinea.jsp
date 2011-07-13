@@ -21,7 +21,7 @@
 		<jsp:scriptlet>
 			GenericURL url = PageNewUrl.createPageURL(request, response, "servicios_enlinea_pagar");
 			//url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-			url.setTemplate("defaultDesktop");
+			//url.setTemplate("defaultDesktop");
 			pageContext.setAttribute("url",url);	
 		</jsp:scriptlet>
 		<br/>

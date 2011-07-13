@@ -73,7 +73,7 @@ public abstract class ControllerBase extends PageFlowController {
 		_log.error("Error en la aplicacion: ", e);
 		GenericURL url = PageNewUrl.createPageURL(getRequest(), getResponse(), "cablevision_portal_error");
 //		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-		url.setTemplate("defaultDesktop");
+//		url.setTemplate("defaultDesktop");
 		
 		return new Forward(new URI(url.toString()),true);
     }

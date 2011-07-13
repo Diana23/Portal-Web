@@ -44,13 +44,13 @@
 		GenericURL cuenta = PageNewUrl.createPageURL(request, response, "cablevision_portal_crearCuenta");
 		//cuenta.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 		//cuenta.setEncodeSession(false);
-		cuenta.setTemplate("defaultDesktop");
+		//cuenta.setTemplate("defaultDesktop");
 		urlsMap.put("cuenta",cuenta.toString());
 		
 		GenericURL pass = PageNewUrl.createPageURL(request, response, "cablevision_portal_recuperaPass");
 		//pass.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 		//pass.setEncodeSession(false);
-		pass.setTemplate("defaultDesktop");
+		//pass.setTemplate("defaultDesktop");
 		urlsMap.put("pass",pass.toString());
 		
 		cache.put("headerLinks",urlsMap);
