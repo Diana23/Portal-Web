@@ -13,8 +13,8 @@
 <jsp:scriptlet>
 		com.bea.portlet.GenericURL centros = com.cablevision.util.PageNewUrl.createPageURL(request, response, "atencion_centros");
 		com.bea.portlet.GenericURL cotizador = com.cablevision.util.PageNewUrl.createPageURL(request, response, "contrata_cotiza");
-		centros.setTemplate("defaultDesktop");
-		cotizador.setTemplate("defaultDesktop");
+		//centros.setTemplate("defaultDesktop");
+		//cotizador.setTemplate("defaultDesktop");
 		//centros.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 		//centros.setEncodeSession(false);
 		//cotizador.setForcedAmpForm(false);
