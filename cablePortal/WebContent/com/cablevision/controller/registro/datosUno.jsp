@@ -31,7 +31,7 @@
 	</div>
 	
 	
-	<netui:form action="pasoUno" styleClass="formulario">
+	<netui:form action="pasoUno" styleClass="formulario" tagId="formSiguiente1">
 		<table width="50%" cellspacing="0" cellpadding="0" border="0" align="center">
 			<tbody><tr>
 				<td colspan="2">
