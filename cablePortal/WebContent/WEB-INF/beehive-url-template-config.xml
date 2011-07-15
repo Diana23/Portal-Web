@@ -10,7 +10,7 @@
     <url-template>
         <name>httpsPrettyUrl</name>
         <value>
-            http://sitioseguro.cablevision.net.mx/{url:path}?{url:queryString}
+            https://sitioseguro.cablevision.net.mx/{url:path}?{url:queryString}
         </value>
     </url-template>
     <url-template>
