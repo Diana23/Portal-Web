@@ -29,7 +29,7 @@
 	<netui:errors bundleName="registroBundle" />
 </c:if>	
 <netui:form action="pasoDos" styleClass="formulario" tagId="formSiguiente2">
-	<table width="50%" cellspacing="0" cellpadding="0" border="0" align="center">
+	<table width="50%" cellspacing="0" cellpadding="0" border="0">
 		<tbody><tr>
 			<td width="50%" colspan="2">
 				<netui:label for="actionForm_password" value="* Contraseña" /><br>
