@@ -1,0 +1,14 @@
+#Fri Jul 22 11:27:13 CDT 2011
+eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/web.xml=UTF-8
+encoding//WebContent/com/cablevision/controller/micuenta/index.jsp=ISO-8859-1
+encoding//WebContent/com/cablevision/controller/micuenta/portabilidad.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/micuenta/resumen.jsp=ISO-8859-1
+encoding//WebContent/com/cablevision/controller/ordenadministrativa/listaSolicitudes.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/realizarpago/index.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/registro/datosDos.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/registro/datosTres.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/registro/datosUno.jsp=UTF-8
+encoding//WebContent/framework/skeletons/cablevision/footer.jsp=UTF-8
+encoding//WebContent/layouts/homeLayout.jsp=UTF-8
+encoding//WebContent/layouts/serviciosEnlineaLayout.jsp=UTF-8
