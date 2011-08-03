@@ -62,7 +62,8 @@
 			</tr>
 			<tr>
 				<td colspan="2">      
-					<netui:label for="actionForm_idUsuario" value="* ID de Usuario" /><br>
+					<netui:label for="actionForm_idUsuario" value="* Usuario" /><br>
+					<p class="estilizado">Nombre con el que ingresaras a Mi cuenta CABLEVISION<sup>&reg;</sup></p>
 					<netui:textBox dataSource="actionForm.idUsuario" tagId="actionForm_idUsuario" styleClass="bigR" onKeyPress="return isAlphaNumericDash(event);"/>
 				</td>
 				<td width="50%" colspan="2">&nbsp;</td>
