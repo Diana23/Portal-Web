@@ -1,0 +1,23 @@
+error.requerido.nombre=El Nombre es requerido
+error.requerido.email=El Email es requerido.
+error.formato.email=El Email tiene un formato inv\u00E1lido.
+error.confirmacion.email=El campo Correo electr\u00F3nico y Confirma Correo deben ser iguales
+error.requerido.apellido=El Apellido es requerido
+error.password=El campo Contrase\u00F1a Actual es requerido
+error.password.actual=La Contrase\u00F1a Actual no es la correcta
+error.nuevoPassword=El campo Nueva Contrase\u00F1a es requerido
+error.confirmacion.password=El campo Nueva Contrase\u00F1a y Confirma Contrase\u00F1a deben ser iguales
+error.formato.nombre=Favor de llenar el nombre sin acentos ni caracteres especiales.
+error.formato.apellidoPaterno=Favor de llenar el apellido paterno sin acentos ni caracteres especiales.
+error.formato.apellidoMaterno=Favor de llenar el apellido materno sin acentos ni caracteres especiales.
+error.size.pass=La longitud de la contrase\u00F1a debe ser de m\u00EDnimo 8 caracteres.
+error.size.nuevoPass=La longitud de la nueva contrase\u00F1a debe ser de m\u00EDnimo 8 caracteres.
+
+modificar.password.exito=La Contrase\u00F1a se ha modificado con &eacute;xitomodificar.passwordExpirado.exito=La Contrase\u00F1a se ha modificado con &eacute;xito, ya puedes seguir utilizando los servicios en línea.
+modificar.datos.exito=Los datos se modificaron con &eacute;xito.
+
+errors.header=<font size\="3" color\="Red">
+errors.prefix=<br/>
+errors.footer=</font>
+errors.suffix=
+

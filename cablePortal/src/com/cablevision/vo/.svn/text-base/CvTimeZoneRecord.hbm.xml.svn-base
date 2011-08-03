@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.cablevision.vo.CvTimeZoneRecord" mutable="false"  table="CV_TIME_ZONE_RECORD">
+	<id
+        name="tzrTimeZoneName"
+        type="string"
+        column="TZR_TIME_ZONE_NAME"
+        length="45"
+    >
+		<generator class="assigned" />
+	</id>
+	<property
+        name="tzrDateTime1"
+        type="date"
+        column="TZR_DATE_TIME_1"
+        length="7"
+    />
+	<property
+        name="tzrDateTime2"
+        type="date"
+        column="TZR_DATE_TIME_2"
+        length="7"
+    />
+	<property
+        name="tzrUtcStdOffset"
+        type="integer"
+        column="TZR_UTC_STD_OFFSET"
+        not-null="true"
+        length="5"
+    />
+
+	<!-- Associations -->
+
+</class>
+</hibernate-mapping>

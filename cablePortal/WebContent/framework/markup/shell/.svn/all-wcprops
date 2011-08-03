@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/framework/markup/shell
+END
+bookOnly.shell
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/framework/markup/shell/bookOnly.shell
+END
+visitorTools.shell
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/framework/markup/shell/visitorTools.shell
+END
+headerFooterCotizador.shell
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/framework/markup/shell/headerFooterCotizador.shell
+END
+leftPaneHeaderFooter.shell
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/framework/markup/shell/leftPaneHeaderFooter.shell
+END
+headerFooter.shell
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/framework/markup/shell/headerFooter.shell
+END

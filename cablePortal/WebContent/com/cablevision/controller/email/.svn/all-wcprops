@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/com/cablevision/controller/email
+END
+email.js
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/com/cablevision/controller/email/email.js
+END
+email.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/com/cablevision/controller/email/email.jsp
+END
+respuesta.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/com/cablevision/controller/email/respuesta.jsp
+END
+crearCuenta.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/com/cablevision/controller/email/crearCuenta.jsp
+END
+redirect.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/com/cablevision/controller/email/redirect.jsp
+END
+emailFrame.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/com/cablevision/controller/email/emailFrame.jsp
+END

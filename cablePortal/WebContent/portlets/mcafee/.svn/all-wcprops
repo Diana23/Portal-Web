@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/portlets/mcafee
+END
+downloadMcafee.portlet
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/portlets/mcafee/downloadMcafee.portlet
+END
+mcafeeError.portlet
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/portlets/mcafee/mcafeeError.portlet
+END
+reporte.portlet
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/portlets/mcafee/reporte.portlet
+END

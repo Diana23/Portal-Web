@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-project guid="cablePortal_12a685cac32_da0d48390d0f8d68" version="5">
+	<web-app guid="cablePortal_12a685cac32_4ac0855281755267">
+		<web-app-type>com.m7.webapp.java</web-app-type>
+		<folder-mapping project-name="cablePortal" project-uri="WebContent" web-app-uri="/"/>
+	</web-app>
+	<properties>
+		<property name="validation.compile" value="true"/>
+		<property name="validation.missingFile" value="true"/>
+		<property name="validation.unresolvedVar" value="false"/>
+		<property name="validation" value="true"/>
+		<property name="taglib.downloadRemote" value="true"/>
+		<property name="validation.resources" value="true"/>
+		<property name="validation.unresolvedType" value="true"/>
+		<property name="validation.compile.jspQuotation" value="false"/>
+		<property name="spring.orm.service.Disponibilidad.entities" value="com.cablevision.vo.CvDisponibilidadnr"/>
+		<property name="spring.orm.service.Disponibilidad.classes" value="com.cablevision.service.IDisponibilidadService, com.cablevision.portal.sitemap.impl.DisponibilidadSpringService, com.cablevision.dao.IDisponibilidadDao, com.cablevision.dao.impl.DisponibilidadHibernateDao"/>
+		<property name="spring.orm.service.Disponibilidad.exception" value="java.lang.Exception"/>
+		<property name="spring.orm.beansFile" value="WebContent/WEB-INF/applicationContext.xml"/>
+		<property name="hibernate.cfgfile" value="src/hibernate.cfg.xml"/>
+		<property name="spring.orm.beansFile" value="src/com/cablevision/conf/applicationContext.xml"/>
+		<property name="spring.orm.service.Email.entities" value="com.cablevision.vo.Email"/>
+		<property name="spring.orm.service.Email.classes" value="com.cablevision.service.IEmailService, com.cablevision.service.impl.EmailSpringService, com.cablevision.dao.IEmailDao, com.cablevision.dao.impl.EmailHibernateDao"/>
+		<property name="spring.orm.service.Email.exception" value="java.lang.Exception"/>
+	</properties>
+</web-project>

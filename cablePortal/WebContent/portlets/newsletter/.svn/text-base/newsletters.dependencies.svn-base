@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window xmlns="http://www.bea.com/servers/portal/framework/laf/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.bea.com/servers/portal/framework/laf/1.0.0 laf-window-1_0_0.xsd">
+
+    <render-dependencies>
+        <html>
+            <links>
+            	<link href="../../com/cablevision/controller/newsLetter/newsletters.css" type="text/css" rel="stylesheet"></link>
+            </links>       
+            <scripts>
+                <search-path>
+                    <path-element>../../</path-element>
+                </search-path>
+                 <script src="resources/js/jquery.min.js" type="text/javascript"></script>
+                 <script src="com/cablevision/controller/newsLetter/newsletters.js" type="text/javascript"></script>
+                 <script src="com/cablevision/controller/registro/registro.js" type="text/javascript"></script>
+            </scripts>
+        </html>
+    </render-dependencies>
+
+</window>

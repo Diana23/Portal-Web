@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/PortalWeb/!svn/ver/3/cablePortalEAR/EarContent/META-INF
+END
+application.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/PortalWeb/!svn/ver/3/cablePortalEAR/EarContent/META-INF/application.xml
+END
+p13n-cache-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/PortalWeb/!svn/ver/3/cablePortalEAR/EarContent/META-INF/p13n-cache-config.xml
+END
+weblogic-application.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/PortalWeb/!svn/ver/3/cablePortalEAR/EarContent/META-INF/weblogic-application.xml
+END
+content-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/PortalWeb/!svn/ver/3/cablePortalEAR/EarContent/META-INF/content-config.xml
+END

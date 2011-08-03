@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.cablevision.vo.CvPaperlessHistorial" lazy="false" table="CV_PAPERLESS_HISTORIAL">
+	<id
+        name="phIdHistorial"
+        type="long"
+        column="PH_ID_HISTORIAL"
+        length="10"
+    >
+		<generator class="assigned" />
+	</id>
+	<property
+        name="phContrato"
+        type="string"
+        column="PH_CONTRATO"
+        not-null="true"
+        length="8"
+    />
+	<property
+        name="phFechaModificacion"
+        type="date"
+        column="PH_FECHA_MODIFICACION"
+        not-null="true"
+        length="7"
+    />
+	<property
+        name="phTipoCambio"
+        type="string"
+        column="PH_TIPO_CAMBIO"
+        not-null="true"
+        length="2"
+    />
+	<property
+        name="phUser"
+        type="string"
+        column="PH_USER"
+        not-null="true"
+        length="30"
+    />
+    <property
+        name="phNombre"
+        type="string"
+        column="PH_NOMBRE"
+        not-null="true"
+        length="150"
+    />
+     <property
+        name="phEmail"
+        type="string"
+        column="PH_EMAIL"
+        not-null="false"
+        length="100"
+    />
+	<!-- Associations -->
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+#Estatus de portabilidad
+
+portabilidad.estatus.0=<label class='disp-error-small'>No se encuentra el n\u00famero o es inv\u00e1lido.</label>
+portabilidad.estatus.1001=<label class='porta-success-small'>Se recibio petici\u00F3n de portaci\u00F3n</label>
+portabilidad.estatus.1002=<label class='porta-success-small'>Petici\u00F3n de portaci\u00F3n confirmada</label>
+portabilidad.estatus.1003=<label class='porta-success-small'>Port Request to Donor</label>
+portabilidad.estatus.1004=<label class='porta-success-small'>Port Response from Donor</label>
+portabilidad.estatus.1005=<label class='porta-success-small'>La solicitud ha sido aprobada y tu n\u00famero {0} ser\u00e1 portado el d\u00eda {1}.</label>
+portabilidad.estatus.5001=<label class='porta-success-small'>Petici\u00F3n de borrado de n\u00FAmero</label>
+portabilidad.estatus.1006=<label class='porta-success-small'>Port Scheduled from Recipient</label>
+portabilidad.estatus.1007=<label class='porta-success-small'>Port Scheduled to Donor and Recipient</label>
+portabilidad.estatus.1091=<label class='porta-success-small'>Portaci\u00F3n rechazada</label>
+portabilidad.estatus.1092=<label class='porta-success-small'>Portaci\u00F3n terminada</label>
+portabilidad.estatus.2001=<label class='porta-success-small'>PIN Generation Request</label>
+portabilidad.estatus.2002=<label class='porta-success-small'>PIN Delivery Confirmation</label>
+portabilidad.estatus.2003=<label class='porta-success-small'>PIN Resend Request</label>
+portabilidad.estatus.3001=<label class='porta-success-small'>Petici\u00F3n de cancelaci\u00F3n de portaci\u00F3n</label>
+portabilidad.estatus.3002=<label class='porta-success-small'>Cancelaci\u00F3n de portaci\u00F3n aceptada</label>
+portabilidad.estatus.4001=<label class='porta-success-small'>Port Reversal Request</label>
+portabilidad.estatus.4002=<label class='porta-success-small'>Port Reversal Document Request</label>
+portabilidad.estatus.4003=<label class='porta-success-small'>Port Reversal Response</label>
+portabilidad.estatus.4004=<label class='porta-success-small'>Port Reversal Accept</label>
+portabilidad.estatus.4005=<label class='porta-success-small'>Port Reversal Reject</label>
+portabilidad.estatus.5002=<label class='porta-success-small'>Number Deletion Response</label>
+portabilidad.estatus.6001=<label class='porta-success-small'>Non-Geographic Number Addition Request</label>
+portabilidad.estatus.6002=<label class='porta-success-small'>Non-Geographic Number Addition Response</label>
+portabilidad.estatus.7001=<label class='porta-success-small'>Synchronization Request</label>
+portabilidad.estatus.7002=<label class='porta-success-small'>Synchronization Response</label>
+portabilidad.estatus.9999=<label class='porta-success-small'>Error Notification</label>

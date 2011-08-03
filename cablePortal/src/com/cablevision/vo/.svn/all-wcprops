@@ -1,0 +1,635 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo
+END
+CvLeadValuefield.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvLeadValuefield.java
+END
+CvEserviceN3.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvEserviceN3.java
+END
+UpgradesProd.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/UpgradesProd.java
+END
+CvMcafeeReset.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvMcafeeReset.hbm.xml
+END
+CvLeadType.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvLeadType.java
+END
+CvField.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvField.hbm.xml
+END
+CvMcafeesuscribed.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvMcafeesuscribed.hbm.xml
+END
+CvTrackoa.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvTrackoa.hbm.xml
+END
+ProductService.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/ProductService.java
+END
+CvLeadStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvLeadStatus.java
+END
+CvUsuarioPortal.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvUsuarioPortal.java
+END
+CvTipoTarjeta.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvTipoTarjeta.hbm.xml
+END
+CvContrasenaHistorial.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvContrasenaHistorial.java
+END
+CvCurriculum.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvCurriculum.hbm.xml
+END
+CvUser.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvUser.java
+END
+Extra.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Extra.hbm.xml
+END
+CvNewsletter.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvNewsletter.hbm.xml
+END
+CvMcafee.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvMcafee.java
+END
+CvStationRecord.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvStationRecord.java
+END
+CvContenido.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvContenido.java
+END
+CvCommentoa.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvCommentoa.java
+END
+CvNewsletterCategoriausuario.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvNewsletterCategoriausuario.java
+END
+CvMcafeesuscribed.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvMcafeesuscribed.java
+END
+CvTrackoa.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvTrackoa.java
+END
+UpgradesExtra.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/UpgradesExtra.java
+END
+CvScheduleRecordPK.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvScheduleRecordPK.java
+END
+Vacante.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Vacante.java
+END
+CvTimeZoneRecord.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvTimeZoneRecord.java
+END
+CvProgramRecord.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvProgramRecord.hbm.xml
+END
+CvLeadType.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvLeadType.hbm.xml
+END
+CvNewsletter.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvNewsletter.java
+END
+CvLeadField.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvLeadField.hbm.xml
+END
+CvTranslationRecord.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvTranslationRecord.java
+END
+CvPaperless.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvPaperless.java
+END
+Cvpack.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Cvpack.hbm.xml
+END
+CvBanco.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvBanco.hbm.xml
+END
+Answer.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Answer.java
+END
+CvNewsletterCategoriausuario.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvNewsletterCategoriausuario.hbm.xml
+END
+CvTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvTemplate.java
+END
+CreceProd.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CreceProd.java
+END
+CvDisponibilidadnr.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvDisponibilidadnr.java
+END
+CvEserviceN1.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvEserviceN1.hbm.xml
+END
+CvEserviceN2.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvEserviceN2.hbm.xml
+END
+CvLead.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvLead.hbm.xml
+END
+CvLeadValuefield.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvLeadValuefield.hbm.xml
+END
+CvEserviceN3.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvEserviceN3.hbm.xml
+END
+UpgradesProd.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/UpgradesProd.hbm.xml
+END
+CvMcafeeDownload.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvMcafeeDownload.hbm.xml
+END
+Cvchannel.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Cvchannel.hbm.xml
+END
+Email.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Email.java
+END
+CvPaperlessHistorial.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvPaperlessHistorial.hbm.xml
+END
+CvEstructura.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvEstructura.java
+END
+Cvcategory.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Cvcategory.hbm.xml
+END
+Cargo.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Cargo.java
+END
+CvUser.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvUser.hbm.xml
+END
+CvEserviceN1.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvEserviceN1.java
+END
+ErrorField.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/ErrorField.java
+END
+CvCommentoa.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvCommentoa.hbm.xml
+END
+CvchannelPack.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvchannelPack.java
+END
+Service.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Service.java
+END
+CvMcafeeDownload.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvMcafeeDownload.java
+END
+Cvchannel.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Cvchannel.java
+END
+CvLeadField.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvLeadField.java
+END
+CvCategorianewsletter.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvCategorianewsletter.java
+END
+CvNewsletterCategoriausuarioPK.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvNewsletterCategoriausuarioPK.java
+END
+CvMcafeeUser.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvMcafeeUser.java
+END
+UpgradesExtraPK.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/UpgradesExtraPK.java
+END
+SolrQueryVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/SolrQueryVO.java
+END
+CvPaperless.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvPaperless.hbm.xml
+END
+CvTipoTarjeta.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvTipoTarjeta.java
+END
+CvTranslationRecordPK.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvTranslationRecordPK.java
+END
+Answer.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Answer.hbm.xml
+END
+CvCurriculum.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvCurriculum.java
+END
+Extra.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Extra.java
+END
+CvScheduleRecord.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvScheduleRecord.java
+END
+CvchannelPack.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvchannelPack.hbm.xml
+END
+Service.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Service.hbm.xml
+END
+CvLeadStatus.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvLeadStatus.hbm.xml
+END
+CvUsuarioPortal.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvUsuarioPortal.hbm.xml
+END
+CvCategorianewsletter.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvCategorianewsletter.hbm.xml
+END
+Archivo.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Archivo.java
+END
+CvDisponibilidadnr.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvDisponibilidadnr.hbm.xml
+END
+CvMcafeeUser.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvMcafeeUser.hbm.xml
+END
+CvEserviceN2.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvEserviceN2.java
+END
+CvLead.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvLead.java
+END
+CvProgramRecord.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvProgramRecord.java
+END
+CreceProdPK.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CreceProdPK.java
+END
+UpgradesExtra.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/UpgradesExtra.hbm.xml
+END
+CvPaperlessHistorial.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvPaperlessHistorial.java
+END
+CvTimeZoneRecord.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvTimeZoneRecord.hbm.xml
+END
+Cvcategory.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Cvcategory.java
+END
+Cvpack.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Cvpack.java
+END
+CvScheduleRecord.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvScheduleRecord.hbm.xml
+END
+CvTranslationRecord.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvTranslationRecord.hbm.xml
+END
+CvBanco.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvBanco.java
+END
+Email.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/Email.hbm.xml
+END
+CvMcafeeReset.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvMcafeeReset.java
+END
+CvField.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvField.java
+END
+CvLeadFieldId.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvLeadFieldId.java
+END
+ProductService.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/ProductService.hbm.xml
+END
+CvContrasenaHistorial.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvContrasenaHistorial.hbm.xml
+END
+CreceProd.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CreceProd.hbm.xml
+END
+UpgradesProdPK.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/UpgradesProdPK.java
+END
+CvchannelPackPK.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvchannelPackPK.java
+END
+CvStationRecord.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/vo/CvStationRecord.hbm.xml
+END

@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/impl
+END
+UsuarioPortalHibernateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/impl/UsuarioPortalHibernateDao.java
+END
+McafeeDownloadsHibernateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/impl/McafeeDownloadsHibernateDao.java
+END
+NewsletterHibernateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/impl/NewsletterHibernateDao.java
+END
+CotizadorHibernateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/impl/CotizadorHibernateDao.java
+END
+DisponibilidadHibernateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/impl/DisponibilidadHibernateDao.java
+END
+PaperlessHibernateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/impl/PaperlessHibernateDao.java
+END
+AnswerHibernateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/impl/AnswerHibernateDao.java
+END
+CombosHibernateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/impl/CombosHibernateDao.java
+END
+CommentOaHibernateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/impl/CommentOaHibernateDao.java
+END
+BolsaTrabajoHibernateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/impl/BolsaTrabajoHibernateDao.java
+END
+ProgramScheduleHibernateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/impl/ProgramScheduleHibernateDao.java
+END
+LeadHibernateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/impl/LeadHibernateDao.java
+END
+EmailHibernateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/impl/EmailHibernateDao.java
+END
+ChannelHibernateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/impl/ChannelHibernateDao.java
+END

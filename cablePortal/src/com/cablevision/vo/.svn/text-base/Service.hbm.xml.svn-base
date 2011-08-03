@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.Service" 
+    table="CV_SERVICE"
+    lazy="false"
+>
+    <id
+        name="idService"
+        type="long"
+        column="SER_ID"
+        length="22"
+    >
+        <generator class="assigned" />
+    </id>
+	
+    <property
+        name="description"
+        type="string"
+        column="SER_DESCRIPTION"
+        not-null="true"
+        length="4000"
+    />
+    <property
+        name="image"
+        type="string"
+        column="SER_IMAGE"
+        not-null="true"
+        length="4000"
+    />
+    <property
+        name="name"
+        type="string"
+        column="SER_NAME"
+        not-null="true"
+        length="4000"
+    />
+    
+    <property
+        name="activo"
+        type="boolean"
+        column="CV_ACTIVO"
+        not-null="true"
+        length="1"
+    />
+    
+    <property
+        name="orden"
+        type="long"
+        column="CV_ORDEN"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+	<set name="products"  lazy="true" cascade="all" inverse="true">
+		<key column="IDSERVICE" not-null="true"/>
+		<one-to-many class="com.cablevision.vo.ProductService"/>
+	</set>
+	
+	<set name="extras"  lazy="true" cascade="all" inverse="true">
+		<key column="IDSERVICE" not-null="true"/>
+		<one-to-many class="com.cablevision.vo.Extra"/>
+	</set>
+	
+</class>
+</hibernate-mapping>

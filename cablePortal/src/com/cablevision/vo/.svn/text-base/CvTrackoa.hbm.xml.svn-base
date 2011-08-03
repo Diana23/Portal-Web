@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvTrackoa" 
+    table="CV_TRACKOAS"
+    lazy="false"
+>
+    <id
+        name="toaId"
+        type="long"
+        column="TOA_ID"
+        length="22"
+    >
+        <generator class="sequence" >
+        	<param name="sequence">CV_TRACKOAS_SEQ</param>
+        </generator>
+    </id>
+    <property
+        name="toaAccountid"
+        type="string"
+        column="TOA_ACCOUNTID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="toaContactid"
+        type="string"
+        column="TOA_CONTACTID"
+        length="20"
+    />
+    <property
+        name="toaDate"
+        type="timestamp"
+        column="TOA_DATE"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="toaDescripcion"
+        type="string"
+        column="TOA_DESCRIPCION"
+        not-null="true"
+        length="250"
+    />
+    <property
+        name="toaErrorCode"
+        type="string"
+        column="TOA_ERROR_CODE"
+        length="512"
+    />
+    <property
+        name="toaErrorDescription"
+        type="string"
+        column="TOA_ERROR_DESCRIPTION"
+        length="524"
+    />
+    <property
+        name="toaMotive"
+        type="string"
+        column="TOA_MOTIVE"
+        not-null="true"
+        length="100"
+    />
+    <property
+        name="toaNumberOa"
+        type="string"
+        column="TOA_NUMBER_OA"
+        length="20"
+    />
+    <property
+        name="toaResponseAction"
+        type="string"
+        column="TOA_RESPONSE_ACTION"
+        length="20"
+    />
+    <property
+        name="toaSubtype"
+        type="string"
+        column="TOA_SUBTYPE"
+        not-null="true"
+        length="100"
+    />
+    <property
+        name="toaType"
+        type="string"
+        column="TOA_TYPE"
+        not-null="true"
+        length="100"
+    />
+
+    <!-- Associations -->
+    <!-- bi-directional one-to-one association to CvCommentoa -->
+    <one-to-one
+        name="cvCommentoa"
+        class="com.cablevision.vo.CvCommentoa"
+        lazy="false"
+        outer-join="auto"
+    />
+
+</class>
+</hibernate-mapping>

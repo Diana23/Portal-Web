@@ -1,0 +1,25 @@
+#lastTweets .tweet_list, .query .tweet_list {
+	-webkit-border-radius: .5em;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+#lastTweets .tweet_list .tweet_odd, #lastTweets .tweet_list .tweet_even {
+	margin-top:10px;
+	margin-bottom:10px;
+}
+#lastTweets .tweet_list .awesome, .tweet .tweet_list .epic, .query .tweet_list .awesome, .query .tweet_list .epic {
+	text-transform: uppercase;
+}
+#lastTweets.tweet_list li, .query .tweet_list li {
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: .5em;
+}
+#lastTweets .tweet_list .tweet_avatar, .query .tweet_list .tweet_avatar {
+	padding-right: .5em;
+	float: left;
+}
+#lastTweets .tweet_list .tweet_avatar img, .query .tweet_list .tweet_avatar img {
+	vertical-align: middle;
+}

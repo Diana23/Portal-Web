@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/service
+END
+ILeadService.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/service/ILeadService.java
+END
+IEmailService.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/service/IEmailService.java
+END
+IChannelService.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/service/IChannelService.java
+END
+IUsuarioPortalService.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/service/IUsuarioPortalService.java
+END
+IMcafeeDownloadsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/service/IMcafeeDownloadsService.java
+END
+INewsletterService.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/service/INewsletterService.java
+END
+ICotizadorService.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/service/ICotizadorService.java
+END
+IDisponibilidadService.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/service/IDisponibilidadService.java
+END
+IPaperlessService.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/service/IPaperlessService.java
+END
+IAnswerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/service/IAnswerService.java
+END
+ICombosService.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/service/ICombosService.java
+END
+ICommentOaService.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/service/ICommentOaService.java
+END
+IBolsaTrabajoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/service/IBolsaTrabajoService.java
+END
+IProgramScheduleService.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/service/IProgramScheduleService.java
+END

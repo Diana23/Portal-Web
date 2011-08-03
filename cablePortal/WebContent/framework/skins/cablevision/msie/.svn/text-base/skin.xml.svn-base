@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    This "msie" classification is based on the "bighorn" skin and adds several significant components to implement
+    image rollovers and multilevel menus.
+    
+    Multilevel menus are implemented with standard event handlers that handle dynamic manipulation of menu classes.
+    IFRAME shims are also used to cover heavyweight components. Image rollovers are implemented with a combination of
+    specialized CSS and DHTML behaviors for dynamically manipulating image classes.
+    
+    Note that this classificaiton also uses a single gene. The associated PathResolver mutator facilitates lookup
+    for the HTC file implementing the image rollover behavior.
+-->
+<skin
+    xmlns="http://www.bea.com/servers/portal/framework/laf/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.bea.com/servers/portal/framework/laf/1.0.0 laf-skin-1_0_0.xsd"
+>
+    <target-skeleton>
+        <skeleton-id>cablevision</skeleton-id>
+    </target-skeleton>
+    <images>
+        <search-path>
+            <path-element>../images</path-element>
+        </search-path>
+    </images>
+    <render-dependencies>
+        <html>
+            <links>
+                <search-path>
+                    <path-element>../css</path-element>
+                </search-path>
+                <link rel="stylesheet" href="screenfix.css" type="text/css" media="screen, projection" />
+				<link rel="stylesheet" href="print.css" type="text/css" media="print"/>	
+				<link rel="stylesheet" href="layout.css" type="text/css" media="screen, projection"/>
+				<link rel="stylesheet" href="ui.css" type="text/css" media="screen, projection"/>
+				<link rel="stylesheet" href="thickbox.css" type="text/css" media="screen, projection"/>
+            </links>
+            <scripts>
+                <search-path>
+                    <path-element>../js</path-element>
+                </search-path>
+            </scripts>
+        </html>
+    </render-dependencies>
+</skin>

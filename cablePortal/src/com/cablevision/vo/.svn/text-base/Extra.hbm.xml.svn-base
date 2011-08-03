@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.Extra" 
+    table="CV_EXTRA"
+    lazy="false"
+>
+    <id
+        name="idExtra"
+        type="long"
+        column="EXT_ID"
+        length="10"
+    >
+        <generator class="assigned" />
+    </id>
+    <property
+        name="description"
+        type="string"
+        column="EXT_DESCRIPTION"
+        not-null="true"
+        length="4000"
+    />
+    <property
+        name="hidden"
+        type="boolean"
+        column="EXT_HIDDEN"
+        not-null="true"
+        length="1"
+    />
+    
+    <property
+        name="name"
+        type="string"
+        column="EXT_NAME"
+        not-null="true"
+        length="100"
+    />
+    <property
+        name="normalPrice"
+        type="double"
+        column="EXT_NORMAL_PRICE"
+        not-null="true"
+        length="14"
+    />
+    <property
+        name="normalPriceDv"
+        type="double"
+        column="EXT_NORMAL_PRICE_DV"
+        not-null="true"
+        length="14"
+    />
+    <property
+        name="number"
+        type="integer"
+        column="EXT_NUMBER"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="tcPrice"
+        type="double"
+        column="EXT_TC_PRICE"
+        not-null="true"
+        length="14"
+    />
+    <property
+        name="tcPriceDv"
+        type="double"
+        column="EXT_PRICE_DV"
+        not-null="true"
+        length="14"
+    />
+   
+    <property 
+    	name="extGrupo"
+    	type="string"
+    	column="EXT_GRUPO"
+    	length="2"
+    />
+
+    <!-- Associations -->
+	<many-to-one name="service" class="com.cablevision.vo.Service" not-null="false" column="EXT_ID_SERVICE"/>
+	
+</class>
+</hibernate-mapping>

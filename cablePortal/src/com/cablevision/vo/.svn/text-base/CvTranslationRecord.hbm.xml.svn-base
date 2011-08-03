@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.cablevision.vo.CvTranslationRecord" mutable="false" table="CV_TRANSLATION_RECORD">
+	<composite-id name="compId" class="com.cablevision.vo.CvTranslationRecordPK">
+		<key-property 
+            name="trlEnglishTrans" 
+            type="string"
+            column="TRL_ENGLISH_TRANS" 
+            length="30"
+        />
+		<key-property 
+            name="trlProgramLanguage" 
+            type="string"
+            column="TRL_PROGRAM_LANGUAGE" 
+            length="40"
+        />
+	</composite-id>
+	<property
+        name="trlLanguageTrans"
+        type="string"
+        column="TRL_LANGUAGE_TRANS"
+        not-null="true"
+        length="30"
+    />
+
+	<!-- Associations -->
+
+</class>
+</hibernate-mapping>

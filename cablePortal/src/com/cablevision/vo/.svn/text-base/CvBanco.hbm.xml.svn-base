@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvBanco" 
+    table="CV_BANCO"
+    lazy="false"
+>
+    <id
+        name="banId"
+        type="long"
+        column="BAN_ID"
+        length="22"
+    >
+        <generator class="assigned" />
+    </id>
+    <property
+        name="banNombre"
+        type="string"
+        column="BAN_NOMBRE"
+        not-null="true"
+        length="50"
+    />
+
+    <!-- Associations -->
+
+</class>
+</hibernate-mapping>

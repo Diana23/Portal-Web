@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvLeadType" 
+    table="CV_LEADTYPES"
+    lazy="false"
+>
+    <id
+        name="cltIdLeadtype"
+        type="long"
+        column="CLT_ID_LEADTYPE" 
+        length="11"
+    >
+        <generator class="assigned" />
+    </id>
+    
+    <property
+        name="cltCloseaccount"
+        type="long"
+        column="CLT_CLOSEACCOUNT"
+        length="11"
+    />
+    <property
+        name="cltNameType"
+        type="string"
+        column="CLT_NAME_TYPE"
+        length="50"
+    />
+    <property
+        name="cltPpeHdDeType"
+        type="long"
+        column="CLT_PPE_HD_DE_TYPE"
+        not-null="true"
+        length="11"
+    />
+    <property
+        name="cltTemplatelead"
+        type="string"
+        column="CLT_TEMPLATELEAD"
+        length="255"
+    />
+    <property
+        name="cltTemplateleadopen"
+        type="string"
+        column="CLT_TEMPLATELEADOPEN"
+        length="255"
+    />
+    <property
+		name="cltSendemail"
+		type="long"
+		column="CLT_SENDEMAIL"
+		length="22"
+	/>
+    <property
+        name="cltValidate"
+        type="long"
+        column="CLT_VALIDATE"
+        length="11"
+    />
+    
+    <property
+        name="cltGrupo"
+        type="string"
+        column="CLT_GRUPO"
+        length="20"
+    />
+
+    <!-- Associations 
+	<set name="leadFields"  lazy="true" cascade="all" inverse="true">
+		<key column="IdLeadType" not-null="true"/>
+		<one-to-many class="com.cablevision.vo.CvLeadField" />
+	</set>-->
+</class>
+</hibernate-mapping>

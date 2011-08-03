@@ -1,0 +1,2283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portal:root xmlns:html="http://www.w3.org/1999/xhtml-netuix-modified/1.0.0"
+    xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0"
+    xmlns:portal="http://www.bea.com/servers/netuix/xsd/portal/support/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bea.com/servers/netuix/xsd/portal/support/1.0.0 portal-support-1_0_0.xsd">
+    <netuix:desktop asyncMode="enabled"
+        backingFile="com.cablevision.backingfile.MainBookBackingFile"
+        definitionLabel="cablevision_portal" discEnabled="false" dvtEnabled="false" encoding="UTF-8"
+        markupName="desktop" markupType="Desktop" scrollToWindow="false" title="CABLEVISION® México" treeOptimizationEnabled="false">
+        <netuix:lookAndFeel definitionLabel="cablePortalLookAndFeel"
+            description="A new Look and Feel for the Bighorn release."
+            markupName="cablePortalLookAndFeel" markupType="LookAndFeel" skeleton="cablevision"
+            skin="cablevision" title="CablePortal">
+            <netuix:titlebarButtonOrder>
+                <netuix:otherButtons/>
+                <netuix:namedButton name="float"/>
+                <netuix:namedButton name="edit"/>
+                <netuix:namedButton name="help"/>
+                <netuix:namedButton name="minimized"/>
+                <netuix:namedButton name="maximized"/>
+                <netuix:namedButton name="delete"/>
+            </netuix:titlebarButtonOrder>
+        </netuix:lookAndFeel>
+        <netuix:shell description="A header and footer is included in this shell."
+            markupName="headerFooter" markupType="Shell" title="Header-Footer Shell">
+            <netuix:head/>
+            <netuix:body>
+                <netuix:header/>
+                <netuix:book defaultPage="cablevision_portal_page_home"
+                    definitionLabel="cablevision_portal_book_1" markupName="book" markupType="Book" title="Main Page Book">
+                    <netuix:content>
+                        <netuix:book defaultPage="soluciones_soluciones"
+                            definitionLabel="cablevision_portal_book_9" markupName="book"
+                            markupType="Book" properties="menuClass=soluciones;mainParent=true" title="Soluciones">
+                            <netuix:content>
+                                <netuix:page definitionLabel="soluciones_soluciones" hidden="true"
+                                    markupName="page" markupType="Page"
+                                    properties="contenidoId_contenidoEstructurado_3=CV002118;templateId_contenidoEstructurado_3=CV002120; estructuraId_contenidoEstructurado_3=CV002121;backgroundId=CV002144" title="Soluciones">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder"
+                                                properties="contenidoId_contenidoEstructurado_1=CV001303;templateId_contenidoEstructurado_1=CV001305; estructuraId_contenidoEstructurado_1=CV001304"
+                                                title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoEstructurado_3"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:book defaultPage="soluciones_cable_cableDigital"
+                                    definitionLabel="cablevision_portal_book_50" markupName="book"
+                                    markupType="Book" title="Cable Digital">
+                                    <netuix:content>
+                                        <netuix:page definitionLabel="soluciones_cable_cableDigital"
+                                            hidden="true" markupName="page" markupType="Page"
+                                            properties="contenidoId=CV001952;estructuraId=CV001950;templateId=CV001951;backgroundId=CV001995" title="Cable Digital">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_2"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="soluciones_cable_comparanos"
+                                            hidden="false" markupName="page" markupType="Page"
+                                            properties="contenidoId=CV001955;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002004" title="Descubre la diferencia">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_12"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="soluciones_cable_paquetes"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId=CV002119;estructuraId=CV002065;templateId=CV004386;backgroundId=CV002122" title="Paquetes">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_9"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="soluciones_cable_canales"
+                                            markupName="page" markupType="Page"
+                                            properties="backgroundId=CV002169" title="Canales">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/canales.portlet"
+                                                  instanceLabel="canales_1"
+                                                  markupType="Portlet" title="Canales"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="soluciones_cable_onDemand"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId=CV002231;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002170" title="CABLEVISION® On Demand">
+                                            <netuix:content>
+                                                <netuix:layout description=""
+                                                  htmlLayoutUri="/layouts/cableHD.html.txt"
+                                                  markupName="cableHDLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/cableHDLayout.jsp"
+                                                  title="Cable HD Layout" type="cableHD">
+                                                  <netuix:placeholder markupName="main"
+                                                  markupType="Placeholder" title="main" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/entretenimiento/ruletaSimpleOndemand.portlet"
+                                                  instanceLabel="entretenimientoOndemand_2"
+                                                  markupType="Portlet" title="Ruleta Simple OnDemand"/>
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoEstructurado_HD"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                  <netuix:placeholder markupName="sidebar"
+                                                  markupType="Placeholder" title="sidebar" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/losmasvistos.portlet"
+                                                  instanceLabel="ondemand_sidebar_1"
+                                                  markupType="Portlet" title="Los Más Vistos OnDemand"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="soluciones_cable_hd"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId_contenidoEstructurado_9=CV002230;estructuraId_contenidoEstructurado_9=CV001950;templateId_contenidoEstructurado_9=CV001951;backgroundId=CV002185;contenidoId_contenidoEstructurado_2=CV002598;estructuraId_contenidoEstructurado_2=CV001950;templateId_contenidoEstructurado_2=CV001951" title="CABLEVISION® HD">
+                                            <netuix:content>
+                                                <netuix:layout description=""
+                                                  htmlLayoutUri="/layouts/cableHD.html.txt"
+                                                  markupName="cableHDLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/cableHDLayout.jsp"
+                                                  title="Cable HD Layout" type="cableHD">
+                                                  <netuix:placeholder markupName="main"
+                                                  markupType="Placeholder" title="main" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/cablevisionhd/ruletaSimpleHD.portlet"
+                                                  instanceLabel="ruletaSimpleOndemand_1"
+                                                  markupType="Portlet" title="Ruleta Simple HD"/>
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoEstructurado_9"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                  <netuix:placeholder markupName="sidebar"
+                                                  markupType="Placeholder" title="sidebar" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/cablevisionhd/sidebar.portlet"
+                                                  instanceLabel="cablevisionhd_sidebar_2"
+                                                  markupType="Portlet" title="Los Más Vistos HD"/>
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoEstructurado_2"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page
+                                            definitionLabel="soluciones_cable_videograbadores"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId=CV001956;estructuraId=CV001950;templateId=CV001951;backgroundId=CV001997" title="Videograbadores Digitales">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_3"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="soluciones_cable_accesorios"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId=CV002038;estructuraId=CV002032;templateId=CV002057;backgroundId=CV002059" title="Complementos y Accesorios">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_6"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                    </netuix:content>
+                                </netuix:book>
+                                <netuix:book defaultPage="soluciones_internet_internet"
+                                    definitionLabel="cablevision_portal_book_18" markupName="book"
+                                    markupType="Book" title="Internet de Alta Velocidad">
+                                    <netuix:content>
+                                        <netuix:page definitionLabel="soluciones_internet_internet"
+                                            hidden="true" markupName="page" markupType="Page"
+                                            properties="contenidoId=CV001978;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002005" title="Internet de Alta Velocidad">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_11"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page
+                                            definitionLabel="soluciones_internet_comparanos"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId=CV001979;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002006" title="Compáranos">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_10"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="soluciones_internet_paquetes"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId=CV002086;estructuraId=CV002065;templateId=CV002076;backgroundId=CV002098" title="Paquetes">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_7"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="soluciones_internet_servicios"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId=CV001963;estructuraId=CV001950;templateId=CV001951;backgroundId=CV001999" title="Servicios de Valor Agregado">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_4"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page
+                                            definitionLabel="soluciones_internet_accesorios"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId=CV002041;estructuraId=CV002032;templateId=CV002057;backgroundId=CV002061" title="Complementos y Accesorios">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoEstrucuturadoAccesorios"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                    </netuix:content>
+                                </netuix:book>
+                                <netuix:book defaultPage="soluciones_telefonia_telefonia"
+                                    definitionLabel="cablevision_portal_book_15" markupName="book"
+                                    markupType="Book" title="Telefonía Digital">
+                                    <netuix:content>
+                                        <netuix:page
+                                            definitionLabel="soluciones_telefonia_telefonia"
+                                            hidden="true" markupName="page" markupType="Page"
+                                            properties="contenidoId=CV001980;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002001" title="Telefonía Digital">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_1"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page
+                                            definitionLabel="soluciones_telefonia_comparanos"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId=CV002210;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002211" title="Compáranos">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_18"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="soluciones_telefonia_paquetes"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId=CV002087;estructuraId=CV002065;templateId=CV002088;backgroundId=CV002097" title="Paquetes">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_8"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page
+                                            definitionLabel="soluciones_telefonia_servicios"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId=CV001983;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002009" title="Servicios de Valor Agregado">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_5"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page
+                                            definitionLabel="soluciones_telefonia_soluciones"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId=CV002037;estructuraId=CV002033;templateId=CV002039;backgroundId=CV002060" title="Soluciones Digitales">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoSolucions"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                    </netuix:content>
+                                </netuix:book>
+                                <netuix:book defaultPage="soluciones_paquetes_paquetesCable"
+                                    definitionLabel="cablevision_portal_book_16" hidden="false"
+                                    markupName="book" markupType="Book" title="Paquetes CABLEVISION®">
+                                    <netuix:content>
+                                        <netuix:page
+                                            definitionLabel="soluciones_paquetes_paquetesCable"
+                                            hidden="true" markupName="page" markupType="Page"
+                                            properties="contenidoId=CV002063;estructuraId=CV002062;templateId=CV002064;backgroundId=CV002073" title="Paquetes CABLEVISION®">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoPaquetesCable"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page
+                                            definitionLabel="soluciones_paquetes_comparanos"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId=CV002206;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002209" title="Descubre la diferencia">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_17"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="soluciones_paquetes_paquetes"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId=CV002092;estructuraId=CV002065;templateId=CV002093;backgroundId=CV002099" title="Paquetes">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoPaquetes2"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="soluciones_paquetes_servicios"
+                                            markupName="page" markupType="Page"
+                                            properties="contenidoId=CV002284;estructuraId=CV002282;templateId=CV002283;backgroundId=CV002285" title="Servicios de Valor Agregado">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_21"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                    </netuix:content>
+                                </netuix:book>
+                                <netuix:book defaultPage="soluciones_negocio_negocio"
+                                    definitionLabel="cablevision_portal_book_17" hidden="true"
+                                    markupName="book" markupType="Book" title="Mi negocio y CABLEVISION®">
+                                    <netuix:content>
+                                        <netuix:page definitionLabel="soluciones_negocio_negocio"
+                                            hidden="true" markupName="page" markupType="Page"
+                                            properties="contenidoId=CV002195;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002205" title="Mi negocio y CABLEVISION®">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_16"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                    </netuix:content>
+                                </netuix:book>
+                            </netuix:content>
+                        </netuix:book>
+                        <netuix:book defaultPage="ventajas_ventajas"
+                            definitionLabel="cablevision_portal_book_10" markupName="book"
+                            markupType="Book" properties="menuClass=ventajas;mainParent=true" title="Ventajas">
+                            <netuix:content>
+                                <netuix:page definitionLabel="ventajas_ventajas" hidden="true"
+                                    markupName="page" markupType="Page"
+                                    properties="contenidoId=CV002272;estructuraId=CV002271;templateId=CV002274;backgroundId=CV002273" title="Ventajas">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoVentajas"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="ventajas_clientes" markupName="page"
+                                    markupType="Page" properties="backgroundId=CV002515;secure=true" title="Lo que dicen nuestros clientes">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/ventajas/ventajas.portlet"
+                                                  instanceLabel="ventajas_1" markupType="Portlet" title="Ventajas"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="ventajas_comunidades"
+                                    markupName="page" markupType="Page"
+                                    properties="contenidoId=CV002288;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002171" title="Comunidades CABLEVISION®">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_22"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                            </netuix:content>
+                        </netuix:book>
+                        <netuix:book defaultPage="entretenimiento_guia"
+                            definitionLabel="cablevision_portal_book_2" markupName="book"
+                            markupType="Book"
+                            properties="menuClass=entrenteni;mainParent=true;claseHd=padding-top40" title="Entretenimiento">
+                            <netuix:content>
+                                <netuix:page definitionLabel="entretenimiento_guia"
+                                    markupName="page" markupType="Page"
+                                    properties="submenuClass=link-entre ico-entre-2;contenidoId=CV002202;templateId=CV002204; estructuraId=CV002203;backgroundId=CV002302" title="Guía de programación">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses a top placeholder and lower placeholders"
+                                            htmlLayoutUri="/layouts/programacion.html.txt"
+                                            markupName="programacionLayout" markupType="Layout"
+                                            skeletonUri="/layouts/programacionLayout.jsp"
+                                            title="Programacion Layout" type="programacion">
+                                            <netuix:placeholder markupName="top1"
+                                                markupType="Placeholder" title="top1" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/entretenimiento/ruletaSimpleTodos.portlet"
+                                                  instanceLabel="ruletaSimpleTodos_1"
+                                                  markupType="Portlet" title="Ruletasimpletodos"/>
+                                            </netuix:placeholder>
+                                            <netuix:placeholder markupName="top2"
+                                                markupType="Placeholder" title="top2" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoEstructurado_8"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/entretenimiento/sidebarProg.portlet"
+                                                  instanceLabel="sidebarProg_1"
+                                                  markupType="Portlet" title="SidebarProg"/>
+                                            </netuix:placeholder>
+                                            <netuix:placeholder markupName="low3"
+                                                markupType="Placeholder" title="low3" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/programacion/programacion.portlet"
+                                                  instanceLabel="programacion_1"
+                                                  markupType="Portlet" title="Programacion"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="entretenimiento_onDemand"
+                                    markupName="page" markupType="Page"
+                                    properties="submenuClass=link-entre ico-entre-2;claseHd=margin-n-top80;backgroundId=CV002186" title="CABLEVISION® On Demand">
+                                    <netuix:content>
+                                        <netuix:layout description=""
+                                            htmlLayoutUri="/layouts/cableHD.html.txt"
+                                            markupName="cableHDLayout" markupType="Layout"
+                                            skeletonUri="/layouts/cableHDLayout.jsp"
+                                            title="Cable HD Layout" type="cableHD">
+                                            <netuix:placeholder markupName="main"
+                                                markupType="Placeholder" title="main" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/entretenimiento/entretenimientoOndemand.portlet"
+                                                  instanceLabel="entretenimientoOnDemand"
+                                                  markupType="Portlet" title="Entretenimientoondemand"/>
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/programacion.portlet"
+                                                  instanceLabel="portletInstance_13"
+                                                  markupType="Portlet" title="Programacion OnDemand"/>
+                                            </netuix:placeholder>
+                                            <netuix:placeholder markupName="sidebar"
+                                                markupType="Placeholder" title="sidebar" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/losmasvistos.portlet"
+                                                  instanceLabel="losmasvistos"
+                                                  markupType="Portlet" title="Los Más Vistos OnDemand"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="entretenimiento_hd" markupName="page"
+                                    markupType="Page"
+                                    properties="submenuClass=link-entre ico-entre-3;backgroundId=CV002511" title="CABLEVISION® HD">
+                                    <netuix:content>
+                                        <netuix:layout description=""
+                                            htmlLayoutUri="/layouts/cableHD.html.txt"
+                                            markupName="cableHDLayout" markupType="Layout"
+                                            skeletonUri="/layouts/cableHDLayout.jsp"
+                                            title="Cable HD Layout" type="cableHD">
+                                            <netuix:placeholder markupName="main"
+                                                markupType="Placeholder" title="main" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/cablevisionhd/main.portlet"
+                                                  instanceLabel="main_2" markupType="Portlet" title="Ruleta HD"/>
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/cablevisionhd/programacion.portlet"
+                                                  instanceLabel="hd_programacion_1"
+                                                  markupType="Portlet" title="Programacion"/>
+                                            </netuix:placeholder>
+                                            <netuix:placeholder markupName="sidebar"
+                                                markupType="Placeholder" title="sidebar" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/cablevisionhd/sidebar.portlet"
+                                                  instanceLabel="cablevisionhd_sidebar_1"
+                                                  markupType="Portlet" title="Los Más Vistos HD"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="entretenimiento_payperview"
+                                    markupName="page" markupType="Page"
+                                    properties="submenuClass=link-entre ico-entre-4;claseHd=margin-n-top80;backgroundId=CV002174" title="CABLEVISION® Pago Por Evento">
+                                    <netuix:content>
+                                        <netuix:layout description=""
+                                            htmlLayoutUri="/layouts/cableHD.html.txt"
+                                            markupName="cableHDLayout" markupType="Layout"
+                                            skeletonUri="/layouts/cableHDLayout.jsp"
+                                            title="Cable HD Layout" type="cableHD">
+                                            <netuix:placeholder
+                                                description="The left most placeholder in this layout."
+                                                markupName="twoColumnFlow_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="30%">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/ppv/main.portlet"
+                                                  instanceLabel="entretenimientoPPV_1"
+                                                  markupType="Portlet" title="Entretenimiento Main PPV"/>
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/ppv/programacion.portlet"
+                                                  instanceLabel="ppv_programacion_1"
+                                                  markupType="Portlet" title="Programacion PPV"/>
+                                            </netuix:placeholder>
+                                            <netuix:placeholder
+                                                description="The right most placeholder in this layout."
+                                                markupName="twoColumnFlow_right"
+                                                markupType="Placeholder" title="right"
+                                                usingFlow="false" width="70%">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/ppv/sidebar.portlet"
+                                                  instanceLabel="cablevisionppv_sidebar_1"
+                                                  markupType="Portlet" title="Sidebar PPV"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="entretenimiento_hbomax" hidden="true"
+                                    markupName="page" markupType="Page"
+                                    properties="contenidoId=CV004546;estructuraId=CV001950;templateId=CV001951;backgroundId=CV004553" title="HBO">
+                                    <netuix:content>
+                                        <netuix:layout description=""
+                                            htmlLayoutUri="/layouts/singleColumn.html.txt"
+                                            markupName="singleColumn" markupType="Layout"
+                                            skeletonUri="/layouts/singleColumn.jsp"
+                                            title="Una Columna Layout" type="single">
+                                            <netuix:placeholder markupName="single_main"
+                                                markupType="Placeholder" title="main" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_25"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                            </netuix:content>
+                        </netuix:book>
+                        <netuix:book defaultPage="cablevision_portal_preview"
+                            definitionLabel="cablevision_portal_book_28" hidden="true"
+                            markupName="book" markupType="Book" title="Aplicaciones">
+                            <netuix:content>
+                                <netuix:page definitionLabel="cablevision_portal_preview"
+                                    hidden="true" markupName="page" markupType="Page" title="Preview Contenido">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/preview.portlet"
+                                                  instanceLabel="preview_2" markupType="Portlet" title="preview"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:book defaultPage="cablevision_portal_crearCuenta"
+                                    definitionLabel="cablevision_portal_book_52" hidden="false"
+                                    markupName="book" markupType="Book" title="Correo">
+                                    <netuix:content>
+                                        <netuix:page
+                                            definitionLabel="cablevision_portal_crearCuenta"
+                                            hidden="false" markupName="page" markupType="Page"
+                                            properties="backgroundId=CV002162" title="Crear Cuenta">
+                                            <netuix:content>
+                                                <netuix:layout description=""
+                                                  htmlLayoutUri="/layouts/correo.html.txt"
+                                                  markupName="correoLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/correoLayout.jsp"
+                                                  title="Correo Layout" type="correo">
+                                                  <netuix:placeholder markupName="correo_main"
+                                                  markupType="Placeholder" title="main" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/email/crearCuenta.portlet"
+                                                  instanceLabel="crearCuenta_1"
+                                                  markupType="Portlet" title="crearCuenta"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page
+                                            definitionLabel="cablevision_portal_recuperaPass"
+                                            hidden="false" markupName="page" markupType="Page"
+                                            properties="backgroundId=CV002162" title="Recuperar Contraseña">
+                                            <netuix:content>
+                                                <netuix:layout description=""
+                                                  htmlLayoutUri="/layouts/correo.html.txt"
+                                                  markupName="correoLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/correoLayout.jsp"
+                                                  title="Correo Layout" type="correo">
+                                                  <netuix:placeholder markupName="correo_main"
+                                                  markupType="Placeholder" title="main" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/email/crearCuenta.portlet"
+                                                  instanceLabel="crearCuenta_2"
+                                                  markupType="Portlet" title="crearCuenta"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                    </netuix:content>
+                                </netuix:book>
+                                <netuix:page definitionLabel="aplicaciones_reporteMcAffe"
+                                    hidden="true" markupName="page" markupType="Page" title="Reporte McAffee">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/mcafee/reporte.portlet"
+                                                  instanceLabel="portletInstance_24"
+                                                  markupType="Portlet" title="ReporteMcafee"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="cablevision_portal_newsletter"
+                                    markupName="page" markupType="Page"
+                                    properties="backgroundId=CV002287;secure=true" title="Newsletter">
+                                    <netuix:content>
+                                        <netuix:layout description=""
+                                            htmlLayoutUri="/layouts/singleColumn.html.txt"
+                                            markupName="singleColumn" markupType="Layout"
+                                            skeletonUri="/layouts/singleColumn.jsp"
+                                            title="Una Columna Layout" type="single">
+                                            <netuix:placeholder markupName="single_main"
+                                                markupType="Placeholder" title="main" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/newsletter/newsletters.portlet"
+                                                  instanceLabel="newsletters_1"
+                                                  markupType="Portlet" title="Newsletters"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="cablevision_portal_distribuidores"
+                                    markupName="page" markupType="Page"
+                                    properties="backgroundId=CV002444;secure=true" title="Distribuidores">
+                                    <netuix:content>
+                                        <netuix:layout description=""
+                                            htmlLayoutUri="/layouts/singleColumn.html.txt"
+                                            markupName="singleColumn" markupType="Layout"
+                                            skeletonUri="/layouts/singleColumn.jsp"
+                                            title="Una Columna Layout" type="single">
+                                            <netuix:placeholder markupName="single_main"
+                                                markupType="Placeholder" title="main" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/distribuidores/distribuidores.portlet"
+                                                  instanceLabel="portletInstance_19"
+                                                  markupType="Portlet" title="Distribuidores"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                            </netuix:content>
+                        </netuix:book>
+                        <netuix:book defaultPage="atencion_atencion"
+                            definitionLabel="cablevision_portal_book_11" markupName="book"
+                            markupType="Book" properties="menuClass=atencion;mainParent=true" title="Atención a Clientes">
+                            <netuix:content>
+                                <netuix:page definitionLabel="atencion_atencion" hidden="true"
+                                    markupName="page" markupType="Page"
+                                    properties="contenidoId=CV002484;estructuraId=CV002451;templateId=CV002452;backgroundId=CV002454" title="Atención a Clientes">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoEstructurado_1"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="atencion_contactanos"
+                                    markupName="page" markupType="Page"
+                                    properties="backgroundId=CV002188;secure=true" title="Contáctanos">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contactanos.portlet"
+                                                  instanceLabel="contactanos_1"
+                                                  markupType="Portlet" title="Contactanos"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:book defaultPage="servicios_enlinea_inicio"
+                                    definitionLabel="cablevision_portal_servicios_enlinea"
+                                    hidden="false" markupName="book" markupType="Book"
+                                    properties="servicios_enlinea=true;secure=true" title="Mi cuenta CABLEVISION®">
+                                    <netuix:content>
+                                        <netuix:page definitionLabel="servicios_enlinea_inicio"
+                                            hidden="false" markupName="page" markupType="Page"
+                                            properties="servicios_enlinea=true;backgroundId=CV002176;secure=true" title="Inicio">
+                                            <netuix:content>
+                                                <netuix:layout description=""
+                                                  htmlLayoutUri="/layouts/miCuentaBeneficios.html.txt"
+                                                  markupName="miCuentaBeneficioslayout"
+                                                  markupType="Layout"
+                                                  skeletonUri="/layouts/miCuentaBeneficiosLayout.jsp"
+                                                  title="Mi Cuenta Beneficios Layout" type="miCuentaBeneficios">
+                                                  <netuix:placeholder
+                                                  markupName="menuMiCuentaBeneficios"
+                                                  markupType="Placeholder"
+                                                  title="menuMiCuentaBeneficios" usingFlow="false"/>
+                                                  <netuix:placeholder
+                                                  markupName="mainMiCuentaBeneficios"
+                                                  markupType="Placeholder"
+                                                  title="mainMiCuentaBeneficios" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/micuenta.portlet"
+                                                  instanceLabel="micuenta_1"
+                                                  markupType="Portlet" title="Micuenta"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="servicios_enlinea_factura"
+                                            hidden="false" markupName="page" markupType="Page"
+                                            properties="servicios_enlinea=true;backgroundId=CV002176;secure=true" title="Mis Facturas">
+                                            <netuix:content>
+                                                <netuix:layout description=""
+                                                  htmlLayoutUri="/layouts/serviciosEnlinea.html.txt"
+                                                  markupName="serviciosEnlineaLayout"
+                                                  markupType="Layout"
+                                                  skeletonUri="/layouts/serviciosEnlineaLayout.jsp"
+                                                  title="Servicios En Linea Layout" type="serviciosEnlinea">
+                                                  <netuix:placeholder markupName="menuServicios"
+                                                  markupType="Placeholder"
+                                                  title="menuServicios" usingFlow="false"/>
+                                                  <netuix:placeholder
+                                                  markupName="mainServiciosEnlinea"
+                                                  markupType="Placeholder"
+                                                  title="mainServiciosEnlinea" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/miCuentaResumen.portlet"
+                                                  instanceLabel="miCuentaResumen_1"
+                                                  markupType="Portlet" title="MiCuentaResumen"/>
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/misFacturas.portlet"
+                                                  instanceLabel="misFacturas_1"
+                                                  markupType="Portlet" title="Misfacturas"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="servicios_enlinea_newsletter"
+                                            hidden="false" markupName="page" markupType="Page"
+                                            properties="servicios_enlinea=true;backgroundId=CV002176" title="Newsletter">
+                                            <netuix:content>
+                                                <netuix:layout description=""
+                                                  htmlLayoutUri="/layouts/serviciosEnlinea.html.txt"
+                                                  markupName="serviciosEnlineaLayout"
+                                                  markupType="Layout"
+                                                  skeletonUri="/layouts/serviciosEnlineaLayout.jsp"
+                                                  title="Servicios En Linea Layout" type="serviciosEnlinea">
+                                                  <netuix:placeholder markupName="menuServicios"
+                                                  markupType="Placeholder"
+                                                  title="menuServicios" usingFlow="false"/>
+                                                  <netuix:placeholder
+                                                  markupName="mainServiciosEnlinea"
+                                                  markupType="Placeholder"
+                                                  title="mainServiciosEnlinea" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/newsletter/newslettersCel.portlet"
+                                                  instanceLabel="newslettersCel_1"
+                                                  markupType="Portlet" title="NewslettersCel"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="servicios_enlinea_mis_pagos"
+                                            hidden="false" markupName="page" markupType="Page"
+                                            properties="servicios_enlinea=true;backgroundId=CV002176;secure=true" title="Mis Pagos">
+                                            <netuix:content>
+                                                <netuix:layout description=""
+                                                  htmlLayoutUri="/layouts/serviciosEnlinea.html.txt"
+                                                  markupName="serviciosEnlineaLayout"
+                                                  markupType="Layout"
+                                                  skeletonUri="/layouts/serviciosEnlineaLayout.jsp"
+                                                  title="Servicios En Linea Layout" type="serviciosEnlinea">
+                                                  <netuix:placeholder markupName="menuServicios"
+                                                  markupType="Placeholder"
+                                                  title="menuServicios" usingFlow="false"/>
+                                                  <netuix:placeholder
+                                                  markupName="mainServiciosEnlinea"
+                                                  markupType="Placeholder"
+                                                  title="mainServiciosEnlinea" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/miCuentaResumen.portlet"
+                                                  instanceLabel="miCuentaResumen_2"
+                                                  markupType="Portlet" title="MiCuentaResumen"/>
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/misPagos.portlet"
+                                                  instanceLabel="misPagos_1"
+                                                  markupType="Portlet" title="MisPagos"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="servicios_enlinea_pagar"
+                                            hidden="false" markupName="page" markupType="Page"
+                                            properties="servicios_enlinea=true;backgroundId=CV002176;secure=true" title="Realizar un pago">
+                                            <netuix:content>
+                                                <netuix:layout description=""
+                                                  htmlLayoutUri="/layouts/serviciosEnlinea.html.txt"
+                                                  markupName="serviciosEnlineaLayout"
+                                                  markupType="Layout"
+                                                  skeletonUri="/layouts/serviciosEnlineaLayout.jsp"
+                                                  title="Servicios En Linea Layout" type="serviciosEnlinea">
+                                                  <netuix:placeholder markupName="menuServicios"
+                                                  markupType="Placeholder"
+                                                  title="menuServicios" usingFlow="false"/>
+                                                  <netuix:placeholder
+                                                  markupName="mainServiciosEnlinea"
+                                                  markupType="Placeholder"
+                                                  title="mainServiciosEnlinea" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/miCuentaResumen.portlet"
+                                                  instanceLabel="miCuentaResumen_3"
+                                                  markupType="Portlet" title="MiCuentaResumen"/>
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/realizarPago.portlet"
+                                                  instanceLabel="portletInstance_14"
+                                                  markupType="Portlet" title="Realizarpago"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page
+                                            definitionLabel="servicios_enlinea_paperless_p1"
+                                            hidden="false" markupName="page" markupType="Page"
+                                            properties="backgroundId=CV002176;servicios_enlinea=true;secure=true" title="Paperless">
+                                            <netuix:content>
+                                                <netuix:layout description=""
+                                                  htmlLayoutUri="/layouts/serviciosEnlinea.html.txt"
+                                                  markupName="serviciosEnlineaLayout"
+                                                  markupType="Layout"
+                                                  skeletonUri="/layouts/serviciosEnlineaLayout.jsp"
+                                                  title="Servicios En Linea Layout" type="serviciosEnlinea">
+                                                  <netuix:placeholder markupName="menuServicios"
+                                                  markupType="Placeholder"
+                                                  title="menuServicios" usingFlow="false"/>
+                                                  <netuix:placeholder
+                                                  markupName="mainServiciosEnlinea"
+                                                  markupType="Placeholder"
+                                                  title="mainServiciosEnlinea" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/paperless.portlet"
+                                                  instanceLabel="paperless_1"
+                                                  markupType="Portlet" title="Paperless"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="servicios_enlinea_mis_datos"
+                                            hidden="false" markupName="page" markupType="Page"
+                                            properties="backgroundId=CV002176;servicios_enlinea=true;secure=true" title="Mis Datos">
+                                            <netuix:content>
+                                                <netuix:layout description=""
+                                                  htmlLayoutUri="/layouts/serviciosEnlinea.html.txt"
+                                                  markupName="serviciosEnlineaLayout"
+                                                  markupType="Layout"
+                                                  skeletonUri="/layouts/serviciosEnlineaLayout.jsp"
+                                                  title="Servicios En Linea Layout" type="serviciosEnlinea">
+                                                  <netuix:placeholder markupName="menuServicios"
+                                                  markupType="Placeholder"
+                                                  title="menuServicios" usingFlow="false"/>
+                                                  <netuix:placeholder
+                                                  markupName="mainServiciosEnlinea"
+                                                  markupType="Placeholder"
+                                                  title="mainServiciosEnlinea" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/misdatos/modificarDatos.portlet"
+                                                  instanceLabel="modificarDatos_2"
+                                                  markupType="Portlet" title="Modificardatos"/>
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/misdatos/modificarPass.portlet"
+                                                  instanceLabel="modificarPass_2"
+                                                  markupType="Portlet" title="Modificarpass"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page
+                                            definitionLabel="servicios_enlinea_atencion_clientes"
+                                            hidden="false" markupName="page" markupType="Page"
+                                            properties="secure=true;backgroundId=CV002176" title="Atención a Clientes">
+                                            <netuix:content>
+                                                <netuix:layout description=""
+                                                  htmlLayoutUri="/layouts/miCuentaBeneficios.html.txt"
+                                                  markupName="miCuentaBeneficioslayout"
+                                                  markupType="Layout"
+                                                  skeletonUri="/layouts/miCuentaBeneficiosLayout.jsp"
+                                                  title="Mi Cuenta Beneficios Layout" type="miCuentaBeneficios">
+                                                  <netuix:placeholder
+                                                  markupName="menuMiCuentaBeneficios"
+                                                  markupType="Placeholder"
+                                                  title="menuMiCuentaBeneficios" usingFlow="false"/>
+                                                  <netuix:placeholder
+                                                  markupName="mainMiCuentaBeneficios"
+                                                  markupType="Placeholder"
+                                                  title="mainMiCuentaBeneficios" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/ordenadministrativa/ordenadministrativa.portlet"
+                                                  instanceLabel="ordenadministrativa_2"
+                                                  markupType="Portlet" title="Ordenadministrativa"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="servicios_enlinea_login"
+                                            hidden="true" markupName="page" markupType="Page"
+                                            properties="backgroundId=CV002239;secure=true" title="Login">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/selLogin.portlet"
+                                                  instanceLabel="selLogin_1"
+                                                  markupType="Portlet" title="SelLogin"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="servicios_enlinea_registro"
+                                            hidden="true" markupName="page" markupType="Page"
+                                            properties="secure=true;backgroundId=CV002176" title="Registro">
+                                            <netuix:content>
+                                                <netuix:layout description=""
+                                                  htmlLayoutUri="/layouts/registroSel.html.txt"
+                                                  markupName="registroSelLayout"
+                                                  markupType="Layout"
+                                                  skeletonUri="/layouts/registroSelLayout.jsp"
+                                                  title="Registro En Linea Layout" type="registroSel">
+                                                  <netuix:placeholder markupName="registroSel"
+                                                  markupType="Placeholder" title="registroSel" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/registro.portlet"
+                                                  instanceLabel="registro_2"
+                                                  markupType="Portlet" title="Registro"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page
+                                            definitionLabel="servicios_enlinea_missolicitudes"
+                                            hidden="false" markupName="f" markupType="Page"
+                                            properties="backgroundId=CV002176" title="Mis Solicitudes">
+                                            <netuix:content>
+                                                <netuix:layout description=""
+                                                  htmlLayoutUri="/layouts/serviciosEnlinea.html.txt"
+                                                  markupName="serviciosEnlineaLayout"
+                                                  markupType="Layout"
+                                                  skeletonUri="/layouts/serviciosEnlineaLayout.jsp"
+                                                  title="Servicios En Linea Layout" type="serviciosEnlinea">
+                                                  <netuix:placeholder markupName="menuServicios"
+                                                  markupType="Placeholder"
+                                                  title="menuServicios" usingFlow="false"/>
+                                                  <netuix:placeholder
+                                                  markupName="mainServiciosEnlinea"
+                                                  markupType="Placeholder"
+                                                  title="mainServiciosEnlinea" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/misSolicitudes.portlet"
+                                                  instanceLabel="misSolicitudes"
+                                                  markupType="Portlet" title="misSolicitudes"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="servicios_enlinea_expira"
+                                            hidden="true" markupName="page" markupType="Page"
+                                            properties="sel=true;backgroundId=CV002176" title="Contraseña Expirada">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  htmlLayoutUri="/layouts/serviciosEnlinea.html.txt"
+                                                  markupName="serviciosEnlineaLayout"
+                                                  markupType="Layout"
+                                                  skeletonUri="/layouts/serviciosEnlineaLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/misdatos/modificarPass.portlet"
+                                                  instanceLabel="modificarPass_1"
+                                                  markupType="Portlet" title="Modificar Password"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page
+                                            definitionLabel="servicios_enlinea_portabilidad"
+                                            markupName="page" markupType="Page"
+                                            properties="backgroundId=CV002176" title="Portabilidad">
+                                            <netuix:content>
+                                                <netuix:layout description=""
+                                                  htmlLayoutUri="/layouts/serviciosEnlinea.html.txt"
+                                                  markupName="serviciosEnlineaLayout"
+                                                  markupType="Layout"
+                                                  skeletonUri="/layouts/serviciosEnlineaLayout.jsp"
+                                                  title="Servicios En Linea Layout" type="serviciosEnlinea">
+                                                  <netuix:placeholder markupName="menuServicios"
+                                                  markupType="Placeholder"
+                                                  title="menuServicios" usingFlow="false"/>
+                                                  <netuix:placeholder
+                                                  markupName="mainServiciosEnlinea"
+                                                  markupType="Placeholder"
+                                                  title="mainServiciosEnlinea" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/misdatos/portabilidad.portlet"
+                                                  instanceLabel="portletPortabilidad"
+                                                  markupType="Portlet" title="Portabilidad"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                    </netuix:content>
+                                </netuix:book>
+                                <netuix:page definitionLabel="atencion_centros" markupName="page"
+                                    markupType="Page"
+                                    properties="contenidoId=CV002295;estructuraId=CV002294;templateId=CV002297;backgroundId=CV002296" title="Centros de Atención a Clientes">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_23"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="atencion_soporte" markupName="page"
+                                    markupType="Page" properties="backgroundId=CV002502" title="Soporte Técnico">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/soportetecnico/soporteTecnico.portlet"
+                                                  instanceLabel="portletInstance_30"
+                                                  markupType="Portlet" title="Soporte Tecnico"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="atencion_teEscuchamos"
+                                    markupName="page" markupType="Page"
+                                    properties="backgroundId=CV002191;secure=true" title="Te escuchamos">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/teEscuchamos.portlet"
+                                                  instanceLabel="teEscuchamos_1"
+                                                  markupType="Portlet" title="TeEscuchamos"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="atencion_seguridad" markupName="page"
+                                    markupType="Page"
+                                    properties="contenidoId=CV002391;estructuraId=CV002390;templateId=CV002393;backgroundId=CV002392" title="Centro de Seguridad">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoSeguridad"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="atencion_leerEdoCuenta"
+                                    markupName="page" markupType="Page"
+                                    properties="contenidoId=CV002153;estructuraId=CV002148;templateId=CV002154;backgroundId=CV002157" title="Cómo leer tu Estado de Cuenta">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="leerEdoCuentaPortlet"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="atencion_controlPadres"
+                                    markupName="page" markupType="Page"
+                                    properties="contenidoId=CV002481;estructuraId=CV002476;templateId=CV002478;backgroundId=CV002482" title="Control de Padres">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_28"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="atencion_preguntas" markupName="page"
+                                    markupType="Page" properties="backgroundId=CV002182" title="Preguntas Frecuentes">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/atencionclientes/main.portlet"
+                                                  instanceLabel="preguntas_frecuentes_main_1"
+                                                  markupType="Portlet" title="Preguntas Frecuentes"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="atencion_mudas" markupName="page"
+                                    markupType="Page"
+                                    properties="contenidoId=CV002149;estructuraId=CV002147;templateId=CV002150;backgroundId=CV002160" title="¿Te mudas?">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoTeMudas"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="atencion_politicas" markupName="page"
+                                    markupType="Page"
+                                    properties="contenidoId=CV002406;estructuraId=CV002405;templateId=CV002394;backgroundId=CV002396" title="Políticas CABLEVISION®">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_29"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="atencion_mcafeeDownload" hidden="true"
+                                    markupName="page" markupType="Page" title="McAffe Download">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/mcafee/downloadMcafee.portlet"
+                                                  instanceLabel="mcafeeDownload"
+                                                  markupType="Portlet" title="DownloadMcafee"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                            </netuix:content>
+                        </netuix:book>
+                        <netuix:book defaultPage="contrata_cotiza"
+                            definitionLabel="cablevision_portal_book_14" markupName="book"
+                            markupType="Book" properties="menuClass=contrata;mainParent=true" title="Contrata Aquí">
+                            <netuix:content>
+                                <netuix:page definitionLabel="contrata_promociones"
+                                    markupName="page" markupType="Page"
+                                    properties="contenidoId=CV002479;estructuraId=CV002475;templateId=CV002477;backgroundId=CV002480" title="Promociones">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_26"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="contrata_cotiza" markupName="page"
+                                    markupType="Page" properties="backgroundId=CV002141;secure:true" title="Cotiza y contrata aquí">
+                                    <netuix:content>
+                                        <netuix:layout description=""
+                                            htmlLayoutUri="/layouts/singleColumn.html.txt"
+                                            markupName="singleColumn" markupType="Layout"
+                                            skeletonUri="/layouts/singleColumn.jsp"
+                                            title="Una Columna Layout" type="single">
+                                            <netuix:placeholder markupName="single_main"
+                                                markupType="Placeholder" title="main" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/cotizador/cotizador.portlet"
+                                                  instanceLabel="cotizador_1" markupType="Portlet" title="Cotizador"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                            </netuix:content>
+                        </netuix:book>
+                        <netuix:book defaultPage="acerca_acerca"
+                            definitionLabel="cablevision_portal_book_13" markupName="book"
+                            markupType="Book" properties="menuClass=acerca;mainParent=true" title="Acerca de CABLEVISION®">
+                            <netuix:content>
+                                <netuix:page definitionLabel="acerca_acerca" hidden="true"
+                                    markupName="page" markupType="Page"
+                                    properties="contenidoId=CV002398;estructuraId=CV002399;templateId=CV002400;backgroundId=CV002444" title="Acerca de CABLEVISION®">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoAcercaDe"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="acerca_informacion" markupName="page"
+                                    markupType="Page"
+                                    properties="contenidoId=CV002408;estructuraId=CV002407;templateId=CV002395;backgroundId=CV002397" title="Información Corporativa">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_20"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="acerca_tecnologia" markupName="page"
+                                    markupType="Page"
+                                    properties="contenidoId=CV002410;estructuraId=CV002409;templateId=CV002411;backgroundId=CV002445" title="Tecnología e Innovación">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoAcercaTecnologia"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="acerca_inversionistas"
+                                    markupName="page" markupType="Page"
+                                    properties="contenidoId=CV004321;estructuraId=CV002587;templateId=CV002589;backgroundId=CV004322" title="Relación con Inversionistas">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoInversionistas"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="acerca_noticias" markupName="page"
+                                    markupType="Page" properties="backgroundId=CV002558" title="Noticias y Prensa">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/noticias/noticias.portlet"
+                                                  instanceLabel="noticias_1" markupType="Portlet" title="noticias"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="acerca_trabaja" markupName="page"
+                                    markupType="Page" properties="backgroundId=CV002192;secure=true" title="Trabaja en CABLEVISION®">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/bolsadetrabajo/bolsaTrabajo.portlet"
+                                                  instanceLabel="portletBolsaTrabajo"
+                                                  markupType="Portlet" title="Bolsatrabajo"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="acerca_legal" markupName="page"
+                                    markupType="Page"
+                                    properties="contenidoId=CV002437;estructuraId=CV002436;templateId=CV002438;backgroundId=CV002443" title="Legal">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoAcercaLegal"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="acerca_anunciate" markupName="page"
+                                    markupType="Page"
+                                    properties="link=http://www.televisatvdepaga.com;target=_blank" title="Anúnciate en CABLEVISION®">
+                                    <netuix:content>
+                                        <netuix:flowLayout
+                                            description="This layout uses the flowLayout control to create two columns in which placeables flow vertically."
+                                            htmlLayoutUri="/framework/markup/layout/twocolumn.html.txt"
+                                            iconUri="/framework/markup/layout/twocolumn.gif"
+                                            markupName="twoColumnFlowLayout" markupType="Layout"
+                                            orientation="horizontal" title="Two Column Flow Layout">
+                                            <netuix:placeholder
+                                                description="The left most placeholder in this layout."
+                                                markupName="twoColumnFlow_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="30%"/>
+                                            <netuix:placeholder
+                                                description="The right most placeholder in this layout."
+                                                markupName="twoColumnFlow_right"
+                                                markupType="Placeholder" title="right"
+                                                usingFlow="false" width="70%"/>
+                                        </netuix:flowLayout>
+                                    </netuix:content>
+                                </netuix:page>
+                            </netuix:content>
+                        </netuix:book>
+                        <netuix:book defaultPage="herramientas_herramientas"
+                            definitionLabel="cablevision_portal_book_12" hidden="true"
+                            markupName="book" markupType="Book" title="Herramientas">
+                            <netuix:content>
+                                <netuix:page definitionLabel="herramientas_herramientas"
+                                    hidden="true" markupName="page" markupType="Page" title="Herramientas">
+                                    <netuix:content>
+                                        <netuix:flowLayout
+                                            description="This layout uses the flowLayout control to create two columns in which placeables flow vertically."
+                                            htmlLayoutUri="/framework/markup/layout/twocolumn.html.txt"
+                                            iconUri="/framework/markup/layout/twocolumn.gif"
+                                            markupName="twoColumnFlowLayout" markupType="Layout"
+                                            orientation="horizontal" title="Two Column Flow Layout">
+                                            <netuix:placeholder
+                                                description="The left most placeholder in this layout."
+                                                markupName="twoColumnFlow_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="30%"/>
+                                            <netuix:placeholder
+                                                description="The right most placeholder in this layout."
+                                                markupName="twoColumnFlow_right"
+                                                markupType="Placeholder" title="right"
+                                                usingFlow="false" width="70%"/>
+                                        </netuix:flowLayout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="herramientas_busqueda"
+                                    markupName="page" markupType="Page" title="Búsqueda">
+                                    <netuix:content>
+                                        <netuix:flowLayout
+                                            description="This layout uses the flowLayout control to create two columns in which placeables flow vertically."
+                                            htmlLayoutUri="/framework/markup/layout/twocolumn.html.txt"
+                                            iconUri="/framework/markup/layout/twocolumn.gif"
+                                            markupName="twoColumnFlowLayout" markupType="Layout"
+                                            orientation="horizontal" title="Two Column Flow Layout">
+                                            <netuix:placeholder
+                                                description="The left most placeholder in this layout."
+                                                markupName="twoColumnFlow_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="30%"/>
+                                            <netuix:placeholder
+                                                description="The right most placeholder in this layout."
+                                                markupName="twoColumnFlow_right"
+                                                markupType="Placeholder" title="right"
+                                                usingFlow="false" width="70%"/>
+                                        </netuix:flowLayout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="herramientas_mapa" markupName="page"
+                                    markupType="Page" title="Mapa del Sitio">
+                                    <netuix:content>
+                                        <netuix:flowLayout
+                                            description="This layout uses the flowLayout control to create two columns in which placeables flow vertically."
+                                            htmlLayoutUri="/framework/markup/layout/twocolumn.html.txt"
+                                            iconUri="/framework/markup/layout/twocolumn.gif"
+                                            markupName="twoColumnFlowLayout" markupType="Layout"
+                                            orientation="horizontal" title="Two Column Flow Layout">
+                                            <netuix:placeholder
+                                                description="The left most placeholder in this layout."
+                                                markupName="twoColumnFlow_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="30%"/>
+                                            <netuix:placeholder
+                                                description="The right most placeholder in this layout."
+                                                markupName="twoColumnFlow_right"
+                                                markupType="Placeholder" title="right"
+                                                usingFlow="false" width="70%"/>
+                                        </netuix:flowLayout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="cablevision_portal_error"
+                                    markupName="page" markupType="Page"
+                                    properties="contenidoId=CV004536;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002188" title="Error">
+                                    <netuix:content>
+                                        <netuix:layout
+                                            description="This layout uses left and rigth placeholders"
+                                            htmlLayoutUri="/layouts/default.html.txt"
+                                            markupName="defaultLayout" markupType="Layout"
+                                            skeletonUri="/layouts/defaultLayout.jsp"
+                                            title="Default Layout" type="default">
+                                            <netuix:placeholder description="Left placeholder"
+                                                markupName="defaultLayout_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="242"/>
+                                            <netuix:placeholder description="Right placeholder"
+                                                markupName="defaultLayout_right"
+                                                markupType="Placeholder" title="right" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoError"
+                                                  markupType="Portlet" title="contenidoError"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="herramientas_privacidad"
+                                    markupName="page" markupType="Page" title="Política de Privacidad">
+                                    <netuix:content>
+                                        <netuix:flowLayout
+                                            description="This layout uses the flowLayout control to create two columns in which placeables flow vertically."
+                                            htmlLayoutUri="/framework/markup/layout/twocolumn.html.txt"
+                                            iconUri="/framework/markup/layout/twocolumn.gif"
+                                            markupName="twoColumnFlowLayout" markupType="Layout"
+                                            orientation="horizontal" title="Two Column Flow Layout">
+                                            <netuix:placeholder
+                                                description="The left most placeholder in this layout."
+                                                markupName="twoColumnFlow_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="30%"/>
+                                            <netuix:placeholder
+                                                description="The right most placeholder in this layout."
+                                                markupName="twoColumnFlow_right"
+                                                markupType="Placeholder" title="right"
+                                                usingFlow="false" width="70%"/>
+                                        </netuix:flowLayout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="herramientas_sugerencias"
+                                    markupName="page" markupType="Page" title="Sugerencias para el sitio CABLEVISION®">
+                                    <netuix:content>
+                                        <netuix:flowLayout
+                                            description="This layout uses the flowLayout control to create two columns in which placeables flow vertically."
+                                            htmlLayoutUri="/framework/markup/layout/twocolumn.html.txt"
+                                            iconUri="/framework/markup/layout/twocolumn.gif"
+                                            markupName="twoColumnFlowLayout" markupType="Layout"
+                                            orientation="horizontal" title="Two Column Flow Layout">
+                                            <netuix:placeholder
+                                                description="The left most placeholder in this layout."
+                                                markupName="twoColumnFlow_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="30%"/>
+                                            <netuix:placeholder
+                                                description="The right most placeholder in this layout."
+                                                markupName="twoColumnFlow_right"
+                                                markupType="Placeholder" title="right"
+                                                usingFlow="false" width="70%"/>
+                                        </netuix:flowLayout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="herramientas_newsletter"
+                                    markupName="page" markupType="Page" title="Newsletter">
+                                    <netuix:content>
+                                        <netuix:flowLayout
+                                            description="This layout uses the flowLayout control to create two columns in which placeables flow vertically."
+                                            htmlLayoutUri="/framework/markup/layout/twocolumn.html.txt"
+                                            iconUri="/framework/markup/layout/twocolumn.gif"
+                                            markupName="twoColumnFlowLayout" markupType="Layout"
+                                            orientation="horizontal" title="Two Column Flow Layout">
+                                            <netuix:placeholder
+                                                description="The left most placeholder in this layout."
+                                                markupName="twoColumnFlow_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="30%"/>
+                                            <netuix:placeholder
+                                                description="The right most placeholder in this layout."
+                                                markupName="twoColumnFlow_right"
+                                                markupType="Placeholder" title="right"
+                                                usingFlow="false" width="70%"/>
+                                        </netuix:flowLayout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="herramientas_redesSociales"
+                                    markupName="page" markupType="Page" title="Redes sociales, foro, blog, podcast, etc">
+                                    <netuix:content>
+                                        <netuix:flowLayout
+                                            description="This layout uses the flowLayout control to create two columns in which placeables flow vertically."
+                                            htmlLayoutUri="/framework/markup/layout/twocolumn.html.txt"
+                                            iconUri="/framework/markup/layout/twocolumn.gif"
+                                            markupName="twoColumnFlowLayout" markupType="Layout"
+                                            orientation="horizontal" title="Two Column Flow Layout">
+                                            <netuix:placeholder
+                                                description="The left most placeholder in this layout."
+                                                markupName="twoColumnFlow_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="30%"/>
+                                            <netuix:placeholder
+                                                description="The right most placeholder in this layout."
+                                                markupName="twoColumnFlow_right"
+                                                markupType="Placeholder" title="right"
+                                                usingFlow="false" width="70%"/>
+                                        </netuix:flowLayout>
+                                    </netuix:content>
+                                </netuix:page>
+                                <netuix:page definitionLabel="herramientas_correo" markupName="page"
+                                    markupType="Page" title="Correo CABLEVISION®">
+                                    <netuix:content>
+                                        <netuix:flowLayout
+                                            description="This layout uses the flowLayout control to create two columns in which placeables flow vertically."
+                                            htmlLayoutUri="/framework/markup/layout/twocolumn.html.txt"
+                                            iconUri="/framework/markup/layout/twocolumn.gif"
+                                            markupName="twoColumnFlowLayout" markupType="Layout"
+                                            orientation="horizontal" title="Two Column Flow Layout">
+                                            <netuix:placeholder
+                                                description="The left most placeholder in this layout."
+                                                markupName="twoColumnFlow_left"
+                                                markupType="Placeholder" title="left"
+                                                usingFlow="false" width="30%"/>
+                                            <netuix:placeholder
+                                                description="The right most placeholder in this layout."
+                                                markupName="twoColumnFlow_right"
+                                                markupType="Placeholder" title="right"
+                                                usingFlow="false" width="70%"/>
+                                        </netuix:flowLayout>
+                                    </netuix:content>
+                                </netuix:page>
+                            </netuix:content>
+                        </netuix:book>
+                        <netuix:page definitionLabel="busqueda" hidden="true" markupName="page"
+                            markupType="Page" properties="backgroundId=CV002268" title="Resultado de Búsqueda">
+                            <netuix:content>
+                                <netuix:layout description=""
+                                    htmlLayoutUri="/layouts/correo.html.txt"
+                                    markupName="correoLayout" markupType="Layout"
+                                    skeletonUri="/layouts/correoLayout.jsp" title="Correo Layout" type="correo">
+                                    <netuix:placeholder markupName="correo_main"
+                                        markupType="Placeholder" title="main" usingFlow="false">
+                                        <netuix:portletInstance
+                                            contentUri="/portlets/busqueda/busqueda.portlet"
+                                            instanceLabel="portletInstance_15" markupType="Portlet" title="Busqueda General"/>
+                                    </netuix:placeholder>
+                                </netuix:layout>
+                            </netuix:content>
+                        </netuix:page>
+                        <netuix:page backingFile="com.cablevision.backingfile.MainBookBackingFile"
+                            definitionLabel="cablevision_portal_page_home" hidden="true"
+                            markupName="page" markupType="Page"
+                            properties="contenidoId_contenidoEstructurado_4=CV002110;templateId_contenidoEstructurado_4=CV001951; estructuraId_contenidoEstructurado_4=CV001950; contenidoId_contenidoEstructurado_5=CV002108;templateId_contenidoEstructurado_5=CV002105; estructuraId_contenidoEstructurado_5=CV002111;contenidoId_contenidoEstructurado_6=CV002109;templateId_contenidoEstructurado_6=CV002106; estructuraId_contenidoEstructurado_6=CV002112;contenidoId_contenidoEstructurado_7=CV002109;templateId_contenidoEstructurado_7=CV002104; estructuraId_contenidoEstructurado_7=CV002112" title="Home Page">
+                            <netuix:content>
+                                <netuix:layout
+                                    description="This layout uses a top placeholder and lower left and lower rigth placeholders"
+                                    htmlLayoutUri="/layouts/home.html.txt" markupName="homeLayout"
+                                    markupType="Layout" skeletonUri="/layouts/homeLayout.jsp"
+                                    title="Home Layout" type="home">
+                                    <netuix:placeholder markupName="ph1" markupType="Placeholder"
+                                        title="ph1" usingFlow="false">
+                                        <netuix:portletInstance
+                                            contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                            instanceLabel="contenidoEstructurado_5"
+                                            markupType="Portlet" title="contenidoEstructurado"/>
+                                    </netuix:placeholder>
+                                    <netuix:placeholder markupName="ph2" markupType="Placeholder"
+                                        title="ph2" usingFlow="false">
+                                        <netuix:portletInstance
+                                            contentUri="/portlets/home/emailLogin.portlet"
+                                            instanceLabel="emailLogin_1" markupType="Portlet" title="Emaillogin"/>
+                                        <netuix:portletInstance
+                                            contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                            instanceLabel="contenidoEstructurado_6"
+                                            markupType="Portlet" title="contenidoEstructurado"/>
+                                    </netuix:placeholder>
+                                    <netuix:placeholder markupName="ph3" markupType="Placeholder"
+                                        title="ph3" usingFlow="false">
+                                        <netuix:portletInstance
+                                            contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                            instanceLabel="contenidoEstructurado_4"
+                                            markupType="Portlet" title="contenidoEstructurado"/>
+                                    </netuix:placeholder>
+                                    <netuix:placeholder markupName="ph4" markupType="Placeholder"
+                                        title="ph4" usingFlow="false"/>
+                                </netuix:layout>
+                            </netuix:content>
+                        </netuix:page>
+                    </netuix:content>
+                </netuix:book>
+                <netuix:footer/>
+            </netuix:body>
+        </netuix:shell>
+    </netuix:desktop>
+</portal:root>

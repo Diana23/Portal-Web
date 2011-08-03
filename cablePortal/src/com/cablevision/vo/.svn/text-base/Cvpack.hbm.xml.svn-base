@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.Cvpack" 
+    table="CV_PACKS"
+    lazy="false"
+>
+    <id
+        name="idpack"
+        type="long"
+        column="PAC_ID"
+        length="22"
+    >
+        <generator class="sequence">
+            <param name="sequence">CVPACKS_SEQ</param>
+        </generator>
+    </id>
+    <property
+        name="name"
+        type="string"
+        column="PAC_NAME"
+        not-null="true"
+        length="250"
+    />
+
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to CvchannelPack -->
+    <set
+        name="cvchannelPacks"
+        inverse="true"
+        lazy="false"
+    >
+        <key>
+            <column name="CNP_ID" /> <!-- a foreign key in CVCHANNEL_PACK referencing the primary key of this table. -->
+        </key>
+        <one-to-many class="com.cablevision.vo.CvchannelPack" />
+    </set>
+
+</class>
+</hibernate-mapping>

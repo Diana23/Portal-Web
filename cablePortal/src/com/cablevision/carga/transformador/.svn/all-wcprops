@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/carga/transformador
+END
+Transformador.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/carga/transformador/Transformador.java
+END
+TransformadorOndemand.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/carga/transformador/TransformadorOndemand.java
+END
+TransformadorPPV.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/carga/transformador/TransformadorPPV.java
+END
+TransformadorNoticia.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/carga/transformador/TransformadorNoticia.java
+END
+TransformadorNewsletter.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/carga/transformador/TransformadorNewsletter.java
+END

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<netuix:markupDefinition xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0 markup-netuix-1_0_0.xsd">
+    <netuix:locale language="en"/>
+    <netuix:markup>
+        <netuix:layout type="correo" title="Correo Layout" 
+        				description=""
+                           htmlLayoutUri="/layouts/correo.html.txt" 
+                           markupType="Layout" markupName="correoLayout"
+                           skeletonUri="/layouts/correoLayout.jsp">
+    		<netuix:placeholder markupType="Placeholder"
+    			markupName="correo_main" title="main" usingFlow="false">
+    		</netuix:placeholder>
+        </netuix:layout>
+    </netuix:markup>
+</netuix:markupDefinition>

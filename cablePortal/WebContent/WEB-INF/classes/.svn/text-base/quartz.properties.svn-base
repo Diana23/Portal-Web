@@ -1,0 +1,48 @@
+# Programador #
+org.quartz.scheduler.instanceName = DefaultQuartzScheduler
+org.quartz.scheduler.rmi.export = false
+org.quartz.scheduler.rmi.proxy = false
+org.quartz.scheduler.wrapJobExecutionInUserTransaction = false
+# Hilos #
+org.quartz.threadPool.class = org.quartz.simpl.SimpleThreadPool
+org.quartz.threadPool.threadCount = 10
+org.quartz.threadPool.threadPriority = 5
+org.quartz.threadPool.threadsInheritContextClassLoaderOfInitializingThread = true
+# Almacenamiento #
+org.quartz.jobStore.misfireThreshold = 60000
+org.quartz.jobStore.class = org.quartz.simpl.RAMJobStore
+# Plugins #
+org.quartz.plugin.jobInitializer.class = org.quartz.plugins.xml.JobInitializationPlugin
+org.quartz.plugin.jobInitializer.overWriteExistingJobs = true
+org.quartz.plugin.jobInitializer.failOnFileNotFound = true
+org.quartz.plugin.jobInitializer.validating=false
+
+
+#============================================================================
+# Clustering - START
+#============================================================================
+#Set up quartz for clustering
+org.quartz.jobStore.misfireThreshold=60000
+org.quartz.jobStore.class=org.quartz.impl.jdbcjobstore.JobStoreTX
+org.quartz.jobStore.driverDelegateClass=org.quartz.impl.jdbcjobstore.WebLogicDelegate
+org.quartz.jobStore.useProperties=false
+org.quartz.jobStore.dataSource=myDS
+org.quartz.jobStore.tablePrefix=CV_QTZ_POR_
+
+org.quartz.jobStore.isClustered=true
+org.quartz.jobStore.clusterCheckinInterval=20000
+
+#Each server must have the same copy of the configuration file.
+org.quartz.scheduler.instanceId=AUTO
+
+# Configure Datasources
+org.quartz.dataSource.myDS.jndiURL=cablevisionPortalOracleDS
+org.quartz.dataSource.myDS.java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+org.quartz.dataSource.myDS.java.naming.provider.url=t3://localhost:7001
+org.quartz.dataSource.myDS.java.naming.security.principal=weblogic
+org.quartz.dataSource.myDS.java.naming.security.credentials=weblogic
+org.quartz.dataSource.myDS.maxConnections=5
+
+#============================================================================
+# Clustering - END
+#============================================================================

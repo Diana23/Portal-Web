@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/WEB-INF
+END
+wsrp-producer-registry.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/WEB-INF/wsrp-producer-registry.xml
+END
+beehive-url-template-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/WEB-INF/beehive-url-template-config.xml
+END
+weblogic.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/WEB-INF/weblogic.xml
+END
+beehive-netui-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/WEB-INF/beehive-netui-config.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/WEB-INF/web.xml
+END
+netuix-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/WEB-INF/netuix-config.xml
+END

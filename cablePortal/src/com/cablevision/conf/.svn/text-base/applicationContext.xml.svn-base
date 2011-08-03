@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans><!-- Apache commons DBCP AS data source, does connection pooling -->
+	
+	<bean id="oracleJndiDS"
+		class="org.springframework.jndi.JndiObjectFactoryBean" lazy-init="true">
+		<property name="jndiName">
+			<value>cablevisionPortalOracleDS</value>
+		</property>
+	</bean>
+	
+	<bean id="nativeJdbcExtractor" 
+		class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor" 
+		lazy-init="true"/>
+
+	<!-- LobHandler for Oracle JDBC drivers -->
+	<bean id="oracleLobHandler" class="org.springframework.jdbc.support.lob.OracleLobHandler" lazy-init="true">
+		<property name="nativeJdbcExtractor"><ref local="nativeJdbcExtractor"/></property>
+	</bean>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="oracleJndiDS" />
+		<property name="lobHandler"><ref bean="oracleLobHandler"/></property>
+		<property name="mappingResources">
+			<list>
+				<value>com/cablevision/vo/CvDisponibilidadnr.hbm.xml</value>
+			
+				<value>com/cablevision/vo/CvContrasenaHistorial.hbm.xml</value>
+				<value>com/cablevision/vo/CvUsuarioPortal.hbm.xml</value>
+				<value>com/cablevision/vo/Cvcategory.hbm.xml</value>
+				<value>com/cablevision/vo/Cvchannel.hbm.xml</value>
+				<value>com/cablevision/vo/CvchannelPack.hbm.xml</value>
+				<value>com/cablevision/vo/Cvpack.hbm.xml</value>
+				<value>com/cablevision/vo/CvPaperless.hbm.xml</value>
+				<value>com/cablevision/vo/CvPaperlessHistorial.hbm.xml</value>
+				
+				<value>com/cablevision/vo/Service.hbm.xml</value>
+				<value>com/cablevision/vo/ProductService.hbm.xml</value>
+				<value>com/cablevision/vo/Extra.hbm.xml</value>
+				<value>com/cablevision/vo/UpgradesExtra.hbm.xml</value>
+				<value>com/cablevision/vo/UpgradesProd.hbm.xml</value>
+				<value>com/cablevision/vo/CreceProd.hbm.xml</value>
+				
+				<value>com/cablevision/vo/CvField.hbm.xml</value>
+				<value>com/cablevision/vo/CvLead.hbm.xml</value>
+				<value>com/cablevision/vo/CvLeadValuefield.hbm.xml</value>
+				<value>com/cablevision/vo/CvLeadField.hbm.xml</value>
+				<value>com/cablevision/vo/CvLeadType.hbm.xml</value>
+				<value>com/cablevision/vo/CvLeadStatus.hbm.xml</value>
+				<value>com/cablevision/vo/Email.hbm.xml</value>
+				
+				<value>com/cablevision/vo/CvMcafeeUser.hbm.xml</value>
+				<value>com/cablevision/vo/CvMcafeeReset.hbm.xml</value>
+				<value>com/cablevision/vo/CvMcafeeDownload.hbm.xml</value>
+				<value>com/cablevision/vo/CvMcafeesuscribed.hbm.xml</value>
+				
+				<value>com/cablevision/vo/CvBanco.hbm.xml</value>
+				<value>com/cablevision/vo/CvEserviceN1.hbm.xml</value>
+				<value>com/cablevision/vo/CvEserviceN2.hbm.xml</value>
+				<value>com/cablevision/vo/CvEserviceN3.hbm.xml</value>
+				<value>com/cablevision/vo/CvTipoTarjeta.hbm.xml</value>
+				<value>com/cablevision/vo/CvCommentoa.hbm.xml</value>
+				<value>com/cablevision/vo/CvTrackoa.hbm.xml</value>
+				<value>com/cablevision/vo/CvProgramRecord.hbm.xml</value>
+				<value>com/cablevision/vo/CvScheduleRecord.hbm.xml</value>
+				<value>com/cablevision/vo/CvStationRecord.hbm.xml</value>
+				<value>com/cablevision/vo/CvTimeZoneRecord.hbm.xml</value>
+				<value>com/cablevision/vo/CvTranslationRecord.hbm.xml</value>
+				
+				<value>com/cablevision/vo/CvCurriculum.hbm.xml</value>
+				<value>com/cablevision/vo/CvUser.hbm.xml</value>				
+				<value>com/cablevision/vo/CvNewsletter.hbm.xml</value>
+				<value>com/cablevision/vo/CvCategorianewsletter.hbm.xml</value>
+				<value>com/cablevision/vo/CvNewsletterCategoriausuario.hbm.xml</value>
+				<value>com/cablevision/vo/Answer.hbm.xml</value>
+				
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle9Dialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.generate_statistics">false</prop>
+				<prop key="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</prop>
+				<prop key="hibernate.jdbc.batch_size">50</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="baseTransactionProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" abstract="true">
+		<property name="transactionManager" ref="transactionManager"/>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="persist*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="remove*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="save*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="generaReporte*">PROPAGATION_REQUIRED,-Exception</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- SERVICES -->
+
+	<bean id="VitriaClient" class="com.cablevision.ToInterfase_Impl"></bean>
+	
+	<bean id="GetFileClient" class="com.stellent.getfile.GetFile_Impl"></bean>
+	
+	<bean id="PaperlessClient" class="mx.com.cablevision.vitria.ParpelessRequest_Impl" lazy-init="true">    </bean>
+	
+	<bean id="UsuarioPortalService" parent="baseTransactionProxy">
+	 	<property name="target">
+	 		<bean class="com.cablevision.service.impl.UsuarioPortalSpringService">
+	 			<property name="dao">
+	 				<bean class="com.cablevision.dao.impl.UsuarioPortalHibernateDao">
+	 					<property name="sessionFactory" ref="sessionFactory"/>
+	 				</bean>
+	 			</property>
+	 		</bean>
+	 	</property>
+	 </bean>
+	 <bean id="ChannelService" parent="baseTransactionProxy">
+    	<property name="target">
+    		<bean class="com.cablevision.service.impl.ChannelSpringService">
+    			<property name="dao">
+    				<bean class="com.cablevision.dao.impl.ChannelHibernateDao">
+    					<property name="sessionFactory" ref="sessionFactory"/>
+    				</bean>
+    			</property>
+    		</bean>
+    	</property>
+    </bean>
+    <bean id="PaperlessService" parent="baseTransactionProxy">
+    	<property name="target">
+    		<bean class="com.cablevision.service.impl.PaperlessSpringService">
+    			<property name="dao">
+    				<bean class="com.cablevision.dao.impl.PaperlessHibernateDao">
+    				<property name="sessionFactory" ref="sessionFactory"/>
+    				</bean>
+    			</property>
+    		</bean>
+    	</property>
+    </bean>
+    				
+    <bean id="DisponibilidadService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.cablevision.portal.sitemap.impl.DisponibilidadSpringService">
+				<property name="dao">
+					<bean class="com.cablevision.dao.impl.DisponibilidadHibernateDao">
+					<property name="sessionFactory" ref="sessionFactory"/>
+					</bean>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="EmailService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.cablevision.service.impl.EmailSpringService">
+				<property name="dao">
+					<bean class="com.cablevision.dao.impl.EmailHibernateDao">
+					<property name="sessionFactory" ref="sessionFactory"/>
+					</bean>
+				</property>
+			</bean>
+		</property>
+	</bean>
+     <bean id="CotizadorService" parent="baseTransactionProxy">
+    	<property name="target">
+    		<bean class="com.cablevision.service.impl.CotizadorSpringService">
+    			<property name="dao">
+    				<bean class="com.cablevision.dao.impl.CotizadorHibernateDao">
+    					<property name="sessionFactory" ref="sessionFactory"/>
+    				</bean>
+    			</property>
+    		</bean>
+    	</property>
+    </bean>
+    <bean id="LeadService" parent="baseTransactionProxy" lazy-init="true">
+    	<property name="target">
+    		<bean class="com.cablevision.service.impl.LeadSpringService">
+    			<property name="dao">
+    				<bean class="com.cablevision.dao.impl.LeadHibernateDao">
+    					<property name="sessionFactory" ref="sessionFactory"/>
+    				</bean>
+    			</property>
+    		</bean>
+    	</property>
+    </bean>
+    <bean id="McafeeDownloadsService" parent="baseTransactionProxy">
+    	<property name="target">
+    		<bean class="com.cablevision.service.impl.McafeeDownloadsSpringService">
+    			<property name="dao">
+    				<bean class="com.cablevision.dao.impl.McafeeDownloadsHibernateDao">
+    					<property name="sessionFactory" ref="sessionFactory"/>
+    				</bean>
+    			</property>
+    		</bean>
+    	</property>
+    </bean>
+    <bean id="CommentOaService" parent="baseTransactionProxy">
+    	<property name="target">
+    		<bean class="com.cablevision.service.impl.CommentOaSpringService">
+    			<property name="dao">
+    				<bean class="com.cablevision.dao.impl.CommentOaHibernateDao">
+    					<property name="sessionFactory" ref="sessionFactory"/>
+    				</bean>
+    			</property>
+    		</bean>
+    	</property>
+    </bean>
+    <bean id="CombosService" parent="baseTransactionProxy">
+    	<property name="target">
+    		<bean class="com.cablevision.service.impl.CombosSpringService">
+    			<property name="dao">
+    				<bean class="com.cablevision.dao.impl.CombosHibernateDao">
+    				<property name="sessionFactory" ref="sessionFactory"/>
+    				</bean>
+    			</property>
+    		</bean>
+    		</property>
+    </bean>
+    <bean id="ProgramScheduleService" parent="baseTransactionProxy">
+    	<property name="target">
+    		<bean class="com.cablevision.service.impl.ProgramScheduleSpringService">
+    			<property name="dao">
+    				<bean class="com.cablevision.dao.impl.ProgramScheduleHibernateDao">
+    				<property name="sessionFactory" ref="sessionFactory"/>
+    				</bean>
+    			</property>
+    		</bean>
+    	</property>
+    </bean>
+    <bean id="BolsaTrabajoService" parent="baseTransactionProxy">
+    	<property name="target">
+    		<bean class="com.cablevision.service.impl.BolsaTrabajoSpringService">
+    			<property name="dao">
+    				<bean class="com.cablevision.dao.impl.BolsaTrabajoHibernateDao">
+    					<property name="sessionFactory" ref="sessionFactory"/>
+    				</bean>
+    			</property>
+    		</bean>
+    	</property>
+    </bean>
+    <bean id="NewsletterService" parent="baseTransactionProxy">
+    	<property name="target">
+    		<bean class="com.cablevision.service.impl.NewsletterSpringService">
+    			<property name="dao">
+    				<bean class="com.cablevision.dao.impl.NewsletterHibernateDao">
+    					<property name="sessionFactory" ref="sessionFactory"/>
+    				</bean>
+    			</property>
+    		</bean>
+    	</property>
+    </bean>
+    <bean id="AnswerService" parent="baseTransactionProxy">
+    	<property name="target">
+    		<bean class="com.cablevision.service.impl.AnswerSpringService">
+    			<property name="dao">
+    				<bean class="com.cablevision.dao.impl.AnswerHibernateDao">
+    					<property name="sessionFactory" ref="sessionFactory"/>
+    				</bean>
+    			</property>
+    		</bean>
+    	</property>
+    </bean>
+</beans>

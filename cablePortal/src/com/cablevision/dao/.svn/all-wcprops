@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao
+END
+ICombosDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/ICombosDao.java
+END
+ICommentOaDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/ICommentOaDao.java
+END
+IBolsaTrabajoDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/IBolsaTrabajoDao.java
+END
+IProgramScheduleDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/IProgramScheduleDao.java
+END
+ILeadDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/ILeadDao.java
+END
+IEmailDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/IEmailDao.java
+END
+IChannelDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/IChannelDao.java
+END
+IUsuarioPortalDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/IUsuarioPortalDao.java
+END
+IMcafeeDownloadsDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/IMcafeeDownloadsDao.java
+END
+INewsletterDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/INewsletterDao.java
+END
+ICotizadorDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/ICotizadorDao.java
+END
+IDisponibilidadDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/IDisponibilidadDao.java
+END
+IPaperlessDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/IPaperlessDao.java
+END
+IAnswerDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/dao/IAnswerDao.java
+END

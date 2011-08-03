@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Two specializations are provided for the "bighorn" skin:
+    
+    The "msie" classification is used for ALL versions if Microsoft Internet Explorer. It provides
+    browser-specific functionality for multilevel menus and image rollovers.
+    
+    The "borderless" theme renders portlets without decoration; the titlebar (including buttons), border
+    and background are all suppressed.  The skin theme suppresses the border and makes the background color
+    transparent - see the skeleton theme for titlebar suppression functionality.
+-->
+<structure 
+    xmlns="http://www.bea.com/servers/portal/framework/laf/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.bea.com/servers/portal/framework/laf/1.0.0 laf-structure-1_0_0.xsd"
+>
+    <specializations>
+        <classifications>
+            <classification name="msie" path="msie"/>
+        </classifications>
+    </specializations>
+    <themes>
+    	<theme name="accesorios" path="secciones/accesorios"/>
+        <theme name="nuestrasSoluciones" path="secciones/nuestrasSoluciones"/>
+    </themes>
+</structure>

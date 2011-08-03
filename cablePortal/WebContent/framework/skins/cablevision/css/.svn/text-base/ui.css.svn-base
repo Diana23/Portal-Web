@@ -1,0 +1,1033 @@
+@charset "utf-8";
+
+/* em para busqueda */
+
+em {
+	font-style: normal;
+	font-weight: bolder;	
+}
+
+/* Links */
+
+a:link, a:visited  { color: #333; text-decoration:none; }
+a:hover, a:active { text-decoration:underline; }
+
+/* Fonts */
+
+h2.side, h3.side {
+	font-family: 	"Myriad Pro", Arial, sans-serif;
+	font-size: 		20px;
+	color:			#242424;
+	line-height:	30px;
+	margin-bottom:0;
+}
+h2.side{padding-left:35px;}
+/*h3.title-paperless{ padding:10px 0}*/
+
+h2.social {
+	font-family: 	Arial, serif;
+	font-size: 		18px;
+	color:			#f26507;
+	line-height:	36px;
+	font-weight:	bold;	
+}
+
+.cable-no-img {
+	font-family: 	Arial, serif;
+	font-size: 		20px;
+	color:			#111;
+	line-height:	36px;
+	font-weight:	bold;		
+}
+
+h2.white {
+	font-family: 	"Myriad Pro", Arial, sans-serif;
+	font-size: 		20px;
+	color:			#fff;
+	line-height:	30px;
+	padding-left:	15px;
+	margin-bottom:	0;
+}
+
+h2.construye-bk {
+	background:		url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll 0 -1590px transparent;
+	height:			39px;
+	width:			359px;
+}
+
+h2.construye-bk2 {
+	background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll 0 -1656px transparent;
+	height:39px;
+	width:442px;
+}
+
+h2.construye-bk3 {
+	background:		url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll 0 -1622px transparent;
+	height:			39px;
+	width:			459px;
+}
+
+h2.construye-bk4 {
+	background:		url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll 0 -1689px transparent;
+	height:			39px;
+	width:			377px;
+}
+
+h2.construye-bk5 {
+background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png") no-repeat scroll 0 -1484px transparent;
+height:39px;
+width:533px;
+}
+
+.logo-twiter {
+	background: 	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -808px -359px;
+}
+
+h3.title-videos {
+	font-family: 	"Myriad Pro", Arial, sans-serif;
+	font-size: 		20px;
+	color:			#71707c;
+	font-weight:	bold;
+}
+
+h3.title-content {
+	font-family: 	Arial, serif;
+	font-size: 		14px;
+	color:			#262626;
+	line-height:	36px;
+	font-weight:	bold;	
+}
+
+.titles-3cols {
+	font-family: 	Arial, serif;
+	font-size: 		14px;
+	color:			#262626;
+	padding:		10px 0px;	
+}
+
+.title-factura, .title-paperless {font-family: Arial, serif; color:#111;	font-weight: bold;}
+.title-factura{font-size:14px;}
+.title-paperless{font-size:12px; display:block; margin:10px 0; font-weight:normal}
+a.at-cliente{ text-decoration:underline!important}
+a:hover.at-cliente{ text-decoration:none!important}
+.title-at{ margin-bottom:0.8em;}
+.titles-3cols p {
+	font-family: 	Arial, serif;
+	font-size: 		11px;
+}
+
+.titles-3cols p , .titles-3cols strong {
+		font-size: 14px;
+		padding:	5px 15px;	
+	}
+
+.bajada-canales {
+	font-family: 	Arial, serif;
+	font-size: 		16px;
+	color:			#eb6500;
+	font-weight:	bold;
+	line-height:	40px;
+}
+
+
+.titulos-table-cls {
+	font-family: 	Arial, serif;
+	font-size: 		11px;	
+	text-align:		center;
+	padding:		0 auto;
+	text-transform:	uppercase;
+}
+
+.style5 {font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold;  }
+.mayusculas { text-transform:uppercase  }
+.style8 {font-family: Arial, Helvetica, sans-serif; font-size: 9px; }
+
+.down-canales {
+	font-family: 	Arial, serif;
+	font-size: 		14px;	
+	color:			#333;
+	height:			41px;
+	*padding-left:	110px;
+}
+
+.color-red     { color:#f00!important;}
+.color-white     { color:#fff!important;}
+.color-orange     { color:#eb6500!important;}
+.color-normal     { color:#f26507!important;}
+.color-negative { color:#ccc!important;}
+.color-bluedark { color:#002b53!important;}
+
+.linkBusqueda {font-size: 14px;}
+
+.legales { font-size: 10px; color: #999; }
+
+/* Accordeon */
+
+ul.no-accor-side li > a, ul.accor-side li > a {
+	display:   		block;
+	cursor:			pointer;
+	line-height:	34px;
+	width:			240px;
+	padding-left:	10px;
+	margin-bottom:	10px;
+	
+	font-weight:	none;
+	font-size: 		12px; 
+	font-family: 	Arial, serif;
+	}
+
+.menu-acc, .menu-no-acc { color: #626262!important; background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -739px -458px; text-decoration:none!important; }
+.menu-acc-hover, .menu-no-acc:hover { color: #fff!important; background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -739px -492px; text-decoration:none!important; }
+.menu-acc-sel 		{ color: #626262!important; background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -739px -527px; text-decoration:none!important; }
+.menu-acc-sel-hover  { color: #fff!important; background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -739px -562px; text-decoration:none!important; }
+
+.acc-cont { display: none; margin: -10px 0 10px;}
+	.acc-cont a.a-item { 
+		display: 		block;
+		border-bottom:	1px solid #ccc;
+		padding-left:	15px;
+		width:			189px;		
+		
+		line-height: 	30px;
+		font-size: 		11px;
+		font-family: 	Arial, serif;
+		color:			#333;
+		text-decoration:none;
+		}
+	.acc-cont a.a-item:hover { 
+		background: 		transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat 0 -670px; 
+		color:				#fff;
+		text-decoration:	none;
+	}
+
+	.acc-cont a.a-select { 
+		display: 		block;
+		border-bottom:	1px solid #ccc;
+		padding-left:	15px;
+		width:			189px;		
+		
+		line-height: 	30px;
+		font-size: 		11px;
+		font-family: 	Arial, serif;
+		color:			#fff;
+		text-decoration:none;
+		background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat 0 -642px; 
+	}
+
+/* Login - Th box */
+
+.login-in-thbox {  
+	font-family: 	Tahoma, arial, verdana, serif;
+	font-size:		11px;
+	color:			#231f20;
+	line-height:	130%;	
+	}
+	
+	
+	
+.wrap-img-thbk {	
+	background: 	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002010.jpg) no-repeat center 100px; 
+	padding:		175px 120px;
+}
+
+.wrap-img-thbk2 {	
+	background: 	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002011.jpg) no-repeat center 100px; 
+	padding:		175px 120px;
+}
+
+.wrap-img-thbk3 {	
+	background: 	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002011.jpg) no-repeat center 20px; 
+	padding:		90px 120px;
+}
+
+.wrap-img-thbk4 {	
+	background: 	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002013.jpg) no-repeat center 100px; 
+	padding:		175px 120px;
+}
+
+.wrap-img-thbk5 {	
+	background:		url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002270.jpg") no-repeat scroll 49px 20px transparent;
+	padding:		119px 0px;
+	font-size:		14px;
+	color:			#acacac;
+}
+
+.wrap-img-thbk6, .wrap-img-thbk7 {padding: 119px 50px;	font-size: 14px; color:#acacac; line-height:23px}
+.wrap-img-thbk6{ background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002269.jpg") no-repeat scroll 49px 20px transparent;}
+.wrap-img-thbk7{ background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002267.jpg") no-repeat scroll 49px 20px transparent;}
+
+.wrap-img-thbk8 {	
+	background: 	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv004450.jpg) no-repeat center 20px; 
+	padding:		90px 120px;
+}
+	
+.close-cross { position:	relative; top: -172px; left: 371px;  }
+.close-cross2 { position:	relative; top: -84px; left: 371px;  }
+.close-cross3 { position:	relative; top: -118px; left: 299px;  }
+
+
+/* Iconos */
+
+.ico-ateclie 	{ background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -935px -262px; display: block;}
+.ico-correo 		{ background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -935px -230px; display: block;}
+.ico-produ 		{ background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -931px -328px; display: block;}
+.ico-promo 		{ background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -935px -193px; display: block;}
+.ico-com-cable	{ background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -929px -298px; display: block;}
+.ico-con-remoto	{ background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -932px -1057px; display: block;}
+.ico-paq-prog	{ background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -938px -1024px; display: block;}
+.ico-torta		{ background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -860px -1154px; display: block;}
+.ico-manos		{ background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -860px -1103px; display: block;}
+.ico-caracteristicas { background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -923px -989px; display: block;}
+.ico-caracte2      { background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -939px -988px; display: block;}
+.ico-micta 		{ background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -932px -954px; display: block;}
+ul.paperless-list li.ico-ofrece{ background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002184.png) no-repeat scroll 5px 1px; display: block; padding-left:15px}
+
+
+ul.paperless-list li.ico-ofrece{ background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002184.png) no-repeat scroll 5px 1px; display: block; padding-left:15px}
+
+
+.ico-color-fb { 
+	background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -355px -151px; 
+	display:	block;
+	width:		30px;
+	height:		34px;
+	float:		right;
+	margin-top:	4px;
+	}
+	
+.bullet { background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -941px -398px transparent; }	
+.ico-entre-1 { background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat 0px -824px; }
+.ico-entre-1:hover { background-position: 0px -882px;}
+.ico-entre-2 { background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -278px -824px; }
+.ico-entre-2:hover { background-position: -278px -882px;}
+.ico-entre-3 { background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -605px -822px; }
+.ico-entre-3:hover { background-position: -605px -880px;}
+.ico-entre-4 { background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -921px -824px; }
+.ico-entre-4:hover { background-position: -921px -882px;}
+
+.ico-bred-you { 
+background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -391px -251px transparent; *margin-top: 3px;
+height:25px;
+width:54px;
+ }
+.ico-bred-you:hover { background-position: -454px -366px; }
+.ico-bred-twi { 
+background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -462px -251px transparent; *margin-top: 3px;
+height:25px;
+width:71px;
+}
+.ico-bred-twi:hover { background-position: -525px -366px; }
+.ico-bred-fac { 
+background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -549px -251px transparent; *margin-top: 3px;
+height:25px;
+width:70px;
+}
+.ico-bred-fac:hover { background-position: -612px -366px; }
+.ico-bred-mai { 
+background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -618px -250px transparent; *margin-top: 3px;
+height:25px;
+width:54px;}
+.ico-bred-mai:hover { background-position: -618px -366px; }
+.ico-bred-imp { 
+background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -663px -250px transparent; *margin-top: 3px;
+height:25px;
+width:54px;
+}
+.ico-bred-imp:hover { background-position: -663px -366px; }
+
+.inteo-icon { background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -505px -160px transparent; height: 25px; width: 25px; float: left; display: block; margin-left:205px;}
+.discv-icon { background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -531px -160px transparent; height: 25px; width: 25px; float: left; display: block;}
+.help-icon { background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -554px -161px transparent; height: 25px; width: 25px; float: left; display: block; }
+.text-icon { background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -577px -160px transparent; height: 25px; width: 25px; float: left; display: block; }
+
+/* Forms */
+
+.text-side {
+	font-size: 				13px; 
+	background-color: 		#fff;
+	-moz-border-radius: 	3px;
+	-webkit-border-radius: 	3px;
+	behavior:				url(border-radius.htc);
+	border: 				1px solid #b9b9b9;
+	padding: 				3px 0 3px 10px;
+	margin-bottom:			15px;	
+	position:				relative;
+	top:					-7px;
+	left:					0;
+	}
+	
+	.fix-top { top: 6px!important;} 
+
+.text-side-sinmar { 
+	background-color: 		#fff;
+	-moz-border-radius: 	3px;
+	-webkit-border-radius: 	3px;
+	behavior:				url(border-radius.htc);
+	border: 				1px solid #b9b9b9;
+	padding: 				3px 0 3px 10px;
+	}
+	
+.text-side-bsqfaq { 
+	background-color: 		#fff;
+	-moz-border-radius: 	3px;
+	-webkit-border-radius: 	3px;
+	behavior:				url(border-radius.htc);
+	border: 				1px solid #b9b9b9;
+	padding: 				3px 0 3px 27px;
+	margin:					10px 20px 0 0;
+	}
+
+.text-side-sinborder { 
+	background-color: 		#fff;
+	-moz-border-radius: 	3px;
+	-webkit-border-radius: 	3px;
+	behavior:				url(border-radius.htc);
+	padding: 				3px 0 3px 10px;
+	margin-bottom:			15px;	
+	position:				relative;
+	top:					-7px;
+	left:					0;
+}
+
+	.mini-lupa {
+		background:	url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll -698px -8px transparent;
+		border:		0 none;
+		display:	block;
+		float:		left;
+		height:		17px;
+		width:		15px;
+		margin-left:-20px;
+	}
+	
+.text-side input, .text-side-sinmar input, .text-side-bsqfaq input, .text-side textarea { 
+	background: transparent;
+	border: 	0px;
+	
+	font-size:	12px;
+	font-family:arial, serif;
+	color:		#8a8a8a;
+	}	
+	
+.twitter-box {
+	font-size:	12px;
+	font-family:arial, serif;
+	color:		#8a8a8a;
+	}
+
+	
+	.captcha { 
+		margin:0 0 0 -17px;
+		width:	310px;
+		border:	1px solid #ccc;
+	}
+	
+	.wrap-captcha { 	font-size:	10px; }
+		.wrap-captcha hr { margin: 10px 0; *margin: 5px 0;}
+		.captchaPar { color: #999; font-size: 9px; }
+
+		.wrap-captcha-wid { width: 300px; }
+/* Error`s*/		
+		
+	.error-msg {
+		font-size:	10px;
+		color:		#f00;
+		position:	relative;
+		top:		-10px;
+		left:		0px;
+	}
+
+	.error-msg-down {
+		font-size:	10px;
+		color:		#f00;
+		position:	relative;
+		top:		-45px;
+	}
+	
+	.error-msgReg {
+		font-size:	12px;
+		color:		#f00;
+		position:	relative;
+		top:		-10px;
+		left:		0px;
+	}
+
+/* Buttons */
+
+.btn-small:link, .btn-small:visited { 
+	display: 	block;
+	width:   	101px;
+	height:	 	36px;
+	background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat 0 -265px;
+	border: 	0px;
+	
+	color:			#fff;
+	font-size:		13px;
+	font-family:	"Myriad pro", Times new roman;
+	text-transform: uppercase;
+	font-style: 	normal;
+	text-align:		center;
+	letter-spacing: 0px;
+	line-height:	27px;
+	text-decoration:none;
+	font-weight:	none;
+	padding-top:	4px	
+}
+
+.btn-small:hover, .btn-small:active { 
+	color: #fff;
+	text-decoration: none;
+	background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat 0 -307px;
+	}
+
+.btn-minimized:link, .btn-minimized:visited { 
+	display: 	block;
+	width:   	101px;
+	height:	 	20px;
+	background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png) no-repeat -793px -786px;
+	border: 	0px;
+	
+	color:			#fff;
+	font-size:		13px;
+	font-family:	"Myriad pro", Times new roman;
+	text-transform: uppercase;
+	font-style: 	normal;
+	text-align:		center;
+	letter-spacing: 0px;
+	line-height:	20px;
+	text-decoration:none;
+	font-weight:	none;
+}
+
+.btn-minimized:hover, .btn-minimized:active { 
+	color: #fff;
+	text-decoration: none;
+	background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png) no-repeat -793px -809px;
+}
+
+.btn-medium:link, .btn-medium:visited { background-position: 0 -157px!important; width: 111px!important;}
+.btn-medium:hover, .btn-medium:active { background-position: 0 -199px!important; width: 111px!important;}
+	
+.btn-ctrt:link, .btn-ctrt:visited { 
+	display: 	block;
+	width:   	115px;
+	height:	 	25px;
+	background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -737px -240px;
+	border: 	0px;
+	
+	color:			#fff;
+	font-size:		13px;
+	font-family:	"Myriad pro", Times new roman;
+	text-transform: uppercase;
+	font-style: 	normal;
+	text-align:		center;
+	letter-spacing: 0px;
+	line-height:	27px;
+	text-decoration:none;
+	font-weight:	none;
+}
+
+.btn-minimized:hover, .btn-minimized:active { 
+	color: #fff;
+	text-decoration: none;
+	background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png) no-repeat -793px -809px;
+	}
+	
+.btn-medium:link, .btn-medium:visited { background-position: 0 -157px!important; width: 111px!important;}
+.btn-medium:hover, .btn-medium:active { background-position: 0 -199px!important; width: 111px!important;}
+
+.btn-ctrt:link, .btn-ctrt:visited { 
+	display: 	block;
+	width:   	115px;
+	height:	 	25px;
+	background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -737px -240px;
+	border: 	0px;
+	
+	color:			#fff;
+	font-size:		13px;
+	font-family:	"Myriad pro", Times new roman;
+	text-transform: uppercase;
+	font-style: 	normal;
+	text-align:		center;
+	letter-spacing: 0px;
+	line-height:	27px;
+	text-decoration:none;
+	font-weight:	none;
+}
+
+.btn-ctrt:hover, .btn-ctrt:active { 
+	color: #fff;
+	text-decoration: none;
+	background: transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -737px -266px;
+	}
+	
+.bs-2-lines { line-height:	14px !important; }
+
+.buscar-canales { 
+	background: 	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -904px -642px;
+	width: 			30px;
+	height:			25px;
+	margin:			7px 10px 0 3px;
+	*margin:		-31px 10px 0px 3px;
+}
+
+.buscar-canales:hover { background-position: -904px -667px;}
+
+.btn-registrate { 
+	background: 	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -728px -181px; 
+	width: 			120px;
+	height:			30px;
+}
+.btn-registrate:hover { background: 	transparent url(/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png) no-repeat -728px -207px; }
+
+.ftl-btn { position:	relative; top: 222px; left: 50px;}
+
+/* Th box - canales*/
+
+.thbox-latin {
+	background:	transparent url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002017.png") no-repeat scroll 0 0;
+	height:		198px;
+	left:		72px;
+	padding:	6px 0 0 16px;
+	position:	relative;
+	width:		326px;
+	z-index: 	100;
+}
+
+	.thbox-latin .th-title {
+		font-size:  14px; 
+		color: 		#333; 
+		text-transform:	uppercase;
+		font-weight:bold;
+		}
+		
+	.thbox-latin .th-title-white {		
+		font-size:  14px; 
+		color: 		#fff; 
+		font-weight:bold;
+	}
+	
+	.bk-full-tree {
+		background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002237.png") no-repeat scroll -34px 0 transparent;
+		height:192px;
+		padding: 38px 249px 0 13px ;
+	}
+
+/* Form Registro*/
+
+.wrap-form-full { width:	450px; margin: 0 auto; padding: 30px 0;}
+
+
+/* Form Registro*/
+
+	#formreg { 
+		font-family: 	arial;
+		font-size:		14px;
+		color: 			#111;
+		
+		}
+
+	#formreg label { padding-left: 3px; line-height:35px; }
+	#formreg input , #formreg textarea, #formreg select, .selectwhitoutform { 
+		background-color: 		#fff;
+		-moz-border-radius: 	3px;
+		-webkit-border-radius: 	3px;
+		behavior:				url(border-radius.htc);
+		border: 				1px solid #b9b9b9;
+		padding: 				7px 7px 7px 10px;
+		margin-bottom:			15px;
+		font-size:				12px;
+		color:					#333!important;		
+	}
+	
+	span.caracteres{ color:#666; font-size:12px;}
+	#formreg input.small { width: 30px;}
+	#formreg input.medium { width: 147px; }
+	#formreg input.big{ width: 220px; }
+	
+	#formreg select.tipo-problema { width: 400px; }
+	
+	#formreg select.bigest { width: 350px; }
+	#formreg input.bigest{ width: 350px; }
+	#formreg input.bigfix{ width: 330px; }
+	#formreg input.check{ border:0!important; float:left; display:block; margin-right:3px; position:relative; top:10px; top:7px!ie; }
+	ul.mail li{ clear:both;}
+	#formreg label.suscribe{padding:0; float:left;  display:block;}
+
+	
+	#formreg textarea { width: 260px; height:	100px; overflow: hidden; }
+	#formreg textarea.queja { width: 580px; height:	150px; overflow: hidden; }
+	
+	#formreg p { color: #c8c8c8; font-size: 10px; line-height: 13px; width: 240px; } 
+	
+	.line-height-fix { 
+		line-height: 	400%;
+		font-family:	arial;
+		font-size:		14px;
+		}
+
+
+
+
+
+
+	/* Bolsa de trabajo */
+	
+	/*  ingreso CV*/
+	.error_form_cv {
+		color:#FF0000;
+		font-size:10px;
+		left:0;
+	}
+		
+
+	/* disponibilidad */
+	
+	.check-dispo {
+		background:	none repeat scroll 0 0 #EAEAEA;
+		border:		1px solid #CCC;
+		margin:		20px auto;
+		padding:	25px 50px;
+	}
+	
+	.disp-ok { font-size: 16px; font-weight: bold; color: #53C959; line-height: 25px;}
+	.disp-error { font-size: 16px; font-weight: bold; color: #900; line-height: 25px;}
+	.disp-error-small { font-size: 10px; font-weight: bold; color: #900; line-height: 13px;}
+	
+	.cod-postal {
+		padding:	5px;
+		font-size:	12px;
+		color:		#333;		
+	}	
+	
+/* Fix`s */
+
+.text-nounder { font-size: 12px; text-decoration: none!important;;}
+
+.fright{ float: right!important;}
+.fleft{ float: left!important;}
+
+.smaller { font-size: 10px!important;}
+
+.floatimgs { margin-top: -50px; z-index: 10;}
+
+.width-select-faq { width: 194px; }
+
+.color-red {}
+
+.font-fix {
+	font-family: 	"Myriad Pro", Arial, sans-serif;
+	font-size: 		20px;
+	color:			#fff;
+	}
+.margin-top10 { margin-top:	10px; }
+.margin-top-15 { margin-top:	-15px!important; }
+.margin-top15 { margin-top:	15px; }
+.margin-top20 { margin-top:	20px; }
+.margin-top28 { margin-top:	28px; }
+.margin-top100 { margin-top:	100px; }
+.margin-top150 { margin-top: 150px; }
+.margin-top-10 { margin-top:	-10px; }
+.margin-top-30 { margin-top:	-30px; }
+.margin-top-45 { margin-top:	-45px; }
+
+.padding-top10 { padding-top:	10px; }
+.padding-top15 { padding-top:	15px; }
+.padding-top20 { padding-top:	20px; }
+.padding-bot20 { padding-bottom:	20px; }
+.padding-top25 { padding-top:	25px; }
+.padding-top40 { padding-top:	40px; }
+.padding-top100 { padding-top:	100px; }
+.margin-n-top80 { margin-top:	-80px; }
+.margin-n-top180 { margin-top:	-180px; }
+.foot-canales { margin-top:	-120px!important; }
+.margin-bot0 { margin-bottom:	0px!important; }
+.margin-bot10 { margin-bottom:	10px!important; }
+.margin-bot15 { margin-bottom:	15px!important; }
+.margin-bot8 { margin-bottom:	8px; }
+.margin-top40 { margin-top:	40px; }
+.margin-top45 { margin-top:	45px; }
+.margin-top65 { margin-top:	65px; }
+.margin-top79 { margin-top:79px;}
+.margin-bot40 { margin-bottom:	40px; }
+.margin-bot50 { margin-bottom:	50px; }
+.margin-bot20 { margin-bottom:	20px; }
+.margin-bot30 { margin-bottom:	30px; }
+.marg-rig5 { margin-right:5px; }
+.marg-rig15 { margin-right:15px; }
+.marg-rig40 { margin-right:40px!important; } 
+.marg-left0 { margin-left:0px!important; }
+.marg-left20 { margin-left:20px; }
+.marg-left220 { margin-left:220px; }
+.marg-left110 { margin-left:110px; }
+.marg-left320 { margin-left:320px; }
+.marg-button{ margin:105px 0 40px 0}
+
+.padd-fix-1 { padding-left: 15px;}
+.padd-fix-2, .padd-fix-3 { padding-left: 52px;}
+
+.padd-fix-4 { padding: 8px 15px;}
+
+.padd-tb-small { padding: 8px 0;   }
+.padding-rl20 { padding: 20px 20px 0; }
+.padding-rl50 { padding: 0 30px; }
+
+.padding-full60 { padding: 30px 60px; }
+
+.margin-left-15 { margin-left:	-15px!important; }
+.padding-left45 { padding-left:	45px!important; }
+.padding-left60 { padding-left:	60px; }
+.padding-left15true { padding-left:	15px; }
+.padding-left15 { padding-left:	70px; }
+.padding-left30 { padding-left:	30px; }
+.padd-long-left { padding-left:	40px!important; }
+.padd-left-50 { padding-left:	50px!important; }
+.padding-right20 { padding-right:	20px; }
+
+.bord-rig { border-right:	1px solid #ccc; }
+.bord-toped { border-top:	1px solid #e3e3e3;}
+.bord-toped-111 { border-top:	1px solid #111;}
+.bord-boted { border-bottom:	1px solid #ededed;}
+
+.bk-red { background: red;}
+
+.cod-postal {
+	color:#333333;
+	font-size:12px;
+	padding:5px;
+}
+
+.disp-error-small {
+	color:#990000;
+	font-size:10px;
+	font-weight:bold;
+	line-height:13px;
+}
+.disp-ok {
+	font-size: 10px; 
+	font-weight: bold; 
+	color: #53C959; 
+	line-height: 13px;
+}
+
+#formreg label, .label-solos, span.reference {
+	line-height:35px;
+	padding-left:3px;
+}
+
+.formulario { 
+  font-family:  arial;
+  font-size:  14px;
+  color:    #111;
+  
+  }
+ 
+ .formulario label { padding-left: 3px; line-height:35px; }
+ .formulario input , .formulario textarea, .formulario select { 
+  background-color:   #fff;
+  -moz-border-radius:  3px;
+  -webkit-border-radius:  3px;
+  behavior:    url(border-radius.htc);
+  border:     1px solid #b9b9b9;
+  padding:     7px 7px 7px 10px;
+  margin-bottom:   15px;
+  font-size:    12px;
+  color:     #333!important;  
+ }
+
+.formulario input.check {
+	border:0 none !important;
+	display:block;
+	float:left;
+	margin-right:3px;
+	position:relative;
+	top:10px;
+}
+ 
+ .formulario input.small { width: 30px;}
+ .formulario input.medium { width: 147px; }
+ .formulario input.big { width: 220px; }
+ .formulario input.bigR { width: 180px; } 
+ .formulario select.bigest { width: 350px; }
+ .formulario input.bigest{ width: 350px; }
+ .formulario input.bigfix{ width: 330px; }
+ 
+ .formulario textarea { width: 260px; height: 100px; overflow: hidden; }
+textarea.ta-atencion-clientes{
+ 	width: 300px !important;
+ 	height: 160px !important;
+ 	overflow: auto !important;
+ 	background: none;
+ 	border: none;
+ 	font-family: inherit;
+ 	font-size: 100%;
+ 	margin-bottom: 0 !important;
+ }
+textarea.ta-mis-solicitudes{
+ 	width: 340px !important;
+ 	height: 133px !important;
+ 	overflow: auto !important;
+ 	background: none;
+ 	border: none;
+ 	font-family: inherit;
+ 	font-size: 100%;
+ 	margin-bottom: 0 !important;
+ }
+ .formulario textarea.big { width: 450px; height: 160px; overflow: hidden; }
+ 
+ /*
+ .formulario p { color: #c8c8c8; font-size: 10px; line-height: 13px; width: 240px; }
+ */
+ .formulario p.estilizado { color: #c8c8c8; font-size: 10px; line-height: 13px; width: 240px; }
+ 
+ .formulario p { color: #c8c8c8; font-size: 10px; line-height: 13px; width: 240px; }
+
+.tab-entre-head{
+	/*
+	background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png") no-repeat scroll -12px -780px transparent;
+	*/
+	margin-top: -17px;
+}
+
+.tab-entre-foot{
+	background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png") no-repeat scroll -12px -816px transparent;
+	height: 50px;
+}
+
+/* Estilos para la seccion de programacion en la pagina de OnDemand*/
+/* JGHP - JWM */
+#wrap-programacion{width: 703px; margin: 0 auto;}
+#dv_cbs_categorias{background-color: #e1e1e1; padding: 4px;}
+.block{width: 328px; padding: 5px; float: left; border: 1px solid #E1E1E1; background-color: #f3f3f3;}
+.prog-header{float: left; font-size: 10px; padding-top: 14px;}
+.prog-header a{color: #999999; text-decoration: none;}
+.prog-cell{float: left; font-size: 12px; font-weight: bold; text-transform: uppercase; color: #002B53;}
+.prog-cell span{color: #999; font-size: 10px; padding-left: 15px;}
+.nombre{width: 70%; overflow: hidden;}
+.categoria{width: 30%; text-align: center; overflow: hidden;}
+#dv_content_categorias{max-height: 500px; overflow: auto; background-color: #e1e1e1;}
+ 
+/* mensaje de success */
+.msg-success {
+	font-size:	10px;
+	color:		green;
+	position:	relative;
+	top:		-10px;
+	left:		0px;
+}
+
+.formulario label.suscribe {
+	display:block;
+	float:left;
+	padding:0;
+}
+
+.formulario label, .label-solos, span.reference {
+	line-height:35px;
+	padding-left:3px;
+}
+
+ul.mail li {
+	clear:both;
+}
+
+.padding-top15 {
+	padding-top:15px;
+}
+
+.title-at {
+	margin-bottom:0.8em;
+}
+
+.margin-bot10 {
+	margin-bottom:10px !important;
+}
+
+.margin-bot30 {
+	margin-bottom:30px;
+}
+
+a.at-cliente {
+	text-decoration:underline !important;
+}
+
+span.caracteres {
+	color:#666666;
+	font-size:12px;
+}
+
+.inputCaptcha {
+-moz-border-radius:3px 3px 3px 3px;
+background-color:#FFFFFF;
+border:1px;
+font-size:12px;
+}
+.errorField {
+	color: #FF0000!important;
+}
+
+.fieldNews {
+	width: 225px;
+	margin: 15px 0 15px 0;
+}
+.marg-left480 {
+	margin-left:480px;
+}
+.faqpager{
+	text-align: center;
+}
+
+.faqpager-results{
+	margin-bottom: 15px;
+}
+
+/*Cotiza y Contrata - Promociones*/
+
+h2.cyc-promo1 {
+	background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002159.png") no-repeat scroll -503px -1677px transparent;
+	height:39px;
+	width:533px;
+}
+
+.padding-left12 {
+	padding-left:12px;
+}
+
+/*Atencion a Clientes - Control de Padres*/
+
+.width-select-pasos {
+	width:350px;
+}
+
+/* home */
+
+h2.side2 {
+    color: #242424;
+    font-family: "Myriad Pro",Arial, sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 0;
+    padding: 3px 0 0 30px;
+    width: 200px;
+}
+
+/*Error msg label para cada campo*/
+
+.error-msgLabel {
+	font-size:	10px;
+	color:		#f00;
+	position:	relative;
+	top:		-10px;
+	left:		0px;
+	line-height:15px !important;
+}
+
+.porta-success-small { 
+	font-size: 10px; 
+	font-weight: bold; 
+	color: #53C959; 
+	line-height: 13px;
+}
+
+.fleft {
+    float: left !important;
+}

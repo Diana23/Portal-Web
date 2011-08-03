@@ -1,0 +1,29 @@
+#Mon Oct 19 18:32:24 CDT 2009
+error.requerido.telefono=El tel\u00E9fono de contacto es un campo requerido.
+errors.suffix=
+error.requerido.confirmaEmail=La confirmaci\u00F3n del correo electr\u00F3nico es obligatoria.
+error.confirmacion.pass=La confirmaci\u00F3n de contrase\u00F1a no coincide.
+errors.footer=</font>
+error.requerido.pregunta=La pregunta de confirmaci\u00F3n es un campo requerido.
+error.requerido.name=El nombre es un campo requerido.
+error.confirmacion.email=La confirmaci\u00F3n del correo electr\u00F3nico no coincide.
+error.requerido.pass=La contrase\u00F1a es un campo requerido.
+error.requerido.idUsuario=El ID de usuario es un campo requerido.
+errors.prefix=<br/>
+error.requerido.noContrato=EL n\u00FAmero de contrato en CABLEVISION es un campo requerido.
+error.numero.contrato=El n\u00FAmero de contrato deben ser 8 d&iacute;gitos
+error.numero.telefono=El tel\u00E9fono de contacto debe ser de 8 d&iacute;gitos
+error.requerido.confirmapass=La confirmaci\u00F3n de contrase\u00F1a es requerida.
+errors.header=<font size\="1" color\="Red">
+error.requerido.respuesta=La respuesta de confirmaci\u00F3n es un campo requerido.
+error.requerido.entiendo=Debe aceptar los t\u00E9rminos y condiciones.
+error.requerido.email=El correo electr\u00F3nico es requerido.
+error.formato.email=El email tiene un formato inv\u00E1lido.
+error.requerido.paterno=El apellido paterno es un campo requerido.
+error.requerido.materno=El apellido materno es un campo requerido.
+error.formato=El formulario solo acepta letras y n\u00FAmeros, favor de llenar sin acentos ni caracteres especiales.
+error.formato.nombre=El Nombre solo acepta letras, favor de llenar sin acentos ni caracteres especiales.
+error.formato.paterno=El Apellido Paterno solo acepta letras, favor de llenar sin acentos ni caracteres especiales.
+error.formato.materno=El Apellido Materno solo acepta letras, favor de llenar sin acentos ni caracteres especiales.
+error.formato.respuestaConfirmacion=La Respuesta solo acepta letras, favor de llenar sin acentos ni caracteres especiales.
+error.size.pass=La longitud de la contrase\u00F1a debe ser de m\u00EDnimo 8 caracteres.

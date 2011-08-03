@@ -1,0 +1,202 @@
+#Configuracion de UCM
+ucm.usuario=contribuidor
+ucm.password=contribuidor
+
+
+ucm.imagen.popup.url=/contentserver/groups/administrador/documents/portal_resources_cv/cv_portal_fp_imagen1_busq.hcst
+ucm.flash.popup.url=/contentserver/groups/administrador/documents/portal_resources_cv/cv_portal_fla_busq.hcst
+ucm.html.popup.url=/contentserver/groups/administrador/documents/portal_resources_cv/cv_portal_html_busq.hcst
+ucm.pdf.popup.url=/contentserver/groups/administrador/documents/portal_resources_cv/cv_portal_fp_imagen1_busq.hcst
+ucm.todos.popup.url=/contentserver/groups/administrador/documents/portal_resources_cv/cv_portal_arch_busq.hcst
+
+ucm.imagen.popup.urlArchivo=/contentserver/idcplg?IdcService=GET_SEARCH_RESULTS&urlTemplate=%2F{0}%2Fgroups%2Fadministrador%2Fdocuments%2Fportal_resources_cv%2Fcv_portal_fp_imagen_busq_resul.hcst&QueryText=dDocName+%3Csubstring%3E+%60{1}%60++%3CAND%3E++dDocType+%3Cmatches%3E+%60IMAGEN_CV%60&SearchQueryFormat=UNIVERSAL&AdvSearch=True&ftx=&ResultCount=10&SortField=dInDate&SortOrder=Desc
+ucm.flash.popup.urlArchivo=/contentserver/idcplg?IdcService=GET_SEARCH_RESULTS&urlTemplate=%2F{0}%2Fgroups%2Fadministrador%2Fdocuments%2Fportal_resources_cv%2Fcv_portal_fla_busq_result.hcst&QueryText=dDocName+%3Csubstring%3E+%60{1}%60++%3CAND%3E++dDocType+%3Cmatches%3E+%60FLASH_CV%60&SearchQueryFormat=UNIVERSAL&AdvSearch=True&ftx=&ResultCount=10&SortField=dInDate&SortOrder=Desc
+ucm.html.popup.urlArchivo=/contentserver/idcplg?IdcService=GET_SEARCH_RESULTS&urlTemplate=%2F{0}%2Fgroups%2Fadministrador%2Fdocuments%2Fportal_resources_cv%2Fcv_portal_html_busq_result.hcst&QueryText=dDocName+%3Csubstring%3E+%60{1}%60++%3CAND%3E++dDocType+%3Cmatches%3E+%60HTML_CV%60&SearchQueryFormat=UNIVERSAL&AdvSearch=True&ftx=&ResultCount=10&SortField=dInDate&SortOrder=Desc
+
+ucm.folder.popup.url=/contentserver/idcplg?IdcService=COLLECTION_BROWSE&hasCollectionID=true&changeToUser={0}
+
+ucm.urlTemplate.test=idcdesa
+ucm.templates.folder=232
+ucm.folder.vacantes.id=212
+
+mail.smtp.user=jesfre.gy@gmail.com	
+mail.smtp.pass=pass
+
+#Carpeta para guardar archivos temporales
+ruta.guardar.archivos=/export/home/web/tmp/cablevision/
+
+# Directorios virtuales
+virtual.cablevision.archivosPerfil=/export/home/web/cablevisionPortal/archivos/archivosPerfil/
+virtual.cablevision.testimonios=/export/home/web/cablevisionPortal/testimonios/
+virtual.cablevision.teEscuchamos=/export/home/web/cablevisionPortal/teEscuchamos/
+
+#Configuracion de correo de cambio de contrase\u00F1a
+correo.cambiocontra.subject=Cablevision - Cambio de contrase\u00F1a
+correo.cambiocontra.from=info.cablevision@cablevision.net.mx
+correo.cambiocontra.templateId=CV000556
+correo.recuperapwd.subject=Cablevision - Recuperar contrase\u00F1a
+
+#Configuracion de correo de recuperacion de id de usuario
+correo.recuperaid.templateId=CV001941
+correo.recuperaid.subject=Cablevision - Recuperar no. de contrato
+
+#Configuracion de correo de Bienvenida a Mi Cuenta
+correo.bienvenido.subject=Cablevision - Bienvenido a Mi Cuenta CABLEVISION
+correo.bienvenido.from=info.cablevision@cablevision.net.mx
+correo.bienvenido.templateId=CV006203
+
+#Configuracion de correo postular vacantes
+correo.postularvacante.subject=Cablevision - Postular Vacante
+correo.postularvacante.from=info.cablevision@cablevision.net.mx
+correo.postularvacante.to=Shinojosa@corp.cablevision.net.mx
+correo.postularvacante.templateId=CV000776
+
+correo.mailvacante.subject=Trabaja en CABLEVISION
+
+#Keys para el ReCaptcha Desarrollo
+recaptcha.key=6LfZfQoAAAAAAM5q8NCxb80mfqCIPKt1hBNzT3R_
+recaptcha.privatekey=6LfZfQoAAAAAALFg5M6Y9DFUp2v_zVLV-lP7Eg_W
+
+#Keys para el ReCaptcha Testing
+#recaptcha.key=6LfcfQoAAAAAAG-uKJO24QA2Vgql4MMNf9PRjb1r
+#recaptcha.privatekey=6LfcfQoAAAAAACXRmY9VpvMVbLiQumXPtmND-n21
+
+#Keys para el ReCaptcha Produccion
+#recaptcha.key=6LfRfQoAAAAAAI4Uc6HsxDS3dV-5vrSOLjnFzHGx
+#recaptcha.privatekey=6LfRfQoAAAAAAA_Kvu7lbDKS1weLcjdv1tW7WzEm
+
+#Configuracion LDAP
+#Ldap Desarrollo
+# Para local
+ldap.url=ldap://172.20.1.26:389/o=cablevision.mx
+# Para remoto
+ldap.contextName=ou=isp
+ldap.useridAttribute=uid
+
+#Ldap Testing
+#ldap.url=ldap://172.20.1.32:389/o=cablevision.mx
+## Para remoto
+#ldap.contextName=ou=isp
+#ldap.useridAttribute=uid
+
+facturacion.fecha.anio=2009
+facturacion.fecha.mes=04
+
+#Ldap Testing
+#ldap.url=ldap://172.20.1.32:389/o=cablevision.mx
+#ldap.contextName=ou=isp
+#ldap.useridAttribute=uid
+
+#Email - Configuarar URL a paginas de correo
+email.url.crearCuenta=http://10.3.1.91:8000/autoadmin/m/customer/new_email_account.html
+email.url.recuperarPssw=http://10.3.1.91:8000/autoadmin/m/customer/recover_password.html
+email.url.gmail=https://www.google.com/a/corp.cablevision.net.mx/ServiceLogin
+email.dominio.user=@corp.cablevision.net.mx
+
+#Configuracion de McAfee
+mcafee.partnerid=625
+mcafee.sku=625-24053-mvsfpp
+mcafee.qty=1
+mcafee.action=PD
+mcafee.urlsuscription=https://partnersvc.mcafee.com/Request/Postrequest.aspx
+mcafee.urldownload=https://mx.mcafee.com/root/partnerlogin.asp
+mcafee.returnurl=www.cablevision.net.mx/mcafee
+
+
+#Configuracion de pagos
+pagos.id_company=0014
+pagos.id_branch=099
+pagos.country=MEX
+pagos.user=0014MSGU1
+pagos.pwduser=1H4K567U3H5Y
+pagos.merchant=00121
+pagos.tp_operation=13
+pagos.type=V/MC
+pagos.moneda=MXN
+pagos.urlResponse=https://200.77.160.4/eai_esn/start.swe
+pagos.url=https://ssl.e-pago.com.mx/pgs/WebPay
+
+#Configuracion de Programacion
+programacion.archivo.programrecord=mxprogrec.txt
+programacion.archivo.schedulerecord=mxskedrec.txt
+programacion.archivo.stationrecord=mxstatrec.txt
+programacion.archivo.translationrecord=tranrec.txt
+programacion.archivo.timezonerecord=timezonerec.txt
+programacion.archivo.channel=mxcl.fsf
+programacion.ftp.host=ftp.tmstv.com
+programacion.ftp.directory=pub/
+programacion.ftp.usr=cbm918nb
+programacion.ftp.pwd=DEX657gz
+#programacion.temporal=/portal/documentacion/programacion/tmp
+programacion.temporal=/export/home/web/tmp/cablevision/programacion/
+
+#MB
+teEscuchamos.image.maxfilesize = 1
+teEscuchamos.video.maxfilesize = 10
+ventajas.image.maxfilesize = 1
+ventajas.video.maxfilesize = 10
+#KB
+miCuenta.foto.maxfilesize = 512
+
+programacion.hd.categoria=8
+
+#Configuracion de correos
+#Leads
+correo.leads.subject=Cablevision - soporte
+correo.leads.from=info.cablevision@cablevision.net.mx
+correo.leads.templateId=CV000400
+
+#Configuracion de correo de cambio de contrase\u00F1a
+correo.cambiocontra.subject=Cablevision - Cambio de contrase\u00F1a
+correo.cambiocontra.from=info.cablevision@cablevision.net.mx
+correo.cambiocontra.templateId=CV000556
+correo.recuperapwd.subject=Cablevision - Recuperar contrase\u00F1a
+
+#Configuracion de correo de recuperacion de id de usuario
+correo.recuperaid.templateId=CV001941
+correo.recuperaid.subject=Cablevision - Recuperar no. de contrato
+
+#Para configurar un correo diferente para algun tipo de leads utilizar las mismas propiedades de arriba
+#pero agregando el leadType  despues de leads por ejemplo correo.leads1.subject
+correo.leads1.subject=Cablevision - soporte1
+correo.leads1.from=info.cablevision@cablevision.net.mx
+correo.leads1.templateId=CV000400
+
+#Configuracion de correo postular vacantes
+correo.postularvacante.subject=Cablevision - Postular Vacante
+correo.postularvacante.from=info.cablevision@cablevision.net.mx
+correo.postularvacante.to=Shinojosa@corp.cablevision.net.mx
+correo.postularvacante.templateId=CV000776
+
+correo.mailvacante.subject=Trabaja en CABLEVISION
+correo.mailvacante.templateId=CV004402
+
+#Configuracion de correo de NewsLetter
+correo.confirmacion.subject=Cablevision - NewsLetter
+correo.confirmacion.from=info.cablevision@cablevision.net.mx
+correo.confirmacion.templateId=CV001789
+
+#Configuracion de correos de Vacantes
+correo.vacantes.from=info.cablevision@cablevision.net.mx
+
+
+#Configuracion de Solr
+solr.server.url=http://localhost/apache-solr-1.4.1/
+
+#Configuracion de Solr en Produccion
+#propiedad a descomentar en testing para indexar contenido aprobado en solr de produccion
+#solr.server.url.prod=http://172.20.1.210:7001/apache-solr-1.4.1/
+
+#Trasformador para Newsletter
+carga.newsletter.transformador=com.cablevision.carga.transformador.TransformadorNewsletter
+
+#Numero de solicitudes para paginacion en el listado de solicitudes en Atencion a clientes
+atencionclientes.solicitudesporpagina=10
+#Trasformador para Noticias
+carga.noticia.transformador=com.cablevision.carga.transformador.TransformadorNoticia
+
+#ordenamiento de canales
+canales.orden.default=1,2,3,4,5,6,7
+
+#archivo comparativo de urls antiguas y nuevas
+urls.archivo.ucm=CV006202 

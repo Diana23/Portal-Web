@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvField" 
+    table="CV_FIELDS"
+    lazy="false"
+>
+    <id
+        name="cfsIdfield"
+        type="long"
+        column="CFS_IDFIELD"
+        length="22"
+    >
+        <generator class="assigned" />
+    </id>
+    <property
+        name="cfsErrormsgfield"
+        type="string"
+        column="CFS_ERRORMSGFIELD"
+        length="255"
+    />
+    <property
+        name="cfsIsrequiredfield"
+        type="string"
+        column="CFS_ISREQUIREDFIELD"
+        length="2"
+    />
+    <property
+        name="cfsMaskfield"
+        type="string"
+        column="CFS_MASKFIELD"
+        length="255"
+    />
+    <property
+        name="cfsNamealias"
+        type="string"
+        column="CFS_NAMEALIAS"
+        length="255"
+    />
+    <property
+        name="cfsNamefield"
+        type="string"
+        column="CFS_NAMEFIELD"
+        length="255"
+    />
+    <property
+        name="cfsTypefield"
+        type="string"
+        column="CFS_TYPEFIELD"
+        length="50"
+    />
+    <property
+        name="cfsScripts"
+        type="string"
+        column="CFS_SCRIPTS"
+        length="256"
+    />
+    <property
+        name="cfsAttrvalues"
+        type="string"
+        column="CFS_ATTRVALUES"
+        length="128"
+    />
+
+    <!-- Associations -->
+</class>
+</hibernate-mapping>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/util/sso
+END
+GoogleSSO.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/util/sso/GoogleSSO.java
+END
+UtilSSO.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/util/sso/UtilSSO.java
+END
+SamlResponseTemplate.xml.txt
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/util/sso/SamlResponseTemplate.xml.txt
+END
+dsaprivatekey.der
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/util/sso/dsaprivatekey.der
+END
+XmlDigitalSigner.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/util/sso/XmlDigitalSigner.java
+END
+dsapublickey.der
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/util/sso/dsapublickey.der
+END
+AuteticaGoogle.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/com/cablevision/util/sso/AuteticaGoogle.java
+END

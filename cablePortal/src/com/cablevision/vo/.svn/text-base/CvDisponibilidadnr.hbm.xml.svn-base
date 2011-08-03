@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvDisponibilidadnr" 
+    table="CV_DISPONIBILIDADNR"
+    lazy="false"
+>
+    <id
+        name="dispCp"
+        type="string"
+        column="DISP_CP"
+        length="20"
+    >
+        <generator class="assigned" />
+    </id>
+    <property
+        name="dispDisponible"
+        type="string"
+        column="DISP_DISPONIBLE"
+        length="5"
+    />
+
+    <!-- Associations -->
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+#Errores de Vitria
+error.codigo1.mensaje = micodigo1
+error.0x80b9--0x80df.mensaje=El n&uacute;mero de contrato y tel&eacute;fono no coinciden o no son v&aacute;lidos
+error.003.mensaje=El n&uacute;mero de contrato y tel&eacute;fono no coinciden o no son v&aacute;lidos
+#error.SBL-001.mensaje=El n&uacute;mero de contrato proporcionado ya tiene dado de alta una cuenta
+error.micodigo1.mensaje=error test
+error.0x80ef--0x8003--0x6eda--0x6b0c.mensaje=El numero ingresado no es valido. Por favor, ingrese otro numero de tarjeta
+#error.0x80ef--0x8003--0x6eda--0x6b0c.mensaje=La tarjeta no acepta cargos recurrentes.
+error.0x80ef--0x8003--0x6cd5.mensaje=El a&ntilde;o de la fecha de vencimiento debe ser igual o mayor al actual
+
+error.default.mensaje=Ha ocurrido un error inesperado, lamentamos las molestias que esto te ocasiona. </br>Por favor intenta consultar m\u00E1s tarde.
+
+
+#Errores de paperless
+error.PENDING.mensaje=Existe una petición pendiente para tu cuenta. Por favor inténtalo más tarde.
+error.UNKNOW_STS_CODE.mensaje=No es posible hacer la validación de tu cuenta de correo electrónico. Por favor inténtalo más tarde. 
+error.ADDRESS_VALIDATED.mensaje=No se pudo validar tu cuenta de correo electrónico. Por favor inténtalo más tarde. 
+error.UNABLE_TO_CONNECT_TO_SERVER.mensaje=No se pudo establecer comunicación con tu servidor de correo electrónico. Por favor inténtalo más tarde. 
+error.NOT_EXIST_ADDRESS.mensaje=La dirección de correo electrónico que ingresaste no existe. Por favor escribe un correo electrónico válido.
+error.INVALID_RESPONSE_CODE.mensaje=No fue posible validar tu cuenta de correo electrónico. Por favor inténtalo más tarde. 
+error.INVALID_STRUCTURE_EMAIL_ADDRESS.mensaje=La dirección de correo electrónico que ingresaste tiene un formato inválido. Por favor escribe un correo electrónico válido.
+error.EXCEPTION.mensaje=No es posible validar tu cuenta de correo electrónico. Por favor inténtalo más tarde. 
+
+# Errores de Mcafee
+mcafee.error.unknown=Ha ocurrido un error inesperado en el portal de Servicios en L&iacute;nea, lamentamos las molestias que esto te ocasiona. Por favor intenta iniciar sesi&oacute;n en el portal m&aacute;s tarde.
+mcafee.error.invalidXml=DOM XML error: unknown response or invalid xml document
+mcafee.error.emptyResponse=McAfee error: empty response
+mcafee.error.package=Lo sentimos tu cuenta no tiene el servicio de Internet
+mcafee.error.limit=Lo sentimos has excedido el número de intentos de descarga
+mcafee.error.service=Este servicio es para usuarios con invitaci&oacute;n.
+
+# Errores Paperless
+error.email.mensaje=El correo que usted ingreso no es un correo válido

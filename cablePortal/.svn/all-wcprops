@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/PortalWeb/!svn/ver/1/cablePortal
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/PortalWeb/!svn/ver/4/cablePortal/.classpath
+END
+.factorypath
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/PortalWeb/!svn/ver/4/cablePortal/.factorypath
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/PortalWeb/!svn/ver/4/cablePortal/.project
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/PortalWeb/!svn/ver/4/cablePortal/.gitignore
+END
+.springBeans
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/PortalWeb/!svn/ver/4/cablePortal/.springBeans
+END

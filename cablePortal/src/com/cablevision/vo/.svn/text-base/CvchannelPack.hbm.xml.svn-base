@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvchannelPack" 
+    table="CV_CHANNEL_PACK"
+    lazy="false"
+>
+    <composite-id name="compId" class="com.cablevision.vo.CvchannelPackPK">
+        <key-property 
+            name="idpack" 
+            type="long"
+            column="CNP_ID" 
+            length="22"
+        />
+    </composite-id>
+
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to Cvchannel -->
+    <many-to-one
+        name="cvchannel"
+        class="com.cablevision.vo.Cvchannel"
+        update="false"
+        insert="false"
+        lazy="false"
+    >
+        <column name="CNP_IDCHANNEL" not-null="true" length="22"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Cvpack -->
+    <many-to-one
+        name="cvpack"
+        class="com.cablevision.vo.Cvpack"
+        update="false"
+        insert="false"
+        lazy="false"
+    >
+        <column name="CNP_IDPACK" not-null="true" length="22"/>
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

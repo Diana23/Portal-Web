@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/com/cablevision/controller/login
+END
+index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/com/cablevision/controller/login/index.jsp
+END
+success.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/com/cablevision/controller/login/success.jsp
+END
+logout.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/com/cablevision/controller/login/logout.jsp
+END
+logininth.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/com/cablevision/controller/login/logininth.jsp
+END
+index_primeraVersion.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/com/cablevision/controller/login/index_primeraVersion.jsp
+END
+selLogin.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/PortalWeb/!svn/ver/4/cablePortal/WebContent/com/cablevision/controller/login/selLogin.jsp
+END

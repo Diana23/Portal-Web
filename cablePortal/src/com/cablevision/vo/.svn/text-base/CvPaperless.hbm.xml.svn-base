@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.cablevision.vo.CvPaperless" lazy="false" table="CV_PAPERLESS">
+	<id
+        name="pplContrato"
+        type="string"
+        column="PPL_CONTRATO"
+        length="8"
+    >
+		<generator class="assigned" />
+	</id>
+	<property
+        name="pplEmail"
+        type="string"
+        column="PPL_EMAIL"
+        not-null="true"
+        length="50"
+    />
+	<property
+        name="pplEstatus"
+        type="string"
+        column="PPL_ESTATUS"
+        not-null="true"
+        length="2"
+    />
+	<property
+        name="pplIdusuario"
+        type="string"
+        column="PPL_IDUSUARIO"
+        length="30"
+    />
+	<property
+        name="pplLastUpdate"
+        type="date"
+        column="PPL_LAST_UPDATE"
+        not-null="true"
+        length="7"
+    />
+	<property
+        name="pplNombre"
+        type="string"
+        column="PPL_NOMBRE"
+        not-null="true"
+        length="150"
+    />
+	<property
+        name="pplFechaIngreso"
+        type="date"
+        column="PPL_FECHA_INGRESO"
+        not-null="true"
+        length="7"
+    />
+    
+	<!-- Associations -->
+
+</class>
+</hibernate-mapping>

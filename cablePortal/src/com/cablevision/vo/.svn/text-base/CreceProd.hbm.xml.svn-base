@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CreceProd" 
+    table="CV_CRECEPROD" 
+    lazy="false"
+>
+    <composite-id name="compId" class="com.cablevision.vo.CreceProdPK">
+        <key-property 
+            name="cprId" 
+            type="long"
+            column="CPR_ID" 
+            length="22"
+        />
+        <key-many-to-one 
+        	name="productService" 
+        	class="com.cablevision.vo.ProductService" 
+        	column="CPR_ID_PRODSERVICE"
+        />
+    </composite-id>
+    <property
+        name="cprGroup"
+        type="string"
+        column="CPR_GROUP"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="cprIdUpgradesprod"
+        type="long"
+        column="CPR_ID_UPGRADESPROD"
+        length="10"
+    />
+    <property
+        name="cprPriority"
+        type="integer"
+        column="CPR_PRIORITY"
+        length="3"
+    />
+
+    <!-- Associations -->
+
+</class>
+</hibernate-mapping>

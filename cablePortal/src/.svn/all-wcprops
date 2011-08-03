@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/PortalWeb/!svn/ver/4/cablePortal/src
+END
+configuracion.properties
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/configuracion.properties
+END
+Controller.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/Controller.java
+END
+mensajeError.properties
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/mensajeError.properties
+END
+applicationContext2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/applicationContext2.xml
+END
+hibernate.cfg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/hibernate.cfg.xml
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/PortalWeb/!svn/ver/4/cablePortal/src/log4j.xml
+END

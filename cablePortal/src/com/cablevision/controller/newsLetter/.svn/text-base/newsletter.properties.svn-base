@@ -1,0 +1,12 @@
+
+error.requerido.email=El Email es requerido.
+error.formato.email=El Email tiene un formato inv\u00E1lido.grabar.datos.exito=Los datos se crearon con &eacute;xito.
+modificar.datos.exito=Los datos se modificaron con &eacute;xito.
+eliminar.datos.exito=Los datos se eliminaron con &eacute;xito.
+grabar.categorias.exito=Las categor&iacute;as se crearon con &eacute;xito.
+modificar.categorias.exito=Las categor&iacute;as se modificaron con &eacute;xito.
+errors.header=<font size\="3" color\="Red">
+errors.prefix=<br/>
+errors.footer=</font>
+errors.suffix=
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.cablevision.vo.CvLeadStatus" 
+    table="CV_LEADSTATUS"
+    lazy="false"
+>
+ 
+	<id
+        name="clsIdLeadstatus"
+        type="long"
+        column="CLS_ID_LEADSTATUS"
+        length="11"
+    >
+        <generator class="assigned" />
+    </id>
+
+	<property
+        name="clsIcon"
+        type="string"
+        column="CLS_ICON"
+        length="255"
+    />
+    
+	<property
+        name="clsMessagestatus"
+        type="string"
+        column="CLS_MESSAGESTATUS"
+        not-null="true"
+        length="2000"
+    />
+    
+    <property
+        name="clsNameleadstatus"
+        type="string"
+        column="CLS_NAMELEADSTATUS"
+        length="100"
+    />
+    
+
+    <!-- Associations -->
+	<set name="leads" lazy="true" cascade="all" inverse="true">
+		<key column="CLS_ID_LEADSTATUS" not-null="true"/>
+		<one-to-many class="com.cablevision.vo.CvLead" />
+	</set>
+	
+</class>
+</hibernate-mapping>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.cablevision.vo.Email" lazy="false" table="EMAIL">
+	<id
+        name="email"
+        type="string"
+        column="EMAIL"
+        length="50"
+    >
+		<generator class="assigned" />
+	</id>
+	<property
+        name="createdAt"
+        type="timestamp"
+        column="CREATED_AT"
+        not-null="true"
+        length="7"
+    />
+	<property
+        name="firstName"
+        type="string"
+        column="FIRST_NAME"
+        length="100"
+    />
+	<property
+        name="lastName"
+        type="string"
+        column="LAST_NAME"
+        length="100"
+    />
+	<property
+        name="secretAnswer"
+        type="string"
+        column="SECRET_ANSWER"
+        length="100"
+    />
+	<property
+        name="secretQuestion"
+        type="string"
+        column="SECRET_QUESTION"
+        length="100"
+    />
+	<property
+        name="status"
+        type="integer"
+        column="STATUS"
+        length="2"
+    />
+	<property
+        name="statusReason"
+        type="string"
+        column="STATUS_REASON"
+        length="200"
+    />
+	<property
+        name="updatedAt"
+        type="timestamp"
+        column="UPDATED_AT"
+        not-null="true"
+        length="7"
+    />
+
+	<!-- Associations -->
+
+</class>
+</hibernate-mapping>

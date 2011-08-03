@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quartz >
+<!-- 
+    <job>
+        <job-detail>
+            <name>SchedulerJob</name>
+            <group>SchedulerGroup</group>
+            <description>SchedulerJob</description>
+            <job-class>com.cablevision.util.SchedulerJob</job-class>
+        </job-detail>
+        <trigger>
+            <cron>
+                <name>ScheduleTrigger</name>
+                <group>ScheduleTriggerGroup</group>
+                <job-name>SchedulerJob</job-name>
+                <job-group>SchedulerGroup</job-group>
+
+                Se dispara todos los días a las 3am	 
+                <cron-expression>0 0 3 * * ?</cron-expression>
+				
+                Se dispara cada 10 minutos
+               <cron-expression>0 0/10 * * * ?</cron-expression>
+            </cron>
+        </trigger>
+    </job>
+ -->    
+    
+    <job>
+        <job-detail>
+            <name>EnviarCsvVentajas</name>
+            <group>EnviarCsvVentajasGroup</group>
+            <description>EnviarCsvVentajasJob</description>
+            <job-class>com.cablevision.util.EnviarCsvVentajasJob</job-class>
+        </job-detail>
+        <trigger>
+            <cron>
+                <name>EnviarCsvVentajasTrigger</name>
+                <group>EnviarCsvVentajasTriggerGroup</group>
+                <job-name>EnviarCsvVentajas</job-name>
+                <job-group>EnviarCsvVentajasGroup</job-group>
+                <!-- Se dispara todos los días 1 de cada mes a las 4am	--> 
+                <cron-expression>0 0 4 1 * ?</cron-expression>
+                
+
+                <!-- Se dispara cada 2 minutos 
+               	<cron-expression>0 0/2 * * * ?</cron-expression>-->
+            </cron>
+        </trigger>
+    </job>
+    <job>
+     	<job-detail>
+            <name>ProgramacionJob</name>
+            <group>ProgramacionGroup</group>
+            <description>Tarea para cargar la programacion</description>
+            <job-class>com.cablevision.util.SchedulerJob</job-class>
+        </job-detail>
+        <trigger>
+            <cron>
+                <name>ProgramacionTrigger</name>
+                <group>ProgramacionTriggerGroup</group>
+                <job-name>ProgramacionJob</job-name>
+                <job-group>ProgramacionGroup</job-group>
+                <!-- Se dispara todos los días a las 3am	--> 
+                <cron-expression>0 0 3 * * ?</cron-expression>
+
+                <!-- Se dispara cada 10 minutos -->
+                
+               <!-- <cron-expression>0 0/10 * * * ?</cron-expression>
+                  -->
+            </cron>
+        </trigger>
+    </job>
+    
+</quartz>

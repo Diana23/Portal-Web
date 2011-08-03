@@ -1,0 +1,23 @@
+#Thu Dec 24 13:01:23 CST 2009
+errors.suffix=
+error.confirmacion.pass=La confirmaci\u00F3n de contrase\u00F1a no coincide.
+error.requerido.idVacante=El id de la vacante es requerido.
+error.email.repetido=Ya existe un usuario con el mismo email
+errors.footer=</div>
+error.requerido.titulo=El titulo es requerido.
+error.requerido.materno=El Apellido Materno es requerido.
+error.requerido.emailpass=El Email y contrase\u00F1a son requeridos.
+error.requerido.name=El Nombre es requerido.
+error.requerido.discripcion=La descripcion es requerida.
+error.requerido.pass=La contrase\u00F1a es requerida.
+errors.prefix=<br/>
+error.requerido.confirmapass=La confirmaci\u00F3n de contrase\u00F1a es requerida.
+errors.header=<div class\="error-msg" id\="msgError">
+error.requerido.email=El email es requerido.
+error.formato=El formulario solo acepta letras y n\u00FAmeros, llenar sin acentos ni caracteres especiales.
+error.formato.nombre=El Nombre solo acepta letras, favor de llenar sin acentos ni caracteres especiales.
+error.formato.paterno=El Apellido Paterno solo acepta letras, favor de llenar sin acentos ni caracteres especiales.
+error.formato.materno=El Apellido Materno solo acepta letras, favor de llenar sin acentos ni caracteres especiales.
+error.requerido.paterno=El Apellido Paterno es requerido.
+error.formato.email=El email tiene un formato inv\u00E1lido.
+error.formato.password=La contrase&ntilde;a debe de contener de 8 a 25 caracteres incluyendo may&uacute;sculas, min&uacute;sculas, n&uacute;meros y caracteres especiales como @#$%!&/()=?¿
