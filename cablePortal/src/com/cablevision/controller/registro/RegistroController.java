@@ -15,7 +15,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.bea.portlet.GenericURL;
-import com.bea.portlet.PageURL;
 import com.cablevision.ToInterfase;
 import com.cablevision.controller.base.ControllerBase;
 import com.cablevision.forms.RegistroBean;
@@ -23,6 +22,7 @@ import com.cablevision.portal.ErrorVitriaException;
 import com.cablevision.util.Blowfish;
 import com.cablevision.util.Constantes;
 import com.cablevision.util.LdapUtil;
+import com.cablevision.util.PageNewUrl;
 import com.cablevision.util.ResponseToValidateAccount;
 import com.cablevision.util.RespuestaToMyAccount;
 import com.cablevision.util.RespuestaToRegister;
@@ -142,7 +142,7 @@ public class RegistroController extends ControllerBase {
 		if(!ValidarPasswordUtil.validatePassword(pass)) {
 			forward = new Forward("fail");
 			forward.addActionOutput("errores", "La contrase&ntilde;a debe de contener de 8 a 25 caracteres " +
-					"incluyendo por lo menos una may&uacute;scula, una min&uacute;scula, un n&uacute;mero y un caracteres especial como @#$%!&/()=?");
+					"incluyendo por lo menos una </br>may&uacute;scula, una min&uacute;scula, un n&uacute;mero y un caracteres especial como @#$%!&/()=?");
 		}
 		return forward;
 	}
@@ -190,13 +190,13 @@ public class RegistroController extends ControllerBase {
 				   form.getRespuestaConfirmacion().toUpperCase(Locale.ENGLISH), form.getNoContrato(), form.getTelefono());
 		
 		//cambio de mensaje de error, ya no llama al properties si es el error SBL-001
-		PageURL url = PageURL.createPageURL(getRequest(), getResponse(), "servicios_enlinea_login");
-		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-		url.setForcedAmpForm(false);
+		GenericURL url = PageNewUrl.createPageURL(getRequest(), getResponse(), "servicios_enlinea_login");
+//		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//		url.setForcedAmpForm(false);
 		
-		PageURL urlContact = PageURL.createPageURL(getRequest(), getResponse(), "atencion_contactanos");
-		urlContact.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-		urlContact.setForcedAmpForm(false);
+		GenericURL urlContact = PageNewUrl.createPageURL(getRequest(), getResponse(), "atencion_contactanos");
+//		urlContact.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//		urlContact.setForcedAmpForm(false);
 		
 		if(response.getError()!= null && (response.getError().getCvErrorCode().equals("SBL-001"))){
 			String mensajeError = "LO SENTIMOS<br/><br/> "+
@@ -225,9 +225,9 @@ public class RegistroController extends ControllerBase {
 		getRequest().getSession().setAttribute(Constantes.SESSION_MI_PASSWD, Blowfish.encriptar(form.getPassword(), Constantes.ENCRIPT_PASSWD));
 		setCuentaEnSesion(form.getIdUsuario());
 		
-		final PageURL urlSeL = PageURL.createPageURL(getRequest(), getResponse(), "servicios_enlinea_inicio");
-		urlSeL.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-		urlSeL.setForcedAmpForm(false);
+		final GenericURL urlSeL = PageNewUrl.createPageURL(getRequest(), getResponse(), "servicios_enlinea_inicio");
+//		urlSeL.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//		urlSeL.setForcedAmpForm(false);
 		forward = new Forward(new URI(urlSeL.toString()));
 		
 		return forward;

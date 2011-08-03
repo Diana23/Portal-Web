@@ -2,6 +2,7 @@
                  java.util.List,
                  com.bea.netuix.servlets.controls.page.BookPresentationContext,
                  com.bea.portlet.PageURL,
+                 com.cablevision.util.PageNewUrl,
                  com.bea.netuix.servlets.controls.page.PagePresentationContext"%>
 <%@ page session="false"%>
 <%!
@@ -36,7 +37,7 @@
                 if (!childPageCtx.isHidden() && childPageCtx.isVisible())
                 {
                     %><li class="<%= isRoot.booleanValue() && childPageCtx.isActive() ? menuItemActiveClass : menuItemClass %>"><%
-                    %><a class="<%= menuItemLinkClass %>" href="<%= PageURL.createPageURL(request, response, childPageCtx.getDefinitionLabel()).toString() %>"><%= childPageCtx.getTitle() %></a><%
+                    %><a class="<%= menuItemLinkClass %>" href="<%= PageNewUrl.createPageURL(request, response, childPageCtx.getDefinitionLabel()).toString() %>"><%= childPageCtx.getTitle() %></a><%
 
                     if (childPageCtx instanceof BookPresentationContext)
                     {

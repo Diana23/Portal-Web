@@ -5,6 +5,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:directive.page import="com.bea.portlet.PageURL"/>
 <jsp:directive.page import="com.bea.portlet.GenericURL"/>
+<jsp:directive.page import="com.cablevision.util.PageNewUrl"/>
 
 <table width="622" height="150" cellspacing="0" cellpadding="0" border="0" class="margin-top40" id="tabla-importes">
 	<tbody>
@@ -47,8 +48,8 @@
 </table>
 <br/>
 <jsp:scriptlet>
-	PageURL url = PageURL.createPageURL(request, response, "servicios_enlinea_pagar");
-	url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+	GenericURL url = PageNewUrl.createPageURL(request, response, "servicios_enlinea_pagar");
+	//url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 	pageContext.setAttribute("url",url);
 </jsp:scriptlet>
 <a title="Pagar en Linea" class="btn-small margin-bot40 fright" href="${pageScope.url}">Pagar en Linea</a>

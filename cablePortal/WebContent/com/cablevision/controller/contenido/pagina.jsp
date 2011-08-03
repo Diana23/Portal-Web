@@ -5,16 +5,17 @@
 
 <jsp:directive.page import="com.bea.portlet.PageURL"/>
 <jsp:directive.page import="com.bea.portlet.GenericURL"/>
+<jsp:directive.page import="com.cablevision.util.PageNewUrl"/>
 <jsp:directive.page import="org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils"/>
 
 <%
 	if(ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel")!=null){
-		PageURL urlReturn = PageURL.createPageURL(request, response, ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel"));
-		urlReturn.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+		GenericURL urlReturn = PageNewUrl.createPageURL(request, response, ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel"));
+		//urlReturn.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 		pageContext.setAttribute("urlReturn",urlReturn);
 		
-		PageURL urlUltima = PageURL.createPageURL(request, response, ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel"));
-		urlUltima.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+		GenericURL urlUltima = PageNewUrl.createPageURL(request, response, ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel"));
+		//urlUltima.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 		urlUltima.addParameter("ultima", "true");
 		pageContext.setAttribute("urlUltima",urlUltima);	
 	}

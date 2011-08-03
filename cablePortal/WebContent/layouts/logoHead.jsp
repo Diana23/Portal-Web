@@ -5,8 +5,7 @@
 <%@page import="com.cablevision.util.Constantes"%>
 <%@page import="com.cablevision.util.RespuestaToMyAccount"%>
 <%@page import="org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils"%>
-
-
+<%@page import="com.bea.portlet.GenericURL"%>
 
 <div id="user-info">
 	<c:choose>
@@ -27,15 +26,15 @@
 		
 		pageContext.setAttribute("pageLabelParam",pageLabel);
 		
-		com.bea.portlet.PageURL miPerfil = com.bea.portlet.PageURL.createPageURL(request, response, "servicios_enlinea_inicio");
+		GenericURL miPerfil = com.cablevision.util.PageNewUrl.createPageURL(request, response, "servicios_enlinea_inicio");
 		miPerfil.setTemplate("https");
-		miPerfil.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-		miPerfil.setEncodeSession(false);
+		//miPerfil.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+		//miPerfil.setEncodeSession(false);
 		pageContext.setAttribute("miPerfil",miPerfil.toString());
 		
-		com.bea.portlet.PageURL cablevision = com.bea.portlet.PageURL.createPageURL(request, response, "cablevision_portal_page_home");
-		cablevision.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-		cablevision.setEncodeSession(false);
+		GenericURL cablevision = com.cablevision.util.PageNewUrl.createPageURL(request, response, "cablevision_portal_page_home");
+		//cablevision.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+		//cablevision.setEncodeSession(false);
 		pageContext.setAttribute("cablevision",cablevision.toString());
 		</jsp:scriptlet>
 		<div class="span-7 dontIndex">	
@@ -72,40 +71,40 @@
 				</ul>
 				<ul style="display: none;" class="wrap-user-items">
 				<jsp:scriptlet>
-					com.bea.portlet.PageURL misFacturas = com.bea.portlet.PageURL.createPageURL(request, response, "servicios_enlinea_factura");
+				GenericURL misFacturas = com.cablevision.util.PageNewUrl.createPageURL(request, response, "servicios_enlinea_factura");
 					misFacturas.setTemplate("https");
-					misFacturas.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-					misFacturas.setEncodeSession(false);
+					//misFacturas.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+					//misFacturas.setEncodeSession(false);
 					pageContext.setAttribute("misFacturas",misFacturas.toString());
 					
-					com.bea.portlet.PageURL misPagos = com.bea.portlet.PageURL.createPageURL(request, response, "servicios_enlinea_mis_pagos");
+					GenericURL misPagos = com.cablevision.util.PageNewUrl.createPageURL(request, response, "servicios_enlinea_mis_pagos");
 					misPagos.setTemplate("https");
-					misPagos.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-					misPagos.setEncodeSession(false);
+					//misPagos.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+					//misPagos.setEncodeSession(false);
 					pageContext.setAttribute("misPagos",misPagos.toString());
 					
-					com.bea.portlet.PageURL realizarPago = com.bea.portlet.PageURL.createPageURL(request, response, "servicios_enlinea_pagar");
+					GenericURL realizarPago = com.cablevision.util.PageNewUrl.createPageURL(request, response, "servicios_enlinea_pagar");
 					realizarPago.setTemplate("https");
-					realizarPago.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-					realizarPago.setEncodeSession(false);
+					//realizarPago.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+					//realizarPago.setEncodeSession(false);
 					pageContext.setAttribute("realizarPago",realizarPago.toString());
 					
-					com.bea.portlet.PageURL paperless = com.bea.portlet.PageURL.createPageURL(request, response, "servicios_enlinea_paperless_p1");
+					GenericURL paperless = com.cablevision.util.PageNewUrl.createPageURL(request, response, "servicios_enlinea_paperless_p1");
 					paperless.setTemplate("https");
-					paperless.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-					paperless.setEncodeSession(false);
+					//paperless.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+					//paperless.setEncodeSession(false);
 					pageContext.setAttribute("paperless",paperless.toString());
 					
-					com.bea.portlet.PageURL atnClientes = com.bea.portlet.PageURL.createPageURL(request, response, "servicios_enlinea_atencion_clientes");
+					GenericURL atnClientes = com.cablevision.util.PageNewUrl.createPageURL(request, response, "servicios_enlinea_atencion_clientes");
 					atnClientes.setTemplate("https");
-					atnClientes.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-					atnClientes.setEncodeSession(false);
+					//atnClientes.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+					//atnClientes.setEncodeSession(false);
 					pageContext.setAttribute("atnClientes",atnClientes.toString());
 					
-					com.bea.portlet.PageURL solicitudes = com.bea.portlet.PageURL.createPageURL(request, response, "servicios_enlinea_missolicitudes");
+					GenericURL solicitudes = com.cablevision.util.PageNewUrl.createPageURL(request, response, "servicios_enlinea_missolicitudes");
 					solicitudes.setTemplate("https");
-					solicitudes.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-					solicitudes.setEncodeSession(false);
+					//solicitudes.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+					//solicitudes.setEncodeSession(false);
 					pageContext.setAttribute("solicitudes",solicitudes.toString());
 				</jsp:scriptlet>
 					<li><a title="" href="${ misFacturas }">Mis Facturas</a></li>
@@ -129,9 +128,9 @@
 				pageLabel = ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel");
 			pageContext.setAttribute("pageLabelParam",pageLabel);
 			
-			com.bea.portlet.PageURL cablevision = com.bea.portlet.PageURL.createPageURL(request, response, "cablevision_portal_page_home");
-			cablevision.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-			cablevision.setEncodeSession(false);
+			GenericURL cablevision = com.cablevision.util.PageNewUrl.createPageURL(request, response, "cablevision_portal_page_home");
+			//cablevision.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+			//cablevision.setEncodeSession(false);
 			pageContext.setAttribute("cablevision",cablevision.toString());
 		</jsp:scriptlet>
 		<div class="span-17">		
@@ -153,19 +152,19 @@
 	</c:when>
 	<c:otherwise>
 	<jsp:scriptlet>						
-			com.bea.portlet.PageURL cablevision = com.bea.portlet.PageURL.createPageURL(request, response, "cablevision_portal_page_home");
-			cablevision.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-			cablevision.setEncodeSession(false);
+			GenericURL cablevision = com.cablevision.util.PageNewUrl.createPageURL(request, response, "cablevision_portal_page_home");
+			//cablevision.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+			//cablevision.setEncodeSession(false);
 			pageContext.setAttribute("cablevision",cablevision.toString());
 		</jsp:scriptlet>
 		<div class="span-17 dontIndex" >		
 			<a title="CABLEVISION&reg;" class="hidden-text logo" id="logo" href="${ cablevision }">Cablevision</a>
 		</div>
 		<jsp:scriptlet>
-			com.bea.portlet.PageURL registro = com.bea.portlet.PageURL.createPageURL(request, response, "servicios_enlinea_registro");
+			GenericURL registro = com.cablevision.util.PageNewUrl.createPageURL(request, response, "servicios_enlinea_registro");
 			registro.setTemplate("https");
-			registro.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-			registro.setEncodeSession(false);
+			//registro.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+			//registro.setEncodeSession(false);
 			pageContext.setAttribute("registro",registro.toString());
 		</jsp:scriptlet>
 		<div class="span-7 last dontIndex">

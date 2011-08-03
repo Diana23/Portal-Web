@@ -12,6 +12,7 @@
 <jsp:directive.page import="com.bea.portlet.GenericURL" />
 <jsp:directive.page import="com.bea.portlet.PageURL" />
 
+
 <script src="${pageContext.request.contextPath}/resources/js/jquery.blockUI.js" type="text/javascript"></script>
 <link href="${pageContext.request.contextPath}/resources/css/texto.css" rel="stylesheet" type="text/css"/>
 <style type="text/css">

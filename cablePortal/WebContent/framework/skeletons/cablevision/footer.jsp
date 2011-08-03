@@ -66,7 +66,10 @@
 	
 	<script type="text/javascript" src="${pageContext.request.contextPath }/framework/skins/cablevision/js/thickbox-compressed.js"></script>
 	<script type="text/javascript" src="https://www.google.com/recaptcha/api/js/recaptcha_ajax.js?legacy"></script>
-	<script src="${pageContext.request.contextPath }/framework/skins/cablevision/js/funciones.js" type="text/javascript"></script>
+	<script src="${pageContext.request.contextPath }/framework/skins/cablevision/js/funciones.js" type="text/javascript"></script> 
+	<script src="${pageContext.request.contextPath }/framework/skins/cablevision/js/mousewheel.min.js" type="text/javascript"></script>
+	<script src="${pageContext.request.contextPath }/framework/skins/cablevision/js/jcarousellite_1.0.1.min.js" type="text/javascript"></script>
+	
 	<script type="text/javascript">
 		var isCtrl=false;$(function(){$(document).keyup(function (e) {if(e.which == 17) isCtrl=false;}).keydown(function (e) {if(e.which == 17) isCtrl=true;if(e.which == 77 && isCtrl == true) {$(".contentEdit").toggle();return false;}});});$.ajaxSetup({cache: false});
 		
@@ -81,9 +84,8 @@
 			if(negativeOrNot != null){
 				if ( negativeOrNot != "BLANCO") { logoColor =  "logo" } else { logoColor =  "logo-blanco" }
 				$('#logo').removeClass('logo-blanco').removeClass('logo').addClass(logoColor);
+			}		
 
-			}
-			
 	</script>
 	
 	<script type="text/javascript">

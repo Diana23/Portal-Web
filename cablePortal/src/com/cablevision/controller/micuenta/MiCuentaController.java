@@ -30,7 +30,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.bea.portlet.GenericURL;
-import com.bea.portlet.PageURL;
 import com.cablevision.ToInterfase;
 import com.cablevision.controller.base.ControllerBase;
 import com.cablevision.forms.RegistroBean;
@@ -41,6 +40,7 @@ import com.cablevision.util.Constantes;
 import com.cablevision.util.CustomEntry;
 import com.cablevision.util.ImageUtil;
 import com.cablevision.util.LogFilter;
+import com.cablevision.util.PageNewUrl;
 import com.cablevision.util.PasswordUtil;
 import com.cablevision.util.Respuesta;
 import com.cablevision.util.RespuestaToMyAccount;
@@ -56,6 +56,7 @@ import com.pb.e2.vault.service.VaultService;
 import com.pb.e2.vault.service.VaultServicePortType;
 import com.pb.e2.vault.service.VaultService_Impl;
 
+import com.cablevision.util.PageNewUrl;
 /**
  * Page Flow para usar con mi cuenta
  * 
@@ -105,9 +106,9 @@ public class MiCuentaController extends ControllerBase {
 		}
 		
 		if("false".equals(getSession().getAttribute(Constantes.USUARIO_EN_VITRIA))){
-			final PageURL url = PageURL.createPageURL(getRequest(), getResponse(), "cablevision_portal_page_home");
-			url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-			url.setForcedAmpForm(false);
+			final GenericURL url = PageNewUrl.createPageURL(getRequest(), getResponse(), "cablevision_portal_page_home");
+//			url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//			url.setForcedAmpForm(false);
 			return new Forward(new URI(url.toString()));
 		}
 		

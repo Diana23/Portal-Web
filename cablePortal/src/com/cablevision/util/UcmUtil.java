@@ -21,6 +21,7 @@ import javax.xml.rpc.ServiceException;
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts.util.MessageResources;
 
+import com.bea.portlet.GenericURL;
 import com.bea.portlet.PageURL;
 import com.cablevision.vo.CvContenido;
 import com.cablevision.vo.CvCurriculum;
@@ -426,21 +427,21 @@ public class UcmUtil {
 		while(m.find()) {
 			String[] link = m.group().substring(0, m.group().length()-1).split("\\?");
 			String pageLabel = StringUtils.substringAfter(link[0],"=");
-			PageURL url = null;
+			GenericURL url = null;
 			
 			if("cotizador".equals(pageLabel)){
-				url = PageURL.createPageURL(request, response);
+				url = GenericURL.createGenericURL(request, response);
 				url.setTemplate("cotizador");
 			}else if("home".equals(pageLabel)){
-				url = PageURL.createPageURL(request, response);
+				url = GenericURL.createGenericURL(request, response);
 				url.setTemplate("cotizador");
 			}else{
-				url = PageURL.createPageURL(request, response, pageLabel);
+				url = PageNewUrl.createPageURL(request, response, pageLabel);
 				url.setTemplate("default");
 			}
 			
-			url.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-			url.setForcedAmpForm(false);
+			//url.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+			//url.setForcedAmpForm(false);
 
 			//parametros que vienen en la url
 			if(link.length>=2){
@@ -486,12 +487,12 @@ public class UcmUtil {
 		while(m.find()) {
 			String[] link = m.group().substring(0, m.group().length()-1).split("\\?");
 			String pageLabel = StringUtils.substringAfter(link[0],"=");
-			PageURL url = null;
+			GenericURL url = null;
 			
-			url = PageURL.createPageURL(request, response, pageLabel);
+			url = PageNewUrl.createPageURL(request, response, pageLabel);
 			url.setTemplate("https");
-			url.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-			url.setForcedAmpForm(false);
+//			url.addParameter(com.bea.portlet.GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//			url.setForcedAmpForm(false);
 
 			//parametros que vienen en la url
 			if(link.length>=2){

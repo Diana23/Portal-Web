@@ -13,10 +13,10 @@ import org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils;
 import org.apache.beehive.netui.util.logging.Logger;
 
 import com.bea.portlet.GenericURL;
-import com.bea.portlet.PageURL;
 import com.cablevision.exception.ContrasenaExpiradaException;
 import com.cablevision.portal.ErrorVitriaException;
 import com.cablevision.util.Constantes;
+import com.cablevision.util.PageNewUrl;
 @Jpf.Controller(
 		catches={
 		        @Jpf.Catch(type=NotLoggedInException.class, method="handleLoginException"),
@@ -36,15 +36,15 @@ public abstract class ControllerBase extends PageFlowController {
 	    )
 
 	public Forward handleLoginException(NotLoggedInException e, String actionName, String message, Object formBean) throws URISyntaxException, IOException{
-		PageURL url = PageURL.createPageURL(getRequest(), getResponse());
+		GenericURL url = GenericURL.createGenericURL(getRequest(), getResponse());
 		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 		url.setForcedAmpForm(false);
 		url.setTemplate("https");
 		
 		getSession().setAttribute(Constantes.SESSION_LOGIN_NEXT_URI, url.toString());
 		
-		url = PageURL.createPageURL(getRequest(), getResponse(), "servicios_enlinea_login");
-		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+		url = PageNewUrl.createPageURL(getRequest(), getResponse(), "servicios_enlinea_login");
+//		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 		url.setTemplate("https");
 		
 		if(!getResponse().isCommitted()){
@@ -71,9 +71,9 @@ public abstract class ControllerBase extends PageFlowController {
 	    )
 	public Forward handleExceptionDefault(RuntimeException e, String actionName, String message, Object formBean) throws URISyntaxException{
 		_log.error("Error en la aplicacion: ", e);
-		PageURL url = PageURL.createPageURL(getRequest(), getResponse(), "cablevision_portal_error");
-		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-		url.setTemplate("defaultDesktop");
+		GenericURL url = PageNewUrl.createPageURL(getRequest(), getResponse(), "cablevision_portal_error");
+//		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//		url.setTemplate("defaultDesktop");
 		
 		return new Forward(new URI(url.toString()),true);
     }
@@ -105,8 +105,8 @@ public abstract class ControllerBase extends PageFlowController {
 	)
 	public Forward handleContrasenaExpiradaException(ContrasenaExpiradaException e, String actionName, String message, Object formBean) throws URISyntaxException{
 		//_log.error("Error en la aplicacion handleContrasenaExpiradaException: ", e);
-		PageURL url = PageURL.createPageURL(getRequest(), getResponse(), "servicios_enlinea_expira");
-		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+		GenericURL url = PageNewUrl.createPageURL(getRequest(), getResponse(), "servicios_enlinea_expira");
+//		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 		url.setTemplate("https");
 		
 		return new Forward(new URI(url.toString()),true);

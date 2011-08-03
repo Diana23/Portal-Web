@@ -20,7 +20,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.bea.portlet.GenericURL;
-import com.bea.portlet.PageURL;
 import com.cablevision.ToInterfase;
 import com.cablevision.controller.base.ControllerBase;
 import com.cablevision.portal.ErrorVitriaException;
@@ -29,6 +28,7 @@ import com.cablevision.util.Blowfish;
 import com.cablevision.util.Constantes;
 import com.cablevision.util.LdapUtil;
 import com.cablevision.util.LogFilter;
+import com.cablevision.util.PageNewUrl;
 import com.cablevision.util.RespuestaToMyAccount;
 import com.cablevision.vo.CvUsuarioPortal;
 
@@ -98,8 +98,8 @@ public class LoginController extends ControllerBase {
 			forward.setName("selLogin");
 			return forward;
 		}
-		PageURL urlError = PageURL.createPageURL(getRequest(), getResponse(), "cablevision_portal_login");
-		urlError.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+		GenericURL urlError = PageNewUrl.createPageURL(getRequest(), getResponse(), "cablevision_portal_login");
+//		urlError.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 		urlError.setTemplate("https");
 		Forward forward = null;
 		int intentos = 1;
@@ -196,27 +196,26 @@ public class LoginController extends ControllerBase {
 							getSession().removeAttribute(Constantes.SESSION_LOGIN_NEXT_URI);
 	
 							if(StringUtils.isEmpty(form.getUrl())){
-								final PageURL url = PageURL.createPageURL(getRequest(), getResponse(), "servicios_enlinea_inicio");
-								url.setTemplate("defaultDesktop");
-								url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-								url.setForcedAmpForm(false);
+								final GenericURL url = PageNewUrl.createPageURL(getRequest(), getResponse(), "servicios_enlinea_inicio");
+//								url.setTemplate("defaultDesktop");
+//								url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//								url.setForcedAmpForm(false);
 								form.setUrl(url.toString());
 							}
 						} else {
-							String urlRedirect = (String)getSession().getAttribute(Constantes.CABLEVISION_URL); 
-							if(StringUtils.isNotEmpty(urlRedirect)){
-								forward = new Forward("success");
-								forward.addActionOutput("success", "siguiente,"+urlRedirect);
-							}else{
-								final PageURL url = PageURL.createPageURL(getRequest(), getResponse(), (String)getRequest().getSession().getAttribute("pageLabel"));
-								url.setTemplate("defaultDesktop");
-								url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-								url.setForcedAmpForm(false);
 
-								forward = new Forward("success");
-								forward.addActionOutput("success", url.toString());
+							GenericURL url = null;
+							
+							if( StringUtils.isNotEmpty((String)getRequest().getSession().getAttribute("pageLabel")) ){
+								url = PageNewUrl.createPageURL(getRequest(), getResponse(), (String)getRequest().getSession().getAttribute("pageLabel"));	
+							}else{
+								url = PageNewUrl.createPageURL(getRequest(), getResponse(), "");
+								url.setContextualPath(getRequest().getRequestURI());
+								//getRequest().getRequestURI();
 							}
-								
+							
+							forward = new Forward("success");
+							forward.addActionOutput("success", url.toString());
 							getSession().setAttribute(Constantes.USUARIO_EN_VITRIA, "true");
 						}
 						if(!fromSel)
@@ -229,10 +228,10 @@ public class LoginController extends ControllerBase {
 //						accesar servicios en linea
 						String pageLabelSel = getRequest().getSession().getAttribute("pageLabel")!=null?
 												(String)getRequest().getSession().getAttribute("pageLabel"):"cablevision_portal_page_home";
-						final PageURL url = PageURL.createPageURL(getRequest(), getResponse(), pageLabelSel);
-						url.setTemplate("defaultDesktop");
-						url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-						url.setForcedAmpForm(false);
+						final GenericURL url = PageNewUrl.createPageURL(getRequest(), getResponse(), pageLabelSel);
+//						url.setTemplate("defaultDesktop");
+//						url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//						url.setForcedAmpForm(false);
 						if(fromSel){
 							forward = new Forward(new URI(url.toString()));
 						}else{
@@ -417,12 +416,14 @@ public class LoginController extends ControllerBase {
 	@Jpf.Action
 	public Forward desconectar(LoginBean form) throws URISyntaxException {
 		logout(true);
-		PageURL url = PageURL.createPageURL(getRequest(), getResponse(), getRequest().getParameter("pageLabel"));
-		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-		url.setForcedAmpForm(false);
-		url.setTemplate("defaultDesktop");
-
-		return new Forward(new URI(url.toString()),true);
+		GenericURL url = PageNewUrl.createPageURL(getRequest(), getResponse(), getRequest().getParameter("pageLabel"));
+//		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//		url.setForcedAmpForm(false);
+//		url.setTemplate("defaultDesktop");
+		
+		Forward forward = new Forward(new URI(url.toString()));
+		forward.setRedirect(true);
+		return forward;
 	}
 
 	private void doLogout(boolean invalidateSessions, String usuario) {

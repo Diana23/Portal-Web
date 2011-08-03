@@ -13,11 +13,11 @@ import com.bea.netuix.servlets.controls.page.BookPresentationContext;
 import com.bea.netuix.servlets.controls.page.PagePresentationContext;
 import com.bea.portal.tools.util.StringUtilities;
 import com.bea.portlet.GenericURL;
-import com.bea.portlet.PageURL;
 import com.cablevision.portal.sitemap.Site;
 import com.cablevision.portal.sitemap.SiteMap;
 import com.cablevision.portal.sitemap.SiteMapException;
 import com.cablevision.portal.sitemap.SiteMapFactory;
+import com.cablevision.util.PageNewUrl;
 
 /**
  * A sample factory for building a sitemap based on
@@ -88,17 +88,17 @@ public class ContextSiteMapFactory implements SiteMapFactory {
 			defaultPage = ((BookPresentationContext)ppc).getDefaultPage();
 		}
 
-		PageURL defaultPageURL = null;
+		GenericURL defaultPageURL = null;
 		if(defaultPage != null) {
-			defaultPageURL = PageURL.createPageURL(request, response, defaultPage);
-			defaultPageURL.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-			defaultPageURL.setEncodeSession(false);
+			defaultPageURL = PageNewUrl.createPageURL(request, response, defaultPage);
+//			defaultPageURL.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//			defaultPageURL.setEncodeSession(false);
 			defaultPage = defaultPageURL.toString();
 		}
 
-		PageURL url = PageURL.createPageURL(request, response, ppc.getLabel());
-		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-		url.setEncodeSession(false);
+		GenericURL url = PageNewUrl.createPageURL(request, response, ppc.getLabel());
+//		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//		url.setEncodeSession(false);
 
 		if(ppc.getProperty("secure")!=null && "true".equals(ppc.getProperty("secure"))){
 			url.setTemplate("https");
@@ -158,17 +158,17 @@ public class ContextSiteMapFactory implements SiteMapFactory {
 						childSites,returnHidden, currentPageDefinitionLabel);
 			}
 
-			PageURL defaultPageURL = null;
+			GenericURL defaultPageURL = null;
 			if(defaultPage != null) {
-				defaultPageURL = PageURL.createPageURL(request, response, defaultPage);
-				defaultPageURL.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-				defaultPageURL.setEncodeSession(false);
+				defaultPageURL = PageNewUrl.createPageURL(request, response, defaultPage);
+//				defaultPageURL.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//				defaultPageURL.setEncodeSession(false);
 				defaultPage = defaultPageURL.toString();
 			}
 
-			PageURL url = PageURL.createPageURL(request, response, child.getLabel());
-			url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-			url.setEncodeSession(false);
+			GenericURL url = PageNewUrl.createPageURL(request, response, child.getLabel());
+//			url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//			url.setEncodeSession(false);
 			
 			if(child.getProperty("secure")!=null && "true".equals(child.getProperty("secure"))){
 				url.setTemplate("https");

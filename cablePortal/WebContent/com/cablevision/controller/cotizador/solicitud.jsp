@@ -10,12 +10,13 @@
 	
 	<jsp:directive.page import="com.bea.portlet.GenericURL" />
 	<jsp:directive.page import="com.bea.portlet.PageURL" />
+	<jsp:directive.page import="com.cablevision.util.PageNewUrl"/>
 
 ${pageScope.a }
 	<jsp:scriptlet>
-		PageURL url = PageURL.createPageURL(request, response);
+		GenericURL url = GenericURL.createGenericURL(request, response);
 		url.setTemplate("home");
-		url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+		//url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 		pageContext.setAttribute("url",url);
 	</jsp:scriptlet>
 	

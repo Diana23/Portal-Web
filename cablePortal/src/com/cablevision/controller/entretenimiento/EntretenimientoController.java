@@ -46,6 +46,10 @@ import com.cablevision.util.MailUtil;
 import com.cablevision.util.ResponseToGetPPV;
 import com.cablevision.util.ResponseToPurchasePPV;
 import com.cablevision.util.RespuestaToMyAccount;
+import com.cablevision.carga.CargaExcel;
+import com.cablevision.controller.base.ControllerBase;
+import com.cablevision.util.PageNewUrl;
+
 import com.cablevision.util.SolrHelper;
 
 //Substitute with this annotation if nested pageflow
@@ -94,9 +98,9 @@ public class EntretenimientoController extends ControllerBase {
 		String pageLabel = getMessageResources("entretenimiento").getMessage("entretenimiento."+form.getTipo()+".verprogramacion.pageLabel");
 		
 		if(StringUtils.isNotBlank(pageLabel)){
-			PageURL url = PageURL.createPageURL(getRequest(), getResponse(), pageLabel);
-			url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
-			url.setTemplate("defaultDesktop");
+			GenericURL url = PageNewUrl.createPageURL(getRequest(), getResponse(), pageLabel);
+//			url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
+//			url.setTemplate("defaultDesktop");
 			forward.addActionOutput("url", url.toString());
 		}
 
