@@ -32,7 +32,7 @@
 	
 	
 	<netui:form action="pasoUno" styleClass="formulario" tagId="formSiguiente1">
-		<table width="50%" cellspacing="0" cellpadding="0" border="0" align="center">
+		<table width="50%" cellspacing="0" cellpadding="0" border="0">
 			<tbody><tr>
 				<td colspan="2">
 					<netui:label for="actionForm_nombre" value="* Nombre" /><br>
