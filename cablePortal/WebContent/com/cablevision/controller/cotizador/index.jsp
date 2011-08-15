@@ -61,8 +61,10 @@ var Cotizador = {
 		var orden = opts.orden;
 		var idProduct = opts.idProduct;
 		var priceSelected = $('#'+getJqId('<netui:rewriteName name="priceSelect" forTagId="true" resultId="priceSelect"/>')).val();
+		var pricenormalSelected = $('#'+getJqId('<netui:rewriteName name="pricenormalSelect" forTagId="true" resultId="pricenormalSelect"/>')).val();
 			
 		var sumatoria = $('#'+getJqId('<netui:rewriteName name="sumatoria" forTagId="true" resultId="sumatoria"/>'));
+		var sumatoriaefectivo = $('#'+getJqId('<netui:rewriteName name="sumatoriaefectivo" forTagId="true" resultId="sumatoriaefectivo"/>'));
 		var steps = $('#'+getJqId('<netui:rewriteName name="mainContent" forTagId="true" resultId="mainContent"/>')+' .steps');
 		var back = $('#'+getJqId('<netui:rewriteName name="back" forTagId="true" resultId="back"/>'));
 		var next = $('#'+getJqId('<netui:rewriteName name="next" forTagId="true" resultId="next"/>'));
@@ -91,11 +93,13 @@ var Cotizador = {
 					idProduct: idProduct,
 					idProductOriginal: idProduct,
 					price: priceSelected,
-					priceOriginal: priceSelected
+					priceOriginal: priceSelected,
+					pricenormal: pricenormalSelected,
+					pricenormalOriginal: pricenormalSelected
 				});
 			sumatoria.text('$'+new Number(priceSelected).toFixed(2));
+			sumatoriaefectivo.text('$'+new Number(pricenormalSelected).toFixed(2));
 		}
-		
 		$('#'+getJqId('<netui:rewriteName name="menu-cot" forTagId="true"/>')+orden).removeClass().addClass('cs-nav'+orden+'-active hidden-text');
 		back.removeClass().addClass('hidden');
 		
@@ -126,6 +130,7 @@ var Cotizador = {
 			var radio = $(this);
 			var parent = radio.parent();
 			var price = parent.parent().find('input[name=price]').val();
+			var pricenormal = parent.parent().find('input[name=pricenormal]').val();
 			var orden = parent.parent().find('input[name=serviceOrder]').val();
 			
 			if(paso==1){
@@ -135,7 +140,9 @@ var Cotizador = {
 					idProduct: radio.val(),
 					idProductOriginal: radio.val(),
 					price: price,
-					priceOriginal:price
+					priceOriginal:price,
+					pricenormal: pricenormal,
+					pricenormalOriginal: pricenormal
 				});
 			}else{
 				product = new Product({
@@ -144,11 +151,13 @@ var Cotizador = {
 					idProduct: radio.val(),
 					idProductOriginal: product.idProductOriginal,
 					price: price,
-					priceOriginal:product.priceOriginal
+					priceOriginal:product.priceOriginal,
+					pricenormal: pricenormal,
+					pricenormalOriginal: product.pricenormalOriginal
 				});
 			}
-			
 			sumatoria.text('$'+new Number(price).toFixed(2));
+			sumatoriaefectivo.text('$'+new Number(pricenormal).toFixed(2));
 			if(paso==2){
 				$('#'+getJqId('<netui:rewriteName name="seleccionado" forTagId="true"/>')).load('${pageContext.request.contextPath}/com/cablevision/controller/cotizador/findProduct.do',{
 					idProduct: product.idProduct,_windowLabel:'${pageScope.windowLabel }'
@@ -244,6 +253,7 @@ var Cotizador = {
 				product = null;
 			}else{
 				sumatoria.text('$'+new Number(priceSelected).toFixed(2));
+				sumatoriaefectivo.text('$'+new Number(pricenormalSelected).toFixed(2));
 			}
 			return false;
 		});
@@ -287,14 +297,12 @@ var Cotizador = {
 			var len = parent.find('input:checked').length;
 			var valor = parent.find('input:checked').val();
 			var nombreRadio = parent.find('input:checked').attr('name');
-			
 			dependencia(nombreRadio, valor, parent, false, cmb);
 			
 			//solo debe entrar cuando tenga un grupo, el len se agrego para que no entre un check deseleccionado
 			if(nombreRadio != '' && nombreRadio != 'extraId' && len>0){
 				jQuery(':radio').each(function(name){
 					var grupoRadioEach = $(this).attr('name');
-					
 					//el radio seleccionado tiene el mismo grupo ke el radio en el ke estoy posicionado en el each
 					if(nombreRadio == grupoRadioEach){
 						if($(this).attr('checked')){
@@ -341,7 +349,6 @@ var Cotizador = {
 			}else{
 				//si no tiene grupo hace lo que ya hacia antes de ponerles grupos a los extras
 				dependencia(nombreRadio, valor, parent, false, cmb);
-				
 				if(len>0){
 					addExtra(radio.val(), cmb);
 				}else{
@@ -367,6 +374,7 @@ var Cotizador = {
 			$.getJSON('${pageContext.request.contextPath}/com/cablevision/controller/cotizador/addExtra.do',{idExtra:radio,number:cmb.val(),_windowLabel:'${pageScope.windowLabel }'},function(data){
 				$('#'+getJqId('<netui:rewriteName name="descripcionExtras" forTagId="true"/>')).empty().append(data.extras);
 				sumatoria.text('$'+new Number(data.price).toFixed(2));
+				sumatoriaefectivo.text('$'+new Number(data.pricenormal).toFixed(2));
 				var productTemp = product;
 				product = new Product({
 					id: productTemp.id,
@@ -375,6 +383,8 @@ var Cotizador = {
 					idProductOriginal: productTemp.idProductOriginal,
 					price: data.price,
 					priceOriginal: productTemp.priceOriginal,
+					pricenormal: data.pricenormal,
+					pricenormalOriginal: productTemp.pricenormalOriginal,
 					extras: data.extras
 				});
 				$('#'+getJqId('<netui:rewriteName name="liExtras" forTagId="true"/>')).css('display','block');
@@ -385,6 +395,7 @@ var Cotizador = {
 			$.getJSON('${pageContext.request.contextPath}/com/cablevision/controller/cotizador/removeExtra.do',{idExtra:radio,number:cmb.val(),_windowLabel:'${pageScope.windowLabel }'},function(data){
 				$('#'+getJqId('<netui:rewriteName name="descripcionExtras" forTagId="true"/>')).empty().append(data.extras);
 				sumatoria.text('$'+new Number(data.price).toFixed(2));
+				sumatoriaefectivo.text('$'+new Number(data.pricenormal).toFixed(2));
 				var productTemp = product;
 				product = new Product({
 					id: productTemp.id,
@@ -393,6 +404,8 @@ var Cotizador = {
 					idProductOriginal: productTemp.idProductOriginal,
 					price: data.price,
 					priceOriginal: productTemp.priceOriginal,
+					pricenormal: data.pricenormal,
+					pricenormalOriginal: productTemp.pricenormalOriginal,
 					extras: data.extras
 				});
 				$('#'+getJqId('<netui:rewriteName name="liExtras" forTagId="true"/>')).css('display','block');
@@ -465,6 +478,7 @@ var Cotizador = {
 			next.removeClass().addClass('coti-sigui hidden-text');
 			
 			sumatoria.text('$0.00');
+			sumatoriaefectivo.text('$0.00');
 			
 			$('#'+getJqId('<netui:rewriteName name="seleccionado" forTagId="true"/>')).css('display','none');
 			
@@ -514,7 +528,7 @@ var Cotizador = {
 			$('#'+getJqId('<netui:rewriteName name="seleccionado" forTagId="true"/>')).css('display','block');
 			
 			sumatoria.text('$'+new Number(product.priceOriginal).toFixed(2));
-			
+			sumatoriaefectivo.text('$'+new Number(product.pricenormalOriginal).toFixed(2));
 			
 			//banner con pasos
 			pasoDos.addClass('bread-cot2-act');
@@ -541,6 +555,7 @@ var Cotizador = {
 			$('#'+getJqId('<netui:rewriteName name="seleccionado" forTagId="true"/>')).css('display','block');
 			
 			sumatoria.text('$'+new Number(product.price).toFixed(2));
+			sumatoriaefectivo.text('$'+new Number(product.pricenormal).toFixed(2));
 			
 		}
 		
@@ -622,6 +637,7 @@ var Cotizador = {
 			var radio = $(this);
 			var parent = radio.parent();
 			var price = parent.parent().find('input[name=price]').val();
+			var pricenormal = parent.parent().find('input[name=pricenormal]').val();
 			var group = parent.parent().find('input[name=group]').val();
 			
 			addMejora(radio.val(), group);
@@ -630,6 +646,7 @@ var Cotizador = {
 		function addMejora(radio, group){
 			$.getJSON('${pageContext.request.contextPath}/com/cablevision/controller/cotizador/addMejora.do',{idProduct:radio,group:group,_windowLabel:'${pageScope.windowLabel }'},function(data){
 				sumatoria.text('$'+new Number(data.price).toFixed(2));
+				sumatoriaefectivo.text('$'+new Number(data.pricenormal).toFixed(2));
 				$('#'+getJqId('<netui:rewriteName name="seleccionado" forTagId="true"/>')).load('${pageContext.request.contextPath}/com/cablevision/controller/cotizador/showProductsSelected.do',{
 					idProduct: product.idProduct,_windowLabel:'${pageScope.windowLabel }'
 				});
@@ -683,6 +700,9 @@ $(function(){
 	<c:set var="sumatoria">
 		${fn:replace(pageScope.sumatoria , ".", "\\.")}
 	</c:set>
+	<c:set var="sumatoriaefectivo">
+		${fn:replace(pageScope.sumatoriaefectivo , ".", "\\.")}
+	</c:set>
 	<c:set var="emptyMsg">
 		${fn:replace(pageScope.emptyMsg , ".", "\\.")}
 	</c:set>	
@@ -692,6 +712,7 @@ $(function(){
 	</c:set>
 	<c:if test="${!empty pageInput.product}">
 		<input type="hidden" value="${pageInput.product.tcPrice}" id="<netui:rewriteName name="priceSelect" forTagId="true"/>" />
+		<input type="hidden" value="${pageInput.product.normalPrice}" id="<netui:rewriteName name="pricenormalSelect" forTagId="true"/>" />
 	</c:if>
 <!-- Content -->	
 	<!-- Sidebar: Accordeon -->
@@ -733,7 +754,8 @@ $(function(){
 					<li><h3 class="title-carro">Tu Cuenta es de:</h3></li>
 					<li class="precio-carro">
 						<img src="http://www.latinlabs.com.ar/cablevision/img/carrocompras.png" alt="$808.0" class="img-carro" />
-						<span id="<netui:rewriteName name="sumatoria" forTagId="true"/>">$0.0</span>
+						<span id="<netui:rewriteName name="sumatoria" forTagId="true"/>">$0.0</span></br>
+						<span style='font-size: 9px;'>*Precio en efectivo <span id="<netui:rewriteName name="sumatoriaefectivo" forTagId="true"/>">$0.0</span> mensuales</span>
 					</li>
 
 					<li><div class="precio-legend">Precio mensual con tarjeta de crédito</div></li>
