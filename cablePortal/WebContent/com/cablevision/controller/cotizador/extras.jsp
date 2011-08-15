@@ -49,6 +49,7 @@ $(document).ready(function(){
 				</jstl-c:choose>
 				<input type="hidden" name="productId" value="${container.item.normalPrice}" />
 				<input type="hidden" name="price" value="${container.item.tcPrice}" />
+				<input type="hidden" name="pricenormal" value="${container.item.normalPrice}" />
 				<input type="hidden" name="depende" value="${container.item.depende}"/>
 				
 				<jstl-c:choose>
@@ -60,6 +61,7 @@ $(document).ready(function(){
 						</select>
 					</jstl-c:when>
 				</jstl-c:choose>
+				</br><label for="check1" style="font-size: 9px;">*Precio en efectivo $ <netui:span value="${container.item.normalPrice}"> <netui:formatNumber pattern="#,###.00"/> </netui:span> mensuales</label>
 			</div>
 			
 			<!-- 
