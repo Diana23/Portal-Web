@@ -27,6 +27,7 @@ public class ProductService  implements Serializable {
 	private Double tcPrice;
 	private Service service;
 	private Double total;
+	private Double totalnormal;
 	private String grupo;
 	private Map<Long,Extra> extras = new HashMap<Long,Extra>();
 	private Map<Long,ProductService> mejoras = new HashMap<Long,ProductService>();
@@ -84,18 +85,23 @@ public class ProductService  implements Serializable {
      */
     private void calculateTotal(){
     	total = this.getTcPrice();
+    	totalnormal = this.getNormalPrice();
     	
     	for(Iterator<Long> i = extras.keySet().iterator();i.hasNext();){
     		Extra extra = extras.get(i.next());
     		
     		if(extra.getSelectedNumber()>0){
 	    		Double adicionalTc = 0.0;	    	
+	    		Double adicionalNormal = 0.0;	   
 	    		if(extra.getSelectedNumber()>=4){
 	    			adicionalTc = (extra.getTcPriceDv())*((int)(extra.getSelectedNumber()/4));
+	    			adicionalNormal = (extra.getNormalPriceDv())*((int)(extra.getSelectedNumber()/4));
 	    		}
 		    	total += extra.getTcPrice()*extra.getSelectedNumber()+adicionalTc;
+		    	totalnormal += extra.getNormalPrice()*extra.getSelectedNumber()+adicionalNormal;
     		}else{
     			total += extra.getTcPrice();
+    			totalnormal += extra.getNormalPrice();
     		}
     	}
     }
@@ -106,11 +112,13 @@ public class ProductService  implements Serializable {
      */
     private void calculateTotalMejoras(){
     	total = this.getTcPrice();
+    	totalnormal= this.getNormalPrice();
     	
     	for(Iterator<Long> i = mejoras.keySet().iterator();i.hasNext();){
     		ProductService mejora = mejoras.get(i.next());
     		
     		total += mejora.getTcPrice();
+    		totalnormal += mejora.getNormalPrice();
     	}
     }
     
@@ -211,6 +219,14 @@ public class ProductService  implements Serializable {
 
 	public void setTotal(Double total) {
 		this.total = total;
+	}
+	
+	public Double getTotalnormal() {
+		return totalnormal;
+	}
+
+	public void setTotalnormal(Double totalnormal) {
+		this.totalnormal = totalnormal;
 	}
 
 	public String getDescriptionFormato() {
