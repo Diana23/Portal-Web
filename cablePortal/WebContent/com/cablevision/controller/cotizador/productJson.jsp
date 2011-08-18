@@ -6,5 +6,6 @@
 	idProduct:${pageInput.product.idProductService},
 	idService:${pageInput.product.service.idService},
 	price:${pageInput.product.total},
+	pricenormal:${pageInput.product.totalnormal},
 	extras:'${pageInput.product.descriptionFormato}<netui-data:repeater dataSource="pageInput.product.extras"><span class="color-orange"> > </span> ${container.item.name}<br/></netui-data:repeater>'
 }

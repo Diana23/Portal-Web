@@ -16,6 +16,7 @@
 		<netui-data:repeater dataSource="pageInput.products">
 			<li class="wrap-paq-cot">
 				<input type="hidden" name="price" value="${container.item.tcPrice}" />
+				<input type="hidden" name="pricenormal" value="${container.item.normalPrice}" />
 				<c:set var="pseName" scope="request" value="${container.item.name}"/>
 				<input type="hidden" name="serviceOrder" value="${container.item.service.orden}">
 				
@@ -47,6 +48,7 @@
 							<input id="<netui:rewriteName name="product_" forTagId="true"/>${container.item.idProductService}" type="radio" name="productId" value="${container.item.idProductService}" class="fright radio" />
 						</c:otherwise>
 					</c:choose>
+					</br><label for="check1" style="font-size: 9px;">*Precio en efectivo $ <netui:span value="${container.item.normalPrice}"> <netui:formatNumber pattern="#,###.00"/> </netui:span> mensuales</label>
 				</div>
 			</li>
 		</netui-data:repeater>

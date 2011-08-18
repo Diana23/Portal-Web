@@ -17,6 +17,7 @@
 				
 				<li class="wrap-paq-cot">
 					<input type="hidden" name="price" value="${container.item.tcPrice}" />
+					<input type="hidden" name="pricenormal" value="${container.item.normalPrice}" />
 					<c:set var="pseName" scope="request" value="${container.item.name}"/>
 					<input type="hidden" name="group" value="${container.item.grupo}" />
 					
@@ -39,6 +40,7 @@
 					<div class="clear"></div>
 					<div class="precio-bordered"><label for="check1">Por sólo $ <netui:span value="${container.item.tcPrice}"> <netui:formatNumber pattern="#,###.00"/> </netui:span> mensuales</label> 
 						<input id="<netui:rewriteName name="product_" forTagId="true"/>${container.item.grupo}" type="radio" name="<netui:rewriteName name="product_" forTagId="true"/>${container.item.grupo}" value="${container.item.idProductService}" class="fright radiom" />
+						</br><label for="check1" style="font-size: 9px;">*Precio en efectivo $ <netui:span value="${container.item.normalPrice}"> <netui:formatNumber pattern="#,###.00"/> </netui:span> mensuales</label>
 					</div>
 				</li>
 			</li>
