@@ -14,6 +14,9 @@
 		</layout>
 		<filter class="com.cablevision.util.LogFilter" />
 	</appender>
+	<logger name = "com.cablevision.controller.entretenimiento">
+        <level value = "DEBUG"/>
+    </logger>
 	<root>
 		<level value="DEBUG" />
 		<appender-ref ref="FILE" />

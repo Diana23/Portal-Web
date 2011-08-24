@@ -71,7 +71,7 @@ p {
 <br />
 <br />
 <div align="center">
-<h3 class="titular">CONFIRACI&OACUTE;N</h3>
+<h3 class="titular">CONFIRMACI&Oacute;N</h3>
 <br />
 <br />
 <br />

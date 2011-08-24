@@ -26,6 +26,7 @@ import org.apache.beehive.netui.pageflow.PageFlowUtils;
 import org.apache.beehive.netui.pageflow.annotations.Jpf;
 import org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.apache.solr.client.solrj.SolrQuery.ORDER;
 import org.apache.solr.client.solrj.response.FacetField;
 import org.apache.solr.client.solrj.response.QueryResponse;
@@ -42,10 +43,12 @@ import com.cablevision.carga.CargaExcel;
 import com.cablevision.controller.base.ControllerBase;
 import com.cablevision.util.ConfigurationHelper;
 import com.cablevision.util.Constantes;
+import com.cablevision.util.Equipo;
 import com.cablevision.util.MailUtil;
 import com.cablevision.util.ResponseToGetPPV;
 import com.cablevision.util.ResponseToPurchasePPV;
 import com.cablevision.util.RespuestaToMyAccount;
+import com.cablevision.util.RespuestaToMyAccountEquipos;
 import com.cablevision.util.SolrHelper;
 
 //Substitute with this annotation if nested pageflow
@@ -68,6 +71,7 @@ import com.cablevision.util.SolrHelper;
 public class EntretenimientoController extends ControllerBase {
 	private static final long serialVersionUID = 1L;
 	transient ToInterfase vitriaClient;
+	private Logger log = Logger.getLogger(EntretenimientoController.class);
 
 	@Jpf.Action(forwards = { @Jpf.Forward(name = "success", path = "ruleta.jsp") })
 	protected Forward begin(EntretenimientoFormBean form) throws Exception {
@@ -487,18 +491,35 @@ public class EntretenimientoController extends ControllerBase {
 		String idIni = request.getParameter("id");
 		String tipoIni = request.getParameter("tipo");
 		
+		
+		log.debug("idSolr:"+idSolr);
+		log.debug("idIni:"+idIni);
+		log.debug("tipoIni:"+tipoIni);
+		
 		String userAccount = getSession().getAttribute(Constantes.SESSION_ACCOUNT_ID)!=null?
 							 getSession().getAttribute(Constantes.SESSION_ACCOUNT_ID).toString():"";
 		if(StringUtils.isNotBlank(userAccount)){
 			RespuestaToMyAccount response = getVitriaClient().getProjects_CVNPW_Initial_ToInterfase().toMyAccount(userAccount.trim());
 			if(response != null){
+				log.debug("obtiene respuesta de vitria:");
 				if ( response.getEquipos()!=null && response.getEquipos().length > 0 ) {
-					
-					
+					log.debug("valida equipos:"+response.getEquipos());
+					for(int x = 0; x < response.getEquipos().length ; x++){
+						RespuestaToMyAccountEquipos tmpEquipo = response.getEquipos()[x];
+						if(tmpEquipo != null){
+							if(tmpEquipo.getEquipo() != null){
+								for(int y = 0; y< tmpEquipo.getEquipo().length ; y++){
+									Equipo tmpEquipo2 =  (tmpEquipo.getEquipo())[y];
+									log.debug("EQUIPO::"+tmpEquipo2.getSerialNum());
+								}
+							}
+						}
+					}
 					SolrDocumentList result = SolrHelper.query(
 							"id:\"" + idSolr + "\"").getResults();
 					
 					if (result != null && result.size() > 0) {
+						log.debug("obtiene info del evento::"+idSolr);
 						SolrDocument detalle = result.get(0);
 						
 						SimpleDateFormat sdfFecha = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
@@ -511,10 +532,21 @@ public class EntretenimientoController extends ControllerBase {
 						form.setTitulo((String)detalle.getFieldValue("titulo"));
 						form.setCanal((String)detalle.getFieldValue("canal"));
 						form.setPrecio(detalle.getFieldValue("precio")!=null?(detalle.getFieldValue("precio")).toString():"");
+						log.debug("consulta vitria ppv");
+						log.debug("param1:"+response.getCvNumberAccount());
+						log.debug("param2:"+form.getFechaIni());
+						log.debug("param3:"+form.getFechaFin());
+						log.debug("param4:"+form.getIdEvento());
 						
 						ResponseToGetPPV ppv = getVitriaClient().getProjects_CVNPW_Initial_ToInterfase().toGetPPV(
 								   response.getCvNumberAccount(), form.getFechaIni(), 
 								   form.getFechaFin(), form.getIdEvento());
+						log.debug("respuesta vitria ppv::"+ppv.getPpvEvent());
+						if(ppv.getError() != null){
+							log.debug("ErrorCode::"+ppv.getError().getCvErrorCode());
+							log.debug("ErrorCode::"+ppv.getError().getCvErrorMessage());
+						}
+						
 							if(ppv.getPpvEvent().equalsIgnoreCase("N")){
 								//forward.addActionOutput("ppvDuplicado", ppv.getError().getCvErrorMessage());
 								forward.addActionOutput("ppvDuplicado", "Ya tiene contratado este evento, seleccione otro");
@@ -582,6 +614,12 @@ public class EntretenimientoController extends ControllerBase {
 		Forward forward = new Forward("success");
 		ServletRequest request = ScopedServletUtils.getOuterServletRequest(getRequest());
 		String cuenta = request.getParameter("cuenta");
+		log.debug("cuenta:"+cuenta);
+		log.debug("form.getUbicacion():"+form.getUbicacion());
+		log.debug("form.getIdEquipo():"+form.getIdEquipo());
+		log.debug("form.getEquipoSerie():"+form.getEquipoSerie());
+		log.debug("form.getIdEvento():"+form.getIdEvento());
+		log.debug("form.getFechaIni():"+form.getFechaIni());
 		
 		ResponseToPurchasePPV response = getVitriaClient().getProjects_CVNPW_Initial_ToInterfase().toPurchasePPV(cuenta, form.getUbicacion(), form.getIdEquipo(),
 				form.getEquipoSerie(), form.getIdEvento(), form.getFechaIni());
@@ -596,16 +634,24 @@ public class EntretenimientoController extends ControllerBase {
 			RespuestaToMyAccount responseAcount = getVitriaClient().getProjects_CVNPW_Initial_ToInterfase().toMyAccount(userAccount.trim());
 			responseAcount.getCvMailAddres();		
 			
+			log.debug("response.getError().getCvErrorCode():"+response.getError().getCvErrorCode());
+			log.debug("response.getError().getCvErrorMessage():"+response.getError().getCvErrorMessage());
+			
 			Map<String, String> values = new HashMap<String, String>();
 			values.put("nombre", responseAcount.getNombreContacto()+" "+responseAcount.getApellidoPaterno()+" "+responseAcount.getApellidoMaterno());
 			values.put("email", responseAcount.getCorreoContacto());
 			values.put("noCuenta", responseAcount.getCvNumberAccount());
 			values.put("errorCode", response.getError().getCvErrorCode());
 			
+			log.debug("CORREO");
+			log.debug("SUBJECT::"+ConfigurationHelper.getPropiedad("correo.ppv.subject",null));
+			log.debug("TO::"+ConfigurationHelper.getPropiedad("correo.ppv.to",null));
+			log.debug("FROM::"+ConfigurationHelper.getPropiedad("correo.ppv.from",null));
+			log.debug("TEMPLATEID::"+ConfigurationHelper.getPropiedad("correo.ppv.templateId",null));
 			
 			MailUtil.sendMail(ConfigurationHelper.getPropiedad("correo.ppv.subject",null), ConfigurationHelper.getPropiedad("correo.ppv.to",null), 
 					ConfigurationHelper.getPropiedad("correo.ppv.from",null), 
-					ConfigurationHelper.getPropiedad("correo.ppv.templateId",null), values);
+			ConfigurationHelper.getPropiedad("correo.ppv.templateId",null), values);
 			
 		}
 		
