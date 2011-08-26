@@ -19,7 +19,7 @@
 <div class="wrap-cont-exp">
 
 
-	<br><br><br>
+	<img style="margin-top:15px;" border="0" alt="NoPagos" src="/contentserver/groups/mercadotecnia/documents/imagen_cv/cv006248.jpg">
 	<h3 class="registrotitle hidden-text">Datos del suscriptor</h3>
 	<div class="error-msg" id="msgError">
 		<c:if test="${!empty pageInput.errores}">
