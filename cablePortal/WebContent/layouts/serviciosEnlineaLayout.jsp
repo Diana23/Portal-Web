@@ -56,7 +56,8 @@ xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0">
             	<jsp:include page="/layouts/leftMenuServiciosEnlinea.jsp"/>
                 <div class="span-18 last">
 					<div class="wrap-cont-simple">
-						<h2 class="servenlinea hidden-text">Portal de servicios en línea</h2>
+						<img style="margin-top:15px;" border="0" alt="NoPagos" src="/contentserver/groups/mercadotecnia/documents/imagen_cv/cv006247.jpg">
+						<h2 class="servenlinea hidden-text">Portal de servicios en l&iacute;nea</h2>
 						<div class="wrap-srvline bord-toped-111">
 							<skeleton:child presentationContext="${mainServiciosEnlinea}"/>
 						</div>
