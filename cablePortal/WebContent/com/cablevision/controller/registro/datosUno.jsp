@@ -19,7 +19,8 @@
 <div class="wrap-cont-exp">
 
 
-	<img style="margin-top:15px;" border="0" alt="NoPagos" src="/contentserver/groups/mercadotecnia/documents/imagen_cv/cv006248.jpg">
+	<img style="margin-top:15px;" border="0" alt="NoPagos" src="/contentserver/groups/mercadotecnia/documents/imagen_cv/cv006250.jpg"/>
+<!--  
 	<h3 class="registrotitle hidden-text">Datos del suscriptor</h3>
 	<div class="error-msg" id="msgError">
 		<c:if test="${!empty pageInput.errores}">
@@ -103,6 +104,6 @@
   	</div>
   	<div class="beneficios"></div>
 	</div>
-  
+  -->
 </netui:scriptContainer>
 
