@@ -135,7 +135,7 @@
 				<div class="clear"></div>
 			</netui:form>
 		</c:if>
-	</div>
+	</div><!--
 	<div class="clear"></div><br /><br />
 </div>
  -->
