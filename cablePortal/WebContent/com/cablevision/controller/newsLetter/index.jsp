@@ -195,7 +195,7 @@
 								
 								<jstl-c:choose>
 									<jstl-c:when test="${requestScope.saved!= 'true' }">
-										<!-- inicio captcha -->
+										<!-- inicio captcha --><!-- 
 										<div id="recaptcha_div" style="width: 490px ! important; margin-left: 0pt;" >
 											<script type="text/javascript">
 												var recaptchaKey = "<%=ConfigurationHelper.getPropiedad("recaptcha.key","null")%>"; 
@@ -225,7 +225,7 @@
 												<!--  <a href="#" title="Enviar" style="margin-bottom: 50px; margin-left: 390px; margin-top: -75px;" class="btn-minimized marg-rig15">Enviar</a> -->
 										    </div>
 										</div>
-										<!-- fin recaptcha -->
+										<!-- fin recaptcha --><!-- 
 									</jstl-c:when>
 									<jstl-c:otherwise>
 										

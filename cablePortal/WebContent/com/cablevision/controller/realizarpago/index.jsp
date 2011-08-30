@@ -3,7 +3,7 @@
 <%@taglib uri="http://beehive.apache.org/netui/tags-databinding-1.0" prefix="netui-data"%>
 <%@taglib uri="http://beehive.apache.org/netui/tags-template-1.0" prefix="netui-template"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<!-- 
 <netui:scriptContainer>
 <div class="content-pago">
 	<h3 class="side">Realizar Pago</h3>
@@ -11,3 +11,4 @@
 	</iframe>						
 </div>									
 </netui:scriptContainer>
+ -->

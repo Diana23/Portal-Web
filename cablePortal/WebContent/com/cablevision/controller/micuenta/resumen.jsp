@@ -14,7 +14,7 @@
 	String fechaFactura = account.getFechaFactura() != null ? account.getFechaFactura() : "";
 	String fechaLimite = account.getFechaLimite() != null ? account.getFechaLimite() : "";
 </jsp:scriptlet>
-
+<!-- 
 <div class="color-orange link-user-servonline bord-toped bord-boted" title="BIENVENID@ <jsp:expression>account.getNombreContacto()</jsp:expression>" >
 	BIENVENID@ <jsp:expression>nombreContacto</jsp:expression>
 </div>	
@@ -29,10 +29,10 @@
 </div>
 </netui:form>
 
-<div class="span-6 last">
+<div class="span-6 last"> 
 	<!-- 
 		<a title="Imprimir Factura" class="icons3-3 hidden-text" href="#">Imprimir Factura</a>
-	 -->
+
 	<a title="Descargar Factura" id="descargarFacturaActual" class="icons3-2 hidden-text" href="#">Descargar Factura</a>
 	<a title="Ver Factura" id="verFacturaActual" class="icons3-1 hidden-text" href="#">Ver Factura</a>							
 	<div style="display:none;">
@@ -45,7 +45,7 @@
 </div>
 
 <div class="clear" ></div>
-<br/>
+<br/>-->
 <script type="text/javascript">
 	var contextPath = '<%=request.getContextPath()%>';
 	var frameError;

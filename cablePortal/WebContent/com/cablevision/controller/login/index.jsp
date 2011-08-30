@@ -106,7 +106,7 @@ pageContext.setAttribute("urlOlvidaste",urlOlvidaste.toString());
 					</a>
 					<a href="${urlOlvidaste}">
 						<img src="${pageContext.request.contextPath}/contenido/groups/mercadotecnia/documents/imagen_cv/cv001921.png" height="35" border="0" align="top"/>
-					</a>
+					</a> 
 				</td>
 				<td width="10" border="0" background="${pageContext.request.contextPath }/contenido/groups/mercadotecnia/documents/imagen_cv/cv000079.png"></td>
 			</tr>
