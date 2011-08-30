@@ -61,7 +61,7 @@
     </div>
 	<div class="margin-top15 marg-rig40">
 		<netui:anchor  onClick="submitForma('${formreg}',this);return false;" formSubmit="true" action="modificarPassword" styleClass="btn-small margin-bot15 fright" title="Guardar" value="Guardar"/>
-		<span>(*) Campos obligatorios</span>
+		<!--<span>(*) Campos obligatorios</span>-->
 		<div class="clear"></div>
 	</div>
 	
