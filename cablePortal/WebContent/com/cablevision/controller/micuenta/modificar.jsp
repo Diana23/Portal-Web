@@ -5,13 +5,13 @@
 
 <%@page import="com.cablevision.util.Constantes"%>
 <%@page import="com.cablevision.util.RespuestaToMyAccount"%>
-<!-- 
+
 <jsp:scriptlet>
 	RespuestaToMyAccount account = (RespuestaToMyAccount)request.getSession().getAttribute(Constantes.SESSION_MI_CUENTA);
 	String nombreContacto = account.getNombreContacto() != null ? account.getNombreContacto() : "";
 </jsp:scriptlet>
 
-
+<!-- 
 <div class="color-orange link-user-servonline bord-toped bord-boted" title="BIENVENID@ <jsp:expression>account.getNombreContacto()</jsp:expression>" >
 	BIENVENID@ <jsp:expression>nombreContacto</jsp:expression>
 </div>	
@@ -86,16 +86,17 @@
 </div>
 
 <div class="margin-top15 marg-rig40">
-
+ -->
+ <!-- 
 	<netui:anchor formSubmit="true" action="guardarCuenta" styleClass="btn-small margin-bot15 fright" title="Guardar" value="Guardar">
 		<netui:parameter name="_pageLabel" value='<%= org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel") %>'/>
 	</netui:anchor>
-	
+	 -->
+<!-- 	
 	<span>(*) Campos obligatorios</span>
 	<div class="clear"></div>
 </div>
 
 
 </netui:form>
-
  -->

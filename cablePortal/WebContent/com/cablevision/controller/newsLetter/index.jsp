@@ -5,7 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="jstl-c"%>
 
 <%@ page import="com.cablevision.util.ConfigurationHelper"%>
-<!-- 
+
 <netui:scriptContainer>
 	<script type="text/javascript">
 		var contextPath = "<%=request.getContextPath()%>";
@@ -241,4 +241,3 @@
 		</div>
 	</div>
 </netui:scriptContainer>
- -->

@@ -7,7 +7,7 @@
 
 <%@page import="com.cablevision.util.Constantes"%>
 <%@page import="com.cablevision.util.RespuestaToMyAccount"%>
-
+<!-- 
 <jsp:scriptlet>
 	RespuestaToMyAccount account = (RespuestaToMyAccount)request.getSession().getAttribute(Constantes.SESSION_MI_CUENTA);
 	String nombreContacto = account.getNombreContacto() != null ? account.getNombreContacto() : "";
@@ -138,4 +138,4 @@
 	</div>
 	<div class="clear"></div><br /><br />
 </div>
-
+ -->
