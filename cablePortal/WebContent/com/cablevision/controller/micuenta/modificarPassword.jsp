@@ -3,7 +3,7 @@
 <%@taglib uri="http://beehive.apache.org/netui/tags-databinding-1.0" prefix="netui-data"%>
 <%@taglib uri="http://beehive.apache.org/netui/tags-template-1.0" prefix="netui-template"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<!-- 
 <netui:form action="modificarPassword" tagId="formreg" styleClass="formulario">
 	<div class="content-form margin-top10 marg-rig40">
 		<span class="title-factura">
@@ -65,4 +65,4 @@
 		<div class="clear"></div>
 	</div>
 	
-</netui:form>
+</netui:form> -->

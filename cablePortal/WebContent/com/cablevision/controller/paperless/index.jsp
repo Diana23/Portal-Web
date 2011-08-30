@@ -11,7 +11,7 @@
 	String nombreContacto = account.getNombreContacto() != null ? account.getNombreContacto() : "";
 	String nombreCompleto = nombreContacto + " " + account.getApellidoPaterno();
 </jsp:scriptlet>
-
+<!-- 
 <netui:scriptContainer>
 <div class="color-orange link-user-servonline bord-toped bord-boted" title="BIENVENID@ <jsp:expression>account.getNombreContacto()</jsp:expression>" >
 	BIENVENID@ <jsp:expression>nombreContacto</jsp:expression>
@@ -68,3 +68,4 @@
 		<p class="bord-toped padding-top10">* Una vez inscrito, si desearas volver a recibir tu Estado de Cuenta en papel, puedes actualizar tus preferencias en nuestro sitio web o comunic&aacute;ndote al Centro de Servicio al Cliente.</p>
 </netui:form>
 </netui:scriptContainer>
+ -->
