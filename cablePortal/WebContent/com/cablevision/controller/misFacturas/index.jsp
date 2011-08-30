@@ -7,7 +7,7 @@
 <%@page import="java.util.Calendar"%>
 <%@page import="org.apache.struts.util.MessageResources"%>
 
-<netui:scriptContainer><!-- 
+<netui:scriptContainer>
 <script type="text/javascript" src="<%=request.getContextPath()%>/com/cablevision/controller/misFacturas/misfacturas.js"></script>
 <script type="text/javascript">
 	var contextPath = "<%=request.getContextPath()%>";
@@ -66,7 +66,7 @@
 		<div class="span-6 last">
 			<!-- 
 				<a title="Imprimir Factura" class="icons3-3 hidden-text" href="#">Imprimir Factura</a>
-			 --><!--
+			 -->
 			<a title="Descargar Factura" id="descargarFactura" class="icons3-2 hidden-text" href="#" style="display:none;">Descargar Factura</a>
 			<a title="Ver Factura" id="verFactura" class="icons3-1 hidden-text" href="#" style="display:none;">Ver Factura</a>							
 		</div>
@@ -78,7 +78,7 @@
 	</div>
 	<div class="clear"></div>
 	<div id="<netui:rewriteName name="facturasPago" forTagId="true"/>" ></div>
-</div> -->
+</div> 
 </netui:scriptContainer>
 
 <script type="text/javascript">

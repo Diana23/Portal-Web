@@ -20,7 +20,7 @@
 			<div class="span-4">
 				<a href="#" id="ingresar" title="Ingresar" class="btn-small fleft">Ingresar</a>
 			</div>
-			<div class="span-3-fix last margin-top15"><!-- 
+			<div class="span-3-fix last margin-top15">
 				 <span class="color-orange">-</span> 
 				 <jsp:scriptlet>
 					String pageLabel = request.getParameter("_pageLabel");

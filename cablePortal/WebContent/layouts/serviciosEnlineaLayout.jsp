@@ -57,12 +57,9 @@ xmlns:netuix="http://www.bea.com/servers/netuix/xsd/controls/netuix/1.0.0">
                 <div class="span-18 last">
 					<div class="wrap-cont-simple">
 					<h2 class="servenlinea hidden-text">Portal de servicios en l&iacute;nea</h2>
-						<img style="margin-top:0px;" border="0" alt="NoPagos" src="/contentserver/groups/mercadotecnia/documents/imagen_cv/cv006249.jpg"/>
-						<!-- 
 						<div class="wrap-srvline bord-toped-111">
 							<skeleton:child presentationContext="${mainServiciosEnlinea}"/>
 						</div>
-						 -->
 					</div>
 				</div>
 			</div>
