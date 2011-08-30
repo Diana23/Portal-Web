@@ -29,10 +29,10 @@
 </div>
 </netui:form>
 
-<div class="span-6 last"> -->
+<div class="span-6 last"> 
 	<!-- 
 		<a title="Imprimir Factura" class="icons3-3 hidden-text" href="#">Imprimir Factura</a>
-	 --><!-- 
+
 	<a title="Descargar Factura" id="descargarFacturaActual" class="icons3-2 hidden-text" href="#">Descargar Factura</a>
 	<a title="Ver Factura" id="verFacturaActual" class="icons3-1 hidden-text" href="#">Ver Factura</a>							
 	<div style="display:none;">

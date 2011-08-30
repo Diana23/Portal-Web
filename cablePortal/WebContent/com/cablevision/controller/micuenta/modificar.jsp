@@ -84,19 +84,18 @@
 	</ul>
 	<div class="clear"></div>
 </div>
-
-<div class="margin-top15 marg-rig40">
- -->
- <!-- 
+ --> 
+<div class="margin-top15 marg-rig40"><!-- 
 	<netui:anchor formSubmit="true" action="guardarCuenta" styleClass="btn-small margin-bot15 fright" title="Guardar" value="Guardar">
 		<netui:parameter name="_pageLabel" value='<%= org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel") %>'/>
 	</netui:anchor>
-	 -->
-<!-- 	
+	 
+
 	<span>(*) Campos obligatorios</span>
+
 	<div class="clear"></div>
 </div>
 
 
 </netui:form>
- -->
+
