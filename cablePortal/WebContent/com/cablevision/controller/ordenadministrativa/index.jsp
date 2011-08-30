@@ -11,7 +11,7 @@
 	String nombreContacto = account.getNombreContacto() != null ? account.getNombreContacto() : "";
 </jsp:scriptlet>
 
-
+<!-- 
 <netui:scriptContainer>
 	<div>
 		<div class="color-orange link-user-servonline bord-toped bord-boted" title="BIENVENID@ <jsp:expression>account.getNombreContacto()</jsp:expression>" >
@@ -68,3 +68,4 @@
 	</div>
 	
 </netui:scriptContainer>
+ -->

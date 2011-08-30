@@ -24,11 +24,11 @@
 				 <span class="color-orange">-</span> 
 				 <jsp:scriptlet>
 					String pageLabel = request.getParameter("_pageLabel");
-				 </jsp:scriptlet>
+				 </jsp:scriptlet><!-- 
 				 <netui:anchor title="&iquest;Olvidaste tu Contrase&ntilde;a?" styleClass="thickbox thickbox2 color-orange" tagId="forget-pass" href="${pageContext.request.contextPath}/com/cablevision/controller/recuperarpassword/olvidoclave4sel.jsp?modal=true&amp;height=430&amp;width=520">
 					 &iquest;Olvidaste tu Contrase&ntilde;a?
 					 <netui:parameter name="pageLabel" value="${pageLabel}"/>
-				</netui:anchor>
+				</netui:anchor> -->
 				 <!--<a href="${pageContext.request.contextPath }/com/cablevision/controller/recuperarpassword/olvidoclave4sel.jsp?modal=true&amp;height=430&amp;width=520&amp;pageLabel=<jsp:expression>pageLabel</jsp:expression>" title="&iquest;Olvidaste tu Contrase&ntilde;a?" class="thickbox thickbox2 color-orange" id="forget-pass">&iquest;Olvidaste tu Contrase&ntilde;a?</a>--><br>
 			</div>
 			<div class="clear"></div>

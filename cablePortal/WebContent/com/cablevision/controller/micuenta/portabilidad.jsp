@@ -5,7 +5,7 @@
 
 <%@page import="com.cablevision.util.Constantes"%>
 <%@page import="com.cablevision.util.RespuestaToMyAccount"%>
-
+<!-- 
 <jsp:scriptlet>
 	RespuestaToMyAccount account = (RespuestaToMyAccount)request.getSession().getAttribute(Constantes.SESSION_MI_CUENTA);
 	String nombreContacto = account.getNombreContacto() != null ? account.getNombreContacto() : "";
@@ -56,4 +56,4 @@
 	function getJqId(myid){ 
 	 return myid.replace(/:/g,"\\:").replace(/\./g,"\\.");
 	}
-</script>
+</script> -->
