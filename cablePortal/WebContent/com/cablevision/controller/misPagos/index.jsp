@@ -6,7 +6,6 @@
 <jsp:directive.page import="com.bea.portlet.PageURL"/>
 <jsp:directive.page import="com.bea.portlet.GenericURL"/>
 <jsp:directive.page import="com.cablevision.util.PageNewUrl"/>
-<!-- 
 <table width="622" height="150" cellspacing="0" cellpadding="0" border="0" class="margin-top40" id="tabla-importes">
 	<tbody>
 		<tr>

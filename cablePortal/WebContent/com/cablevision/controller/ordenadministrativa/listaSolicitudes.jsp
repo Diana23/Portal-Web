@@ -12,7 +12,7 @@
 	String nombreContacto = account.getNombreContacto() != null ? account.getNombreContacto() : "";
 </jsp:scriptlet>
 
-<netui:scriptContainer><!-- 
+<netui:scriptContainer>
 		<div class="color-orange link-user-servonline bord-toped bord-boted" title="BIENVENID@ <jsp:expression>account.getNombreContacto()</jsp:expression>" >
 	BIENVENID@ <jsp:expression>nombreContacto</jsp:expression>
 </div>	
@@ -157,5 +157,5 @@
             	$("#pager_content").html($('#tsol_'+pag).html());
             	$('#pager_results').html("Resultado "+(pag+1)+" - "+last+" de ${pageInput.numSolicitudes}");
         }
-</script> -->
+</script> 
 </netui:scriptContainer>
