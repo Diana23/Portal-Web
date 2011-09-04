@@ -17,12 +17,12 @@
 </div>
 
 <div class="content-pago">
- <h3 class="color-orange">Tu n&uacute;mero de tel&eacute;fono no cambia, tu estado de cuenta sÃ­.</h3>
+ <h3 class="color-orange">Tu n&uacute;mero de tel&eacute;fono no cambia, tu estado de cuenta s&iacute;.</h3>
  <br /><br />
  <strong>Conoce en qu&eacute; etapa est&aacute; la portabilidad de tu n&uacute;mero tel&eacute;fonico.</strong>
  <br /><br />
 
-	<netui:label value="Ingresa tu nÃºmero telefÃ³nico de 10 digitos:"/>
+	<netui:label value="Ingresa tu n&uacute;mero telef&eacute;nico de 10 digitos:"/>
 	<input type="text" id="telefono" maxlength="10" onkeypress="return soloNumeros(event);" class="selectwhitoutform big"/>
 	<div id="verPortabilidad"></div>
 	<a title="Consultar" id="consultar" class="btn-small fix-portabi" href="#" onclick="verPorta(this);return false;">Consultar</a>

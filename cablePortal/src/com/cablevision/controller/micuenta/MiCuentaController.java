@@ -552,7 +552,7 @@ public class MiCuentaController extends ControllerBase {
 			}
 		}
 		else{
-			forward.addActionOutput("error", "Proporcione un número de teléfono");
+			forward.addActionOutput("error", "Proporcione un numero de telefono");
 		}
 		
 		return forward;
