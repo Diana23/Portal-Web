@@ -18,7 +18,7 @@
 	String noContrato = account.getCvNumberAccount() != null ? account.getCvNumberAccount() : "";
 	String telefono = account.getTelefonoPrincipal() != null ? account.getTelefonoPrincipal() : "";
 </jsp:scriptlet>
-<!-- 
+
 <div class="color-orange link-user-servonline bord-toped bord-boted" title="BIENVENID@ <jsp:expression>account.getNombreContacto()</jsp:expression>" >
 	BIENVENID@ <jsp:expression>nombreContacto</jsp:expression>
 </div>
@@ -33,4 +33,3 @@
 	<strong>Tel&eacute;fono de contacto:</strong> <jsp:expression>telefono</jsp:expression><br/>
 
 </p>
- -->
