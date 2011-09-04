@@ -1,4 +1,4 @@
-#Tue Aug 30 10:46:22 CDT 2011
+#Tue Aug 30 18:14:49 CDT 2011
 eclipse.preferences.version=1
 encoding//WebContent/com/cablevision/controller/login/index.jsp=UTF-8
 encoding//WebContent/com/cablevision/controller/login/logininth.jsp=ISO-8859-1
@@ -6,7 +6,7 @@ encoding//WebContent/com/cablevision/controller/login/selLogin.jsp=UTF-8
 encoding//WebContent/com/cablevision/controller/micuenta/index.jsp=ISO-8859-1
 encoding//WebContent/com/cablevision/controller/micuenta/modificar.jsp=ISO-8859-1
 encoding//WebContent/com/cablevision/controller/micuenta/modificarPassword.jsp=UTF-8
-encoding//WebContent/com/cablevision/controller/micuenta/portabilidad.jsp=ISO-8859-1
+encoding//WebContent/com/cablevision/controller/micuenta/portabilidad.jsp=UTF-8
 encoding//WebContent/com/cablevision/controller/micuenta/resumen.jsp=ISO-8859-1
 encoding//WebContent/com/cablevision/controller/misFacturas/index.jsp=ISO-8859-1
 encoding//WebContent/com/cablevision/controller/misPagos/index.jsp=UTF-8
