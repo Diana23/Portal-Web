@@ -51,4 +51,4 @@
 	//url.addParameter(GenericURL.TREE_OPTIMIZATION_PARAM, "false");
 	pageContext.setAttribute("url",url);
 </jsp:scriptlet>
-<a title="Pagar en Linea" class="btn-small margin-bot40 fright" href="${pageScope.url}">Pagar en Linea</a> -->
+<a title="Pagar en Linea" class="btn-small margin-bot40 fright" href="${pageScope.url}">Pagar en Linea</a>
