@@ -74,6 +74,8 @@ public class RealizarPagoController extends PageFlowController {
 		aLSBParams.put("urlResponse", getMessageResources("configuracion").getMessage("pagos.urlResponse"));
 		
 		String sLBURL = getMessageResources("configuracion").getMessage("pagos.url")+"?"+encode(aLSBParams);
+		System.out.println(aLSBParams);
+		System.out.println(sLBURL);
 		forward.addActionOutput("urlSrc", sLBURL);
 		
 		return forward;
