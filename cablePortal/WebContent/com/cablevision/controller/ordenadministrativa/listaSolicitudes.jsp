@@ -157,5 +157,5 @@
             	$("#pager_content").html($('#tsol_'+pag).html());
             	$('#pager_results').html("Resultado "+(pag+1)+" - "+last+" de ${pageInput.numSolicitudes}");
         }
-</script> 
+</script>
 </netui:scriptContainer>
