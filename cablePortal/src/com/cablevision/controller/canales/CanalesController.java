@@ -49,7 +49,12 @@ public class CanalesController extends PageFlowController {
 			}
 		}else{
 			form.setFiltros(new String[]{categoria});
-			canales = getChannelService().findCvChannel(null, null, form.getFiltros());
+			try {
+				canales = getChannelService().findCvChannel(null, null, form.getFiltros());
+			} catch (NumberFormatException e) {
+				canales = getChannelService().findCvChannel(null, null, null);
+			}
+			
 			forward.addOutputForm(form);
 			forward.addActionOutput("categoriaSelec", categoria);
 		}
@@ -61,7 +66,12 @@ public class CanalesController extends PageFlowController {
 			comparador.cambiarOrden(paquete);
 			List<Cvchannel> canalesTemp = new ArrayList<Cvchannel>(canales);
 			canales = canalesTemp;
-			Collections.sort(canales,comparador);
+			try {
+				Collections.sort(canales,comparador);
+			} catch (NumberFormatException e) {
+				// TODO: handle exception
+			}
+			
 		}
 		
 		getTablaCanales(forward, canales, form!=null?form.getBuscar():"");
@@ -73,6 +83,8 @@ public class CanalesController extends PageFlowController {
 	public Forward ordenar(final CanalesForm form) throws Exception {
 		Forward forward = new Forward("success");
 		Integer ordenarPor = form.getOrdenarPor();
+		if (ordenarPor == null)
+			ordenarPor = 4;
 		
 		String buscar = form.getBuscar();
 		if(StringUtils.equalsIgnoreCase(buscar, "Busca"))
@@ -80,7 +92,16 @@ public class CanalesController extends PageFlowController {
 		
 		String[] filtros = form.getFiltros();
 		
-		List<Cvchannel> canales = getChannelService().findCvChannel(ordenarPor, buscar.trim(), filtros);
+		List<Cvchannel> canales = new ArrayList<Cvchannel>();
+		try {
+			if (ordenarPor != null && buscar != null && filtros != null){
+				canales = getChannelService().findCvChannel(ordenarPor, buscar.trim(), filtros);
+			} else {
+				canales = getChannelService().findCvChannel(ordenarPor, "", filtros);
+			}
+		} catch (NumberFormatException e) {
+			canales = getChannelService().findCvChannel(ordenarPor, "", null);
+		}
 		
 		//ordenar por paquete
 		String primerPaq = getRequest().getParameter("primerOrd");
@@ -131,8 +152,19 @@ public class CanalesController extends PageFlowController {
 			buscar = "";
 		
 		Integer ordenarPor = form.getOrdenarPor();
+		if (ordenarPor == null)
+			ordenarPor = 4;
 		
-		List<Cvchannel> canales = getChannelService().findCvChannel(ordenarPor, buscar.trim(), form.getFiltros());
+		List<Cvchannel> canales = new ArrayList<Cvchannel>();
+		try {
+			if (ordenarPor != null && buscar != null && form.getFiltros() != null){
+				canales = getChannelService().findCvChannel(ordenarPor, buscar.trim(), form.getFiltros());
+			} else {
+				canales = getChannelService().findCvChannel(ordenarPor, "", form.getFiltros());
+			}
+		} catch (NumberFormatException e) {
+			canales = getChannelService().findCvChannel(ordenarPor, "", null);
+		}
 		
 		//ordenar por paquete
 		if(ordenarPor == 4){

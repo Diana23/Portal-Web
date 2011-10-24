@@ -11,7 +11,7 @@
 </script>
 
 
-<netui:scriptContainer>
+<netui:scriptContainer idScope="canales_${fn:escapeXml(param._windowLabel)}">
 
 
 			<div class="span-18 last">

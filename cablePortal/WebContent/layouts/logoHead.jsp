@@ -178,8 +178,7 @@
 					<netui:anchor title="Ingresa" styleClass="fright thickbox" href="${pageContext.request.contextPath}/com/cablevision/controller/login/showLogin.do?modal=true&amp;height=430&amp;width=520">
 						<strong>Ingresa</strong>
 						<netui:parameter name="pageLabel" value='<%= request.getParameter("_pageLabel") %>'/>
-					</netui:anchor>
-					<!-- <a title="Ingresa" class="fright thickbox" href="${pageContext.request.contextPath }/com/cablevision/controller/login/showLogin.do?modal=true&amp;height=430&amp;width=520&amp;pageLabel=<jsp:expression>pageLabel</jsp:expression>"><strong>Ingresa</strong></a>  -->
+					</netui:anchor>			
 				</li>
 				<li class="user-btn-reg">
 					<a title="reg&iacute;strate" class="btn-registrate hidden-text" href="${registro }"> reg&iacute;strate </a>

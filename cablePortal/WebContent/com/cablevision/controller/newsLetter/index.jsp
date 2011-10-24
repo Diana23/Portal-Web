@@ -3,6 +3,7 @@
 <%@taglib uri="http://beehive.apache.org/netui/tags-databinding-1.0" prefix="netui-data"%>
 <%@taglib uri="http://beehive.apache.org/netui/tags-template-1.0" prefix="netui-template"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="jstl-c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%@ page import="com.cablevision.util.ConfigurationHelper"%>
 
@@ -24,7 +25,7 @@
 		<div class="wcs-marg">
 			<div class="span-11 marg-left220 margin-top15">
 				<netui:form action="verificarMail" tagId="formMostrar">
-					<netui:parameter name="_pageLabel" value='<%= org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel") %>'/>
+					<netui:parameter name="_pageLabel" value="${fn:escapeXml(param._pageLabel)}"/>
 
 					<h2 class="side ico-micta margin-bot15">Ingresa</h2><div class="clear"></div>	
 					<div style="height: 29px; margin-bottom: 15px; margin-top: -15px;" class="span-14">
