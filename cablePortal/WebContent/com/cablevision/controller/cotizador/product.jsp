@@ -2,10 +2,10 @@
 <%@taglib uri="http://beehive.apache.org/netui/tags-html-1.0" prefix="netui"%>
 <%@taglib uri="http://beehive.apache.org/netui/tags-databinding-1.0" prefix="netui-data"%>
 <%@taglib uri="http://beehive.apache.org/netui/tags-template-1.0" prefix="netui-template"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <jsp:directive.page import="java.util.StringTokenizer"/>
-<netui:scriptContainer idScope="${param._windowLabel}">
+<netui:scriptContainer idScope="${fn:escapeXml(param._windowLabel)}">
 <li class="padd-align">
 	<c:if test="${!empty pageInput.product}">
 		<img src="${pageInput.product.image}" alt="">

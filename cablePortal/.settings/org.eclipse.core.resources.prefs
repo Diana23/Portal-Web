@@ -1,5 +1,12 @@
-#Tue Aug 30 18:14:49 CDT 2011
+#Fri Oct 21 12:33:23 MDT 2011
 eclipse.preferences.version=1
+encoding//WebContent/com/cablevision/controller/atencionclientes/showVideo.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/canales/canales.jsp=ISO-8859-1
+encoding//WebContent/com/cablevision/controller/cotizador/mejoras.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/cotizador/product.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/cotizador/productosSeleccionados.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/cotizador/products.jsp=UTF-8
+encoding//WebContent/com/cablevision/controller/cotizador/services.jsp=UTF-8
 encoding//WebContent/com/cablevision/controller/login/index.jsp=UTF-8
 encoding//WebContent/com/cablevision/controller/login/logininth.jsp=ISO-8859-1
 encoding//WebContent/com/cablevision/controller/login/selLogin.jsp=UTF-8
@@ -17,5 +24,7 @@ encoding//WebContent/com/cablevision/controller/ordenadministrativa/listaSolicit
 encoding//WebContent/com/cablevision/controller/paperless/index.jsp=UTF-8
 encoding//WebContent/com/cablevision/controller/realizarpago/index.jsp=UTF-8
 encoding//WebContent/com/cablevision/controller/registro/datosUno.jsp=UTF-8
+encoding//WebContent/layouts/logoHead.jsp=ISO-8859-1
 encoding//WebContent/layouts/miCuentaBeneficiosLayout.jsp=UTF-8
+encoding//WebContent/layouts/navbar_breadcrumbs.jsp=ISO-8859-1
 encoding//WebContent/layouts/serviciosEnlineaLayout.jsp=UTF-8

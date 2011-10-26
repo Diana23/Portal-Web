@@ -31,7 +31,7 @@
 										<netui:textBox dataSource="actionForm.password" size="13" password="true"/>
 									</div>
 								</div>
-								<!--  
+								
 								<div class="span-4">
 									<jsp:scriptlet>
 										String pageLabel = ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel");
@@ -42,8 +42,8 @@
 										pageContext.setAttribute("pageLabel",pageLabel);
 									</jsp:scriptlet>
 									
-									<a title="&iquest;Olvidaste tu contrase&ntilde;a?" class="thickbox color-orange" id="forget-pass" href="${pageContext.request.contextPath }/com/cablevision/controller/recuperarpassword/olvidoclave4sel.jsp?modal=true&amp;height=430&amp;width=520&amp;pageLabel=<jsp:expression>pageLabel</jsp:expression>"> &gt; &iquest;Olvidaste tu contrase&ntilde;a?</a>
-								</div>-->
+									<a title="&iquest;Olvidaste tu clave?" class="thickbox color-orange" id="forget-pass" href="${pageContext.request.contextPath }/com/cablevision/controller/recuperarpassword/olvidoclave4sel.jsp?modal=true&amp;height=430&amp;width=520&amp;pageLabel=<jsp:expression>pageLabel</jsp:expression>"> &gt; &iquest;Olvidaste tu contrase&ntilde;a?</a>
+								</div>
 								<netui:anchor formSubmit="true" styleClass="btn-small fright marg-rig15" title="Ingresar">
 									<netui:parameter name="_pageLabel" value='<%= org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel") %>'/>
 									<netui:parameter name="_nfto" value="false"/>
