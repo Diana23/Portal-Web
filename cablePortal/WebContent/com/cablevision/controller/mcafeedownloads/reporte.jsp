@@ -151,7 +151,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td colspan="3">&nbsp</td>
+										<td colspan="3">&nbsp<br/><br/></td>
 									</tr>
 									<tr class="ctextoAzul">
 										<td>
@@ -171,15 +171,7 @@
 									</tr>
 									<tr class="ctextoAzul">
 										<td>
-											<netui:label value="Producto:"/>
-											<netui:select dataSource="actionForm.tipoProducto" tagId="tipoProducto">
-												<netui:selectOption value="ANTERIOR">
-													<netui:label value="Anterior"/>
-												</netui:selectOption>
-												<netui:selectOption value="NUEVO">
-													<netui:label value="Nuevo"/>
-												</netui:selectOption>
-											</netui:select>
+											&nbsp;
 										</td>
 										<td colspan="2" align="left">
 											<netui:label value="Estatus:"/>
@@ -207,14 +199,29 @@
 									</tr>
 									<tr>
 										<td colspan="3">
+											&nbsp;<br/><br/>
+										</td>
+									</tr>
+									<tr class="ctextoAzul">
+										<td colspan="3">
+											<netui:label value="Producto:"/>
+											<netui:select dataSource="actionForm.tipoProducto" tagId="tipoProducto">
+												<netui:selectOption value="ANTERIOR">
+													<netui:label value="Anterior"/>
+												</netui:selectOption>
+												<netui:selectOption value="NUEVO">
+													<netui:label value="Nuevo"/>
+												</netui:selectOption>
+											</netui:select>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="3">
 											&nbsp;
 										</td>
 									</tr>
 									<tr>
-										<td align="left" colspan="1">
-											<netui:button action="mostrarResumen" value="Ver Resumen" style="background-color:#FFFFFF;color:#FF0000;font-weight:normal;font-family:arial;font-size:9;border-width:0;cursor:pointer;"/>
-										</td>
-										<td align="right" colspan="2">
+										<td align="right" colspan="3">
 											<netui:imageButton src="${pageContext.request.contextPath}/contenido/groups/mercadotecnia/documents/imagen_cv/cv000783.jpg"/>
 										</td>
 									</tr>
@@ -231,11 +238,28 @@
 					</table>
 				</td>
 			</tr>
+			<tr>
+				<td colspan="5">
+					<table cellspacing="0" cellpadding="0">
+						<tr>
+							<td align="left" colspan="1">
+								<netui:button action="mostrarResumen" value="Ver Resumen" style="background-color:#FFFFFF;color:#FF0000;font-weight:normal;font-family:arial;font-size:9;border-width:0;cursor:pointer;"/>
+							</td>
+							
+						</tr>
+					</table>
+				</td>
+			</tr>
 		</table>
 		<br/>
 		<script type="text/javascript" >
 	function redir(fechainicio, fechafin, estatus,tipoproducto){
 	var dir ='${pageContext.request.contextPath}/com/cablevision/controller/mcafeedownloads/mostrarReporteExcel.do?fechaDe='+fechainicio+'&fechaA='+fechafin+'&estatus='+estatus+'&tipoProducto='+tipoproducto; 
+	window.open(dir);
+	}
+	
+	function redir2(tipoproducto){
+	var dir ='${pageContext.request.contextPath}/com/cablevision/controller/mcafeedownloads/descargaResumen.do?tipoProducto='+tipoproducto; 
 	window.open(dir);
 	}
 </script>
@@ -244,8 +268,13 @@
 				<td colspan="3">
 					<c:choose>
 						<c:when  test="${!empty pageInput.lista}">
-							<div style="border-color: black white white; overflow: scroll; width: 530px; border-style: ridge; height: 150px;">
-								<table height="100%" width="100%" border="0">
+							<div style="border-color: black white white; overflow: scroll; width: 530px; border-style: ridge; height: 200px;">
+								<table height="90%" width="92%" border="0">
+									<tr>
+									<td align="left" >
+										<input type="button" value="Descargar" onclick="redir2('${actionForm.tipoProducto}')" style="background-color:#FFFFFF;color:#FF0000;font-weight:normal;font-family:arial;font-size:9;border-width:0;cursor:pointer;" >
+									</td>
+									</tr>
 									<tr class="ctextoGray">
 										<td>
 											<netui:label value="Año-Mes"/>

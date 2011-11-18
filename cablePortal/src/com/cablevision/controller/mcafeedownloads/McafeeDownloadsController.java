@@ -330,6 +330,41 @@ public class McafeeDownloadsController extends ControllerBase {
 		return forward;
 	}
 	
+	@Jpf.Action(
+			forwards = { 
+					@Jpf.Forward(name = "success", path= "reporte.jsp")
+			},
+			loginRequired = false
+	)
+	public Forward descargaResumen(ReportBean form) throws Exception{
+		Forward forward = new Forward("success");
+		
+		log.debug("LLAMADA A descarga RESUMEN::"+form.getEstatus());
+		
+		String datosReporte =  getMcafeeDownloadsService().generaResumenExcel(form.getTipoProducto());
+		String nombreArchivo = "resumen_producto_"+form.getTipoProducto();
+		
+		byte[] arrDatos = datosReporte.getBytes();
+		
+		ByteArrayOutputStream stream =  new ByteArrayOutputStream(arrDatos.length);
+		stream.write(arrDatos);
+				
+		this.getResponse().setHeader("Cache-Control", "max-age=30");
+		this.getResponse().setContentType("application/msexcel");
+		this.getResponse().setHeader("Content-length", "" + arrDatos.length);
+		this.getResponse().setHeader("Content-disposition", "inline;filename="+nombreArchivo);
+		
+		stream.writeTo(this.getResponse().getOutputStream());
+		
+		stream.flush();
+		stream.close();	
+		
+		
+		
+		return null;
+	}
+	
+	
 	
 	/**
 	 * Metodo que genera el key y value para el combo de mes que se muestra al generar un reporte

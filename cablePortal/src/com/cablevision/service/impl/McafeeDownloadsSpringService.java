@@ -13,6 +13,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.net.URLConnection;
@@ -20,15 +21,18 @@ import java.rmi.RemoteException;
 import java.security.MessageDigest;
 import java.sql.Timestamp;
 import java.text.DateFormat;
+import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.text.DateFormatter;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -391,6 +395,87 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 			String status, String tipoproducto) {
 		return getDao().getResumenPorFecha(fechaInicio, fechaFinal, status, tipoproducto);
 	}
+	
+	public String generaResumenExcel(String tipoProducto){
+	if(tipoProducto.trim().length() == 0)
+		tipoProducto = "ANTERIOR";
+		List datos = getDao().getResumenDownloads(tipoProducto);
+		Iterator iter = datos.iterator();
+		StringBuffer archivo = new StringBuffer();
+		ArrayList<Long> listaCantidades = new ArrayList<Long>();
+		ArrayList<String> listaFechas =new ArrayList<String>();
+		ArrayList<Long> listaAcumulado = new ArrayList<Long>(); 
+		Long cuenta = new Long(0);
+		try{
+			while (iter.hasNext()) {
+				Object[] arr= (Object[])iter.next();  
+				Long cantidad = Long.parseLong(arr[0].toString());
+				listaCantidades.add(cantidad);
+				System.out.println("cantidad::"+cantidad);
+				
+				cuenta = cuenta.longValue() + cantidad.longValue();
+				listaAcumulado.add(cuenta);
+				
+				String _fecha = arr[1].toString();
+				String _anio = "";
+				String _mes = "";
+				
+				if(_fecha.length() >= 10){
+					_anio = _fecha.substring(0, 4);
+					System.out.println("ANIO:"+_anio);
+					_mes  = _fecha.substring(5, 7);
+					System.out.println("ANIO:"+_mes);
+					_fecha = _anio+"-"+_mes;
+					}
+					
+			
+				listaFechas.add(_fecha);
+				System.out.println("fecha::"+_fecha);
+				
+
+			}
+			
+			
+		archivo.append("<table>");
+		archivo.append("<tr>");
+			archivo.append("<td>CABLEVISION - MCAFEE RESUMEN</td>");
+		archivo.append("</tr>");
+		archivo.append("<tr>");
+			archivo.append("<td>Producto:"+tipoProducto+"</td>");
+		archivo.append("</tr>");
+		archivo.append("<tr>");
+			archivo.append("<td>Año - Mes</td>");
+			
+			for (String dato : listaFechas) {
+				archivo.append("<td>"+dato+"</td>");
+			}
+		
+		archivo.append("</tr>");
+		archivo.append("<tr>");
+			archivo.append("<td>Total por mes</td>");
+			
+			for (Long dato : listaCantidades) {
+				archivo.append("<td>"+dato.longValue()+"</td>");
+			}
+		archivo.append("</tr>");
+			archivo.append("<td>Acumulado</td>");
+			for (Long dato : listaAcumulado) {
+				archivo.append("<td>"+dato.longValue()+"</td>");
+			}
+		archivo.append("<tr>");
+			
+		archivo.append("<tr>");
+	archivo.append("</table>");
+	
+		
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return archivo.toString();
+	}
+	
 	@Override
 	public String generaReporte(Date fechaInicio, Date fechaFinal,String status, String tipoProducto, String fileName) throws Exception{
 		log.info("PARAMETROS fechaInicio:"+fechaInicio+" fechaFinal:"+fechaFinal+" status:"+status+" tipoProducto:"+tipoProducto+" fileName:"+fileName);

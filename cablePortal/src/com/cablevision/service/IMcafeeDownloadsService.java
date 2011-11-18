@@ -156,4 +156,6 @@ public interface IMcafeeDownloadsService {
 	
 	public ToInterfase getVitriaClient();
 	
+	public String generaResumenExcel(String tipoProducto);
+	
 }
