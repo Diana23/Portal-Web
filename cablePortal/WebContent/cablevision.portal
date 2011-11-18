@@ -698,12 +698,12 @@
                                     </netuix:content>
                                 </netuix:book>
                                 <netuix:book defaultPage="soluciones_negocio_negocio"
-                                    definitionLabel="cablevision_portal_book_17" hidden="true"
-                                    markupName="book" markupType="Book" title="Mi negocio y CABLEVISION®">
+                                    definitionLabel="cablevision_portal_book_17" hidden="false"
+                                    markupName="book" markupType="Book" title="CABLEVISION® Negocios">
                                     <netuix:content>
                                         <netuix:page definitionLabel="soluciones_negocio_negocio"
                                             hidden="true" markupName="page" markupType="Page"
-                                            properties="contenidoId=CV002195;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002205" title="Mi negocio y CABLEVISION®">
+                                            properties="contenidoId=CV002195;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002205" title="CABLEVISION® Negocios">
                                             <netuix:content>
                                                 <netuix:layout
                                                   description="This layout uses left and rigth placeholders"

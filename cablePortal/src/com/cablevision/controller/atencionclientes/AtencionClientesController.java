@@ -10,6 +10,7 @@ import org.apache.beehive.netui.pageflow.Forward;
 import org.apache.beehive.netui.pageflow.PageFlowController;
 import org.apache.beehive.netui.pageflow.annotations.Jpf;
 import org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.lucene.queryParser.QueryParser;
 import org.apache.solr.client.solrj.SolrQuery.ORDER;
@@ -29,7 +30,7 @@ public class AtencionClientesController extends PageFlowController {
 	@Jpf.Action(forwards = { @Jpf.Forward(name = "success", path = "preguntas_frecuentes.jsp") })
 	protected Forward begin(AtencionClientesFormBean form) throws Exception {
 		Forward forward = new Forward("success");
-		form.setCategoria(ScopedServletUtils.getOuterServletRequest(getRequest()).getParameter("categoria"));
+		form.setCategoria(StringEscapeUtils.escapeHtml(ScopedServletUtils.getOuterServletRequest(getRequest()).getParameter("categoria")));
 		forward.addOutputForm(form);
 		return forward;
 	}
@@ -46,16 +47,22 @@ public class AtencionClientesController extends PageFlowController {
 		Map<String, String> mapaPaginas = new LinkedHashMap<String, String>();
 		
 		if(StringUtils.isNotBlank(ScopedServletUtils.getOuterServletRequest(getRequest()).getParameter("categoria"))){
-			form.setCategoria(ScopedServletUtils.getOuterServletRequest(getRequest()).getParameter("categoria"));
+			form.setCategoria(StringEscapeUtils.escapeHtml(ScopedServletUtils.getOuterServletRequest(getRequest()).getParameter("categoria")));
 		}
 		
 		int minRows = 5;
-		int start = (form.getStart()==null || form.getStart().equalsIgnoreCase(""))?0:Integer.parseInt((String)form.getStart());
+		int start = 0;
+		try {
+			start = (form.getStart()==null || form.getStart().equalsIgnoreCase(""))?0:Integer.parseInt((String)form.getStart());
+		} catch (NumberFormatException e) {
+			// TODO: handle exception
+		}
+		
 		int rows = (form.getRows()==null || form.getRows().equalsIgnoreCase(""))?minRows:Integer.parseInt((String)form.getRows());
 		
 		StringBuffer strQuery = new StringBuffer("tipo:preguntaFrecuente");
 		if(form.getCategoria()!=null){
-			strQuery.append(" AND preguntaFrecuente_categoria:\""+form.getCategoria()+"\"");
+			strQuery.append(" AND preguntaFrecuente_categoria:\""+QueryParser.escape(ScopedServletUtils.getOuterServletRequest(getRequest()).getParameter("categoria"))+"\"");
 		}else{
 			if(form.getSearchStr()!=null){
 				if(form.getSearchStr().length()>0){
