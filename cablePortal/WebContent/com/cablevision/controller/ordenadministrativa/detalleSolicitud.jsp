@@ -25,7 +25,7 @@
 		
 		<netui:form action="mostrarDetalle" tagId="fomaDetalle" styleClass="formulario">
 			<c:if test="${!empty actionForm.backward}">
-				<table width="530" cellspacing="0" cellpadding="5">
+				<table width="430" cellspacing="0" cellpadding="5">
 					<tr>
 						<td>
 							<c:if test="${!empty pageInput.errores}">
@@ -92,7 +92,7 @@
 				<c:if test="${empty pageInput.errores}">
 					<tr>
 						<td height="205" class="revisa">
-					  		<table cellspacing="0" cellpadding="0" align="center">
+					  		<table width="500" cellspacing="0" cellpadding="0" align="center">
                             	<tr>
                                 	<td align="right" width="50%"><strong>Contrato: </strong></td>
                                    	<td width="50%"><netui:label value="${actionForm.contrato}"/></td>
@@ -190,7 +190,7 @@
 									${pageInput.successMsg}
 								</font>
 							</c:if>
-							<table width="622" height="150" cellspacing="0" cellpadding="0" border="0" class="margin-top40" id="tabla-importes">
+							<table width="500" height="150" cellspacing="0" cellpadding="0" border="0" class="margin-top40" id="tabla-importes">
 								<tbody>
 									<tr>
 										<td width="311" valign="top" height="80" align="center" class="paddtop-in-table">
@@ -222,7 +222,7 @@
 									</c:if>
 									
 									<tr>
-										<td width="622" valign="top" height="70" align="left" alt="" colspan="4" class="paddtop-in-table rowspaned">
+										<td width="500" valign="top" height="70" align="left" alt="" colspan="4" class="paddtop-in-table rowspaned">
 											<c:if test="${empty pageInput.finalizada}">
 												<netui:anchor action="mostrarAgregaComentario" value="Agregar Comentario" title="Agregar Comentario" styleClass="btn-small  margin-bot15 bs-2-lines fright">
 													<netui:parameter name="_pageLabel" value='<%= org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel") %>'/>
@@ -239,7 +239,7 @@
 								</font>
 							</c:if>
 							
-							<table width="622" height="150" cellspacing="0" cellpadding="0" border="0" class="margin-top40" id="tabla-importes">
+							<table width="500" height="150" cellspacing="0" cellpadding="0" border="0" class="margin-top40" id="tabla-importes">
 								<tbody>
 									<tr>
 										<td width="207" valign="top" height="80" align="center" alt="" class="paddtop-in-table">
@@ -275,7 +275,7 @@
 										</c:forEach>
 									</c:if>
 									<tr>
-										<td width="622" valign="top" height="70" align="left" alt="" colspan="4" class="paddtop-in-table rowspaned">
+										<td width="500" valign="top" height="70" align="left" alt="" colspan="4" class="paddtop-in-table rowspaned">
 											<c:if test="${empty pageInput.finalizada}">
 												<netui:anchor action="mostrarAgregaArchivo" title="Agregar Archivo" value="Agregar Archivo" styleClass="btn-small  margin-bot15 bs-2-lines fright">
 													<netui:parameter name="_pageLabel" value='<%= org.apache.beehive.netui.pageflow.scoping.ScopedServletUtils.getOuterServletRequest(request).getParameter("_pageLabel") %>'/>

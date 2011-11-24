@@ -1,4 +1,4 @@
-#Fri Oct 21 12:33:23 MDT 2011
+#Thu Nov 24 11:47:20 CST 2011
 eclipse.preferences.version=1
 encoding//WebContent/com/cablevision/controller/atencionclientes/showVideo.jsp=UTF-8
 encoding//WebContent/com/cablevision/controller/canales/canales.jsp=ISO-8859-1
@@ -19,6 +19,7 @@ encoding//WebContent/com/cablevision/controller/misFacturas/index.jsp=ISO-8859-1
 encoding//WebContent/com/cablevision/controller/misPagos/index.jsp=UTF-8
 encoding//WebContent/com/cablevision/controller/newsLetter/index.jsp=UTF-8
 encoding//WebContent/com/cablevision/controller/newsLetter/newsletterCel.jsp=ISO-8859-1
+encoding//WebContent/com/cablevision/controller/ordenadministrativa/detalleSolicitud.jsp=UTF-8
 encoding//WebContent/com/cablevision/controller/ordenadministrativa/index.jsp=UTF-8
 encoding//WebContent/com/cablevision/controller/ordenadministrativa/listaSolicitudes.jsp=UTF-8
 encoding//WebContent/com/cablevision/controller/paperless/index.jsp=UTF-8
