@@ -342,7 +342,7 @@ public class McafeeDownloadsController extends ControllerBase {
 		log.debug("LLAMADA A descarga RESUMEN::"+form.getEstatus());
 		
 		String datosReporte =  getMcafeeDownloadsService().generaResumenExcel(form.getTipoProducto());
-		String nombreArchivo = "resumen_producto_"+form.getTipoProducto();
+		String nombreArchivo = "resumen_producto_"+form.getTipoProducto()+".xls";
 		
 		byte[] arrDatos = datosReporte.getBytes();
 		
