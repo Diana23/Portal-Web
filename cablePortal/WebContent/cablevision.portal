@@ -698,12 +698,12 @@
                                     </netuix:content>
                                 </netuix:book>
                                 <netuix:book defaultPage="soluciones_negocio_negocio"
-                                    definitionLabel="cablevision_portal_book_17" hidden="true"
-                                    markupName="book" markupType="Book" title="Mi negocio y CABLEVISION®">
+                                    definitionLabel="cablevision_portal_book_17" hidden="false"
+                                    markupName="book" markupType="Book" title="CABLEVISION® Negocios">
                                     <netuix:content>
                                         <netuix:page definitionLabel="soluciones_negocio_negocio"
                                             hidden="true" markupName="page" markupType="Page"
-                                            properties="contenidoId=CV002195;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002205" title="Mi negocio y CABLEVISION®">
+                                            properties="contenidoId=CV002195;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002205" title="CABLEVISION® Negocios">
                                             <netuix:content>
                                                 <netuix:layout
                                                   description="This layout uses left and rigth placeholders"
@@ -723,6 +723,69 @@
                                                   <netuix:portletInstance
                                                   contentUri="/portlets/contenido/contenidoEstructurado.portlet"
                                                   instanceLabel="portletInstance_16"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                    </netuix:content>
+                                </netuix:book>
+                                <netuix:book defaultPage="soluciones_speedtest_cliente"
+                                    definitionLabel="cablevision_portal_book_16_book_17"
+                                    hidden="true" markupName="book" markupType="Book" title="Speed Test">
+                                    <netuix:singleLevelMenu
+                                        description="This menu provides a single level of tabs used to navigate across pages."
+                                        markupName="singleLevelMenu" markupType="Menu" title="Single Level Menu"/>
+                                    <netuix:content>
+                                        <netuix:page definitionLabel="soluciones_speedtest_cliente"
+                                            hidden="true" markupName="page" markupType="Page" 
+                                            properties="contenidoId=CV006362;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002005" title="Test de Velocidad">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoEstructurado_10"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
+                                                  </netuix:placeholder>
+                                                </netuix:layout>
+                                            </netuix:content>
+                                        </netuix:page>
+                                        <netuix:page definitionLabel="soluciones_speedtest_nocliente"
+                                            hidden="true" markupName="page" markupType="Page" 
+                                            properties="contenidoId=CV006363;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002005" title="Test de Velocidad">
+                                            <netuix:content>
+                                                <netuix:layout
+                                                  description="This layout uses left and rigth placeholders"
+                                                  htmlLayoutUri="/layouts/default.html.txt"
+                                                  markupName="defaultLayout" markupType="Layout"
+                                                  skeletonUri="/layouts/defaultLayout.jsp"
+                                                  title="Default Layout" type="default">
+                                                  <netuix:placeholder
+                                                  description="Left placeholder"
+                                                  markupName="defaultLayout_left"
+                                                  markupType="Placeholder" title="left"
+                                                  usingFlow="false" width="242"/>
+                                                  <netuix:placeholder
+                                                  description="Right placeholder"
+                                                  markupName="defaultLayout_right"
+                                                  markupType="Placeholder" title="right" usingFlow="false">
+                                                  <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="contenidoEstructurado_11"
                                                   markupType="Portlet" title="contenidoEstructurado"/>
                                                   </netuix:placeholder>
                                                 </netuix:layout>

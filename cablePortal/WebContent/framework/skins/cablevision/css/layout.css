@@ -1698,6 +1698,9 @@ body {
 
 		.subnavbar-item7 { background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll  -583px -998px transparent; }
 		.subnavbar-item7:hover { background-position: -583px -1119px;}
+		
+		.subnavbar-item13 { background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll  -300px -1245px transparent;}
+		.subnavbar-item13:hover { background-position: -300px -1366px;}	
 
 		/* cable digital - descubre la diferenicia */
 		.subnavbar-item8 { background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv002015.png") no-repeat scroll  -390px -1246px transparent; }
@@ -2414,7 +2417,7 @@ margin:15px 20px;
 	margin: 20px auto 0;
 }
 
-﻿#pager ul.pages {
+#pager ul.pages {
 	display:block;
 	border:none;
 	text-transform:uppercase;
@@ -2549,3 +2552,127 @@ width:220px;
     float: left;
     width: 250px;
 }
+/**/
+
+.adjust-txt-right{
+    font-size: 11px;
+    line-height: 13px !important;
+    margin-left: 110px;    
+    width: 270px;
+}
+
+.adjust-txt-right-bottom {
+    font-size: 11px;
+    line-height: 13px !important;
+    margin-left: 110px;
+    margin-top: 50px;
+    width: 270px;
+}
+
+.adjust-txt-right-bottom-narrow {
+    font-size: 11px;
+    line-height: 13px !important;
+    margin-left: 110px;
+    margin-top: 25px;
+    width: 270px;
+}
+
+.adjust-txt-right h3{
+    color: #F78029 !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    margin-top: 5px;
+}
+
+.adjust-txt-right-bottom h3{
+    color: #F78029 !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    margin-top: 5px;
+}
+
+.adjust-txt-right-bottom-narrow h3{
+    color: #F78029 !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    margin-top: 5px;
+}
+/*INICIAN ESTILOS SPEED TEST*/
+.imgspeedtest{
+    background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv006342.png") repeat scroll -385px -10px transparent;
+    height: 213px;
+    margin: 0 230px 0 auto;
+    width: 258px;
+}
+
+.img-resultado{
+	background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv006342.png") -9px -225px no-repeat;
+	height:144px;
+	width:727px;		
+	 margin-left: -35px;
+}
+.txtcontanier{
+	width:200px;
+	height:120px;
+}
+#smallerbox{
+	height:144px;
+}
+
+.imgvariaciones{
+	background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv006342.png") -14px -367px no-repeat;
+	height:151px;
+	width:320px;			
+}
+.imgtransferencia{
+	background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv006342.png") -360px -365px no-repeat;
+	height:175px;
+	width:280px;			
+}
+
+.imgvelocidad{
+	background:url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv006342.png") -631px -377px no-repeat;
+	height:175px;
+	width:250px;			
+}
+
+.imgafectconexion{
+    background: url("/contentserver/groups/mercadotecnia/documents/imagen_cv/cv006342.png") no-repeat scroll -752px -217px transparent;
+    height: 180px;
+    margin-left: -23px;
+    margin-top: 70px;
+    width: 336px;
+    z-index: -800;
+}
+
+.imgempty{
+	/*background:url(../img/Av_img02.png)no-repeat;*/
+	height:175px;
+	width:280px;
+	/*z-index: -800;
+	margin-left: -23px;*/
+}
+
+
+
+.linkhigh{
+    color: #FFA02A !important;
+    display: block;
+    font-size: 11px !important;
+    margin-top: 20px;
+    text-decoration: underline !important;
+}
+.title-content{
+	line-height:22px!important;
+}
+
+.bullet-fact{
+	list-style-type:disc!important;
+	padding:0 15px;
+	font-size: 11px;
+}
+
+.textcenter{
+	text-align:center;
+}
+/*TERMINAN ESTILOS SPEED TEST*/
