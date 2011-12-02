@@ -537,6 +537,10 @@ body {
 		 /* Ranking */
 			.ranking { line-height: 15px; color: #333;}
 			
+			.deep-orange-only {
+				color:#FF9900;
+				font-weight:bold;
+			}
 		/* Ranking */	
 			.worldcup { margin: 15px 0;}
 			.worldcup p {padding-right: 15px; }
