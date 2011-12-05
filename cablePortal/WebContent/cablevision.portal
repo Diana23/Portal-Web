@@ -917,6 +917,7 @@
                                         </netuix:layout>
                                     </netuix:content>
                                 </netuix:page>
+                                <!--  
                                 <netuix:page definitionLabel="entretenimiento_onDemand"
                                     markupName="page" markupType="Page"
                                     properties="submenuClass=link-entre ico-entre-2;claseHd=margin-n-top80;backgroundId=CV002186" title="CABLEVISION® On Demand">
@@ -943,6 +944,26 @@
                                                   contentUri="/portlets/losmasvistos.portlet"
                                                   instanceLabel="losmasvistos"
                                                   markupType="Portlet" title="Los Más Vistos OnDemand"/>
+                                            </netuix:placeholder>
+                                        </netuix:layout>
+                                    </netuix:content>
+                                </netuix:page>
+                                -->
+                                <netuix:page definitionLabel="entretenimiento_onDemand"
+                                    markupName="page" markupType="Page"
+                                    properties="contenidoId=CV006397;estructuraId=CV001950;templateId=CV001951;backgroundId=CV002186" title="CABLEVISION® On Demand">
+                                    <netuix:content>
+                                        <netuix:layout description=""
+                                            htmlLayoutUri="/layouts/singleColumn.html.txt"
+                                            markupName="singleColumn" markupType="Layout"
+                                            skeletonUri="/layouts/singleColumn.jsp"
+                                            title="Una Columna Layout" type="single">
+                                            <netuix:placeholder markupName="single_main"
+                                                markupType="Placeholder" title="main" usingFlow="false">
+                                                <netuix:portletInstance
+                                                  contentUri="/portlets/contenido/contenidoEstructurado.portlet"
+                                                  instanceLabel="portletInstance_31"
+                                                  markupType="Portlet" title="contenidoEstructurado"/>
                                             </netuix:placeholder>
                                         </netuix:layout>
                                     </netuix:content>
