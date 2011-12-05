@@ -274,4 +274,12 @@
     	<servlet-name>SwitchUrlServlet</servlet-name>
     	<url-pattern>/ventajas/*</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/medidor/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SwitchUrlServlet</servlet-name>
+    	<url-pattern>/medidorcontrata/*</url-pattern>
+    </servlet-mapping>
     </web-app>
