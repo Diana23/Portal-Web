@@ -112,6 +112,7 @@
 </style>
 <div class="span-18">
 	<netui:form action="mostrarReporte" tagId="report_form">
+	<span id="scopeMcafee" />
 		<table cellspacing="0" cellpadding="0">
 			<tr>
 				<td colspan="5">
@@ -119,7 +120,9 @@
 						<tr>
 							<td width="0" border="0"></td>
 							<td width="10" border="0" background="${pageContext.request.contextPath }/contenido/groups/mercadotecnia/documents/imagen_cv/cv000071.png"></td>
-							<td width="540" align="right" background="${pageContext.request.contextPath }/contenido/groups/mercadotecnia/documents/imagen_cv/cv000072.png" class="bienvenida" background-repeat="repeat-y" height="34"><netui:label value="Reporte de Usuarios Registrados McAfee" styleClass="ctextoAzulBold"/></td>
+							<td width="540" align="right" background="${pageContext.request.contextPath }/contenido/groups/mercadotecnia/documents/imagen_cv/cv000072.png" class="bienvenida" background-repeat="repeat-y" height="34">
+							<netui:label value="Reporte de Usuarios Registrados McAfee" styleClass="ctextoAzulBold"/>
+							</td>
 							<td width="10" border="0" background="${pageContext.request.contextPath }/contenido/groups/mercadotecnia/documents/imagen_cv/cv000073.png"></td>
 						</tr>
 						<tr>
@@ -127,55 +130,104 @@
 							<td width="10" border="0" background="${pageContext.request.contextPath }/contenido/groups/mercadotecnia/documents/imagen_cv/cv000074.png" background-repeat="repeat-x"></td>
 							<td width="540" background="${pageContext.request.contextPath }/contenido/groups/mercadotecnia/documents/imagen_cv/cv000075.png" background-repeat="repeat-x" >
 								<table width="530" cellspacing="0" cellpadding="5">
-									<tr class="ctextoAzul">
-										<td width="30%">
-											<netui:label value="Cuenta:"/>
-											<netui:textBox dataSource="actionForm.cuenta" tagId="cuenta" size="14" maxlength="10" styleClass="txtRojo"/>
-										</td>
-										<td width="35%">
-											<netui:label value="Mes:"/>
-											<netui:select dataSource="actionForm.mes" styleClass="txtRojo">
-												<netui:selectOption value="">
-													<netui:label value="..."/>
+								<tr class="ctextoAzul" valign="middle">
+									<td valign="middle" align="center" colspan="2"> 
+									Consulta por: &nbsp;
+										<netui:radioButtonGroup dataSource="actionForm.selConsulta" >
+											<netui:radioButtonOption value="CUENTA" tagId="selCuenta" onClick="activaElemento('CUENTA')"/>&nbsp;
+											<netui:radioButtonOption value="MES" tagId="selMes" onClick="activaElemento('MES')"/>&nbsp;
+											<netui:radioButtonOption value="DIA" tagId="selDia" onClick="activaElemento('DIA')"/>&nbsp;
+											<netui:radioButtonOption value="PERIODO" tagId="selPeriodo" onClick="activaElemento('PERIODO')"/>&nbsp;
+										</netui:radioButtonGroup>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										&nbsp;
+									</td>
+								</tr>
+								<tr class="ctextoAzul" valign="middle">
+									<td align="right" width="15%">
+										<netui:label value="Cuenta:"/>
+									</td>
+									<td>
+										<netui:textBox dataSource="actionForm.cuenta" tagId="cuenta" size="25" maxlength="10" styleClass="txtRojo"/>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										&nbsp;
+									</td>
+								</tr>
+								<tr class="ctextoAzul" valign="middle">
+									<td align="right">
+										<netui:label value="Mes:"/>
+									</td>
+									<td>
+										<netui:select dataSource="actionForm.mes" styleClass="txtRojo" tagId="messelect">
+											<netui:selectOption value="">
+												<netui:label value="..."/>
+											</netui:selectOption>
+											<c:forEach items="${pageInput.meses}" var="mes">
+							                   	<netui:selectOption value="${mes.key}">
+													<netui:label value="${mes.value}"/>
 												</netui:selectOption>
-												<c:forEach items="${pageInput.meses}" var="mes">
-								                   	<netui:selectOption value="${mes.key}">
-														<netui:label value="${mes.value}"/>
-													</netui:selectOption>
-											    </c:forEach>
-											</netui:select>
-										</td>
-										<td width="35%">
-											<netui:label value="Dia:"/>
-											<netui:textBox dataSource="actionForm.dia" tagId="dia" maxlength="10" size="14" styleClass="txtRojo"/>
-										</td>
-									</tr>
-									<tr>
-										<td colspan="3">&nbsp<br/><br/></td>
-									</tr>
-									<tr class="ctextoAzul">
-										<td>
+										    </c:forEach>
+										</netui:select>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										&nbsp;
+									</td>
+								</tr>
+								<tr class="ctextoAzul" valign="middle">
+									<td align="right">
+										<netui:label value="Dia:"/>
+									</td>
+									<td>
+										<netui:textBox dataSource="actionForm.dia" tagId="dia" maxlength="10" size="25" styleClass="txtRojo" readonly="true"/>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										&nbsp;
+									</td>
+								</tr>
+									<tr class="ctextoAzul" valign="middle">
+										<td align="right">
 											<netui:label value="Intervalo:"/>
 										</td>
 										<td>
 											<netui:label value="De: "/>
-											<netui:textBox dataSource="actionForm.fechaDe" tagId="diaDe" size="14" styleClass="txtRojo"/>
-										</td>
-										<td>
+											<netui:textBox dataSource="actionForm.fechaDe" tagId="diaDe" size="14" styleClass="txtRojo" readonly="true"/>
+											&nbsp;
 											<netui:label value="A: "/>
-											<netui:textBox dataSource="actionForm.fechaA" tagId="diaA" size="14" styleClass="txtRojo"/>
+											<netui:textBox dataSource="actionForm.fechaA" tagId="diaA" size="14" styleClass="txtRojo" readonly="true"/>
+									</td>
+								</tr>
+								<tr>
+								<td colspan="2">
+									&nbsp;
 										</td>
-									</tr>
-									<tr>
-										<td colspan="3">&nbsp</td>
 									</tr>
 									<tr class="ctextoAzul">
-										<td>
-											&nbsp;
-										</td>
-										<td colspan="2" align="left">
+										<td colspan="2" align="center">
+										<netui:label value="Producto:"/>
+											<netui:select dataSource="actionForm.tipoProducto" tagId="tipoProducto">
+												<netui:selectOption value="ANTERIOR">
+													<netui:label value="Anterior"/>
+												</netui:selectOption>
+												<netui:selectOption value="NUEVO">
+													<netui:label value="Nuevo"/>
+												</netui:selectOption>
+											</netui:select>
+											&nbsp
 											<netui:label value="Estatus:"/>
 						   					<netui:select dataSource="actionForm.estatus" tagId="status">
+												<netui:selectOption value="TODOS">
+													<netui:label value="Todos"/>
+												</netui:selectOption>
 												<netui:selectOption value="ACTIVO">
 													<netui:label value="Activos"/>
 												</netui:selectOption>
@@ -199,31 +251,19 @@
 									</tr>
 									<tr>
 										<td colspan="3">
-											&nbsp;<br/><br/>
-										</td>
-									</tr>
-									<tr class="ctextoAzul">
-										<td colspan="3">
-											<netui:label value="Producto:"/>
-											<netui:select dataSource="actionForm.tipoProducto" tagId="tipoProducto">
-												<netui:selectOption value="ANTERIOR">
-													<netui:label value="Anterior"/>
-												</netui:selectOption>
-												<netui:selectOption value="NUEVO">
-													<netui:label value="Nuevo"/>
-												</netui:selectOption>
-											</netui:select>
-										</td>
-									</tr>
-									<tr>
-										<td colspan="3">
 											&nbsp;
 										</td>
 									</tr>
 									<tr>
-										<td align="right" colspan="3">
-											<netui:imageButton src="${pageContext.request.contextPath}/contenido/groups/mercadotecnia/documents/imagen_cv/cv000783.jpg"/>
+										<td align="center" colspan="3">
+											<a href="#" onclick="redir3('CONSULTA')">
+												<netui:image src="${pageContext.request.contextPath}/contenido/groups/mercadotecnia/documents/imagen_cv/cv000783.jpg"/> 
+											</a>&nbsp;
+											<a href="#" onclick="redir3('DESGLOSADO')">
+												<netui:image src="${pageContext.request.contextPath}/contenido/groups/mercadotecnia/documents/imagen_cv/cv006392.gif" alt="Descargar reporte desglosado en formato XLS"/>
+											</a>
 										</td>
+										
 									</tr>
 								</table>
 							</td>
@@ -262,6 +302,8 @@
 	var dir ='${pageContext.request.contextPath}/com/cablevision/controller/mcafeedownloads/descargaResumen.do?tipoProducto='+tipoproducto; 
 	window.open(dir);
 	}
+	
+	
 </script>
 		<table>
 			<tr>
@@ -498,7 +540,9 @@
 			</tr>
 		</table>
 	</netui:form>
+	
 </div>
+
 <script type="text/javascript">
 
 	$("#"+getJqId('<netui:rewriteName name="dia" forTagId="true" resultId="dia"/>')).datepicker({dateFormat: 'yy-mm-dd',changeMonth: true,changeYear: true,showOn:'both'});
@@ -506,6 +550,152 @@
 	$("#"+getJqId('<netui:rewriteName name="diaA" forTagId="true" resultId="diaA"/>')).datepicker({dateFormat: 'yy-mm-dd',changeMonth: true,changeYear: true,showOn:'both'});
 
 	function getJqId(myid){ return myid.replace(/:/g,"\\:").replace(/\./g,"\\."); }
+	
+	
+	
 </script>
+<netui:scriptBlock placement="after">
 
+	function redir3(tipoRedir){
+	
+	var _scope = document.getElementById('scopeMcafee');
+	var _frmMcafee = document.getElementById(lookupIdByTagId('report_form', _scope));
+	var _chkCuenta = document.getElementById(lookupIdByTagId('selCuenta', _scope));
+	var _chkMes = document.getElementById(lookupIdByTagId('selMes', _scope));
+	var _chkDia = document.getElementById(lookupIdByTagId('selDia', _scope));
+	var _chkPeriodo = document.getElementById(lookupIdByTagId('selPeriodo', _scope));
+	
+	var tipobusqueda = 'TODOS';
+	
+	if(_chkCuenta.checked){
+		tipobusqueda = 'CUENTA';
+	}else if(_chkMes.checked){
+		tipobusqueda = 'MES';
+	}else if(_chkDia.checked){
+		tipobusqueda = 'DIA';
+	}else if(_chkPeriodo.checked){
+		tipobusqueda = 'PERIODO';
+	}else{
+		alert('Seleccione una opción de búsqueda.')
+		return;
+	}
+	
+	var _inputCuenta = document.getElementById(lookupIdByTagId('cuenta', _scope));
+	var _inputMes = document.getElementById(lookupIdByTagId('messelect', _scope));
+	var _inputDia = document.getElementById(lookupIdByTagId('dia', _scope));
+	var _inputDe = document.getElementById(lookupIdByTagId('diaDe', _scope));
+	var _inputA = document.getElementById(lookupIdByTagId('diaA', _scope));
+	var _tipoProducto =  document.getElementById(lookupIdByTagId('tipoProducto', _scope));
+	var _estatus =  document.getElementById(lookupIdByTagId('status', _scope));
+	
+	var valcuenta = _inputCuenta.value;
+	var valmes = _inputMes.value;
+	var valdia = _inputDia.value;
+	var valperiodode = _inputDe.value;
+	var valperiodoa = _inputA.value;
+	
+	if(tipobusqueda == 'CUENTA'){
+	
+		valcuenta = valcuenta.replace(' ','');
+		
+		if(valcuenta.length == 0){
+			alert('Verifique el valor del campo Cuenta');
+			return;
+		}
+		
+	}else if(tipobusqueda == 'MES'){
+		
+		valmes = valmes.replace(' ','');
+		
+		if(valmes.length == 0){
+			alert('Verifique el valor del campo Mes');
+			return;
+		}
+	}else if(tipobusqueda == 'DIA'){
+	
+		valdia = valdia.replace(' ','');
+		
+		if(valdia.length == 0){
+			alert('Verifique el valor del campo Dia');
+			return;
+		}		
+		
+	}else if(tipobusqueda == 'PERIODO'){
+		valperiodode = valperiodode.replace(' ','');
+		
+		if(valperiodode.length == 0){
+			alert('Verifique el valor del campo De');
+			return;
+		}
+		
+		valperiodoa = valperiodoa.replace(' ','');
+		
+		if(valperiodoa.length == 0){
+			alert('Verifique el valor del campo A');
+			return;
+		}
+	}
+	
+	var dir = '';
+	if(tipoRedir == 'DESGLOSADO'){
+		dir ='${pageContext.request.contextPath}/com/cablevision/controller/mcafeedownloads/descargaReporteDesglosadoExcel.do?selConsulta='+tipobusqueda+
+		'&cuenta='+_inputCuenta.value+
+		'&mes='+_inputMes.value+
+		'&dia='+_inputDia.value+
+		'&fechaDe='+_inputDe.value+
+		'&fechaA='+_inputA.value+
+		'&estatus='+_estatus.value+
+		'&tipoProducto='+_tipoProducto.value;
+		
+		window.open(dir);
+		
+	} else if (tipoRedir == 'CONSULTA'){
+	_frmMcafee.submit();
+	
+	}	
+	
+	
+	}
+	
+function activaElemento(idElemento){
+	
+	var scope = document.getElementById('scopeMcafee');
+	
+	var inputCuenta = document.getElementById(lookupIdByTagId('cuenta', scope));
+	var inputMes = document.getElementById(lookupIdByTagId('messelect', scope));
+	var inputDia = document.getElementById(lookupIdByTagId('dia', scope));
+	var inputDe = document.getElementById(lookupIdByTagId('diaDe', scope));
+	var inputA = document.getElementById(lookupIdByTagId('diaA', scope));
+		
+		if(idElemento = 'CUENTA'){
+			inputMes.value='';
+			inputDia.value='';
+			inputDe.value='';
+			inputA.value='';
+		}else if(idElemento = 'MES'){
+			inputCuenta.value='';
+			inputDia.value='';
+			inputDe.value='';
+			inputA.value='';
+		}else if(idElemento = 'DIA'){
+			inputCuenta.value='';
+			inputMes.value='';
+			inputDe.value='';
+			inputA.value='';
+		}else if(idElemento = 'PERIODO'){
+			inputCuenta.value='';
+			inputMes.value='';
+			inputDia.value='';
+		}else{
+			inputCuenta.value='';
+			inputMes.value='';
+			inputDia.value='';
+			inputDe.value='';
+			inputA.value='';
+		}
+		
+		
+
+}
+	</netui:scriptBlock>
 </netui:scriptContainer>

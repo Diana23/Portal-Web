@@ -11,8 +11,10 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import com.cablevision.ToInterfase;
+import com.cablevision.controller.mcafeedownloads.McafeeDownloadsController.ReportBean;
 import com.cablevision.util.RespuestaToMyAccount;
 import com.cablevision.vo.CvMcafeeDownload;
+import com.cablevision.vo.CvMcafeeHistorico;
 import com.cablevision.vo.CvMcafeeReset;
 import com.cablevision.vo.CvMcafeeUser;
 import com.cablevision.vo.CvMcafeesuscribed;
@@ -157,5 +159,9 @@ public interface IMcafeeDownloadsService {
 	public ToInterfase getVitriaClient();
 	
 	public String generaResumenExcel(String tipoProducto);
+	
+	public String generaReporteDesglosadoExcel(ReportBean params);
+	
+	public void insertaHistorico(CvMcafeeHistorico datoHistorico) throws Exception;
 	
 }

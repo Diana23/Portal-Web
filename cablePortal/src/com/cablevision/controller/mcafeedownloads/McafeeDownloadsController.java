@@ -48,6 +48,8 @@ import org.apache.xml.serialize.OutputFormat;
 import org.apache.xml.serialize.XMLSerializer;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.struts.action.ActionForward;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.access.DefaultLocatorFactory;
@@ -74,6 +76,7 @@ import com.cablevision.util.RespuestaToMyAccount;
 import com.cablevision.util.ValidateErrors;
 import com.cablevision.vo.CvMcafee;
 import com.cablevision.vo.CvMcafeeDownload;
+import com.cablevision.vo.CvMcafeeHistorico;
 import com.cablevision.vo.CvMcafeeUser;
 import com.cablevision.vo.CvMcafeesuscribed;
 import com.cablevision.vo.McaffeeVO;
@@ -130,6 +133,8 @@ public class McafeeDownloadsController extends ControllerBase {
 		forward.addActionOutput("meses", generaComboMes());
 		forward.addActionOutput("form", form);
 		
+		log.info("tipo consulta::"+form.getSelConsulta());
+		
 		
 		Date fechaInicio = new Date();
 		Date fechaFinal = null;
@@ -144,83 +149,92 @@ public class McafeeDownloadsController extends ControllerBase {
 		String status = form.getEstatus();//"ACTIVO";
 		String fechaLetra = "";
 		String tipoProducto = form.getTipoProducto();
+		String tipoConsulta = form.getSelConsulta();
 		boolean banderaFiltros = false;
 		List<String> errors = new ArrayList<String>();
 		
 		String mesLetra = "";
 		int mesNumero = 0;
 		
+		this.getRequest().setAttribute("tipoConsulta", tipoConsulta);
+		//forward.addActionOutput("tipoConsulta", tipoConsulta);
+		
+		if(tipoConsulta == null)
+			tipoConsulta = "";
+		
 		//filtro 1 por mes
-		if(mes != null && !mes.equals("") && !mes.equals("...")){
-			//"2007/11"
-			mesLetra = mes.substring(5);
-			mesNumero = Integer.parseInt(mesLetra);
-			
-			mes = mes.concat("/01");//como solo trae anho y mes le concateno el dia 01 para que la fecha de inicio sea apartir del 1er dia del mes
-			mes = mes.replace('/', '-');//le doy formato yyyy-mm-dd
-			fechaInicio = sdf.parse(mes);
-			
-			calendar.setTime(fechaInicio);//apartir de la fecha de inicio obtengo la final
-			calendar.add(Calendar.MONTH, 1);//le sumo 1 mes
-			calendar.add(Calendar.DATE, -1);//le resto 1 dia para obtener el ultimo dia del mes
-			
-			fechaFinal = calendar.getTime();
-			
-			fechaLetra = meses[mesNumero-1].concat(" ").concat(mes.substring(0, 4));//Abril 2008
-			banderaFiltros = true;//cuando aplico un filtro sera true
-		}
-		else{
-			//filtro 2 por dia
+		if(tipoConsulta.equals("MES")){
+			log.info("MES::"+mes);
+			if(mes != null && !mes.equals("") && !mes.equals("...")){
+				//"2007/11"
+				mesLetra = mes.substring(5);
+				mesNumero = Integer.parseInt(mesLetra);
+				
+				mes = mes.concat("/01");//como solo trae anho y mes le concateno el dia 01 para que la fecha de inicio sea apartir del 1er dia del mes
+				mes = mes.replace('/', '-');//le doy formato yyyy-mm-dd
+				fechaInicio = sdf.parse(mes);
+				
+				calendar.setTime(fechaInicio);//apartir de la fecha de inicio obtengo la final
+				calendar.add(Calendar.MONTH, 1);//le sumo 1 mes
+				calendar.add(Calendar.DATE, -1);//le resto 1 dia para obtener el ultimo dia del mes
+				
+				fechaFinal = calendar.getTime();
+				
+				fechaLetra = meses[mesNumero-1].concat(" ").concat(mes.substring(0, 4));//Abril 2008
+				banderaFiltros = true;//cuando aplico un filtro sera true
+			}
+		}else if(tipoConsulta.equals("DIA")){
+			log.info("DIA::"+txtDia);
 			if(txtDia != null && !txtDia.isEmpty() && !txtDia.equals("")){
 				fechaInicio = sdf.parse(txtDia);
 				banderaFiltros = true;//cuando aplico un filtro sera true
 				fechaLetra = txtDia;
 			}
-			else{
-				//filtro 3 por Cuenta
-				if(cuenta != null && !cuenta.equals("")){
-					if(tipoProducto.equalsIgnoreCase("ANTERIOR")){
-						CvMcafeeUser mcafeeUser = getMcafeeDownloadsService().getMcafeeUserByAccount(Long.parseLong(cuenta));
-						
-						//List<CvMcafeeDownload> listDownloads = getMcafeeDownloadsService().getMcafeeDownloadsByUserAccount(mcafeeUser.getMusId());
-						
-						if(mcafeeUser != null){
-							forward.addActionOutput("mcafeeUser", mcafeeUser);
-						}
-						
-						/*if(listDownloads != null && !listDownloads.isEmpty()){
-							forward.addActionOutput("listDownloads", listDownloads);
-						}*/
-	
-						if(mcafeeUser == null ){//&& (listDownloads == null || listDownloads.isEmpty())){
-							errors.add("No se Encontraron Datos para la Cuenta Especificada");
-							forward.addActionOutput("errors", errors);
-						}
-					}else if(tipoProducto.equalsIgnoreCase("NUEVO")){
-						CvMcafee mcafee = getMcafeeDownloadsService().getMcafeeByAccount(Long.parseLong(cuenta));
-						
-						if(mcafee != null){
-							forward.addActionOutput("mcafeeUserNuevo", mcafee);
-						}else{
-							errors.add("No se Encontraron Datos para la Cuenta Especificada");
-							forward.addActionOutput("errors", errors);
-						}
-						
+		}else if(tipoConsulta.equals("CUENTA")){
+			log.info("CUENTA::"+cuenta);
+			if(cuenta != null && !cuenta.equals("")){
+				if(tipoProducto.equalsIgnoreCase("ANTERIOR")){
+					CvMcafeeUser mcafeeUser = getMcafeeDownloadsService().getMcafeeUserByAccount(Long.parseLong(cuenta));
+					
+					//List<CvMcafeeDownload> listDownloads = getMcafeeDownloadsService().getMcafeeDownloadsByUserAccount(mcafeeUser.getMusId());
+					
+					if(mcafeeUser != null){
+						forward.addActionOutput("mcafeeUser", mcafeeUser);
 					}
 					
-					return forward;
-				}
-				else{
-					//filtro 4 por Fecha Desde-Hasta
-					if((txtDe != null && txtA != null) && (!txtDe.isEmpty() && !txtA.isEmpty()) && (!txtDe.equals("") && !txtA.equals(""))){
-						fechaInicio = sdf.parse(txtDe);
-						fechaFinal = sdf.parse(txtA);
-						fechaLetra = txtDe.concat(" al ").concat(txtA);
-						banderaFiltros = true;//cuando aplico un filtro sera true
+					/*if(listDownloads != null && !listDownloads.isEmpty()){
+						forward.addActionOutput("listDownloads", listDownloads);
+					}*/
+
+					if(mcafeeUser == null ){//&& (listDownloads == null || listDownloads.isEmpty())){
+						errors.add("No se Encontraron Datos para la Cuenta Especificada");
+						forward.addActionOutput("errors", errors);
 					}
+				}else if(tipoProducto.equalsIgnoreCase("NUEVO")){
+					CvMcafee mcafee = getMcafeeDownloadsService().getMcafeeByAccount(Long.parseLong(cuenta));
+					
+					if(mcafee != null){
+						forward.addActionOutput("mcafeeUserNuevo", mcafee);
+					}else{
+						errors.add("No se Encontraron Datos para la Cuenta Especificada");
+						forward.addActionOutput("errors", errors);
+					}
+					
 				}
+				
+				return forward;
+			}
+		}else if(tipoConsulta.equals("PERIODO")){
+			log.info("PERIODO DE ::"+txtDe+" A "+ txtA);
+			if((txtDe != null && txtA != null) && (!txtDe.isEmpty() && !txtA.isEmpty()) && (!txtDe.equals("") && !txtA.equals(""))){
+				fechaInicio = sdf.parse(txtDe);
+				fechaFinal = sdf.parse(txtA);
+				fechaLetra = txtDe.concat(" al ").concat(txtA);
+				banderaFiltros = true;//cuando aplico un filtro sera true
 			}
 		}
+			
+		
 		
 		if(banderaFiltros){
 				
@@ -300,6 +314,7 @@ public class McafeeDownloadsController extends ControllerBase {
 		Forward forward = new Forward("success");
 		forward.addActionOutput("meses", generaComboMes());
 		forward.addActionOutput("form", form);
+		
 		
 		return forward;
 	}
@@ -565,6 +580,7 @@ public class McafeeDownloadsController extends ControllerBase {
 				Document xml = getMcafeeDownloadsService().generateXML(cvCuenta);
 				String xmlStringResponse = getMcafeeDownloadsService().getXMLResponse(xml);
 				String code = getMcafeeDownloadsService().getCodeFromXML(xmlStringResponse);
+				CvMcafeeHistorico historico = new CvMcafeeHistorico();
 				if ( xmlStringResponse != null && ("1000".equals(code) || "5001".equals(code) || "5002".equals(code)) ) {
 
 					DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -583,6 +599,17 @@ public class McafeeDownloadsController extends ControllerBase {
 									//cambiar el estatus a migrado
 									getMcafeeDownloadsService().updateCvMcafeeUserStatus(mcafeeUser.getMusId(), McafeeDownloadsSpringService.STS_MIGRADO,"",fechaDescarga);
 									newMcafeeUser.setMcaDatesuscribe(mcafeeUser.getMusDatesuscribe());
+									
+									historico.setMcaAccountNumber(mcafeeUser.getMusAccount());
+									historico.setMcaCvStatus(mcafeeUser.getMusCvstatus());
+									historico.setMcaFechaInicio(mcafeeUser.getMusCvdatestatus()==null?mcafeeUser.getMusDatesuscribe():mcafeeUser.getMusCvdatestatus());
+									historico.setMcaFechaFin(new Timestamp(System.currentTimeMillis()));
+									historico.setMcaMotivo("");
+									historico.setMcaReference(mcafeeUser.getMusReference());
+									historico.setMcaTipoProducto("NUEVO");
+									
+									getMcafeeDownloadsService().insertaHistorico(historico);
+									
 									log.info("EL ESTATUS DE LA CUENTA "+account+" FUE ACTUALIZADO DE ACTIVO A MIGRADO");
 								}
 							}
@@ -672,6 +699,39 @@ public class McafeeDownloadsController extends ControllerBase {
 			//sendError("Error 2!", getRequest(), getResponse());
 		}
 		return forward;
+	}
+	
+	@Jpf.Action(
+			forwards = { 
+					@Jpf.Forward(name = "success", path= "reporte.jsp")
+			},
+			loginRequired = false
+	)
+	public Forward descargaReporteDesglosadoExcel(ReportBean form) throws Exception{
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		String nombreArchivo = "reporteDesglosadoMcAfee"+System.currentTimeMillis()+".xls";
+		Forward forward = new Forward("success");
+		log.info("GENERA REPORTE DESGLOSADO");
+		log.info("TIPO PRODUCTO::"+form.getTipoProducto());
+		log.info("ESTATUS::"+form.getEstatus());
+		
+		String excel = getMcafeeDownloadsService().generaReporteDesglosadoExcel(form);
+		
+		ByteArrayOutputStream stream =  new ByteArrayOutputStream(excel.getBytes().length);
+		stream.write(excel.getBytes());
+				
+		this.getResponse().setHeader("Cache-Control", "max-age=30");
+		this.getResponse().setContentType("application/msexcel");
+		this.getResponse().setHeader("Content-length", "" + excel.getBytes().length);
+		this.getResponse().setHeader("Content-disposition", "inline;filename="+nombreArchivo);
+		
+		stream.writeTo(this.getResponse().getOutputStream());
+		
+		stream.flush();
+		stream.close();	
+		
+		return null;
+		
 	}
 	
 	 /**
@@ -801,6 +861,7 @@ public class McafeeDownloadsController extends ControllerBase {
 		private String cuenta;
 		private String estatus;
 		private String tipoProducto;
+		private String selConsulta;
 		
 		public String getMes() {
 			return mes;
@@ -843,6 +904,12 @@ public class McafeeDownloadsController extends ControllerBase {
 		}
 		public void setTipoProducto(String tipoProducto) {
 			this.tipoProducto = tipoProducto;
+		}
+		public String getSelConsulta() {
+			return selConsulta;
+		}
+		public void setSelConsulta(String selConsulta) {
+			this.selConsulta = selConsulta;
 		}
 		
 	}

@@ -10,7 +10,6 @@
         <netui:base/>
     </head>
     <netui:body>
-    	<p style="font-size: 18px; font-weight: bold; font-family:sans-serif; color: #FF0000; "><jsp:text>Lo sentimos, ha ocurrido un error:</jsp:text></p>
         <p style="font-size: 16px; font-weight: normal; font-family:sans-serif; color: #FF0000; "><jsp:text>${errorMessage}</jsp:text></p>
         
     </netui:body>

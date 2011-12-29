@@ -56,6 +56,7 @@
 		<mapping resource="com/cablevision/vo/CvNewsletterCategoriausuario.hbm.xml"/>
 		<mapping resource="com/cablevision/vo/CvCategorianewsletter.hbm.xml"/>
 		<mapping resource="com/cablevision/vo/CvMcafee.hbm.xml"/>
+		<mapping resource="com/cablevision/vo/CvMcafeeHistorico.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>
  

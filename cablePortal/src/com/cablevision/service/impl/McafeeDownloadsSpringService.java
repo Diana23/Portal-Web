@@ -72,12 +72,14 @@ import com.cablevision.util.ResponseToServiceRequest;
 import com.cablevision.util.RespuestaToMyAccount;
 import com.cablevision.util.ValidateErrors;
 import com.cablevision.vo.CvMcafeeDownload;
+import com.cablevision.vo.CvMcafeeHistorico;
 import com.cablevision.vo.CvMcafeeReset;
 import com.cablevision.vo.CvMcafeeUser;
 import com.cablevision.vo.CvMcafeesuscribed;
 import com.cablevision.vo.McaffeeVO;
 import com.cablevision.portal.ErrorVitriaException;
 import com.cablevision.service.IMcafeeDownloadsService;
+import com.cablevision.controller.mcafeedownloads.McafeeDownloadsController.ReportBean;
 import com.cablevision.dao.IMcafeeDownloadsDao;
 import com.cablevision.vo.CvMcafee;
 
@@ -581,6 +583,120 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 
 		return archivo.toString();
 	}
+	
+	public String generaReporteDesglosadoExcel(ReportBean params){
+		
+		List<CvMcafeeHistorico> datos = getDao().getReporteDesglosado(params);
+		SimpleDateFormat _sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd'-'MMMM'-'yyyy");
+		SimpleDateFormat sdf2 = new SimpleDateFormat("dd'/'MM'/'yyyy hh:mm");
+		Date fechaInicio = null;
+		Date fechaFinal = null;
+		
+		Boolean anterior = false;
+		
+		StringBuffer excel= new StringBuffer();
+		excel.append("<table>");
+		excel.append("<tr><td style=\"font-weight: bold;\">CABLEVISION - MCAFEE</td></tr>");
+		excel.append("<tr><td >&nbsp;</td></tr>");
+		
+		String valorfecha="";
+
+		try{
+		
+		if(params.getTipoProducto().equalsIgnoreCase("ANTERIOR"))
+			anterior = true;
+		
+		if(!params.getSelConsulta().equals("CUENTA")){
+
+			
+			
+			if(params.getSelConsulta().equals("DIA")){
+				fechaInicio = _sdf.parse(params.getDia());
+				valorfecha = sdf.format(fechaInicio);
+			}else if(params.getSelConsulta().equals("MES")){
+				
+				String mes = params.getMes();
+				Calendar calendar = Calendar.getInstance();
+				
+				mes = mes.concat("/01");//como solo trae anho y mes le concateno el dia 01 para que la fecha de inicio sea apartir del 1er dia del mes
+				mes = mes.replace('/', '-');//le doy formato yyyy-mm-dd
+				fechaInicio = _sdf.parse(mes);
+				calendar.setTime(fechaInicio);//apartir de la fecha de inicio obtengo la final
+				calendar.add(Calendar.MONTH, 1);//le sumo 1 mes
+				calendar.add(Calendar.DATE, -1);//le resto 1 dia para obtener el ultimo dia del mes
+				
+				fechaFinal = calendar.getTime();
+				
+				valorfecha = sdf.format(fechaInicio) + " al " + sdf.format(fechaFinal);
+			}else if(params.getSelConsulta().equals("PERIODO")){
+				fechaInicio = _sdf.parse(params.getFechaDe());
+				fechaFinal = _sdf.parse(params.getFechaA());
+				valorfecha = sdf.format(fechaInicio) + " al " + sdf.format(fechaFinal);
+			}
+			
+		}
+		excel.append("<tr><td style=\"font-weight: bold;\">"+valorfecha+"</td></tr>");
+		excel.append("<tr>");
+		excel.append("<td style=\"font-weight: bold;\">Cuenta</td>");
+		excel.append("<td style=\"font-weight: bold;\">Id de descarga</td>");
+		excel.append("<td style=\"font-weight: bold;\">Estado</td>");
+		
+		String f1 ="";
+		String f2 ="";
+		
+		if(anterior){
+			f1="Fecha de descarga";
+			
+		}else{
+			f1="Fecha inicial del estado";
+			f2="Fecha final del estado";
+		}
+		
+		excel.append("<td style=\"font-weight: bold;\">"+f1+"</td>");
+		excel.append("<td style=\"font-weight: bold;\">"+f2+"</td>");
+		excel.append("</tr>");
+				
+		if(datos != null){
+			Iterator<CvMcafeeHistorico> iter = datos.iterator();
+			while(iter.hasNext()){
+				
+				CvMcafeeHistorico objMcafee = (CvMcafeeHistorico)iter.next();
+				
+				excel.append("<tr>");
+				excel.append("<td>"+objMcafee.getMcaAccountNumber()+"</td>");
+				excel.append("<td>"+objMcafee.getMcaReference()+"</td>");
+				excel.append("<td>"+objMcafee.getMcaCvStatus()+"</td>");
+				
+				String _f1 ="";
+				String _f2 = "";
+				
+				if(objMcafee.getMcaFechaInicio() != null)
+					_f1 = sdf2.format(objMcafee.getMcaFechaInicio());
+				
+				if(!anterior){
+					if(objMcafee.getMcaFechaFin() != null)
+						_f2=sdf2.format(objMcafee.getMcaFechaFin());
+				}
+				
+				excel.append("<td>"+_f1+"</td>");
+				excel.append("<td>"+_f2+"</td>");
+				
+				excel.append("</tr>");
+			}
+		}
+		excel.append("</table>");
+		
+		
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		System.out.println(excel.toString());
+		return excel.toString();
+	}
+	
+	
 	@Override
 	public CvMcafeesuscribed getSuscribdByAccount(Integer account){
 		return getDao().getSuscribdByAccount(account);
@@ -662,6 +778,15 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 			return getDao().getMcafeeByAccount(account);
 		} catch (RuntimeException e) {
 			throw new Exception("getMcafeeByAccount failed: " + e.getMessage());
+		}
+	}
+	
+	public void insertaHistorico(CvMcafeeHistorico datoHistorico) throws Exception {
+		try {
+			getDao().persistCvMcafeeHistorico(datoHistorico);
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			throw new Exception("insertaHistorico failed: " + e.getMessage());
 		}
 	}
 	
@@ -980,6 +1105,7 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 		CvMcafee mcafeeUserNuevo  = null;
 		Long account = parametrosVO.getNoCuenta();
 		String respuesta = "";
+		CvMcafeeHistorico historico = new CvMcafeeHistorico();
 		
 		try{
 		//usuario en la vieja tabla
@@ -1024,7 +1150,17 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 										updateCvMcafeeUserStatus(mcafeeUserAnt.getMusId(),STS_SUSPENDIDO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
 									else if (parametrosVO.getTipoSuspension().equalsIgnoreCase("CANCELAR"))
 										updateCvMcafeeUserStatus(mcafeeUserAnt.getMusId(),STS_CANCELADO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
-										
+									
+									
+									historico.setMcaAccountNumber(mcafeeUserAnt.getMusAccount());
+									historico.setMcaCvStatus(mcafeeUserAnt.getMusCvstatus());
+									historico.setMcaFechaInicio(mcafeeUserAnt.getMusCvdatestatus()==null?mcafeeUserAnt.getMusDatesuscribe():mcafeeUserAnt.getMusCvdatestatus());
+									historico.setMcaFechaFin(new Timestamp(System.currentTimeMillis()));
+									historico.setMcaMotivo(parametrosVO.getMotivo());
+									historico.setMcaReference(mcafeeUserAnt.getMusReference());
+									historico.setMcaTipoProducto("ANTERIOR");
+									insertaHistorico(historico);
+									
 									log.info("BAJA MCAFEE EXITOSA DE CUENTA::"+account+" CON CODIGO::"+returnCode);
 									respuesta = RES_OK;
 								}
@@ -1035,6 +1171,17 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 						}else if(STS_SUSPENDIDO.equalsIgnoreCase(mcafeeUserAnt.getMusCvstatus().trim()) &&
 									parametrosVO.getTipoSuspension().equalsIgnoreCase("CANCELAR")){
 							updateCvMcafeeUserStatus(mcafeeUserAnt.getMusId(),STS_CANCELADO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
+							
+							historico.setMcaAccountNumber(mcafeeUserAnt.getMusAccount());
+							historico.setMcaCvStatus(mcafeeUserAnt.getMusCvstatus());
+							historico.setMcaFechaInicio(mcafeeUserAnt.getMusCvdatestatus()==null?mcafeeUserAnt.getMusDatesuscribe():mcafeeUserAnt.getMusCvdatestatus());
+							historico.setMcaFechaFin(new Timestamp(System.currentTimeMillis()));
+							historico.setMcaMotivo(parametrosVO.getMotivo());
+							historico.setMcaReference(mcafeeUserAnt.getMusReference());
+							historico.setMcaTipoProducto("ANTERIOR");
+							
+							insertaHistorico(historico);
+							
 							log.info("BAJA MCAFEE: CUENTA "+account+" ACTUALIZADA DE "+STS_SUSPENDIDO+" A ESTATUS "+STS_CANCELADO);
 							respuesta = RES_OK;
 						}else if(STS_CANCELADO.equalsIgnoreCase(mcafeeUserAnt.getMusCvstatus().trim())){
@@ -1055,6 +1202,8 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 			
 		}else if (mcafeeUserNuevo != null ){
 			log.info("BAJA MCAFEE::USUARIO ENCONTRADO EN TABLA NUEVA");
+			
+			
 			if(mcafeeUserNuevo.getRegistroMultiple()){
 				log.error("CUENTA "+ account + " REGISTRADA MULTIPLES VECES EN BASE DE DATOS: CV_MCAFEE");
 				respuesta = RES_ERROR + "::CUENTA "+ account + " REGISTRADA MULTIPLES VECES EN BASE DE DATOS: CV_MCAFEE";
@@ -1062,6 +1211,9 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 				if(parametrosVO.getTipoSuspension().equalsIgnoreCase("SUSPENDER") ||
 						parametrosVO.getTipoSuspension().equalsIgnoreCase("CANCELAR")){
 					try{
+						
+						
+						
 						log.debug("ESTATUS DE LA CUENTA::"+mcafeeUserNuevo.getMcaCvstatus().trim());
 						if(STS_ACTIVO.equalsIgnoreCase(mcafeeUserNuevo.getMcaCvstatus().trim())){
 							//enviar xml de baja
@@ -1078,6 +1230,17 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 										updateCvMcafeeStatus(mcafeeUserNuevo.getMcaId(),STS_SUSPENDIDO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
 									else if(parametrosVO.getTipoSuspension().equalsIgnoreCase("CANCELAR"))
 										updateCvMcafeeStatus(mcafeeUserNuevo.getMcaId(),STS_CANCELADO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
+									
+									historico.setMcaAccountNumber(mcafeeUserNuevo.getMcaAccount());
+									historico.setMcaCvStatus(mcafeeUserNuevo.getMcaCvstatus());
+									historico.setMcaFechaInicio(mcafeeUserNuevo.getMcaDatestatus()==null?mcafeeUserNuevo.getMcaDatesuscribe():mcafeeUserNuevo.getMcaDatestatus());
+									historico.setMcaFechaFin(new Timestamp(System.currentTimeMillis()));
+									historico.setMcaMotivo(parametrosVO.getMotivo());
+									historico.setMcaReference(mcafeeUserNuevo.getMcaReference());
+									historico.setMcaTipoProducto("NUEVO");
+									
+									insertaHistorico(historico);
+									
 									log.info("BAJA MCAFEE EXITOSA DE CUENTA::"+account+" CON CODIGO::"+returnCode);
 									respuesta = RES_OK;
 								}
@@ -1090,6 +1253,16 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 							//actualizar estatus a CANCELADO
 							updateCvMcafeeStatus(mcafeeUserNuevo.getMcaId(),STS_CANCELADO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
 							log.info("BAJA MCAFEE: CUENTA "+account+" ACTUALIZADA DE SUSPENDIDO A ESTATUS CANCELADO");
+							
+							historico.setMcaAccountNumber(mcafeeUserAnt.getMusAccount());
+							historico.setMcaCvStatus(mcafeeUserAnt.getMusCvstatus());
+							historico.setMcaFechaInicio(mcafeeUserAnt.getMusCvdatestatus()==null?mcafeeUserAnt.getMusDatesuscribe():mcafeeUserAnt.getMusCvdatestatus());
+							historico.setMcaFechaFin(new Timestamp(System.currentTimeMillis()));
+							historico.setMcaMotivo(parametrosVO.getMotivo());
+							historico.setMcaReference(mcafeeUserAnt.getMusReference());
+							historico.setMcaTipoProducto("NUEVO");
+
+							insertaHistorico(historico);
 							respuesta = RES_OK;
 						}else if(STS_CANCELADO.equalsIgnoreCase(mcafeeUserNuevo.getMcaCvstatus().trim())){
 							log.info("BAJA MCAFEE: CUENTA "+account+" YA SE ENCUENTRA EN ESTATUS "+STS_CANCELADO);
@@ -1187,6 +1360,7 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 		 CvMcafeeUser mcafeeUserAnt = null;
 		 CvMcafee mcafeeUserNuevo  = null;
 		 String respuesta = "";
+		 CvMcafeeHistorico historico = new CvMcafeeHistorico();
 		 
 		 try{
 			//usuario en la vieja tabla
@@ -1212,6 +1386,15 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 					
 					if(STS_SUSPENDIDO.equalsIgnoreCase(mcafeeUserAnt.getMusCvstatus().trim())){
 						updateCvMcafeeUserStatus(mcafeeUserAnt.getMusId(),STS_REACTIVADO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
+						historico.setMcaAccountNumber(mcafeeUserAnt.getMusAccount());
+						historico.setMcaCvStatus(mcafeeUserAnt.getMusCvstatus());
+						historico.setMcaFechaInicio(mcafeeUserAnt.getMusCvdatestatus()==null?mcafeeUserAnt.getMusDatesuscribe():mcafeeUserAnt.getMusCvdatestatus());
+						historico.setMcaFechaFin(new Timestamp(System.currentTimeMillis()));
+						historico.setMcaMotivo(parametrosVO.getMotivo());
+						historico.setMcaReference(mcafeeUserAnt.getMusReference());
+						historico.setMcaTipoProducto("ANTERIOR");
+															
+						insertaHistorico(historico);
 						log.info("REACTIVA MCAFEE: CUENTA "+account+" ACTUALIZADA DE "+STS_SUSPENDIDO+" A ESTATUS "+STS_REACTIVADO);
 						respuesta = RES_OK;
 					}else if(STS_ACTIVO.equalsIgnoreCase(mcafeeUserAnt.getMusCvstatus().trim()) ||
@@ -1265,6 +1448,15 @@ public class McafeeDownloadsSpringService implements IMcafeeDownloadsService,App
 									log.info("REACTIVACION MCAFEE EXITOSA DE CUENTA::"+account+" CON CODIGO::"+code);
 								}
 								updateCvMcafeeStatus(mcafeeUserNuevo.getMcaId(),STS_ACTIVO,parametrosVO.getMotivo(),new Timestamp(System.currentTimeMillis()));
+								historico.setMcaAccountNumber(mcafeeUserNuevo.getMcaAccount());
+								historico.setMcaCvStatus(mcafeeUserNuevo.getMcaCvstatus());
+								historico.setMcaFechaInicio(mcafeeUserNuevo.getMcaDatestatus()==null?mcafeeUserNuevo.getMcaDatesuscribe():mcafeeUserNuevo.getMcaDatestatus());
+								historico.setMcaFechaFin(new Timestamp(System.currentTimeMillis()));
+								historico.setMcaMotivo(parametrosVO.getMotivo());
+								historico.setMcaReference(mcafeeUserNuevo.getMcaReference());
+								historico.setMcaTipoProducto("NUEVO");
+																
+								insertaHistorico(historico);
 								respuesta = RES_OK;
 							}else{
 								log.error("SE GENERO EL ERROR::"+code+" AL INTENTAR LA REACTIVACIÓN DEL SERVICIO MCAFEE CON LA CUENTA::"+account);

@@ -5,7 +5,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import com.cablevision.controller.mcafeedownloads.McafeeDownloadsController.ReportBean;
 import com.cablevision.vo.CvMcafeeDownload;
+import com.cablevision.vo.CvMcafeeHistorico;
 import com.cablevision.vo.CvMcafeeReset;
 import com.cablevision.vo.CvMcafeeUser;
 import com.cablevision.vo.CvMcafeesuscribed;
@@ -117,4 +119,8 @@ public interface IMcafeeDownloadsDao {
 	public void updateCvMcafeeStatus(Long id, String status, String motivo, Timestamp fechaStatus);
 	
 	public CvMcafee getMcafeeByAccount(Long account);
+	
+	public List<CvMcafeeHistorico> getReporteDesglosado(ReportBean params);
+	
+	public void persistCvMcafeeHistorico(CvMcafeeHistorico datoHistorico);
 }
