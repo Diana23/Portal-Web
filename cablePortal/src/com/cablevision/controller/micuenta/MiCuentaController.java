@@ -558,6 +558,18 @@ public class MiCuentaController extends ControllerBase {
 		return forward;
 	}
 	
+	/**
+	 * Metodo que muestra forma de portabilidad
+	 * 
+	 * @return El forward con la informaci\u00F3n del siguiente paso
+	 */
+	@Jpf.Action(forwards = { @Jpf.Forward(name = "success", path = "speedTest.jsp") })
+	public Forward muestraSpeedTest() {
+		Forward forward = new Forward("success");
+		
+		return forward;
+	}
+	
 	public ToInterfase getVitriaClient() {
 		if(vitriaClient==null){
 			ApplicationContext context = (ApplicationContext)getRequest().getSession().getServletContext().getAttribute(
